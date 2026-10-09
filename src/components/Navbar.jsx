@@ -8,11 +8,12 @@ import {
   ShieldCheck, 
   FileText,
   Lock,
-  ArrowRight
+  ArrowRight,
+  Calculator
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
-function Navbar({ onOpenAdmin, onNavigate, currentRoute = "/" }) {
+function Navbar({ onOpenAdmin, onNavigate, onOpenCalculator, currentRoute = "/" }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Simultaneous English + Hindi Navigation Links with Sub-page Portals
@@ -20,7 +21,7 @@ function Navbar({ onOpenAdmin, onNavigate, currentRoute = "/" }) {
     { en: "Home", hi: "होम", route: "/" },
     { en: "On-Grid (Subsidy)", hi: "सब्सिडी दरें", route: "/on-grid" },
     { en: "Off-Grid & Rates", hi: "ऑफ-ग्रिड सूची", route: "/off-grid" },
-    { en: "Electronics Store", hi: "इलेक्ट्रॉनिक्स", route: "/appliances", isElectronics: true },
+    { en: "Electronics Store", hi: "इलेक्ट्रॉनिक्स", route: "/appliances" },
     { en: "Site Gallery", hi: "गैलरी", route: "/gallery" },
     { en: "Certificates", hi: "प्रमाणपत्र", href: "#certificates" },
     { en: "Contact", hi: "संपर्क", href: "#contact" },
@@ -160,25 +161,29 @@ function Navbar({ onOpenAdmin, onNavigate, currentRoute = "/" }) {
               <button
                 key={idx}
                 onClick={() => handleNavClick(link)}
-                className={`px-3 py-2 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight group ${
-                  link.isElectronics 
-                    ? "bg-blue-50/80 hover:bg-blue-100 text-blue-900 border border-blue-200" 
-                    : "hover:text-blue-700 hover:bg-blue-50/70"
-                }`}
+                className="px-3 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight hover:text-emerald-700 hover:bg-slate-100/80 group"
               >
-                <span className="text-xs font-black text-slate-900 group-hover:text-blue-700 transition flex items-center gap-1">
+                <span className="text-xs font-black text-slate-800 group-hover:text-emerald-700 transition">
                   {link.en}
-                  {link.isElectronics && <span className="text-[9px] bg-blue-600 text-white px-1.5 py-0.2 rounded font-mono">Store</span>}
                 </span>
-                <span className="text-[10px] font-bold text-emerald-700 group-hover:text-emerald-800 transition">
+                <span className="text-[10px] font-bold text-slate-500 group-hover:text-emerald-800 transition">
                   {link.hi}
                 </span>
               </button>
             ))}
           </nav>
 
-          {/* Action CTA: Get Quote */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          {/* Action CTAs: Solar Calculator & Get Quote */}
+          <div className="hidden sm:flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onOpenCalculator}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2.5 rounded-xl transition shadow-xs cursor-pointer border border-amber-300"
+            >
+              <Calculator className="w-3.5 h-3.5 text-slate-950" />
+              <span>Solar Calculator • कैलकुलेटर</span>
+            </button>
+
             <motion.button
               whileHover={{ scale: 1.03, y: -1 }}
               whileTap={{ scale: 0.97 }}
@@ -190,15 +195,23 @@ function Navbar({ onOpenAdmin, onNavigate, currentRoute = "/" }) {
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center gap-2 text-xs font-black text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-4 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-3.5 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30"
             >
-              <FileText className="w-4 h-4 text-white" />
+              <FileText className="w-3.5 h-3.5 text-white" />
               <span>Get Quote | मुफ्त कोटेशन</span>
             </motion.button>
           </div>
 
           {/* Mobile Right Controls: Toggle */}
           <div className="flex items-center gap-2 xl:hidden">
+            <button
+              onClick={onOpenCalculator}
+              className="text-xs font-black text-slate-950 bg-amber-400 px-2.5 py-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center gap-1"
+            >
+              <Calculator className="w-3.5 h-3.5" />
+              <span>कैलकुलेटर</span>
+            </button>
+
             <button
               onClick={() => {
                 const el = document.querySelector("#contact");
@@ -240,6 +253,18 @@ function Navbar({ onOpenAdmin, onNavigate, currentRoute = "/" }) {
           </div>
 
           <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenCalculator) onOpenCalculator();
+              }}
+              className="w-full inline-flex justify-center items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-3 rounded-xl shadow-xs border border-amber-300"
+            >
+              <Calculator className="w-5 h-5 text-slate-950" />
+              <span>Solar Calculator | सोलर कैलकुलेटर</span>
+            </button>
+
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

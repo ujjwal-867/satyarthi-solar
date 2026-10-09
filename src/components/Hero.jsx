@@ -16,7 +16,8 @@ import {
   Zap,
   Award,
   PhoneCall,
-  Clock
+  Clock,
+  Calculator
 } from "lucide-react";
 
 // Real Gorakhpur Site Slides rotating in the Hero Section
@@ -123,7 +124,7 @@ const itemVariants = {
   }
 };
 
-function Hero({ onNavigate }) {
+function Hero({ onNavigate, onOpenCalculator }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Auto-cycle through real installation photos every 4.5 seconds
@@ -279,6 +280,19 @@ function Hero({ onNavigate }) {
                 <ArrowRight className="w-4 h-4" />
               </motion.button>
 
+              {/* Solar Calculator Modal Button */}
+              <motion.button
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => {
+                  if (onOpenCalculator) onOpenCalculator();
+                }}
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3.5 rounded-2xl shadow-xl shadow-amber-400/20 transition cursor-pointer text-sm sm:text-base border border-amber-300"
+              >
+                <Calculator className="w-5 h-5 text-slate-950" />
+                <span>Solar Calculator | कैलकुलेटर</span>
+              </motion.button>
+
               {/* 24x7 Call Button */}
               <motion.a
                 whileHover={{ scale: 1.03, y: -2 }}
@@ -306,13 +320,13 @@ function Hero({ onNavigate }) {
               </motion.a>
             </motion.div>
 
-            {/* 5 Prominent Portal Buttons for Immediate Navigation */}
+            {/* 6 Prominent Portal Buttons for Immediate Navigation */}
             <motion.div variants={itemVariants} className="pt-2">
               <div className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>Direct Portals & Verified Rate Lists • मुख्य विभाग एवं दर सूचियां:</span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
                 <button
                   type="button"
                   onClick={() => onNavigate ? onNavigate("/on-grid") : scrollTo("#portal-hub")}
@@ -328,6 +342,16 @@ function Hero({ onNavigate }) {
                 >
                   <span className="text-[10px] text-amber-300 font-bold">True Rate List</span>
                   <strong className="text-xs text-white group-hover:text-amber-300 transition">🔋 Off-Grid & Chakki ↗</strong>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onOpenCalculator) onOpenCalculator();
+                  }}
+                  className="bg-yellow-500/20 hover:bg-yellow-500/35 border border-yellow-400/40 text-yellow-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                >
+                  <span className="text-[10px] text-yellow-300 font-bold">Bill & Subsidy</span>
+                  <strong className="text-xs text-white group-hover:text-yellow-300 transition">🧮 Calculator ↗</strong>
                 </button>
                 <button
                   type="button"
@@ -348,7 +372,7 @@ function Hero({ onNavigate }) {
                 <button
                   type="button"
                   onClick={() => scrollTo("#contact")}
-                  className="col-span-2 sm:col-span-1 bg-teal-500/20 hover:bg-teal-500/35 border border-teal-400/40 text-teal-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                  className="bg-teal-500/20 hover:bg-teal-500/35 border border-teal-400/40 text-teal-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
                 >
                   <span className="text-[10px] text-teal-300 font-bold">Free Roof Survey</span>
                   <strong className="text-xs text-white group-hover:text-teal-300 transition">📞 Contact & Book ↗</strong>

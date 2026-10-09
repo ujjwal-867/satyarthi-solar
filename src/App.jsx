@@ -12,6 +12,7 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AIChatbot from "./components/AIChatbot";
 import Footer from "./components/Footer";
 import AdminModal from "./components/AdminModal";
+import CalculatorModal from "./components/CalculatorModal";
 import { LanguageProvider } from "./context/LanguageContext";
 
 // Dedicated Independent Portal Pages
@@ -22,6 +23,7 @@ import GalleryPage from "./pages/GalleryPage";
 
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
 
   // Parse path or hash for clean SPA routing with full browser Back/Forward support
   const getInitialRoute = () => {
@@ -108,6 +110,7 @@ function AppContent() {
           <Navbar 
             onOpenAdmin={() => setIsAdminOpen(true)} 
             onNavigate={navigateTo}
+            onOpenCalculator={() => setIsCalculatorOpen(true)}
             currentRoute="/"
           />
 
@@ -117,13 +120,19 @@ function AppContent() {
           {/* Main Content Sections - Strictly Highlighted Points & Contact */}
           <main>
             {/* Strictly Solar Hero with 5-Button Portal Dock & Real Site Slider */}
-            <Hero onNavigate={navigateTo} />
+            <Hero 
+              onNavigate={navigateTo} 
+              onOpenCalculator={() => setIsCalculatorOpen(true)}
+            />
 
             {/* Concise Verified Statistics */}
             <Stats />
 
-            {/* 5-Portal Action Cards: On-Grid, Off-Grid, Appliances, Gallery, Contact */}
-            <PortalNavigationHub onNavigate={navigateTo} />
+            {/* 6-Portal Compact Action Cards (Single-Line on Desktop) */}
+            <PortalNavigationHub 
+              onNavigate={navigateTo} 
+              onOpenCalculator={() => setIsCalculatorOpen(true)}
+            />
 
             {/* Condensed Core Solar EPC Pillars (Residential, Commercial, Solar Aata Chakki) */}
             <Services onNavigate={navigateTo} />
@@ -149,6 +158,12 @@ function AppContent() {
       {/* Persistent Global Floating Assistants across All Pages */}
       <AIChatbot />
       <FloatingWhatsApp />
+
+      {/* Interactive Solar Subsidy & Savings Calculator Modal */}
+      <CalculatorModal 
+        isOpen={isCalculatorOpen} 
+        onClose={() => setIsCalculatorOpen(false)} 
+      />
 
       {/* Secure In-Browser & Server Admin CRM Modal */}
       <AdminModal 
