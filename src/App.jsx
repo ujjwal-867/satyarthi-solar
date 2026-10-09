@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import BrandHeadlineTicker from "./components/BrandHeadlineTicker";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import SubsidySection from "./components/SubsidySection";
@@ -29,6 +30,9 @@ function AppContent() {
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950">
       {/* Sticky Header with UPNEDA Verification, Streamlined Nav & Language Switcher */}
       <Navbar onOpenAdmin={() => setIsAdminOpen(true)} />
+
+      {/* Website Master Headline Bar: Primary Dealer of All Leading Solar Brands */}
+      <BrandHeadlineTicker />
 
       {/* Main Content Sections */}
       <main>

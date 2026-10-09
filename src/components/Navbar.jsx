@@ -55,8 +55,8 @@ function Navbar({ onOpenAdmin }) {
               GST: <strong className="text-white tracking-wider font-mono">{businessData.gstin}</strong>
             </span>
             <span className="hidden lg:inline text-teal-300">|</span>
-            <span className="hidden lg:inline text-teal-200 font-semibold text-[11px]">
-              Loom Solar & Fujiyama Authorized
+            <span className="hidden lg:inline text-amber-300 font-bold text-[11px]">
+              Primary Dealer: TATA Power • Adani • Waaree • Loom • UTL • Luminous • Exide • Amaze
             </span>
           </div>
 

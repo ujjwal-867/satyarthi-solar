@@ -60,30 +60,38 @@ const HERO_SLIDES = [
 ];
 
 const CERT_LOGOS = [
+  { name: "TATA Power Solar", hi: "टाटा पावर सोलर", code: "Primary Dealer", icon: "☀️" },
+  { name: "Adani Solar", hi: "अदानी सोलर", code: "Primary Dealer", icon: "⚡" },
+  { name: "Waaree Solar", hi: "वारी सोलर", code: "Primary Dealer", icon: "🔋" },
+  { name: "Loom Solar", hi: "लूम सोलर", code: "Authorized Dealer", icon: "☀️" },
+  { name: "UTL Solar", hi: "यूटीएल सोलर", code: "Primary Dealer", icon: "⚡" },
+  { name: "Luminous", hi: "ल्युमिनस सोलर", code: "Primary Dealer", icon: "🔋" },
+  { name: "Exide Solar", hi: "एक्साइड सोलर", code: "Primary Dealer", icon: "⚡" },
+  { name: "Vikram Solar", hi: "विक्रम सोलर", code: "Primary Dealer", icon: "☀️" },
+  { name: "Pahal Solar", hi: "पहल सोलर", code: "Primary Dealer", icon: "⚡" },
+  { name: "Servotech", hi: "सर्वोटेक पावर", code: "Primary Dealer", icon: "🔋" },
+  { name: "Prime Solar", hi: "प्राइम सोलर", code: "Primary Dealer", icon: "☀️" },
+  { name: "Amaze Solar", hi: "अमेज़ सोलर", code: "Primary Dealer", icon: "⚡" },
   { name: "UPNEDA Approved", hi: "यूपीनेडा अधिकृत", code: "GKP2604066741", icon: "🏛️" },
-  { name: "MNRE Govt of India", hi: "भारत सरकार MNRE", code: "Empanelled EPC", icon: "🇮🇳" },
-  { name: "PM Surya Ghar", hi: "पीएम सूर्य घर योजना", code: "₹1,08,000 Subsidy", icon: "☀️" },
-  { name: "Loom Solar", hi: "लूम सोलर पार्टनर", code: "Authorized Dealer", icon: "⚡" },
-  { name: "Fujiyama Solar", hi: "फुजियामा अधिकृत", code: "Certified Partner", icon: "🔋" },
-  { name: "ISO 9001:2015", hi: "आईएसओ प्रमाणित", code: "Quality Assured", icon: "🏆" }
+  { name: "PM Surya Ghar", hi: "पीएम सूर्य घर योजना", code: "₹1,08,000 Subsidy", icon: "🇮🇳" }
 ];
 
 const DUAL_POINTS = [
   {
-    en: "Up to ₹1,08,000 Govt Subsidy in Bank",
+    en: "Primary Dealer: TATA, Adani, Waaree, Loom, UTL, Luminous, Exide & Vikram",
+    hi: "टाटा पावर, अदानी, वारी, लूम, यूटीएल, ल्युमिनस, एक्साइड व विक्रम के अधिकृत मुख्य डीलर"
+  },
+  {
+    en: "Up to ₹1,08,000 Govt Subsidy in Bank (DBT)",
     hi: "बैंक खाते में ₹1,08,000 तक सीधी सरकारी सब्सिडी (DBT)"
   },
   {
-    en: "300 Units Free Electricity Every Month",
-    hi: "हर महीने 300 यूनिट तक मुफ्त बिजली का लाभ"
+    en: "Dealer of Servotech, Prime, Amaze, Fujiyama & All Leading Brands",
+    hi: "सर्वोटेक, प्राइम, अमेज़, फुजियामा एवं सभी शीर्ष सोलर ब्रांड्स के डीलर"
   },
   {
-    en: "Authorized LOOM SOLAR & FUJIYAMA Dealer",
-    hi: "लूम सोलर एवं फुजियामा के अधिकृत डीलर"
-  },
-  {
-    en: "UPPCL Net Metering & 25-Year Panel Warranty",
-    hi: "यूपीपीसीएल नेट मीटरिंग व 25 साल की पैनल वारंटी"
+    en: "UPPCL Net Metering & 25-Year Manufacturer Warranty",
+    hi: "यूपीपीसीएल नेट मीटरिंग व 25 साल की ओरिजिनल वारंटी"
   }
 ];
 
@@ -192,6 +200,43 @@ function Hero() {
               <span className="bg-emerald-500 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full ml-1">
                 {businessData.vendorCode}
               </span>
+            </motion.div>
+
+            {/* MASTER WEBSITE HEADLINE: PRIMARY DEALER OF ALL TOP SOLAR BRANDS */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-gradient-to-r from-amber-500/25 via-emerald-500/15 to-sky-500/20 border-2 border-amber-400/50 backdrop-blur-xl rounded-3xl p-4 sm:p-5 shadow-2xl space-y-2.5"
+            >
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 text-xs sm:text-sm font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                  <Zap className="w-4 h-4 fill-slate-950 text-slate-950" />
+                  PRIMARY DEALER & AUTHORISED DISTRIBUTOR
+                </span>
+                <span className="text-amber-300 font-bold text-xs sm:text-sm font-hindi">
+                  ★ सभी प्रमुख सोलर ब्रांड्स के अधिकृत मुख्य डीलर ★
+                </span>
+              </div>
+
+              <div className="text-sm sm:text-base md:text-lg font-black text-white leading-snug tracking-wide">
+                <span className="text-amber-300 font-black">Dealer & Primary Dealer of: </span>
+                <span className="text-sky-300">TATA POWER SOLAR</span> •{" "}
+                <span className="text-emerald-300">ADANI SOLAR</span> •{" "}
+                <span className="text-yellow-300">WAAREE SOLAR</span> •{" "}
+                <span className="text-white">LOOM SOLAR</span> •{" "}
+                <span className="text-cyan-300">UTL SOLAR</span> •{" "}
+                <span className="text-blue-300">LUMINOUS</span> •{" "}
+                <span className="text-rose-300">EXIDE SOLAR</span> •{" "}
+                <span className="text-emerald-300">PAHAL SOLAR</span> •{" "}
+                <span className="text-sky-300">VIKRAM SOLAR</span> •{" "}
+                <span className="text-amber-300">SERVOTECH POWER</span> •{" "}
+                <span className="text-purple-300">PRIME SOLAR</span> •{" "}
+                <span className="text-teal-300">AMAZE SOLAR</span> &{" "}
+                <span className="text-emerald-400 underline decoration-amber-400">EVERY LEADING SOLAR BRAND</span>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-200 font-medium font-hindi border-t border-white/10 pt-1.5 leading-relaxed">
+                🇮🇳 <strong className="text-emerald-300">गोरखपुर व सम्पूर्ण पूर्वांचल में अधिकृत डीलरशिप:</strong> टाटा पावर सोलर, अदानी, वारी, लूम सोलर, यूटीएल, ल्युमिनस, एक्साइड, पहल, विक्रम, सर्वोटेक, प्राइम, अमेज़, फुजियामा, गौतम सोलर सहित सभी ब्रांड्स पर 25 साल वारंटी व डायरेक्ट कंपनी बिलिंग।
+              </p>
             </motion.div>
 
             {/* Business Name Badge & Main Headline (Satyarthi Solar Solution) */}
@@ -377,7 +422,7 @@ function Hero() {
               </div>
 
               <p className="text-[11px] text-slate-300 leading-relaxed">
-                Empanelled with UPNEDA (Vendor Code: <strong className="text-emerald-400">GKP2604066741</strong>) and Authorized Dealer for Loom Solar, Fujiyama & Amaze.
+                Empanelled with UPNEDA (Vendor Code: <strong className="text-emerald-400">GKP2604066741</strong>) and Primary Authorized Dealer for TATA Power Solar, Adani Solar, Waaree, Loom Solar, UTL, Luminous, Exide, Pahal, Vikram, Servotech, Prime, Amaze & All Leading Solar Brands.
               </p>
             </motion.div>
 
@@ -388,7 +433,7 @@ function Hero() {
               className="bg-slate-950/80 backdrop-blur-xl border border-white/20 rounded-3xl p-5 shadow-2xl space-y-4 text-white"
             >
               <div className="flex items-center gap-4">
-                {/* Real Photo of Er. Satyaprakash at TOI UP Dialogues */}
+                {/* Real Photo of Er. Satyaprakash Satyarthi */}
                 <div className="relative w-20 h-20 rounded-2xl overflow-hidden border-2 border-sky-400 shadow-lg shrink-0">
                   <img
                     src={businessData.engineerImage}
@@ -415,7 +460,7 @@ function Hero() {
                   </p>
 
                   <p className="text-[11px] text-slate-300 leading-tight">
-                    Keynote Speaker: <strong className="text-white">TOI UP Transformation Dialogues</strong> (Gorakhpur)
+                    Primary Dealer & Certified EPC: <strong className="text-white">TATA Power • Adani • Waaree • Loom • UTL</strong>
                   </p>
                 </div>
               </div>

@@ -83,7 +83,7 @@ function About() {
                       ई. सत्यप्रकाश सत्यार्थी (मुख्य अभियंता)
                     </p>
                     <p className="text-[11px] text-slate-300 mt-1">
-                      Times of India UP Dialogues Keynote Speaker
+                      Primary Dealer: TATA Power • Adani • Waaree • Loom • UTL • Luminous & Top Brands
                     </p>
                   </div>
                 </div>
@@ -114,11 +114,11 @@ function About() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Authorized Dealer: <strong>Loom Solar</strong> & <strong>Fujiyama Solar</strong></span>
+                    <span>Primary Dealer: <strong>TATA Power</strong>, <strong>Adani</strong>, <strong>Waaree</strong> & <strong>Loom Solar</strong></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Authorized Dealer: <strong>Amaze Energy Solutions</strong></span>
+                    <span>Dealer of: <strong>UTL</strong>, <strong>Luminous</strong>, <strong>Exide</strong>, <strong>Pahal</strong>, <strong>Vikram</strong>, <strong>Servotech</strong>, <strong>Prime</strong> & <strong>Amaze</strong></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />

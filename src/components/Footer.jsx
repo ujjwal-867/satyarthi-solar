@@ -43,7 +43,7 @@ function Footer({ onOpenAdmin }) {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              {businessData.tagline}. Leading UPNEDA empanelled solar installer and authorized dealer for Loom Solar, Fujiyama, and Amaze. We deliver turnkey residential, commercial, industrial and solar aata chakki projects across Uttar Pradesh.
+              {businessData.tagline}. Leading UPNEDA empanelled solar installer and Primary Authorized Dealer for TATA Power Solar, Adani Solar, Waaree Solar, Loom Solar, UTL Solar, Luminous, Exide, Pahal, Vikram, Servotech, Prime, Amaze & all top brands. We deliver turnkey residential, commercial, industrial and solar aata chakki projects across Uttar Pradesh.
             </p>
 
             {/* Govt Credentials Box */}
@@ -58,8 +58,8 @@ function Footer({ onOpenAdmin }) {
               <p className="text-slate-300 font-mono text-[11px]">
                 GSTIN: <strong className="text-blue-300">{businessData.gstin}</strong>
               </p>
-              <p className="text-[11px] text-slate-400">
-                Official Dealer: Loom Solar • Fujiyama Solar • Amaze
+              <p className="text-[11px] text-amber-300 font-semibold">
+                Primary Dealer: TATA Power • Adani • Waaree • Loom • UTL • Luminous • Exide • Amaze
               </p>
             </div>
           </div>

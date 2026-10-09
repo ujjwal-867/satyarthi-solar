@@ -85,7 +85,7 @@ function Products() {
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Direct authorized supply of certified inverters, solar flour mill systems, water heaters, heavy GI mounting structures, and ISI electrical protection gear.
             <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              लूम सोलर, फ़ूजीयामा, अमेज, और टाटा सोलर के प्रामाणिक उपकरण सीधे शोरूम से सर्वोत्तम दरों पर।
+              टाटा पावर सोलर, अदानी, वारी, लूम, यूटीएल, ल्युमिनस, एक्साइड, पहल, विक्रम, सर्वोटेक, प्राइम व अमेज़ सहित सभी शीर्ष ब्रांड्स के प्रामाणिक उपकरण सीधे शोरूम से सर्वोत्तम दरों पर।
             </span>
           </p>
         </motion.div>

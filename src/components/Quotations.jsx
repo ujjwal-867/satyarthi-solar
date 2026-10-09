@@ -185,8 +185,15 @@ function Quotations() {
             </p>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.solar.map((b, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-emerald-500 transition">
-                  <span className="text-slate-900">{b.name}</span>
+                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-emerald-500 transition group">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-slate-900 group-hover:text-emerald-700 transition">{b.name}</span>
+                    {b.role && (
+                      <span className="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-black uppercase tracking-wide">
+                        {b.role}
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] text-slate-400 block font-normal">{b.category}</span>
                 </div>
               ))}
