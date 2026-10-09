@@ -225,11 +225,11 @@ export const businessData = {
       subtitle: "आत्मनिर्भर भारत की ओर — अब हर घर सोलर, हर घर बिजली",
       image: "/images/quotations/on-grid-pricing-chart.jpg",
       highlights: [
-        "1 KW On-Grid: ₹15,000 अनुमानित लागत (सब्सिडी के बाद)",
-        "2 KW On-Grid: ₹30,000 अनुमानित लागत (सब्सिडी के बाद)",
-        "3 KW On-Grid: ₹30,000 अनुमानित लागत (सब्सिडी के बाद)",
-        "6% न्यूनतम ब्याज दर पर सरकारी बैंक लोन",
-        "25 साल परफॉर्मेंस वारंटी + 5 साल फ्री सर्विस"
+        "1 KW On-Grid: ₹40,000 नेट लागत (₹85,000 से शुरू)",
+        "2 KW On-Grid: ₹50,000 नेट लागत (₹1,40,000 से शुरू)",
+        "3 KW On-Grid: ₹82,000 नेट लागत (₹1,90,000 से शुरू)",
+        "5 KW On-Grid: नई विशेष दर ₹3,00,000 (नेट ₹1,92,000)",
+        "10 KW On-Grid: नई विशेष दर ₹6,00,000 (व्यावसायिक छूट)"
       ]
     },
     {
@@ -260,7 +260,7 @@ export const businessData = {
     }
   ],
 
-  // Subsidy Details under PM Surya Ghar Muft Bijli Yojna
+  // Subsidy Details under PM Surya Ghar Muft Bijli Yojna (Updated with Official Price Card)
   subsidyData: {
     schemeName: "PM Surya Ghar: Muft Bijli Yojana (Uttar Pradesh)",
     maxSubsidy: 108000,
@@ -269,56 +269,52 @@ export const businessData = {
     tiers: [
       {
         capacity: "1 kW System",
+        capacityHi: "1 किलोवाट ऑन-ग्रिड",
+        rateBadge: "₹85,000 से शुरू",
         monthlyUnits: "120 - 150 Units",
         idealFor: "1-2 Room Houses, basic lights, fans, TV",
         centralSubsidy: 30000,
         upStateSubsidy: 15000,
         totalSubsidy: 45000,
-        approxSystemCost: 60000,
-        netPayable: 15000,
+        approxSystemCost: 85000,
+        netPayable: 40000,
         monthlySaving: 1200,
-        emi: "₹450/mo"
+        emi: "₹650/mo"
       },
       {
         capacity: "2 kW System",
+        capacityHi: "2 किलोवाट ऑन-ग्रिड",
+        rateBadge: "₹1,40,000 से शुरू",
         monthlyUnits: "240 - 300 Units",
         idealFor: "2-3 BHK Home, Refrigerator, Washing Machine, 1 Inverter AC",
         centralSubsidy: 60000,
         upStateSubsidy: 30000,
         totalSubsidy: 90000,
-        approxSystemCost: 120000,
-        netPayable: 30000,
+        approxSystemCost: 140000,
+        netPayable: 50000,
         monthlySaving: 2500,
         popular: true,
-        emi: "₹900/mo"
+        emi: "₹1,100/mo"
       },
       {
         capacity: "3 kW System",
+        capacityHi: "3 किलोवाट ऑन-ग्रिड",
+        rateBadge: "₹1,90,000 से शुरू",
         monthlyUnits: "360 - 450 Units",
         idealFor: "3-4 BHK, 2 ACs, Geyser, Water Pump, Heavy Appliances",
         centralSubsidy: 78000,
         upStateSubsidy: 30000,
         totalSubsidy: 108000,
-        approxSystemCost: 180000,
-        netPayable: 72000,
+        approxSystemCost: 190000,
+        netPayable: 82000,
         monthlySaving: 4500,
         bestValue: true,
         emi: "₹1,800/mo"
       },
       {
-        capacity: "4 kW System",
-        monthlyUnits: "480 - 600 Units",
-        idealFor: "Bungalows, Multiple ACs, Clinic / Diagnostic Setup",
-        centralSubsidy: 78000,
-        upStateSubsidy: 30000,
-        totalSubsidy: 108000,
-        approxSystemCost: 240000,
-        netPayable: 132000,
-        monthlySaving: 6000,
-        emi: "₹2,600/mo"
-      },
-      {
         capacity: "5 kW System",
+        capacityHi: "5 किलोवाट ऑन-ग्रिड",
+        rateBadge: "नई विशेष दर ₹3,00,000",
         monthlyUnits: "600 - 750 Units",
         idealFor: "Large Residences, Commercial Complexes & Petrol Pumps",
         centralSubsidy: 78000,
@@ -327,7 +323,23 @@ export const businessData = {
         approxSystemCost: 300000,
         netPayable: 192000,
         monthlySaving: 7500,
+        specialOffer: true,
         emi: "₹3,400/mo"
+      },
+      {
+        capacity: "10 kW System",
+        capacityHi: "10 किलोवाट ऑन-ग्रिड",
+        rateBadge: "नई विशेष दर ₹6,00,000",
+        monthlyUnits: "1,200 - 1,500 Units",
+        idealFor: "Hotels, Schools, Hospitals, Aata Chakki & Commercial Mills",
+        centralSubsidy: 78000,
+        upStateSubsidy: 30000,
+        totalSubsidy: 108000,
+        approxSystemCost: 600000,
+        netPayable: 492000,
+        monthlySaving: 15000,
+        commercialGrade: true,
+        emi: "₹6,800/mo"
       }
     ]
   },

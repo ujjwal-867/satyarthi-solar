@@ -39,13 +39,14 @@ function Calculator({ onSelectQuote }) {
     const maxKwByRoof = Math.floor(roofArea / 85);
     const recommendedKw = Math.max(1, Math.min(idealKw, Math.max(1, maxKwByRoof)));
 
-    // Cost calculations
+    // Cost calculations (Updated with official price card: 1kW=85k, 2kW=140k, 3kW=190k, 5kW=300k, 10kW=600k)
     let grossCost = 0;
-    if (recommendedKw === 1) grossCost = 65000;
-    else if (recommendedKw === 2) grossCost = 125000;
-    else if (recommendedKw === 3) grossCost = 180000;
-    else if (recommendedKw <= 5) grossCost = 180000 + (recommendedKw - 3) * 52000;
-    else grossCost = recommendedKw * 50000;
+    if (recommendedKw === 1) grossCost = 85000;
+    else if (recommendedKw === 2) grossCost = 140000;
+    else if (recommendedKw === 3) grossCost = 190000;
+    else if (recommendedKw <= 5) grossCost = 190000 + (recommendedKw - 3) * 55000;
+    else if (recommendedKw <= 10) grossCost = 300000 + (recommendedKw - 5) * 60000;
+    else grossCost = recommendedKw * 60000;
 
     // Subsidy (Residential PM Surya Ghar in Uttar Pradesh)
     let subsidy = 0;

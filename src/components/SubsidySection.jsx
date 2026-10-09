@@ -111,6 +111,16 @@ function SubsidySection() {
                   Most Popular | अनुशंसित
                 </div>
               )}
+              {tier.specialOffer && !tier.bestValue && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                  ★ Special Offer | विशेष दर
+                </div>
+              )}
+              {tier.commercialGrade && !tier.bestValue && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                  Commercial | उच्च क्षमता
+                </div>
+              )}
 
               <div>
                 <div className="flex items-baseline justify-between">
@@ -118,11 +128,25 @@ function SubsidySection() {
                     {tier.capacity}
                   </h3>
                   <span className={`text-[11px] font-bold ${tier.bestValue ? "text-emerald-300" : "text-emerald-700"}`}>
-                    सोलर प्लांट
+                    {tier.capacityHi || "सोलर प्लांट"}
                   </span>
                 </div>
 
-                <p className={`text-xs mt-1 ${tier.bestValue ? "text-slate-300" : "text-slate-500"}`}>
+                {/* Rate Badge Chip (Official Rate) */}
+                {tier.rateBadge && (
+                  <div className={`mt-2 py-1 px-2.5 rounded-xl text-[11px] font-black flex items-center justify-center gap-1.5 shadow-xs ${
+                    tier.bestValue
+                      ? "bg-amber-400 text-slate-950 ring-1 ring-amber-300"
+                      : tier.specialOffer || tier.commercialGrade
+                      ? "bg-amber-50 text-amber-900 border border-amber-300"
+                      : "bg-emerald-50 text-emerald-800 border border-emerald-200"
+                  }`}>
+                    <Zap className="w-3.5 h-3.5 shrink-0 text-amber-500" />
+                    <span>{tier.rateBadge}</span>
+                  </div>
+                )}
+
+                <p className={`text-xs mt-2 ${tier.bestValue ? "text-slate-300" : "text-slate-500"}`}>
                   {tier.idealFor}
                 </p>
 
@@ -174,6 +198,11 @@ function SubsidySection() {
                   <p className={`text-2xl font-black mt-0.5 ${tier.bestValue ? "text-emerald-400" : "text-slate-900"}`}>
                     ₹{tier.netPayable.toLocaleString()}*
                   </p>
+                  {tier.emi && (
+                    <p className={`text-[11px] font-semibold mt-1 ${tier.bestValue ? "text-amber-300" : "text-blue-700"}`}>
+                      बैंक EMI: {tier.emi}
+                    </p>
+                  )}
                 </div>
               </div>
 

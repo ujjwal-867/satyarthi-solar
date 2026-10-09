@@ -97,7 +97,7 @@ export function AIChatbot() {
     // 1. Subsidy / PM Surya Ghar / 3kW / 2kW / 1kW
     if (q.includes("subsidy") || q.includes("subcidy") || q.includes("अनुदान") || q.includes("surya ghar") || q.includes("3kw") || q.includes("3 kw") || q.includes("1kw") || q.includes("2kw")) {
       return {
-        text: `☀️ **PM Surya Ghar: Muft Bijli Yojana (UP 2026 Subsidy Breakdown):**\n\n• **1 kW Plant:** ₹30,000 (Central) + ₹15,000 (UP State) = **₹45,000 Subsidy**\n• **2 kW Plant:** ₹60,000 (Central) + ₹30,000 (UP State) = **₹90,000 Subsidy**\n• **3 kW Plant:** ₹78,000 (Central) + ₹30,000 (UP State) = **₹1,08,000 Max Subsidy!**\n\n✅ **Net Investment for 3 kW:** Only approx ₹72,000 - ₹92,000 after subsidy!\n✅ **Easy EMI:** Available starting at ₹1,800/month with 7% Govt Bank Loan.\n✅ **Monthly Savings:** ₹3,500 - ₹4,500 every month on electricity bills!`,
+        text: `☀️ **PM Surya Ghar: Muft Bijli Yojana (आधिकारिक नई दरें व सब्सिडी):**\n\n• **1 kW On-Grid:** ₹85,000 से शुरू | कुल सब्सिडी ₹45,000 ➔ **नेट लागत मात्र ₹40,000***\n• **2 kW On-Grid:** ₹1,40,000 से शुरू | कुल सब्सिडी ₹90,000 ➔ **नेट लागत मात्र ₹50,000***\n• **3 kW On-Grid:** ₹1,90,000 से शुरू | कुल सब्सिडी ₹1,08,000 (अधिकतम) ➔ **नेट लागत मात्र ₹82,000***\n\n✅ **आसान बैंक लोन:** 7% न्यूनतम ब्याज दर पर आसान EMI (₹650 - ₹1,800/माह)।\n✅ **मासिक बचत:** हर महीने ₹1,200 से ₹4,500 की सीधी बिजली बिल बचत!`,
         action: {
           label: "Open Solar ROI Calculator",
           url: "#calculator"
@@ -106,9 +106,9 @@ export function AIChatbot() {
     }
 
     // 2. 5kW / 10kW / Commercial Cost & Savings
-    if (q.includes("5kw") || q.includes("5 kw") || q.includes("10kw") || q.includes("commercial") || q.includes("cost") || q.includes("saving") || q.includes("खर्च") || q.includes("बचत")) {
+    if (q.includes("5kw") || q.includes("5 kw") || q.includes("10kw") || q.includes("commercial") || q.includes("cost") || q.includes("saving") || q.includes("खर्च") || q.includes("बचत") || q.includes("price") || q.includes("रेट")) {
       return {
-        text: `⚡ **5 kW & 10 kW On-Grid Solar Details:**\n\n• **5 kW System:** Ideal for large homes with 1.5 Ton ACs. Generates ~20-22 units/day. Saves **₹6,000 - ₹7,500/month** (₹85,000+/year)!\n• **10 kW System:** Best for schools, hospitals, showrooms, and small factories. Generates ~40-45 units/day. Saves **₹14,000 - ₹18,000/month**!\n• **Tax Benefit:** Commercial businesses can claim **40% Accelerated Depreciation** in the 1st year!\n• **Payback Period:** Just 3 to 3.5 years. Free electricity for the remaining 22+ years.`,
+        text: `⚡ **5 kW एवं 10 kW On-Grid Solar (आधिकारिक नई विशेष दर):**\n\n• **5 kW System:** नई विशेष दर **₹3,00,000** (सब्सिडी के बाद नेट लागत ₹1,92,000*) — बड़े घरों एवं 1.5 टन एसी के लिए आदर्श। मासिक बचत ~₹7,500!\n• **10 kW System:** नई विशेष दर **₹6,00,000** (सब्सिडी के बाद नेट लागत ₹4,92,000*) — स्कूल, अस्पताल, शोरूम एवं व्यावसायिक प्रतिष्ठानों हेतु। मासिक बचत ~₹15,000+!\n• **Tax Benefit:** व्यावसायिक प्रतिष्ठानों हेतु 40% टैक्स डिप्रिसिएशन लाभ उपलब्ध।\n• **वारंटी:** 25 साल की पैनल परफॉर्मेंस वारंटी + 5 साल की फ्री ऑन-साइट सर्विस।`,
         action: {
           label: "Inquire on WhatsApp",
           url: `https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, please share customized quotation for 5kW/10kW solar system.")}`
