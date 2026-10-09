@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { businessData } from "../data/businessData";
 import { 
   ShieldCheck, 
@@ -18,6 +18,46 @@ import {
   PhoneCall,
   Clock
 } from "lucide-react";
+
+// Real Gorakhpur Site Slides rotating in the Hero Section
+const HERO_SLIDES = [
+  {
+    image: "/images/brand/landing-hero-bg.jpg",
+    title: "High-Efficiency Solar Array",
+    location: "Gorakhpur & Purvanchal Hub",
+    hindi: "उच्च दक्षता सोलर प्लांट • 25 वर्ष वारंटी"
+  },
+  {
+    image: "/images/projects/team-saketpuri-pergola.jpg",
+    title: "Elevated Rooftop Pergola Plant",
+    location: "Saketpuri Colony, Rajendra Nagar",
+    hindi: "साकेतपुरी कॉलोनी • एलिवेटेड रूफटॉप सोलर"
+  },
+  {
+    image: "/images/projects/engineer-on-solar-roof.jpg",
+    title: "Er. Satyaprakash On-Site Engineering",
+    location: "Live Installation Site, Gorakhpur",
+    hindi: "इंजीनियर सत्यप्रकाश सत्यार्थी • ऑन-साइट निरीक्षण"
+  },
+  {
+    image: "/images/projects/elevated-solar-railvihar.jpg",
+    title: "Heavy-Duty High-Rise Rooftop Solar",
+    location: "Railvihar Ph-2, Shatabdipuram",
+    hindi: "रेलविहार फेज-2 • आंधी-रोधी जी.आई. स्ट्रक्चर"
+  },
+  {
+    image: "/images/projects/fertilizer-colony-completed-array.jpg",
+    title: "Grouted Pillar Elevated Solar Array",
+    location: "Fertilizer Colony, Gorakhpur",
+    hindi: "फर्टिलाइजर कॉलोनी • कंक्रीट पिलर रूफटॉप प्लांट"
+  },
+  {
+    image: "/images/projects/happy-client-jangl-ramgarh.jpg",
+    title: "Verified Satisfied Homeowner Plant",
+    location: "Jangl Ramgarh, Deoria Road (273202)",
+    hindi: "जंगल रामगढ़ देवरिया रोड • खुशहाल उपभोक्ता"
+  }
+];
 
 const CERT_LOGOS = [
   { name: "UPNEDA Approved", hi: "यूपीनेडा अधिकृत", code: "GKP2604066741", icon: "🏛️" },
@@ -69,6 +109,16 @@ const itemVariants = {
 };
 
 function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-cycle through real installation photos every 4.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollTo = (id) => {
     const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -80,19 +130,26 @@ function Hero() {
       className="relative w-full min-h-[92vh] lg:min-h-screen flex flex-col justify-between overflow-hidden bg-[#040d1a] text-white pt-8 pb-12 lg:pt-14 lg:pb-16"
     >
       {/* =========================================================================
-          HERO BACKGROUND: SEAMLESS MERGE WITH SPECIFIC SOLAR MIDNIGHT NAVY COLOR
-          (IMAGE SHINES ON RIGHT, MERGED DIRECTIONAL SCRIM ON LEFT, NO TEXT BOX)
+          HERO BACKGROUND: SEAMLESS AUTO-CROSSFADING REAL SITE PHOTOS WITH SPECIFIC
+          SOLAR MIDNIGHT NAVY SCRIM MERGED ON THE LEFT (NO TEXT BOX)
       ========================================================================= */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Full-bleed, edge-to-edge Solar Sunburst Installation Image */}
-        <img
-          src="/images/brand/landing-hero-bg.jpg"
-          alt="Satyarthi Solar Solution High Efficiency Solar Installation"
-          className="w-full h-full object-cover object-right-top lg:object-center filter brightness-105 contrast-110 saturate-110"
-        />
+        {/* Full-bleed, edge-to-edge Real Installation Photos with Smooth Crossfade */}
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={currentSlide}
+            src={HERO_SLIDES[currentSlide].image}
+            alt={HERO_SLIDES[currentSlide].title}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover object-right-top lg:object-center filter brightness-105 contrast-110 saturate-110"
+          />
+        </AnimatePresence>
 
         {/* SPECIFIC COLOR MERGE: Deep Solar Midnight Navy (#040d1a) Directional Gradient */}
-        {/* Seamlessly merges the left text canvas while letting the solar panels & sunburst shine vividly on the right */}
+        {/* Seamlessly merges the left text canvas while letting real Gorakhpur sites shine vividly on the right */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#040d1a] via-[#040d1a]/85 sm:via-[#040d1a]/70 lg:via-[#040d1a]/50 to-[#040d1a]/20 lg:to-transparent"></div>
 
         {/* Top subtle navbar integration overlay */}
@@ -401,6 +458,38 @@ function Hero() {
                 </motion.a>
               </div>
             </motion.div>
+
+            {/* Active Real Site Location Pill & Slide Dots */}
+            <div className="pt-1 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+              <motion.div 
+                key={currentSlide}
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35 }}
+                className="inline-flex items-center gap-2 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-xl text-left"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                <span className="font-bold text-white text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
+                <span className="text-white/30 hidden sm:inline">•</span>
+                <span className="text-emerald-300 font-hindi text-[10px] hidden sm:inline truncate">{HERO_SLIDES[currentSlide].hindi}</span>
+              </motion.div>
+
+              {/* Clickable Slide Navigation Dots */}
+              <div className="flex items-center gap-1.5">
+                {HERO_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentSlide === idx 
+                        ? "w-6 bg-emerald-400 shadow-md shadow-emerald-400/50" 
+                        : "w-2 bg-white/30 hover:bg-white/60"
+                    }`}
+                    aria-label={`Switch to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
 
           </div>
 
