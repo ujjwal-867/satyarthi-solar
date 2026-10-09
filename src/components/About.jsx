@@ -83,7 +83,7 @@ function About() {
                       ई. सत्यप्रकाश सत्यार्थी (मुख्य अभियंता)
                     </p>
                     <p className="text-[11px] text-slate-300 mt-1">
-                      Primary Dealer: TATA Power • Adani • Waaree • Loom • UTL • Luminous & Top Brands
+                      UPNEDA Approved Solar EPC & Technical Consultant
                     </p>
                   </div>
                 </div>
