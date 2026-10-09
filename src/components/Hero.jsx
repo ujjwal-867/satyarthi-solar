@@ -59,6 +59,21 @@ const HERO_SLIDES = [
   }
 ];
 
+const HERO_DEALER_BRANDS = [
+  { name: "TATA Power Solar", role: "Primary Dealer", color: "text-sky-300" },
+  { name: "Adani Solar", role: "Primary Dealer", color: "text-emerald-300" },
+  { name: "Waaree Solar", role: "Primary Dealer", color: "text-amber-300" },
+  { name: "Loom Solar", role: "Authorized", color: "text-white" },
+  { name: "UTL Solar", role: "Primary Dealer", color: "text-cyan-300" },
+  { name: "Luminous", role: "Primary Dealer", color: "text-blue-300" },
+  { name: "Exide Solar", role: "Primary Dealer", color: "text-rose-300" },
+  { name: "Pahal Solar", role: "Primary Dealer", color: "text-teal-300" },
+  { name: "Vikram Solar", role: "Primary Dealer", color: "text-sky-300" },
+  { name: "Servotech Power", role: "Primary Dealer", color: "text-orange-300" },
+  { name: "Prime Solar", role: "Primary Dealer", color: "text-purple-300" },
+  { name: "Amaze Solar", role: "Primary Dealer", color: "text-emerald-300" }
+];
+
 const CERT_LOGOS = [
   { name: "UPNEDA Approved", hi: "यूपीनेडा अधिकृत", code: "GKP2604066741", icon: "🏛️" },
   { name: "MNRE Govt of India", hi: "भारत सरकार MNRE", code: "Empanelled EPC", icon: "🇮🇳" },
@@ -337,48 +352,60 @@ function Hero() {
           ===================================================================== */}
           <div className="lg:col-span-5 space-y-4">
             
-            {/* Solar Array Highlights Card */}
+            {/* Primary Dealer & Channel Partner Highlights Card */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/20 shadow-2xl p-5 space-y-3 text-white"
+              className="rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/20 shadow-2xl p-5 space-y-3.5 text-white"
             >
               <div className="flex items-center justify-between pb-3 border-b border-white/15">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <div className="p-2 bg-amber-500/20 border border-amber-400/30 text-amber-400 rounded-xl">
-                    <Sun className="w-5 h-5 text-amber-400" />
+                    <Zap className="w-5 h-5 fill-amber-400 text-amber-400" />
                   </div>
                   <div>
                     <h3 className="text-sm font-black text-white">
-                      Tier-1 Mono PERC Solar Array
+                      Primary Dealer & Channel Partner
                     </h3>
                     <p className="text-[11px] text-emerald-400 font-bold font-hindi">
-                      उच्च दक्षता सोलर पैनल्स • शून्य बिजली बिल
+                      सभी प्रमुख सोलर ब्रांड्स के अधिकृत मुख्य डीलर
                     </p>
                   </div>
                 </div>
                 <span className="bg-emerald-500 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-full shadow-md">
-                  25 Yrs Warranty
+                  100% Genuine
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="bg-white/8 p-3 rounded-2xl border border-white/15">
-                  <span className="text-[10px] font-bold text-sky-300 uppercase block">Govt Subsidy</span>
-                  <span className="text-base font-black text-white block mt-0.5">₹1,08,000</span>
-                  <span className="text-[10px] text-sky-200 font-hindi">सीधी बैंक डीबीटी</span>
-                </div>
-                <div className="bg-white/8 p-3 rounded-2xl border border-white/15">
-                  <span className="text-[10px] font-bold text-emerald-300 uppercase block">Free Power</span>
-                  <span className="text-base font-black text-white block mt-0.5">300 Units/mo</span>
-                  <span className="text-[10px] text-emerald-200 font-hindi">प्रति माह मुफ्त बिजली</span>
-                </div>
+              {/* Dealership Grid (Sleek, Compact, Non-bulky) */}
+              <div className="grid grid-cols-2 gap-1.5 text-xs">
+                {HERO_DEALER_BRANDS.map((b, idx) => (
+                  <div 
+                    key={idx}
+                    className="bg-white/8 hover:bg-white/14 border border-white/12 hover:border-amber-400/40 rounded-xl px-2.5 py-1.5 flex items-center justify-between transition group cursor-default"
+                  >
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span className={`text-[11px] font-black truncate ${b.color}`}>
+                        {b.name}
+                      </span>
+                    </div>
+                    <span className="text-[9px] font-bold text-slate-300 bg-white/6 px-1.5 py-0.5 rounded uppercase tracking-wider shrink-0 ml-1">
+                      {b.role.includes("Primary") ? "Primary" : "Auth"}
+                    </span>
+                  </div>
+                ))}
               </div>
 
-              <p className="text-[11px] text-slate-300 leading-relaxed">
-                Empanelled with UPNEDA (Vendor Code: <strong className="text-emerald-400">GKP2604066741</strong>) & Authorized Channel Partner for Tier-1 Rooftop Solar Systems.
-              </p>
+              <div className="pt-2 border-t border-white/12 flex items-center justify-between text-[11px] text-slate-300">
+                <span className="text-emerald-300 font-bold font-hindi">
+                  + फुजियामा, गौतम, ओकाया, माइक्रोटेक व अन्य
+                </span>
+                <span className="text-sky-300 font-mono text-[10px] bg-sky-950/70 border border-sky-400/30 px-2 py-0.5 rounded font-bold shrink-0">
+                  UPNEDA {businessData.vendorCode}
+                </span>
+              </div>
             </motion.div>
 
             {/* Engineer Er. Satyaprakash Satyarthi Card (Clean Dark Glass Style) */}
