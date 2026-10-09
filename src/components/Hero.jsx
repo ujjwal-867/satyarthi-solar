@@ -123,7 +123,7 @@ const itemVariants = {
   }
 };
 
-function Hero() {
+function Hero({ onNavigate }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Auto-cycle through real installation photos every 4.5 seconds
@@ -304,6 +304,56 @@ function Hero() {
                 <MessageCircle className="w-4 h-4 text-emerald-400" />
                 <span>WhatsApp: {businessData.whatsapp[0]}</span>
               </motion.a>
+            </motion.div>
+
+            {/* 5 Prominent Portal Buttons for Immediate Navigation */}
+            <motion.div variants={itemVariants} className="pt-2">
+              <div className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>Direct Portals & Verified Rate Lists • मुख्य विभाग एवं दर सूचियां:</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                <button
+                  type="button"
+                  onClick={() => onNavigate ? onNavigate("/on-grid") : scrollTo("#portal-hub")}
+                  className="bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-400/40 text-emerald-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                >
+                  <span className="text-[10px] text-emerald-300 font-bold">1kW - 10kW Subsidy</span>
+                  <strong className="text-xs text-white group-hover:text-emerald-300 transition">☀️ On-Grid Solar ↗</strong>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate ? onNavigate("/off-grid") : scrollTo("#portal-hub")}
+                  className="bg-amber-500/20 hover:bg-amber-500/35 border border-amber-400/40 text-amber-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                >
+                  <span className="text-[10px] text-amber-300 font-bold">True Rate List</span>
+                  <strong className="text-xs text-white group-hover:text-amber-300 transition">🔋 Off-Grid & Chakki ↗</strong>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate ? onNavigate("/appliances") : scrollTo("#portal-hub")}
+                  className="bg-blue-500/20 hover:bg-blue-500/35 border border-blue-400/40 text-blue-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                >
+                  <span className="text-[10px] text-blue-300 font-bold">Inverter AC & Store</span>
+                  <strong className="text-xs text-white group-hover:text-blue-300 transition">🏠 Home Appliances ↗</strong>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate ? onNavigate("/gallery") : scrollTo("#portal-hub")}
+                  className="bg-purple-500/20 hover:bg-purple-500/35 border border-purple-400/40 text-purple-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                >
+                  <span className="text-[10px] text-purple-300 font-bold">Live Gorakhpur Sites</span>
+                  <strong className="text-xs text-white group-hover:text-purple-300 transition">📸 Photo Gallery ↗</strong>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollTo("#contact")}
+                  className="col-span-2 sm:col-span-1 bg-teal-500/20 hover:bg-teal-500/35 border border-teal-400/40 text-teal-200 hover:text-white p-2.5 rounded-xl text-left transition flex flex-col justify-between group shadow-sm cursor-pointer"
+                >
+                  <span className="text-[10px] text-teal-300 font-bold">Free Roof Survey</span>
+                  <strong className="text-xs text-white group-hover:text-teal-300 transition">📞 Contact & Book ↗</strong>
+                </button>
+              </div>
             </motion.div>
 
             {/* Office Landmark Badge */}

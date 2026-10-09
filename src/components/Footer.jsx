@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
-function Footer({ onOpenAdmin }) {
+function Footer({ onOpenAdmin, onNavigate }) {
   const scrollTo = (id) => {
     const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -71,42 +71,64 @@ function Footer({ onOpenAdmin }) {
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <button onClick={() => scrollTo("#hero")} className="hover:text-emerald-400 transition cursor-pointer">
+                <button 
+                  onClick={() => onNavigate ? onNavigate("/") : scrollTo("#hero")} 
+                  className="hover:text-emerald-400 transition cursor-pointer"
+                >
                   Home | होम
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#subsidy")} className="hover:text-emerald-400 transition cursor-pointer text-emerald-300 font-semibold">
-                  PM Surya Ghar Rates | सब्सिडी व दरें
+                <button 
+                  onClick={() => onNavigate ? onNavigate("/on-grid") : scrollTo("#portal-hub")} 
+                  className="hover:text-emerald-400 transition cursor-pointer text-emerald-300 font-semibold"
+                >
+                  On-Grid (PM Surya Ghar) | सब्सिडी दरें
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#services")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Solar Solutions | सोलर सेवाएं
+                <button 
+                  onClick={() => onNavigate ? onNavigate("/off-grid") : scrollTo("#portal-hub")} 
+                  className="hover:text-emerald-400 transition cursor-pointer text-amber-300 font-semibold"
+                >
+                  Off-Grid True Rate List | वास्तविक दर सूची
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#appliances")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Appliances | इलेक्ट्रॉनिक्स स्टोर
+                <button 
+                  onClick={() => onNavigate ? onNavigate("/appliances") : scrollTo("#portal-hub")} 
+                  className="hover:text-emerald-400 transition cursor-pointer text-blue-300"
+                >
+                  Electronics Store | होम उपकरण
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#gallery")} className="hover:text-emerald-400 transition cursor-pointer">
+                <button 
+                  onClick={() => onNavigate ? onNavigate("/gallery") : scrollTo("#portal-hub")} 
+                  className="hover:text-emerald-400 transition cursor-pointer text-purple-300"
+                >
                   Site Gallery | रियल प्रोजेक्ट्स
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#certificates")} className="hover:text-emerald-400 transition cursor-pointer">
+                <button 
+                  onClick={() => {
+                    if (onNavigate) onNavigate("/#certificates");
+                    else scrollTo("#certificates");
+                  }} 
+                  className="hover:text-emerald-400 transition cursor-pointer"
+                >
                   Certificates | सरकारी मान्यता
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#about")} className="hover:text-emerald-400 transition cursor-pointer">
-                  About | इंजी. सत्यप्रकाश
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollTo("#contact")} className="hover:text-emerald-400 transition cursor-pointer text-blue-300 font-bold">
+                <button 
+                  onClick={() => {
+                    if (onNavigate) onNavigate("/#contact");
+                    else scrollTo("#contact");
+                  }} 
+                  className="hover:text-emerald-400 transition cursor-pointer text-emerald-300 font-bold"
+                >
                   Book Site Survey | संपर्क
                 </button>
               </li>

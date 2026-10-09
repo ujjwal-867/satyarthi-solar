@@ -8,6 +8,7 @@
     "build": "vite build",
     "package:cpanel": "vite build && node scripts/package-cpanel.js",
     "audit:security": "node scripts/security-audit.js",
+    "tools:visuals": "node scripts/visual-tools-suite.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

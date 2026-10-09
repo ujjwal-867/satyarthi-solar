@@ -16,7 +16,13 @@ import {
   Trash2,
   LogOut,
   ShieldCheck,
-  RefreshCw
+  RefreshCw,
+  Sparkles,
+  Camera,
+  Film,
+  Scissors,
+  Zap,
+  ExternalLink
 } from "lucide-react";
 
 function AdminModal({ isOpen, onClose }) {
@@ -393,26 +399,190 @@ function AdminModal({ isOpen, onClose }) {
         ) : (
           /* Authenticated Dashboard */
           <div className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-6 bg-slate-50">
-            
-            {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs text-slate-500">Total Enquiries</span>
-                <p className="text-2xl font-black text-slate-900 mt-1">{leadCounts.total}</p>
-              </div>
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs text-amber-600 font-semibold">New Uncontacted</span>
-                <p className="text-2xl font-black text-amber-600 mt-1">{leadCounts.new}</p>
-              </div>
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs text-blue-600 font-semibold">Site Visits Scheduled</span>
-                <p className="text-2xl font-black text-blue-600 mt-1">{leadCounts.siteVisit}</p>
-              </div>
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs text-emerald-600 font-semibold">Converted Installations</span>
-                <p className="text-2xl font-black text-emerald-600 mt-1">{leadCounts.converted}</p>
-              </div>
+            {/* Top Navigation Tabs */}
+            <div className="flex items-center gap-2 border-b border-slate-200 pb-3 flex-wrap">
+              <button
+                type="button"
+                onClick={() => setActiveTab("leads")}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                  activeTab === "leads"
+                    ? "bg-slate-900 text-white shadow-sm"
+                    : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
+                }`}
+              >
+                <Users className="w-3.5 h-3.5" />
+                <span>Customer Leads CRM ({leadCounts.total})</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("tools")}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
+                  activeTab === "tools"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <span>Visual AI & Performance Suite (Whisk • Veo • EZGif • AirLift)</span>
+              </button>
             </div>
+
+            {activeTab === "tools" ? (
+              /* Visual Tools & Performance Suite View */
+              <div className="space-y-6 animate-fadeIn">
+                <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                  <div className="flex items-center gap-2 text-emerald-700 font-black text-xs uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-emerald-600" />
+                    <span>Integrated Visual Creation & Edge Performance Suite</span>
+                  </div>
+                  <h3 className="text-xl font-black text-slate-900">
+                    High-End Visual Media, Frame Extraction & AirLift Optimization
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Use these integrated tools to transform real Gorakhpur solar site footage into cinematic renders, extract sharp frame photos, and monitor web performance.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Tool 1: Google Whisk */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                          Visuals & Style Remixing
+                        </span>
+                        <Camera className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <h4 className="text-lg font-black text-slate-900">Google Whisk (Visuals)</h4>
+                      <p className="text-xs text-slate-600">
+                        Create photo-realistic elevated pergola and rooftop solar visuals for client proposals in Gorakhpur and UP.
+                      </p>
+                      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-700 font-mono">
+                        Prompt: &quot;Elevated modern solar rooftop pergola gazebo on concrete Indian residential terrace, sleek black bifacial panels, 8k.&quot;
+                      </div>
+                    </div>
+                    <a
+                      href="https://labs.google/whisk"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                    >
+                      <span>Open Google Whisk</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* Tool 2: Google Veo Flow */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] bg-purple-100 text-purple-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                          Generative Video Flow
+                        </span>
+                        <Film className="w-5 h-5 text-purple-600" />
+                      </div>
+                      <h4 className="text-lg font-black text-slate-900">Google Veo Flow</h4>
+                      <p className="text-xs text-slate-600">
+                        Convert static site photos into high-definition 1080p aerial drone flyover videos for customer reels and showcases.
+                      </p>
+                      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-700 font-mono">
+                        Prompt: &quot;Cinematic slow-motion 4K drone orbiting shot above residential rooftop with 5kW solar array glistening in morning sun.&quot;
+                      </div>
+                    </div>
+                    <a
+                      href="https://deepmind.google/technologies/veo/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                    >
+                      <span>Open Google Veo</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* Tool 3: EZGif Frame Extraction */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                          Frame Extraction
+                        </span>
+                        <Scissors className="w-5 h-5 text-amber-600" />
+                      </div>
+                      <h4 className="text-lg font-black text-slate-900">EZGif (Frame Extraction)</h4>
+                      <p className="text-xs text-slate-600">
+                        Extract uncompressed, high-definition still frames from live on-site mobile video recordings (Saketpuri, Railvihar) to add to the Bento Gallery.
+                      </p>
+                      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-700">
+                        Workflow: Upload phone MP4 → Set rate to 1 fps → Download PNG/WebP frames → Add to gallery.
+                      </div>
+                    </div>
+                    <a
+                      href="https://ezgif.com/video-to-frames"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                    >
+                      <span>Open EZGif Frame Extractor</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* Tool 4: AirLift Performance Optimization */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                          Performance Acceleration
+                        </span>
+                        <Zap className="w-5 h-5 text-emerald-600" />
+                      </div>
+                      <h4 className="text-lg font-black text-slate-900">AirLift (Performance)</h4>
+                      <p className="text-xs text-slate-600">
+                        Edge caching, resource preconnects, responsive images, and sub-second page views for users across UP.
+                      </p>
+                      <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-[11px] text-emerald-900 space-y-1">
+                        <div className="font-bold flex items-center gap-1">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>Status: AirLift Optimizations Active</span>
+                        </div>
+                        <p className="text-[10px] text-emerald-800">DNS prefetching, asset preconnects, and Vite chunk splitting implemented.</p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://airlift.net/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                    >
+                      <span>Explore AirLift</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* Leads CRM Content */
+              <div className="space-y-6">
+                {/* Quick Metrics Bar */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-slate-500">Total Enquiries</span>
+                    <p className="text-2xl font-black text-slate-900 mt-1">{leadCounts.total}</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-amber-600 font-semibold">New Uncontacted</span>
+                    <p className="text-2xl font-black text-amber-600 mt-1">{leadCounts.new}</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-blue-600 font-semibold">Site Visits Scheduled</span>
+                    <p className="text-2xl font-black text-blue-600 mt-1">{leadCounts.siteVisit}</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-emerald-600 font-semibold">Converted Installations</span>
+                    <p className="text-2xl font-black text-emerald-600 mt-1">{leadCounts.converted}</p>
+                  </div>
+                </div>
 
             {/* Actions Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col md:flex-row justify-between items-center gap-3">
@@ -646,9 +816,11 @@ function AdminModal({ isOpen, onClose }) {
                 </table>
               </div>
             </div>
-
           </div>
         )}
+
+      </div>
+    )}
 
       </div>
     </div>

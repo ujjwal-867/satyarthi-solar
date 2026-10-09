@@ -8,39 +8,51 @@ import {
   ShieldCheck, 
   FileText,
   Lock,
-  MapPin
+  ArrowRight
 } from "lucide-react";
+import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
-function Navbar({ onOpenAdmin }) {
+function Navbar({ onOpenAdmin, onNavigate, currentRoute = "/" }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Simultaneous English + Hindi Navigation Links
+  // Simultaneous English + Hindi Navigation Links with Sub-page Portals
   const navLinks = [
-    { en: "Home", hi: "होम", href: "#hero" },
-    { en: "PM Surya Ghar", hi: "सब्सिडी व दरें", href: "#subsidy" },
-    { en: "Solutions", hi: "सेवाएं", href: "#services" },
-    { en: "Appliances", hi: "इलेक्ट्रॉनिक्स", href: "#appliances" },
-    { en: "Gallery", hi: "गैलरी", href: "#gallery" },
+    { en: "Home", hi: "होम", route: "/" },
+    { en: "On-Grid (Subsidy)", hi: "सब्सिडी दरें", route: "/on-grid" },
+    { en: "Off-Grid & Rates", hi: "ऑफ-ग्रिड सूची", route: "/off-grid" },
+    { en: "Electronics Store", hi: "इलेक्ट्रॉनिक्स", route: "/appliances", isElectronics: true },
+    { en: "Site Gallery", hi: "गैलरी", route: "/gallery" },
     { en: "Certificates", hi: "प्रमाणपत्र", href: "#certificates" },
-    { en: "About", hi: "परिचय", href: "#about" },
     { en: "Contact", hi: "संपर्क", href: "#contact" },
   ];
 
-  const handleScroll = (href) => {
+  const handleNavClick = (link) => {
     setMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (link.route) {
+      if (onNavigate) {
+        onNavigate(link.route);
+      }
+      return;
+    }
+    if (link.href) {
+      if (currentRoute !== "/" && onNavigate) {
+        onNavigate("/" + link.href);
+      } else {
+        const element = document.querySelector(link.href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
-      {/* Top Govt & Contact Strip (Blue & Green Clean Tech Style) */}
+      {/* Top Govt & Contact Strip with Direct Social Links */}
       <div className="bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 text-white text-xs py-1.5 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4">
           
-          {/* Left: Govt Approvals & Vendor Code (English + Hindi) */}
+          {/* Left: Govt Approvals & Vendor Code */}
           <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
             <span className="inline-flex items-center gap-1 bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded text-[11px] shadow-2xs">
               <ShieldCheck className="w-3.5 h-3.5 text-slate-950" />
@@ -48,41 +60,48 @@ function Navbar({ onOpenAdmin }) {
             </span>
             <span className="text-teal-300">|</span>
             <span className="text-slate-100 font-medium text-[11px]">
-              Code: <strong className="text-emerald-300 tracking-wider font-mono">{businessData.vendorCode}</strong>
+              Vendor Code: <strong className="text-emerald-300 font-mono">{businessData.vendorCode}</strong>
             </span>
             <span className="hidden md:inline text-teal-300">|</span>
             <span className="hidden md:inline text-slate-200 text-[11px]">
-              GST: <strong className="text-white tracking-wider font-mono">{businessData.gstin}</strong>
-            </span>
-            <span className="hidden lg:inline text-teal-300">|</span>
-            <span className="hidden lg:inline text-teal-200 font-semibold text-[11px]">
-              Authorized Solar EPC & Tier-1 Channel Partner
+              GST: <strong className="text-white font-mono">{businessData.gstin}</strong>
             </span>
           </div>
 
-          {/* Right: 24x7 Helplines & Admin */}
+          {/* Right: Social Media, Helplines & Admin */}
           <div className="flex items-center gap-3 text-xs flex-wrap justify-center">
-            <span className="hidden sm:inline text-emerald-300 font-bold text-[10px] bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-600/50">
-              ⚡ 24×7 Helpline • हेल्पलाइन
-            </span>
+            {/* Direct Instagram & Facebook Icons */}
+            <div className="flex items-center gap-2 pr-2 sm:border-r border-teal-700/60">
+              <a 
+                href={businessData.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-teal-200 hover:text-pink-300 transition flex items-center gap-1"
+                title="Follow on Instagram"
+              >
+                <InstagramIcon className="w-3.5 h-3.5" />
+                <span className="hidden md:inline text-[10px]">Instagram</span>
+              </a>
+              <span className="text-teal-500">|</span>
+              <a 
+                href={businessData.facebookUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-teal-200 hover:text-sky-300 transition flex items-center gap-1"
+                title="Connect on Facebook"
+              >
+                <FacebookIcon className="w-3.5 h-3.5" />
+                <span className="hidden md:inline text-[10px]">Facebook</span>
+              </a>
+            </div>
 
             <a 
               href={`tel:${businessData.phone[0]}`}
               className="inline-flex items-center gap-1 hover:text-emerald-300 transition font-bold"
-              title="24x7 Helpline: Er. Satyaprakash"
+              title="24x7 Helpline"
             >
               <Phone className="w-3 h-3 text-emerald-400" />
               <span>+91 {businessData.phone[0]}</span>
-            </a>
-
-            <span className="text-teal-400">/</span>
-
-            <a 
-              href={`tel:${businessData.phone[1]}`}
-              className="hover:text-emerald-300 transition font-bold"
-              title="24x7 Helpline"
-            >
-              <span>{businessData.phone[1]}</span>
             </a>
 
             {/* Admin CRM Shortcut */}
@@ -104,7 +123,18 @@ function Navbar({ onOpenAdmin }) {
         <div className="flex justify-between items-center h-20">
           
           {/* Logo & Branding */}
-          <a href="#hero" className="flex items-center gap-3 group">
+          <button
+            type="button"
+            onClick={() => {
+              if (onNavigate) {
+                onNavigate("/");
+              } else {
+                const el = document.querySelector("#hero");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="flex items-center gap-3 group text-left cursor-pointer"
+          >
             <div className="relative w-12 h-12 rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition duration-300 border-2 border-emerald-600 bg-white p-0.5">
               <img
                 src={businessData.logoImage}
@@ -113,29 +143,32 @@ function Navbar({ onOpenAdmin }) {
               />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 font-sans">
-                  SATYARTHI SOLAR SOLUTION
-                </span>
-              </div>
+              <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 font-sans">
+                SATYARTHI SOLAR SOLUTION
+              </span>
               <p className="text-[10px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1.5">
                 <span>सत्यार्थी सोलर सॉल्यूशन</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-blue-800">UPNEDA Approved ({businessData.vendorCode})</span>
+                <span className="text-blue-800">UPNEDA Empanelled ({businessData.vendorCode})</span>
               </p>
             </div>
-          </a>
+          </button>
 
-          {/* Streamlined Desktop Navigation Links (Simultaneous English + Hindi) */}
+          {/* Streamlined Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700">
-            {navLinks.map((link) => (
+            {navLinks.map((link, idx) => (
               <button
-                key={link.href}
-                onClick={() => handleScroll(link.href)}
-                className="px-2.5 py-2 rounded-xl hover:text-blue-700 hover:bg-blue-50/70 transition cursor-pointer flex flex-col items-center leading-tight group"
+                key={idx}
+                onClick={() => handleNavClick(link)}
+                className={`px-3 py-2 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight group ${
+                  link.isElectronics 
+                    ? "bg-blue-50/80 hover:bg-blue-100 text-blue-900 border border-blue-200" 
+                    : "hover:text-blue-700 hover:bg-blue-50/70"
+                }`}
               >
-                <span className="text-xs font-black text-slate-900 group-hover:text-blue-700 transition">
+                <span className="text-xs font-black text-slate-900 group-hover:text-blue-700 transition flex items-center gap-1">
                   {link.en}
+                  {link.isElectronics && <span className="text-[9px] bg-blue-600 text-white px-1.5 py-0.2 rounded font-mono">Store</span>}
                 </span>
                 <span className="text-[10px] font-bold text-emerald-700 group-hover:text-emerald-800 transition">
                   {link.hi}
@@ -144,12 +177,19 @@ function Navbar({ onOpenAdmin }) {
             ))}
           </nav>
 
-          {/* Action CTA: Get Quote | मुफ्त कोटेशन */}
+          {/* Action CTA: Get Quote */}
           <div className="hidden sm:flex items-center gap-2.5">
             <motion.button
               whileHover={{ scale: 1.03, y: -1 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => handleScroll("#contact")}
+              onClick={() => {
+                if (currentRoute !== "/" && onNavigate) {
+                  onNavigate("/#contact");
+                } else {
+                  const el = document.querySelector("#contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="inline-flex items-center gap-2 text-xs font-black text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-4 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30"
             >
               <FileText className="w-4 h-4 text-white" />
@@ -160,7 +200,10 @@ function Navbar({ onOpenAdmin }) {
           {/* Mobile Right Controls: Toggle */}
           <div className="flex items-center gap-2 xl:hidden">
             <button
-              onClick={() => handleScroll("#contact")}
+              onClick={() => {
+                const el = document.querySelector("#contact");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
               className="text-xs font-black text-white bg-emerald-600 px-3 py-2 rounded-xl sm:hidden shadow-xs"
             >
               Quote | कोटेशन
@@ -178,14 +221,14 @@ function Navbar({ onOpenAdmin }) {
         </div>
       </div>
 
-      {/* Mobile Drawer (Bilingual English + Hindi) */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 shadow-xl animate-fadeIn">
           <div className="flex flex-col space-y-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link, idx) => (
               <button
-                key={link.href}
-                onClick={() => handleScroll(link.href)}
+                key={idx}
+                onClick={() => handleNavClick(link)}
                 className="text-left px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition flex items-center justify-between"
               >
                 <span>{link.en}</span>
@@ -198,7 +241,15 @@ function Navbar({ onOpenAdmin }) {
 
           <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
             <button
-              onClick={() => handleScroll("#contact")}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (currentRoute !== "/" && onNavigate) {
+                  onNavigate("/#contact");
+                } else {
+                  const el = document.querySelector("#contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="w-full inline-flex justify-center items-center gap-2 bg-gradient-to-r from-emerald-600 to-blue-700 text-white font-black py-3 rounded-xl shadow-xs"
             >
               <FileText className="w-5 h-5" />
