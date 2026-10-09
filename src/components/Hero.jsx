@@ -120,20 +120,23 @@ function Hero() {
             <img
               src={currentImage.url}
               alt={currentImage.title}
-              className="w-full h-full object-cover object-center filter brightness-90"
+              className="w-full h-full object-cover object-center filter brightness-105 contrast-105 saturate-115"
               loading="eager"
             />
           </motion.div>
         </AnimatePresence>
 
         {/* 
-          CINEMATIC FAR-LEFT FADING GRADIENT OVERLAY
-          Darkens smoothly from far left to right so text is ultra-crisp while 
-          the vibrant solar imagery is fully showcased across the viewport.
+          BRIGHT & VIVID CINEMATIC GRADIENT OVERLAY
+          Provides gentle fading on the far-left for text legibility while keeping 
+          the solar imagery bright, sunny, and vibrant across the viewport.
         */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 sm:via-slate-950/85 md:via-slate-950/75 to-slate-950/30 z-10 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60 z-10 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-radial from-transparent via-slate-950/30 to-slate-950/80 z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/20 z-10 pointer-events-none"></div>
+
+        {/* Radiant Sunny Ambient Glows */}
+        <div className="absolute top-0 right-10 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl z-10 pointer-events-none"></div>
+        <div className="absolute top-1/3 left-10 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl z-10 pointer-events-none"></div>
       </div>
 
       {/* =========================================================================
@@ -149,7 +152,7 @@ function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 space-y-5 sm:space-y-6"
+            className="lg:col-span-7 space-y-5 sm:space-y-6 bg-slate-950/40 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl"
           >
             {/* UPNEDA Empanelled Badge */}
             <motion.div 

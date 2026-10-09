@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export function LocationMap() {
-  const mapEmbedUrl = "https://maps.google.com/maps?q=Motiram%20Adda%20Deoria%20Road%20Gorakhpur%20Uttar%20Pradesh%20273202&t=&z=14&ie=UTF8&iwloc=&output=embed";
+  const mapEmbedUrl = "https://maps.google.com/maps?q=satyarthi%20solar%20solution%20motiram%20adda%20gorakhpur&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
   const keyDistances = [
     { hub: "Gorakhpur Railway Junction", distance: "16 km", time: "25-30 min via Deoria Rd", icon: Train },
@@ -106,10 +106,10 @@ export function LocationMap() {
                     UPNEDA Approved
                   </span>
                   <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=Motiram+Adda+Deoria+Road+Gorakhpur+Uttar+Pradesh+273202`}
+                    href={businessData.mapsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[11px] text-blue-700 font-bold hover:underline inline-flex items-center gap-1"
+                    className="text-[11px] text-emerald-700 font-bold hover:underline inline-flex items-center gap-1"
                   >
                     <Navigation className="w-3 h-3" />
                     Directions

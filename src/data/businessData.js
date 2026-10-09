@@ -55,7 +55,8 @@ export const businessData = {
   serviceArea: "Gorakhpur, Deoria, Kushinagar, Maharajganj, Basti, Sant Kabir Nagar & All Uttar Pradesh",
   
   // Online links
-  mapsUrl: "https://maps.app.goo.gl/52WNA9GceDuqo8L87",
+  mapsUrl: "https://maps.app.goo.gl/a7feN82M8S8L9qZ77",
+  googleMapLink: "https://maps.app.goo.gl/a7feN82M8S8L9qZ77",
   instagramUrl: "https://www.instagram.com/satyarthi_solar_solution.gkp/",
   facebookUrl: "https://www.facebook.com/people/Satyarthi-Solar-Solutions/61566023554911/?locale=fi_FI#",
   githubUrl: "https://github.com/ujjwal-867/satyarthi-solar",

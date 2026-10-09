@@ -302,7 +302,7 @@ function Contact({ prefilledData }) {
               <div className="aspect-16/9 w-full bg-slate-900">
                 <iframe
                   title="Satyarthi Solar Solution Location"
-                  src="https://maps.google.com/maps?q=Motiram%20Adda%20Deoria%20Road%20Gorakhpur%20Uttar%20Pradesh%20273202&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=satyarthi%20solar%20solution%20motiram%20adda%20gorakhpur&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
