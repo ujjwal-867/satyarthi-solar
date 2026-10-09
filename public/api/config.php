@@ -39,7 +39,7 @@ define('ADMIN_SALT', getenv('ADMIN_SALT') ?: 'solar_satyarthi_secure_salt_2026')
 
 // Stored SHA-256 hash for default admin password (satyarthi2026 + salt)
 // Or standard bcrypt hash starting with $2y$
-define('ADMIN_PASSWORD_HASH', getenv('ADMIN_PASSWORD_HASH') ?: '6b77a64c8b07191bca1fa69aa371bc782c2801f39a43ff65a46de1f1512e5b46');
+define('ADMIN_PASSWORD_HASH', getenv('ADMIN_PASSWORD_HASH') ?: '39a5cfeed284dfba473ea3b101f398312f9d8b41755f2c7b1df7ec94d8dc3efc');
 
 // Session Expiration Time (4 Hours)
 define('SESSION_LIFETIME_SECONDS', 14400);

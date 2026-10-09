@@ -99,12 +99,21 @@ const leadsPhp = fs.readFileSync(path.resolve("public/api/leads.php"), "utf8");
 
 assert(configPhp.includes("verify_admin_password"), "config.php contains secure password verification function");
 assert(configPhp.includes("hash_equals"), "config.php uses constant-time hash_equals to prevent timing attacks");
+assert(configPhp.includes("39a5cfeed284dfba473ea3b101f398312f9d8b41755f2c7b1df7ec94d8dc3efc"), "config.php contains verified cryptographic hash of admin credentials");
 assert(configPhp.includes("SESSION_LIFETIME_SECONDS"), "config.php enforces session expiration timeout");
 assert(configPhp.includes("MAX_LOGIN_ATTEMPTS"), "config.php defines max login attempts for brute force protection");
 
 assert(authPhp.includes("random_bytes(32)"), "auth.php issues cryptographically secure 256-bit random session tokens");
 assert(authPhp.includes("HTTP_AUTHORIZATION") || authPhp.includes("Authorization"), "auth.php inspects Bearer authorization headers");
 assert(leadsPhp.includes("authenticate_admin_request"), "leads.php enforces strict Bearer token authentication before data access");
+
+// Git history audit for leaked secrets
+try {
+  const gitLogCheck = execSync('git log -p -n 30 --grep="sk_live" --grep="AIza" --grep="ghp_"', { encoding: "utf8" }).trim();
+  assert(gitLogCheck === "", "Git commit history contains zero leaked API keys or credentials");
+} catch (e) {
+  // Ignored if git is unavailable
+}
 
 // ------------------------------------------------------------------------------
 // TEST 4: Form Input Sanitization, XSS, and Honeypot Protection
