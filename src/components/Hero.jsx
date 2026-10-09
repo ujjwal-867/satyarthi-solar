@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
 import { 
   ShieldCheck, 
@@ -9,63 +9,15 @@ import {
   FileText, 
   MapPin, 
   Sparkles, 
-  ChevronLeft, 
-  ChevronRight, 
   UserCheck, 
   MessageCircle, 
   ChevronDown,
   Sun,
   Zap,
-  Award
+  Award,
+  PhoneCall,
+  Clock
 } from "lucide-react";
-
-const HERO_IMAGES = [
-  {
-    url: "/images/projects/hero-solar-sunburst.jpg",
-    title: "Mono PERC High-Wattage Solar Modules",
-    titleHi: "उच्च दक्षता मोनो पर्क सोलर पैनल्स",
-    subtitle: "High power generation even in cloudy weather • 25 Years Warranty",
-    subtitleHi: "कड़क धूप में अधिकतम बिजली उत्पादन • 25 साल की वारंटी",
-    badge: "25-Yr Warranty",
-    badgeHi: "25 साल वारंटी"
-  },
-  {
-    url: "/images/projects/hero-solar-farm.jpg",
-    title: "Commercial & Industrial Solar Power Plants",
-    titleHi: "कमर्शियल व इंडस्ट्रियल सोलर पावर प्लांट",
-    subtitle: "Heavy duty power systems eliminating diesel expenses completely",
-    subtitleHi: "डीजल खर्च खत्म करें और बिजली बिल 85% तक घटाएं",
-    badge: "Zero Diesel Mill",
-    badgeHi: "जीरो डीजल समाधान"
-  },
-  {
-    url: "/images/projects/hero-rooftop-aerial.jpg",
-    title: "Institutional & Rooftop Net-Metering Systems",
-    titleHi: "रूफटॉप ऑन-ग्रिड नेट मीटरिंग सिस्टम",
-    subtitle: "Export surplus electricity to UPPCL grid effortlessly",
-    subtitleHi: "अतिरिक्त बिजली ग्रिड को बेचें व शून्य बिजली बिल का लाभ पाएं",
-    badge: "100% Net Metering",
-    badgeHi: "यूपीपीसीएल नेट मीटरिंग"
-  },
-  {
-    url: "/images/projects/hero-technician-install.png",
-    title: "Precision Engineering & Professional Installation",
-    titleHi: "कुशल इंजीनियर्स द्वारा सोलर स्थापना",
-    subtitle: "Galvanized mounting structures tested for extreme weather",
-    subtitleHi: "जीआई स्ट्रक्चर पर मजबूत और सुरक्षित सोलर इंस्टॉलेशन",
-    badge: "Certified EPC",
-    badgeHi: "प्रमाणित स्थापना"
-  },
-  {
-    url: "/images/projects/site-installation-1.jpg",
-    title: "PM Surya Ghar 3kW Residential Installations",
-    titleHi: "पीएम सूर्य घर 3kW घरेलू रूफटॉप सोलर",
-    subtitle: "Gorakhpur rooftop project with direct ₹1,08,000 DBT subsidy",
-    subtitleHi: "गोरखपुर में स्थापित रूफटॉप सोलर • ₹1,08,000 सीधी सब्सिडी",
-    badge: "₹1,08,000 Subsidy",
-    badgeHi: "सीधी बैंक सब्सिडी"
-  }
-];
 
 const CERT_LOGOS = [
   { name: "UPNEDA Approved", hi: "यूपीनेडा अधिकृत", code: "GKP2604066741", icon: "🏛️" },
@@ -79,7 +31,7 @@ const CERT_LOGOS = [
 const DUAL_POINTS = [
   {
     en: "Up to ₹1,08,000 Govt Subsidy in Bank",
-    hi: "बैंक खाते में ₹1,08,000 तक सीधी सरकारी सब्सिडी"
+    hi: "बैंक खाते में ₹1,08,000 तक सीधी सरकारी सब्सिडी (DBT)"
   },
   {
     en: "300 Units Free Electricity Every Month",
@@ -101,8 +53,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1
+      staggerChildren: 0.1,
+      delayChildren: 0.05
     }
   }
 };
@@ -112,64 +64,51 @@ const itemVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
   }
 };
 
 function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Auto-advance hero background every 3.2 seconds
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 3200);
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
   const scrollTo = (id) => {
     const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const currentImage = HERO_IMAGES[currentSlide];
-
   return (
     <section 
       id="hero" 
       className="relative w-full min-h-[92vh] lg:min-h-screen flex flex-col justify-between overflow-hidden bg-white text-slate-900 pt-8 pb-12 lg:pt-14 lg:pb-16"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* =========================================================================
-          LANDING PAGE BACKGROUND: UPLOADED SOLAR SUNBURST IMAGE WITH 65% WHITE FADING
+          COMPLETE HERO SECTION BACKGROUND: UPLOADED SOLAR SUNBURST IMAGE (100% COVER)
+          WITH FAR-LEFT 60-70% WHITE FADING WASH FOR PRISTINE TYPOGRAPHY CONTRAST
       ========================================================================= */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Full-bleed, edge-to-edge High-Resolution Solar Installation Image */}
         <img
           src="/images/brand/landing-hero-bg.jpg"
-          alt="Satyarthi Solar Solution Solar Installation"
-          className="w-full h-full object-cover object-center filter brightness-105 saturate-110"
+          alt="Satyarthi Solar Solution High Efficiency Solar Installation"
+          className="w-full h-full object-cover object-right-top lg:object-center filter brightness-105 contrast-105 saturate-110"
         />
-        {/* 65% White Fading Wash for clean professional contrast */}
-        <div className="absolute inset-0 bg-white/65 backdrop-blur-[1.5px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-white/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/60"></div>
 
-        {/* Ambient Clean Tech Mesh Glows */}
-        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 left-10 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl"></div>
+        {/* Far-left smooth fading wash: 60-70% fading behind text detailing, 
+            smoothly transitioning to transparent on the right so the sunburst & solar panels shine brightly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 md:via-white/70 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/40"></div>
+
+        {/* Subtle Ambient Clean-Tech Blue & Emerald Mesh Blurs */}
+        <div className="absolute top-10 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* =========================================================================
-          MAIN HERO CONTAINER
+          MAIN HERO CONTAINER (RESPONSIVE SIDE-BY-SIDE LAYOUT)
       ========================================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* =====================================================================
-              LEFT COLUMN: WHITE CARD WITH BILINGUAL DETAILS (ENGLISH + HINDI)
+              LEFT COLUMN: FAR-LEFT DETAILING WITH BILINGUAL ENGLISH + HINDI TEXT
           ===================================================================== */}
           <motion.div 
             variants={containerVariants}
@@ -181,7 +120,7 @@ function Hero() {
             <motion.div 
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="inline-flex items-center gap-2.5 bg-emerald-50/90 border border-emerald-300 text-emerald-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-xs backdrop-blur-xs"
+              className="inline-flex items-center gap-2.5 bg-emerald-50/95 border border-emerald-300 text-emerald-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-xs backdrop-blur-xs"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>UPNEDA Empanelled Vendor</span>
@@ -209,17 +148,17 @@ function Hero() {
               </h1>
               
               {/* Simultaneous Hindi Title */}
-              <h2 className="text-xl sm:text-2xl lg:text-[1.65rem] font-extrabold text-emerald-700 tracking-tight leading-snug">
+              <h2 className="text-xl sm:text-2xl lg:text-[1.65rem] font-extrabold text-emerald-700 tracking-tight leading-snug font-hindi">
                 सत्यार्थी सोलर सॉल्यूशन • <span className="text-blue-700">विश्वसनीय सोलर से बिजली बिल शून्य बनाएं</span>
               </h2>
             </motion.div>
 
-            {/* Dual Description (English + Hindi side-by-side or stacked) */}
+            {/* Dual Description (English + Hindi) */}
             <motion.div variants={itemVariants} className="space-y-2 text-slate-600 text-sm sm:text-base leading-relaxed">
               <p>
                 Powering Homes, Businesses & Industries across Gorakhpur and Uttar Pradesh. Get up to <strong className="text-emerald-700 font-bold">₹1,08,000 Govt Subsidy</strong> directly credited into your bank account under PM Surya Ghar Muft Bijli Yojna.
               </p>
-              <p className="text-slate-700 font-medium text-xs sm:text-sm bg-blue-50/70 p-3 rounded-xl border border-blue-100">
+              <p className="text-slate-700 font-medium text-xs sm:text-sm bg-blue-50/80 p-3 rounded-2xl border border-blue-200 font-hindi leading-relaxed">
                 🇮🇳 <strong>हिन्दी विवरण:</strong> गोरखपुर व पूर्वांचल के घरों, दुकानों व उद्योगों के लिए सर्वोत्तम सोलर समाधान। 300 यूनिट तक मुफ्त बिजली व केंद्र व राज्य सरकार की ₹1,08,000 तक सीधी सब्सिडी।
               </p>
             </motion.div>
@@ -229,8 +168,8 @@ function Hero() {
               {DUAL_POINTS.map((pt, idx) => (
                 <motion.div
                   key={idx}
-                  whileHover={{ scale: 1.01, backgroundColor: "#f8fafc" }}
-                  className="bg-white border border-slate-200/90 rounded-2xl p-3 shadow-xs space-y-1 transition"
+                  whileHover={{ scale: 1.01, backgroundColor: "#ffffff" }}
+                  className="bg-white/90 backdrop-blur-xs border border-slate-200 rounded-2xl p-3 shadow-xs space-y-1 transition"
                 >
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -238,7 +177,7 @@ function Hero() {
                       {pt.en}
                     </span>
                   </div>
-                  <p className="text-[11px] text-emerald-800 font-semibold pl-6 leading-tight">
+                  <p className="text-[11px] text-emerald-800 font-semibold pl-6 leading-tight font-hindi">
                     {pt.hi}
                   </p>
                 </motion.div>
@@ -255,7 +194,7 @@ function Hero() {
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo("#quotations")}
-                className="inline-flex items-center gap-2.5 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-emerald-700/20 transition cursor-pointer text-sm sm:text-base border border-emerald-500/30"
+                className="inline-flex items-center gap-2.5 bg-gradient-to-r from-blue-600 via-teal-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-blue-700/20 transition cursor-pointer text-sm sm:text-base border border-blue-500/30"
               >
                 <FileText className="w-5 h-5 text-white" />
                 <span>Get Free Quote | मुफ्त कोटेशन</span>
@@ -282,7 +221,7 @@ function Hero() {
                 )}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100 font-bold px-4 py-3.5 rounded-2xl transition text-sm cursor-pointer"
+                className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100 font-bold px-4 py-3.5 rounded-2xl transition text-sm cursor-pointer shadow-xs"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
                 <span>WhatsApp: {businessData.whatsapp[0]}</span>
@@ -307,7 +246,7 @@ function Hero() {
                   <motion.div
                     key={idx}
                     whileHover={{ y: -3, scale: 1.02, borderColor: "#059669" }}
-                    className="bg-slate-50 hover:bg-white border border-slate-200/90 rounded-xl p-2.5 flex items-center gap-2.5 transition shadow-2xs group cursor-default"
+                    className="bg-white/90 hover:bg-white border border-slate-200/90 rounded-xl p-2.5 flex items-center gap-2.5 transition shadow-2xs group cursor-default"
                   >
                     <span className="text-xl group-hover:scale-110 transition-transform">
                       {cert.icon}
@@ -316,7 +255,7 @@ function Hero() {
                       <p className="text-xs font-bold text-slate-900 truncate">
                         {cert.name}
                       </p>
-                      <p className="text-[10px] text-emerald-700 font-semibold truncate">
+                      <p className="text-[10px] text-emerald-700 font-semibold truncate font-hindi">
                         {cert.hi}
                       </p>
                       <p className="text-[9px] text-blue-600 font-mono truncate">
@@ -331,94 +270,61 @@ function Hero() {
           </motion.div>
 
           {/* =====================================================================
-              RIGHT COLUMN: HIGH-TECH SOLAR IMAGE SHOWCASE + ENGINEER SPOTLIGHT
+              RIGHT COLUMN: SOLAR IMAGE CARDS & ENGINEER SPOTLIGHT OVER THE SUNBURST
           ===================================================================== */}
           <div className="lg:col-span-5 space-y-4">
             
-            {/* Real Solar Photo Showcase Container (White / Clean Tech Border) */}
+            {/* Real Solar Photo Showcase Frame with Badge Overlays */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative rounded-3xl overflow-hidden bg-white border-2 border-slate-200 shadow-2xl shadow-blue-900/10 group"
+              className="relative rounded-3xl overflow-hidden bg-white/90 backdrop-blur-md border-2 border-slate-200 shadow-2xl shadow-blue-900/10 p-3 group"
             >
-              {/* Dynamic Slideshow with Framer Motion AnimatePresence */}
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-slate-900">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentSlide}
-                    src={currentImage.url}
-                    alt={currentImage.title}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="w-full h-full object-cover object-center filter brightness-100"
-                  />
-                </AnimatePresence>
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full rounded-2xl overflow-hidden shadow-inner bg-slate-900">
+                {/* Same uploaded solar sunburst image showcased in high definition */}
+                <img
+                  src="/images/brand/landing-hero-bg.jpg"
+                  alt="High Efficiency Solar Panels & Sunburst Power"
+                  className="w-full h-full object-cover object-center filter brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                />
 
-                {/* Subtle Gradient for Bottom Captions */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none"></div>
+                {/* Subtle Gradient for Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none"></div>
 
                 {/* Top Badges on Image */}
                 <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none z-10">
                   <div className="flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>{currentImage.badge}</span>
+                    <span>25-Yr Panel Warranty</span>
                   </div>
                   <div className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    <span>{currentImage.badgeHi}</span>
+                    <span>₹1,08,000 Subsidy DBT</span>
                   </div>
                 </div>
 
                 {/* Bottom Bilingual Caption */}
                 <div className="absolute bottom-3 left-3 right-3 text-white z-10 space-y-1">
                   <p className="text-sm sm:text-base font-black line-clamp-1 drop-shadow-md">
-                    {currentImage.title}
+                    High-Efficiency Mono PERC Solar Installation
                   </p>
-                  <p className="text-xs text-emerald-300 font-bold line-clamp-1 drop-shadow-md">
-                    {currentImage.titleHi}
+                  <p className="text-xs text-emerald-300 font-bold line-clamp-1 drop-shadow-md font-hindi">
+                    उच्च दक्षता मोनो पर्क सोलर प्लांट • कड़क धूप में अधिकतम बिजली
                   </p>
                   <p className="text-[11px] text-slate-300 line-clamp-1">
-                    {currentImage.subtitle} • {currentImage.subtitleHi}
+                    Loom Solar & Fujiyama Authorized Engineering • Gorakhpur & UP
                   </p>
                 </div>
-
-                {/* Previous & Next Control Arrows */}
-                <button
-                  onClick={() => setCurrentSlide((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length)}
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-blue-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition border border-white/20 cursor-pointer"
-                  aria-label="Previous Image"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length)}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-blue-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition border border-white/20 cursor-pointer"
-                  aria-label="Next Image"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
 
               {/* Progress Indicator Dots */}
-              <div className="p-3 bg-white border-t border-slate-100 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  {HERO_IMAGES.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        idx === currentSlide 
-                          ? "w-8 bg-gradient-to-r from-blue-600 to-emerald-600" 
-                          : "w-2 bg-slate-200 hover:bg-slate-400"
-                      }`}
-                      aria-label={`Slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                  Live Site Projects • वास्तविक प्रोजेक्ट्स
+              <div className="p-2.5 pt-3 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700">
+                  <Zap className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Verified Solar Array • वास्तविक सोलर साइट</span>
+                </span>
+                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  Motiram Adda Hub
                 </span>
               </div>
             </motion.div>
@@ -427,7 +333,7 @@ function Hero() {
             <motion.div 
               whileHover={{ y: -4, borderColor: "#0284c7" }}
               transition={{ duration: 0.3 }}
-              className="bg-white border-2 border-slate-200 rounded-3xl p-5 shadow-xl shadow-slate-200/50 space-y-4"
+              className="bg-white/95 backdrop-blur-md border-2 border-slate-200 rounded-3xl p-5 shadow-xl shadow-slate-200/50 space-y-4"
             >
               <div className="flex items-center gap-4">
                 {/* Real Photo of Er. Satyaprakash at TOI UP Dialogues */}
@@ -452,7 +358,7 @@ function Hero() {
                     Er. Satyaprakash Satyarthi
                   </h3>
 
-                  <p className="text-xs text-emerald-700 font-bold">
+                  <p className="text-xs text-emerald-700 font-bold font-hindi">
                     इंजीनियर सत्यप्रकाश सत्यार्थी (UPNEDA Approved)
                   </p>
 
@@ -494,7 +400,7 @@ function Hero() {
                   whileTap={{ scale: 0.98 }}
                   href={`tel:${businessData.phone[0]}`}
                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold p-2.5 rounded-xl text-xs flex items-center justify-center transition shadow-md"
-                  title="Call Engineer Directly"
+                  title="Call Engineer Directly (24x7)"
                 >
                   <Phone className="w-4 h-4" />
                 </motion.a>
