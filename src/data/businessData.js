@@ -10,8 +10,9 @@ export const businessData = {
   subTagline: "हम सस्ता नहीं क्वालिटी लगाते हैं | Solar + Electronics = Better Tomorrow",
   shortDesc: "UPNEDA एवं MNRE स्वीकृत विक्रेता (Vendor Code: GKP2604066741), GST Registered (09JCNPS2666N1ZE) & Authorized Dealer for Loom Solar, Fujiyama Solar & Amaze. Complete rooftop solar, net metering & PM Surya Ghar subsidy processing.",
   
-  // Official Logo & Banner Images
+  // Official Logo, Engineer & Banner Images
   logoImage: "/images/brand/official-logo.jpg",
+  engineerImage: "/images/brand/engineer-satyaprakash.jpg",
   hoardingBanner: "/images/brand/main-hoarding-banner.jpg",
   visitingCardImage: "/images/brand/visiting-card-brochure.jpg",
 
