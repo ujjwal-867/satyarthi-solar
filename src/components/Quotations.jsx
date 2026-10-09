@@ -27,51 +27,59 @@ function Quotations() {
   };
 
   return (
-    <section id="quotations" className="py-24 bg-gradient-to-b from-white via-amber-50/30 to-white border-t border-slate-200/60">
+    <section id="quotations" className="py-24 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header (Simultaneous English + Hindi) */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-            <Coins className="w-3.5 h-3.5 text-amber-600" />
-            {lang === "hi" ? "सरकारी सब्सिडी उपरांत सोलर रेट्स" : "Official Rate Cards & Quotation Flyers"}
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+            <Coins className="w-3.5 h-3.5 text-blue-600" />
+            <span>Official Rate Cards & Quotations • आधिकारिक सोलर कोटेशन एवं रेट चार्ट्स</span>
           </div>
+
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            {lang === "hi" ? (
-              <>सोलर <span className="text-amber-500">कोटेशन एवं रेट</span> चार्ट्स</>
-            ) : (
-              <>Official Solar <span className="text-amber-500">Quotations & Pricing</span> Charts</>
-            )}
+            Satyarthi Solar Solution <span className="text-emerald-700">Official Rate Cards</span>
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
-            {lang === "hi"
-              ? "यूपीनेडा और एमएनआरई दिशा-निर्देशों के अनुसार पारदर्शी मूल्य निर्धारण। आधिकारिक दर पत्रक, पीएम सूर्य घर सब्सिडी विवरण और बैंक लोन ईएमआई ऑफर देखें।"
-              : "Transparent pricing as per UPNEDA and MNRE guidelines. Inspect our officially published rate flyers, PM Surya Ghar subsidy matrices, and bank loan EMI offers."}
+
+          <h3 className="text-xl sm:text-2xl font-extrabold text-blue-800 tracking-tight">
+            सत्यार्थी सोलर सॉल्यूशन • आधिकारिक सोलर कोटेशन एवं सब्सिडी रेट चार्ट
+          </h3>
+
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Transparent pricing as per UPNEDA and MNRE guidelines. Inspect our officially published rate flyers, PM Surya Ghar subsidy matrices, and bank loan EMI offers.
+          </p>
+          <p className="text-emerald-800 font-semibold text-xs sm:text-sm bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
+            🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी। 6% से 7% ब्याज दर पर आसान बैंक ऋण।
           </p>
         </div>
 
-        {/* Quotation Highlights Alert */}
-        <div className="mt-10 max-w-4xl mx-auto bg-gradient-to-r from-emerald-900 to-teal-900 text-white p-5 rounded-2xl shadow-lg flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-amber-400 text-slate-950 rounded-xl font-bold">
-              <Calendar className="w-5 h-5" />
+        {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
+        <div className="mt-10 max-w-4xl mx-auto bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+          <div className="flex items-center gap-3.5">
+            <div className="p-3 bg-emerald-500 text-slate-950 rounded-2xl font-black shrink-0">
+              <Calendar className="w-5 h-5 text-slate-950" />
             </div>
-            <div>
-              <strong className="text-amber-300 text-sm block">Special Government Subsidy Notification:</strong>
-              <p className="text-emerald-100 mt-0.5">
-                PM Surya Ghar subsidy is valid up to <strong>31st March 2027</strong>. 3 kW plant installed at only <strong>₹1,800/month</strong> bank EMI at 6-7% interest!
+            <div className="space-y-0.5">
+              <strong className="text-white text-sm block">
+                Special Government Subsidy Notification • सरकारी सब्सिडी सूचना 2026:
+              </strong>
+              <p className="text-slate-200 mt-0.5">
+                PM Surya Ghar subsidy valid till <strong>31st March 2027</strong>. 3 kW system at only <strong>₹1,800/month</strong> bank EMI.
+              </p>
+              <p className="text-emerald-300 font-medium text-[11px]">
+                3 किलोवाट सोलर प्लांट मात्र ₹1,800 प्रति माह बैंक ईएमआई पर स्थापित कराएं!
               </p>
             </div>
           </div>
           <a
             href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(
-              "Hello Er. Satyaprakash, please send me the official PM Surya Ghar quotation sheet for my home."
+              "Hello Er. Satyaprakash, please send me the official Satyarthi Solar Solution quotation sheet for my home."
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap"
+            className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
           >
-            Request Rate PDF on WhatsApp
+            Request Rate PDF | पीडीएफ मंगवाएं
           </a>
         </div>
 

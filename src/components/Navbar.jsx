@@ -113,16 +113,15 @@ function Navbar({ onOpenAdmin }) {
               />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-sans">
-                  SATYARTHI
-                </span>
-                <span className="text-xl sm:text-2xl font-black text-emerald-600">
-                  SOLAR
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 font-sans">
+                  SATYARTHI SOLAR SOLUTION
                 </span>
               </div>
-              <p className="text-[10px] font-bold tracking-wider text-blue-800 uppercase">
-                UPNEDA Approved • यूपीनेडा अधिकृत वेंडर • Gorakhpur
+              <p className="text-[10px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1.5">
+                <span>सत्यार्थी सोलर सॉल्यूशन</span>
+                <span className="text-slate-300">•</span>
+                <span className="text-blue-800">UPNEDA Approved ({businessData.vendorCode})</span>
               </p>
             </div>
           </a>

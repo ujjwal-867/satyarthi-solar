@@ -144,16 +144,22 @@ function Hero() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* =========================================================================
-          CLEAN WHITE SAAS / AI-ATS BACKGROUND GRID & GLOWS (BLUE & GREEN PALETTE)
+          LANDING PAGE BACKGROUND: UPLOADED SOLAR SUNBURST IMAGE WITH 65% WHITE FADING
       ========================================================================= */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Subtle Engineering Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/brand/landing-hero-bg.jpg"
+          alt="Satyarthi Solar Solution Solar Installation"
+          className="w-full h-full object-cover object-center filter brightness-105 saturate-110"
+        />
+        {/* 65% White Fading Wash for clean professional contrast */}
+        <div className="absolute inset-0 bg-white/65 backdrop-blur-[1.5px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-white/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/60"></div>
 
         {/* Ambient Clean Tech Mesh Glows */}
-        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 left-10 w-96 h-96 bg-emerald-400/15 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 right-10 w-80 h-80 bg-teal-400/15 rounded-full blur-3xl"></div>
+        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 left-10 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* =========================================================================
@@ -175,7 +181,7 @@ function Hero() {
             <motion.div 
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="inline-flex items-center gap-2.5 bg-emerald-50 border border-emerald-300 text-emerald-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-xs"
+              className="inline-flex items-center gap-2.5 bg-emerald-50/90 border border-emerald-300 text-emerald-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-xs backdrop-blur-xs"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>UPNEDA Empanelled Vendor</span>
@@ -186,18 +192,25 @@ function Hero() {
               </span>
             </motion.div>
 
-            {/* Main Headline (Simultaneous English + Hindi) */}
+            {/* Business Name Badge & Main Headline (Satyarthi Solar Solution) */}
             <motion.div variants={itemVariants} className="space-y-2">
+              <div className="inline-flex items-center gap-2 bg-blue-50/90 border border-blue-200 text-blue-900 px-3.5 py-1 rounded-xl text-xs font-black tracking-wide backdrop-blur-xs">
+                <Sun className="w-3.5 h-3.5 text-amber-500" />
+                <span>Satyarthi Solar Solution</span>
+                <span className="text-blue-300">•</span>
+                <span className="text-emerald-700">सत्यार्थी सोलर सॉल्यूशन</span>
+              </div>
+
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.12] text-slate-900">
                 Switch to Clean Energy with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600">
-                  Trusted Solar Solutions
+                  Satyarthi Solar Solution
                 </span>
               </h1>
               
               {/* Simultaneous Hindi Title */}
               <h2 className="text-xl sm:text-2xl lg:text-[1.65rem] font-extrabold text-emerald-700 tracking-tight leading-snug">
-                विश्वसनीय सोलर समाधान से अपनाएं स्वच्छ ऊर्जा • <span className="text-blue-700">बिजली बिल शून्य बनाएं</span>
+                सत्यार्थी सोलर सॉल्यूशन • <span className="text-blue-700">विश्वसनीय सोलर से बिजली बिल शून्य बनाएं</span>
               </h2>
             </motion.div>
 
