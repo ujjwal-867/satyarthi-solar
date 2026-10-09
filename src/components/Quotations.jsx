@@ -13,12 +13,16 @@ import {
   ShieldCheck, 
   Calendar 
 } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 function Quotations() {
+  const { lang, t } = useLanguage();
   const [selectedFlyer, setSelectedFlyer] = useState(null);
 
   const handleWhatsAppQuote = (flyerTitle) => {
-    const text = `Hello Er. Satyaprakash, I saw the official quotation chart for "${flyerTitle}". Please send me the detailed itemized estimate and book a site visit.`;
+    const text = lang === "hi"
+      ? `नमस्ते इंजी. सत्यप्रकाश जी, मैंने "${flyerTitle}" का कोटेशन चार्ट देखा। कृपया मुझे विस्तृत एस्टीमेट भेजें व साइट विजिट तय करें।`
+      : `Hello Er. Satyaprakash, I saw the official quotation chart for "${flyerTitle}". Please send me the detailed itemized estimate and book a site visit.`;
     window.open(`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -30,13 +34,19 @@ function Quotations() {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
             <Coins className="w-3.5 h-3.5 text-amber-600" />
-            Official Rate Cards & Quotation Flyers
+            {lang === "hi" ? "सरकारी सब्सिडी उपरांत सोलर रेट्स" : "Official Rate Cards & Quotation Flyers"}
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Official Solar <span className="text-amber-500">Quotations & Pricing</span> Charts
+            {lang === "hi" ? (
+              <>सोलर <span className="text-amber-500">कोटेशन एवं रेट</span> चार्ट्स</>
+            ) : (
+              <>Official Solar <span className="text-amber-500">Quotations & Pricing</span> Charts</>
+            )}
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            Transparent pricing as per UPNEDA and MNRE guidelines. Inspect our officially published rate flyers, PM Surya Ghar subsidy matrices, and bank loan EMI offers.
+            {lang === "hi"
+              ? "यूपीनेडा और एमएनआरई दिशा-निर्देशों के अनुसार पारदर्शी मूल्य निर्धारण। आधिकारिक दर पत्रक, पीएम सूर्य घर सब्सिडी विवरण और बैंक लोन ईएमआई ऑफर देखें।"
+              : "Transparent pricing as per UPNEDA and MNRE guidelines. Inspect our officially published rate flyers, PM Surya Ghar subsidy matrices, and bank loan EMI offers."}
           </p>
         </div>
 

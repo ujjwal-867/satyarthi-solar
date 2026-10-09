@@ -19,18 +19,20 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AIChatbot from "./components/AIChatbot";
 import Footer from "./components/Footer";
 import AdminModal from "./components/AdminModal";
+import { LanguageProvider } from "./context/LanguageContext";
 
-function App() {
+function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [selectedQuote, setSelectedQuote] = useState(null);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950">
-      {/* Sticky Header with UPNEDA Verification & Official Logo */}
+      {/* Sticky Header with UPNEDA Verification, Streamlined Nav & Language Switcher */}
       <Navbar onOpenAdmin={() => setIsAdminOpen(true)} />
 
       {/* Main Content Sections */}
       <main>
+        {/* Strictly Solar Hero with Side-by-Side Responsive Layout & Continuous High-Res Image Slider */}
         <Hero />
         <Stats />
         <SubsidySection />
@@ -39,7 +41,7 @@ function App() {
         <Services />
         <Appliances />
         <Products />
-        {/* Bento Grid Picture Gallery featuring real site installations, showroom hoarding, flyers & Google Maps photos */}
+        {/* Bento Grid Picture Gallery featuring real site installations, showroom hoarding & flyers */}
         <BentoGallery />
         <Certificates />
         <About />
@@ -51,10 +53,10 @@ function App() {
         <Contact prefilledData={selectedQuote} />
       </main>
 
-      {/* Intelligent AI Solar Assistant (Surya Mitra AI) with Basic FAQs */}
+      {/* Intelligent AI Solar Assistant (Surya Mitra AI) on Bottom-Right */}
       <AIChatbot />
 
-      {/* Floating Sticky Actions for Indian Mobile Users */}
+      {/* Floating WhatsApp on Bottom-Left (clean separation & wide gap from Chatbot) */}
       <FloatingWhatsApp />
 
       {/* Comprehensive Footer */}
@@ -66,6 +68,14 @@ function App() {
         onClose={() => setIsAdminOpen(false)} 
       />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
 

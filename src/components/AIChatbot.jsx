@@ -17,8 +17,10 @@ import {
   ChevronRight,
   ExternalLink
 } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export function AIChatbot() {
+  const { lang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -238,12 +240,12 @@ export function AIChatbot() {
 
   return (
     <>
-      {/* Floating Trigger Button (Positioned at bottom-left or above WhatsApp) */}
-      <div className="fixed bottom-24 right-6 sm:bottom-24 sm:right-6 z-40 flex flex-col items-end gap-1">
+      {/* Floating Trigger Button (Positioned cleanly at BOTTOM-RIGHT, separated from WhatsApp on bottom-left) */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
         {hasUnread && !isOpen && (
           <div className="bg-slate-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-2xl shadow-xl border border-amber-400/50 flex items-center gap-1.5 animate-bounce">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-            <span>Ask Surya AI • Subsidies & Rates</span>
+            <span>{lang === "hi" ? "सूर्य साथी AI • सब्सिडी व रेट्स" : "Surya AI • Subsidies & Rates"}</span>
           </div>
         )}
 
@@ -267,9 +269,9 @@ export function AIChatbot() {
         </button>
       </div>
 
-      {/* Expanded AI Chatbot Window */}
+      {/* Expanded AI Chatbot Window (docks neatly above trigger at bottom-24 right-4 sm:right-6) */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 sm:bottom-20 sm:right-24 z-50 w-[95vw] sm:w-[410px] max-h-[85vh] h-[600px] bg-white rounded-3xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed bottom-24 right-3 sm:right-6 z-50 w-[95vw] sm:w-[410px] max-h-[80vh] h-[580px] bg-white rounded-3xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
           
           {/* Header */}
           <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
