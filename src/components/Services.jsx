@@ -70,25 +70,22 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative">
+    <section id="services" className="py-14 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-2">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
+        {/* Section Header - Short & Punchy */}
+        <div className="text-center max-w-2xl mx-auto space-y-1.5">
+          <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wider shadow-xs">
             <Zap className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Solar Engineering Solutions • प्रमुख सोलर सेवाएं</span>
+            <span>Core Solar Pillars • प्रमुख सेवाएं</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Our Core Solar <span className="text-emerald-600">Solutions</span>
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-1 font-hindi">
-              सत्यार्थी सोलर सॉल्यूशन — प्रमुख सोलर सेवाएं
-            </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Specialized Solar <span className="text-emerald-600">Engineering</span>
           </h2>
 
-          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
-            Turnkey engineering from residential rooftops to heavy commercial establishments and solar flour mills.
+          <p className="text-slate-600 text-xs sm:text-sm max-w-lg mx-auto">
+            Direct turnkey EPC engineering for homes, commercial establishments, and diesel-free flour mills.
           </p>
         </div>
 

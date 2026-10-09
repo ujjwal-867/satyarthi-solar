@@ -100,7 +100,7 @@ export function AIChatbot() {
         text: `☀️ **PM Surya Ghar: Muft Bijli Yojana (आधिकारिक नई दरें व सब्सिडी):**\n\n• **1 kW On-Grid:** ₹85,000 से शुरू | कुल सब्सिडी ₹45,000 ➔ **नेट लागत मात्र ₹40,000***\n• **2 kW On-Grid:** ₹1,40,000 से शुरू | कुल सब्सिडी ₹90,000 ➔ **नेट लागत मात्र ₹50,000***\n• **3 kW On-Grid:** ₹1,90,000 से शुरू | कुल सब्सिडी ₹1,08,000 (अधिकतम) ➔ **नेट लागत मात्र ₹82,000***\n\n✅ **आसान बैंक लोन:** 7% न्यूनतम ब्याज दर पर आसान EMI (₹650 - ₹1,800/माह)।\n✅ **मासिक बचत:** हर महीने ₹1,200 से ₹4,500 की सीधी बिजली बिल बचत!`,
         action: {
           label: "View Rates & Subsidy | दरें देखें",
-          url: "#subsidy"
+          url: "/on-grid"
         }
       };
     }
@@ -121,8 +121,8 @@ export function AIChatbot() {
       return {
         text: `❄️ **Satyarthi Solar & Home Electronics Showroom:**\n\nAlong with solar, we are an authorized dealer for **24+ leading electronics brands**:\n\n• **Air Conditioners:** 5-Star Dual-Inverter Split ACs (LG, Lloyd, Voltas, Samsung, Haier)\n• **Refrigerators:** Double-door frost-free inverter fridges (Godrej, Whirlpool, LG)\n• **Desert Coolers:** Heavy-duty 85L honey-comb pad coolers (Bajaj, Crompton, Symphony)\n• **Washing Machines & Geysers:** Fully automatic front/top loads & 25L 5-star geysers\n\n💡 **Zero-Bill Solar Combo:** We design specialized solar systems that run your AC & Fridge entirely free of electricity bills!`,
         action: {
-          label: "Explore Appliances Store",
-          url: "#appliances"
+          label: "Explore Appliances Store ↗",
+          url: "/appliances"
         }
       };
     }
@@ -132,8 +132,8 @@ export function AIChatbot() {
       return {
         text: `🌾 **Solar Aata Chakki (Flour Mill) & Agro Systems:**\n\n• **Zero Diesel:** Runs 10 HP to 25 HP heavy motors directly on solar VFD drive without expensive batteries!\n• **Daily Operation:** Runs 8 hours continuously under the sun (8:30 AM to 5:00 PM).\n• **Massive Monthly Savings:** Saves **₹25,000 - ₹45,000 every month** on diesel!\n• **Payback Period:** Pays for itself in just 12 to 16 months.\n• **Successful Sites:** Operational across Kushinagar, Gorakhpur, and Deoria.`,
         action: {
-          label: "View Flour Mill Details",
-          url: "#services"
+          label: "View Flour Mill & Rates ↗",
+          url: "/off-grid"
         }
       };
     }
