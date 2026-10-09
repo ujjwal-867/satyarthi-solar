@@ -82,9 +82,30 @@ function SubsidySection() {
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Get up to <strong className="text-slate-900 font-bold">₹1,08,000 Total Subsidy</strong> (₹78,000 Central + ₹30,000 UP State) directly in your bank account. As an official UPNEDA empanelled vendor (Code: <strong className="text-emerald-700">{businessData.vendorCode}</strong>), <strong>Satyarthi Solar Solution</strong> handles 100% of the government paperwork for you.
           </p>
-          <p className="text-emerald-800 font-semibold text-xs sm:text-sm bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
-            🇮🇳 केंद्र व उत्तर प्रदेश सरकार द्वारा प्रमाणित वेंडर कोड <strong>{businessData.vendorCode}</strong> द्वारा सम्पूर्ण फाइल प्रोसेसिंग व गारंटीड बैंक सब्सिडी।
-          </p>
+
+          {/* Official Bank Loan & Transparent Net Payable Feature Box */}
+          <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 border-2 border-emerald-300 text-slate-800 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                <Banknote className="w-6 h-6 text-white" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="font-black text-sm sm:text-base text-slate-900 leading-snug">
+                  🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी।
+                </p>
+                <p className="text-xs sm:text-sm font-extrabold text-emerald-800">
+                  ⚡ 6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Easy Solar Bank Loan)।
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => scrollToContact("Loan & Subsidy Assistance")}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs px-5 py-2.5 rounded-xl transition shadow-xs shrink-0 cursor-pointer whitespace-nowrap flex items-center gap-1.5"
+            >
+              <span>लोन सहायता लें</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
         {/* Subsidy Cards Grid */}

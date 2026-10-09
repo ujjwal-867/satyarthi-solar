@@ -4,17 +4,12 @@ import BrandHeadlineTicker from "./components/BrandHeadlineTicker";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import SubsidySection from "./components/SubsidySection";
-import Quotations from "./components/Quotations";
-import Calculator from "./components/Calculator";
 import Services from "./components/Services";
 import Appliances from "./components/Appliances";
-import Products from "./components/Products";
 import BentoGallery from "./components/BentoGallery";
 import Certificates from "./components/Certificates";
 import About from "./components/About";
-import LocationMap from "./components/LocationMap";
 import Testimonials from "./components/Testimonials";
-import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AIChatbot from "./components/AIChatbot";
@@ -24,7 +19,6 @@ import { LanguageProvider } from "./context/LanguageContext";
 
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
-  const [selectedQuote, setSelectedQuote] = useState(null);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950">
@@ -34,27 +28,27 @@ function AppContent() {
       {/* Website Master Headline Bar: Primary Dealer of All Leading Solar Brands */}
       <BrandHeadlineTicker />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections - Spacious & Clean Modern Layout */}
       <main>
-        {/* Strictly Solar Hero with Side-by-Side Responsive Layout & Continuous High-Res Image Slider */}
+        {/* Strictly Solar Hero with Side-by-Side Responsive Layout & High-Res Image Slider */}
         <Hero />
         <Stats />
+        {/* Official PM Surya Ghar Subsidy Scheme & Official Price List */}
         <SubsidySection />
-        <Quotations />
-        <Calculator onSelectQuote={(data) => setSelectedQuote(data)} />
+        {/* Solar Solutions & Aata Chakki EPC Services */}
         <Services />
+        {/* Solar + Electronics Home Appliances Store & Zero-Bill Summer Combo */}
         <Appliances />
-        <Products />
-        {/* Bento Grid Picture Gallery featuring real site installations, showroom hoarding & flyers */}
+        {/* Bento Grid Picture Gallery featuring real site installations */}
         <BentoGallery />
+        {/* Verified Government Empanelment & Dealership Certificates */}
         <Certificates />
+        {/* About Satyarthi Solar & Er. Satyaprakash */}
         <About />
-        {/* Interactive Google Map Location at Motiram Adda Gorakhpur */}
-        <LocationMap />
+        {/* Verified Customer Reviews & Google Ratings */}
         <Testimonials />
-        <FAQ />
-        {/* High-Converting Lead Generation & Contact */}
-        <Contact prefilledData={selectedQuote} />
+        {/* High-Converting Lead Generation & Survey Booking */}
+        <Contact />
       </main>
 
       {/* Intelligent AI Solar Assistant (Surya Mitra AI) on Bottom-Right */}

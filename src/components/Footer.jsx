@@ -77,57 +77,37 @@ function Footer({ onOpenAdmin }) {
               </li>
               <li>
                 <button onClick={() => scrollTo("#subsidy")} className="hover:text-emerald-400 transition cursor-pointer text-emerald-300 font-semibold">
-                  PM Surya Ghar | सब्सिडी
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollTo("#quotations")} className="hover:text-emerald-400 transition cursor-pointer text-blue-300 font-semibold">
-                  Quotations | कोटेशन
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollTo("#calculator")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Calculator | कैलकुलेटर
+                  PM Surya Ghar Rates | सब्सिडी व दरें
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo("#services")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Services | सेवाएं
+                  Solar Solutions | सोलर सेवाएं
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo("#appliances")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Appliances | इलेक्ट्रॉनिक्स
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollTo("#products")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Products | उपकरण
+                  Appliances | इलेक्ट्रॉनिक्स स्टोर
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo("#gallery")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Gallery | गैलरी
+                  Site Gallery | रियल प्रोजेक्ट्स
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo("#certificates")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Certificates | प्रमाणपत्र
+                  Certificates | सरकारी मान्यता
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo("#about")} className="hover:text-emerald-400 transition cursor-pointer">
-                  About | परिचय
+                  About | इंजी. सत्यप्रकाश
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo("#location")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Location | मैप
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollTo("#contact")} className="hover:text-emerald-400 transition cursor-pointer">
-                  Contact | संपर्क
+                <button onClick={() => scrollTo("#contact")} className="hover:text-emerald-400 transition cursor-pointer text-blue-300 font-bold">
+                  Book Site Survey | संपर्क
                 </button>
               </li>
             </ul>

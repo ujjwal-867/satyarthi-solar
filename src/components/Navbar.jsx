@@ -17,12 +17,12 @@ function Navbar({ onOpenAdmin }) {
   // Simultaneous English + Hindi Navigation Links
   const navLinks = [
     { en: "Home", hi: "होम", href: "#hero" },
-    { en: "PM Surya Ghar", hi: "सब्सिडी", href: "#subsidy" },
-    { en: "Quotations", hi: "कोटेशन", href: "#quotations" },
-    { en: "Certificates", hi: "प्रमाणपत्र", href: "#certificates" },
+    { en: "PM Surya Ghar", hi: "सब्सिडी व दरें", href: "#subsidy" },
+    { en: "Solutions", hi: "सेवाएं", href: "#services" },
+    { en: "Appliances", hi: "इलेक्ट्रॉनिक्स", href: "#appliances" },
     { en: "Gallery", hi: "गैलरी", href: "#gallery" },
-    { en: "Calculator", hi: "कैलकुलेटर", href: "#calculator" },
-    { en: "Location", hi: "लोकेशन", href: "#location" },
+    { en: "Certificates", hi: "प्रमाणपत्र", href: "#certificates" },
+    { en: "About", hi: "परिचय", href: "#about" },
     { en: "Contact", hi: "संपर्क", href: "#contact" },
   ];
 
@@ -149,7 +149,7 @@ function Navbar({ onOpenAdmin }) {
             <motion.button
               whileHover={{ scale: 1.03, y: -1 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => handleScroll("#quotations")}
+              onClick={() => handleScroll("#contact")}
               className="inline-flex items-center gap-2 text-xs font-black text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-4 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30"
             >
               <FileText className="w-4 h-4 text-white" />
@@ -160,7 +160,7 @@ function Navbar({ onOpenAdmin }) {
           {/* Mobile Right Controls: Toggle */}
           <div className="flex items-center gap-2 xl:hidden">
             <button
-              onClick={() => handleScroll("#quotations")}
+              onClick={() => handleScroll("#contact")}
               className="text-xs font-black text-white bg-emerald-600 px-3 py-2 rounded-xl sm:hidden shadow-xs"
             >
               Quote | कोटेशन
@@ -198,7 +198,7 @@ function Navbar({ onOpenAdmin }) {
 
           <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
             <button
-              onClick={() => handleScroll("#quotations")}
+              onClick={() => handleScroll("#contact")}
               className="w-full inline-flex justify-center items-center gap-2 bg-gradient-to-r from-emerald-600 to-blue-700 text-white font-black py-3 rounded-xl shadow-xs"
             >
               <FileText className="w-5 h-5" />

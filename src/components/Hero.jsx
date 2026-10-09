@@ -271,7 +271,7 @@ function Hero() {
               <motion.button
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => scrollTo("#quotations")}
+                onClick={() => scrollTo("#contact")}
                 className="inline-flex items-center gap-2.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-xl shadow-emerald-600/30 transition cursor-pointer text-sm sm:text-base border border-emerald-400/40"
               >
                 <FileText className="w-5 h-5 text-white" />
