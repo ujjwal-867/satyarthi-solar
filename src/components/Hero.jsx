@@ -108,7 +108,7 @@ function Hero() {
           FULL-SCREEN CONTINUOUS BACKGROUND SOLAR IMAGE SLIDESHOW
       ========================================================================= */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <AnimatePresence mode="sync">
+        <AnimatePresence>
           <motion.div
             key={currentSlide}
             initial={{ opacity: 0, scale: 1.04 }}
