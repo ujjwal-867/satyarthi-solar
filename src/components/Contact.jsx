@@ -16,6 +16,12 @@ import {
   PhoneCall
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
+import {
+  ExpressiveKineticText,
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton,
+  LiveActivityStreamBadge
+} from "./MotionEffects";
 
 function Contact({ prefilledData }) {
   const [formData, setFormData] = useState({
@@ -137,13 +143,35 @@ function Contact({ prefilledData }) {
 
   return (
     <section id="contact" className="py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+      {/* Real-Time Collaborative Engineering Cursors */}
+      <CollaborativeCursorsOverlay
+        cursors={[
+          {
+            name: "Survey Desk • Gorakhpur",
+            badge: "24×7 Roof Analysis",
+            color: "bg-emerald-500 text-slate-950",
+            pathX: ["5%", "18%", "10%", "5%"],
+            pathY: ["14%", "36%", "64%", "14%"],
+            duration: 16
+          },
+          {
+            name: "Er. Satyaprakash",
+            badge: "UPNEDA Subsidy Support",
+            color: "bg-sky-500 text-slate-950",
+            pathX: ["86%", "74%", "81%", "86%"],
+            pathY: ["18%", "48%", "28%", "18%"],
+            duration: 18
+          }
+        ]}
+      />
+
       {/* Background Soft Ambient Lights */}
       <div className="absolute top-1/3 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
+        {/* Section Header with Expressive Kinetic Typography */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,13 +179,19 @@ function Contact({ prefilledData }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto space-y-3"
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Empanelled Solar Contractor • UPNEDA अधिकृत वेंडर</span>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>Empanelled Solar Contractor • UPNEDA अधिकृत वेंडर</span>
+            </div>
+            <LiveActivityStreamBadge />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Get Your Free Site Survey & <span className="text-blue-600">Customized Quote</span>
+            <ExpressiveKineticText
+              text="Get Your Free Site Survey & Customized Quote"
+              highlightWords={["Free", "Site", "Survey", "Quote"]}
+            />
             <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
               निःशुल्क रूफ सर्वे एवं आधिकारिक कोटेशन प्राप्त करें
             </span>
@@ -172,7 +206,7 @@ function Contact({ prefilledData }) {
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="mt-14 grid lg:grid-cols-12 gap-10 items-start">
+        <div className="mt-14 grid lg:grid-cols-12 gap-10 items-start" style={{ perspective: "1100px" }}>
           
           {/* Left Column: Office Details & Map (5 cols) */}
           <motion.div 
@@ -183,12 +217,19 @@ function Contact({ prefilledData }) {
             className="lg:col-span-5 space-y-6"
           >
             
-            {/* Quick Contact Card */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 backdrop-blur-md space-y-6 shadow-xl">
-              <h3 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
-                <span>Company Information</span>
-                <span className="text-xs text-emerald-700 font-bold font-hindi">कंपनी विवरण</span>
-              </h3>
+            {/* Quick Contact 3D Bento Card */}
+            <motion.div
+              whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
+              className="relative bg-white border border-slate-200 hover:border-emerald-400 rounded-3xl p-6 sm:p-8 backdrop-blur-md space-y-6 shadow-xl transition-all duration-300 group overflow-hidden"
+            >
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/70 to-transparent pointer-events-none" />
+              <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Company Information</h3>
+                  <span className="text-xs text-emerald-700 font-bold font-hindi">कंपनी विवरण • 2500+ संतुष्ट परिवार</span>
+                </div>
+                <InteractiveZapBurstButton initialCount={264} label="24×7" />
+              </div>
 
               <div className="space-y-4 text-sm">
                 {/* Phone */}
@@ -306,7 +347,7 @@ function Contact({ prefilledData }) {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Google Map Embedded Frame */}
             <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg">

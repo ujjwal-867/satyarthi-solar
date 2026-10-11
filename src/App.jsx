@@ -96,18 +96,21 @@ function AppContent() {
           onNavigateHome={() => navigateTo("/")}
           onNavigate={navigateTo}
           onOpenAdmin={() => setIsAdminOpen(true)}
+          onOpenCalculator={() => setIsCalculatorOpen(true)}
         />
       ) : currentRoute === "/off-grid" ? (
         <OffGridPage 
           onNavigateHome={() => navigateTo("/")}
           onNavigate={navigateTo}
           onOpenAdmin={() => setIsAdminOpen(true)}
+          onOpenCalculator={() => setIsCalculatorOpen(true)}
         />
       ) : currentRoute === "/appliances" || currentRoute === "/electronics" ? (
         <ElectronicsPage 
           onNavigateHome={() => navigateTo("/")}
           onNavigate={navigateTo}
           onOpenAdmin={() => setIsAdminOpen(true)}
+          onOpenCalculator={() => setIsCalculatorOpen(true)}
         />
       ) : currentRoute === "/gallery" ? (
         <GalleryPage 

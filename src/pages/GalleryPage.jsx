@@ -1,5 +1,6 @@
 import { BentoGallery } from "../components/BentoGallery";
 import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
+import PortalNavigationHub from "../components/PortalNavigationHub";
 import Footer from "../components/Footer";
 
 export default function GalleryPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
@@ -11,6 +12,12 @@ export default function GalleryPage({ onNavigateHome, onNavigate, onOpenAdmin, o
 
         {/* Interactive 3D AR/VR Solar Roof Visualizer */}
         <ARVRSolarVisualizer
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
+
+        {/* Compact Single-Row 6-Button Portal Navigation Bar */}
+        <PortalNavigationHub
           onNavigate={onNavigate || onNavigateHome}
           onOpenCalculator={onOpenCalculator}
         />

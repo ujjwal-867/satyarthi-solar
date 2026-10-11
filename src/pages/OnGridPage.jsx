@@ -1,8 +1,18 @@
-import { Sparkles, ShieldCheck, Banknote, ArrowRight, Zap, CheckCircle2, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { Sparkles, ShieldCheck, Banknote, ArrowRight, Zap } from "lucide-react";
 import { businessData } from "../data/businessData";
+import PortalNavigationHub from "../components/PortalNavigationHub";
+import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
 import Footer from "../components/Footer";
+import {
+  ExpressiveKineticText,
+  KineticMarqueeStrip,
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton,
+  LiveActivityStreamBadge
+} from "../components/MotionEffects";
 
-export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) {
+export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
   const { subsidyData } = businessData;
 
   const stepsBilingual = [
@@ -51,16 +61,44 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) 
   return (
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Hero Section */}
+        {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
         <section className="py-16 bg-gradient-to-b from-blue-950 via-slate-900 to-emerald-950 text-white relative overflow-hidden text-center">
+          <CollaborativeCursorsOverlay
+            cursors={[
+              {
+                name: "PM Surya Ghar Portal",
+                badge: "₹1,08,000 DBT Active",
+                color: "bg-emerald-500 text-slate-950",
+                pathX: ["5%", "18%", "11%", "5%"],
+                pathY: ["18%", "46%", "68%", "18%"],
+                duration: 15
+              },
+              {
+                name: "UPPCL Net-Meter",
+                badge: "GKP2604066741 Verified",
+                color: "bg-sky-400 text-slate-950",
+                pathX: ["84%", "70%", "78%", "84%"],
+                pathY: ["22%", "54%", "32%", "22%"],
+                duration: 18
+              }
+            ]}
+          />
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Official Government Subsidy Portal 2026 • आधिकारिक दर सूची</span>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Official Government Subsidy Portal 2026 • 2500+ Happy Clients</span>
+              </div>
+              <LiveActivityStreamBadge dark />
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              PM Surya Ghar: <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400">On-Grid Solar Rates</span>
+              <ExpressiveKineticText
+                text="PM Surya Ghar: On-Grid Solar Rates"
+                highlightWords={["On-Grid", "Solar", "Rates"]}
+                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400"
+              />
             </h1>
 
             <h2 className="text-xl sm:text-2xl font-bold text-emerald-300 font-hindi">
@@ -72,7 +110,10 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) 
             </p>
 
             {/* Official Highlight Banner Requested by User */}
-            <div className="mt-6 max-w-3xl mx-auto p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <motion.div
+              whileHover={{ y: -4, scale: 1.01 }}
+              className="mt-6 max-w-3xl mx-auto p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+            >
               <div className="flex items-center gap-3.5">
                 <div className="w-11 h-11 rounded-2xl bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 font-black">
                   <Banknote className="w-6 h-6 text-slate-950" />
@@ -94,68 +135,98 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) 
               >
                 लोन सहायता लें ↗
               </a>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Pricing Cards Grid */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Expressive Kinetic Marquee Ribbon */}
+        <KineticMarqueeStrip
+          items={[
+            "1 KW ON-GRID ₹85,000",
+            "2 KW ON-GRID ₹1,40,000",
+            "3 KW ON-GRID ₹1,90,000",
+            "5 KW SPECIAL RATE ₹3,00,000",
+            "10 KW SPECIAL RATE ₹6,00,000",
+            "UP TO ₹1,08,000 GOVT SUBSIDY"
+          ]}
+        />
+
+        {/* Pricing Cards 3D Bento Grid */}
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="text-center mb-10">
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-              Official On-Grid Price List & Net Cost Breakdown
+              <ExpressiveKineticText
+                text="Official On-Grid Price List & Net Cost Breakdown"
+                highlightWords={["On-Grid", "Price", "List"]}
+              />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
               सभी 5 प्रमुख क्षमताएं — आधिकारिक नई विशेष दरें एवं सब्सिडी के बाद शुद्ध देय राशि
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5" style={{ perspective: "1100px" }}>
             {subsidyData.tiers.map((tier, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className={`relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 ${
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.07 }}
+                whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
+                className={`group relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 overflow-hidden ${
                   tier.bestValue
                     ? "bg-gradient-to-b from-blue-900 via-slate-900 to-emerald-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-emerald-400"
                     : tier.popular
-                    ? "bg-white text-slate-900 border-2 border-emerald-600 shadow-lg"
-                    : "bg-white text-slate-900 border border-slate-200 shadow-xs"
+                    ? "bg-white text-slate-900 border-2 border-emerald-600 shadow-lg hover:shadow-2xl"
+                    : "bg-white text-slate-900 border border-slate-200 hover:border-emerald-400 shadow-xs hover:shadow-2xl"
                 }`}
               >
+                {/* Animated Shimmer Sweep */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
+
                 {/* Badges */}
                 {tier.bestValue && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                  <div className="bg-emerald-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     ★ Best Value | सबसे लोकप्रिय
                   </div>
                 )}
                 {tier.popular && !tier.bestValue && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                  <div className="bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     Most Popular | अनुशंसित
                   </div>
                 )}
                 {tier.specialOffer && !tier.bestValue && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                  <div className="bg-amber-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     ★ Special Offer | विशेष दर
                   </div>
                 )}
                 {tier.commercialGrade && !tier.bestValue && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                  <div className="bg-indigo-600 text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     Commercial | उच्च क्षमता
                   </div>
                 )}
 
-                <div>
-                  <div className="flex items-baseline justify-between">
-                    <h4 className={`text-xl font-black ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
-                      {tier.capacity}
-                    </h4>
-                    <span className={`text-[11px] font-bold ${tier.bestValue ? "text-emerald-300" : "text-emerald-700"}`}>
-                      {tier.capacityHi || "सोलर प्लांट"}
-                    </span>
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between gap-1">
+                    <div>
+                      <h4 className={`text-xl font-black ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
+                        {tier.capacity}
+                      </h4>
+                      <span className={`text-[11px] font-bold block ${tier.bestValue ? "text-emerald-300" : "text-emerald-700"}`}>
+                        {tier.capacityHi || "सोलर प्लांट"}
+                      </span>
+                    </div>
+                    <InteractiveZapBurstButton
+                      initialCount={110 + idx * 34}
+                      label=""
+                      dark={Boolean(tier.bestValue)}
+                    />
                   </div>
 
                   {/* Rate Badge Chip */}
                   {tier.rateBadge && (
-                    <div className={`mt-2 py-1 px-2.5 rounded-xl text-[11px] font-black flex items-center justify-center gap-1.5 shadow-xs ${
+                    <div className={`mt-2.5 py-1 px-2.5 rounded-xl text-[11px] font-black flex items-center justify-center gap-1.5 shadow-xs ${
                       tier.bestValue
                         ? "bg-amber-400 text-slate-950 ring-1 ring-amber-300"
                         : tier.specialOffer || tier.commercialGrade
@@ -226,7 +297,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) 
 
                 <button
                   onClick={() => handleApply(tier.capacity)}
-                  className={`w-full mt-6 py-2.5 rounded-xl font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                  className={`relative z-10 w-full mt-6 py-2.5 rounded-xl font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer ${
                     tier.bestValue
                       ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-md"
                       : "bg-emerald-600 text-white hover:bg-emerald-700"
@@ -235,11 +306,11 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) 
                   <span>Apply | आवेदन करें</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          {/* 5-Step Process Banner */}
+          {/* 5-Step Process Banner with 3D Bento Step Cards */}
           <div className="mt-14 bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl">
             <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -250,33 +321,50 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) 
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" style={{ perspective: "1000px" }}>
               {stepsBilingual.map((st, i) => (
-                <div key={i} className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 space-y-1">
-                  <span className="text-2xl font-black text-amber-400">{st.step}</span>
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.02 }}
+                  className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 hover:border-emerald-400/60 space-y-1 transition overflow-hidden"
+                >
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
+                  <span className="text-2xl font-black text-amber-400 block">{st.step}</span>
                   <h4 className="font-bold text-sm text-white">{st.title}</h4>
                   <p className="text-xs text-emerald-300 font-bold">{st.titleHi}</p>
                   <p className="text-xs text-slate-200 pt-1">{st.desc}</p>
                   <p className="text-[11px] text-emerald-100 font-medium">{st.descHi}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-emerald-100">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-                <span>UPNEDA Verified Empanelled EPC • Performance Bank Guarantee Active.</span>
+                <span>UPNEDA Verified Empanelled EPC • 2500+ Happy Clients Across UP.</span>
               </div>
               <button
                 type="button"
                 onClick={onNavigateHome}
-                className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0"
+                className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 cursor-pointer"
               >
                 Back to Main Home • सोलर होम
               </button>
             </div>
           </div>
         </section>
+
+        {/* Interactive 3D AR / VR Solar Roof & Sun-Path Visualizer */}
+        <ARVRSolarVisualizer
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
+
+        {/* Compact Single-Row 6-Button Portal Navigation Bar */}
+        <PortalNavigationHub
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
       </div>
 
       <Footer onOpenAdmin={onOpenAdmin} onNavigate={onNavigate || onNavigateHome} />

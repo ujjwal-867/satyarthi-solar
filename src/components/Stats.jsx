@@ -4,13 +4,16 @@ import { businessData } from "../data/businessData";
 import { 
   Award, 
   Sun, 
-  TrendingUp, 
   Star, 
   ShieldCheck, 
   Zap,
   Users,
   Radio
 } from "lucide-react";
+import {
+  ExpressiveKineticText,
+  InteractiveZapBurstButton
+} from "./MotionEffects";
 
 function AnimatedNumber({ targetText }) {
   const ref = useRef(null);
@@ -19,7 +22,6 @@ function AnimatedNumber({ targetText }) {
 
   useEffect(() => {
     if (!isInView) return;
-    // Extract numeric value if applicable (e.g. "2500+" -> 2500, "2,200+" -> 2200)
     const clean = targetText.replace(/,/g, "");
     const match = clean.match(/^(\d+)(\+?%?)$/);
     if (!match) {
@@ -37,7 +39,6 @@ function AnimatedNumber({ targetText }) {
     const step = (now) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * endVal);
       const formatted = hasComma ? current.toLocaleString("en-IN") : String(current);
@@ -81,6 +82,7 @@ function Stats() {
       hi: "2500+ संतुष्ट परिवार", 
       desc: "Purvanchal & Gorakhpur",
       icon: Users,
+      likes: 312,
       accent: "from-emerald-500/15 via-teal-500/5 to-transparent border-emerald-300 hover:border-emerald-500",
       iconStyle: "bg-emerald-600 text-white shadow-emerald-600/30",
       badge: "Verified Milestone"
@@ -92,6 +94,7 @@ function Stats() {
       hi: "सोलर क्षमता स्थापित", 
       desc: "Rooftops Across UP",
       icon: Sun,
+      likes: 184,
       accent: "from-amber-500/15 via-yellow-500/5 to-transparent border-amber-200 hover:border-amber-500",
       iconStyle: "bg-amber-500 text-slate-950 shadow-amber-500/30",
       badge: "High Yield"
@@ -103,6 +106,7 @@ function Stats() {
       hi: "5+ वर्षों का अनुभव", 
       desc: "Trusted Solar Engineering",
       icon: Award,
+      likes: 146,
       accent: "from-blue-500/15 via-sky-500/5 to-transparent border-blue-200 hover:border-blue-500",
       iconStyle: "bg-blue-600 text-white shadow-blue-600/30",
       badge: "ISO 9001:2015"
@@ -114,6 +118,7 @@ function Stats() {
       hi: "सरकारी स्वीकृति", 
       desc: "Code: GKP2604066741",
       icon: ShieldCheck,
+      likes: 215,
       accent: "from-teal-500/15 via-emerald-500/5 to-transparent border-teal-200 hover:border-teal-500",
       iconStyle: "bg-teal-600 text-white shadow-teal-600/30",
       badge: "Official Vendor"
@@ -125,6 +130,7 @@ function Stats() {
       hi: "पैनल वारंटी", 
       desc: "Tata, Adani, Waaree, Loom",
       icon: Star,
+      likes: 198,
       accent: "from-purple-500/15 via-indigo-500/5 to-transparent border-purple-200 hover:border-purple-500",
       iconStyle: "bg-purple-600 text-white shadow-purple-600/30",
       badge: "Tier-1 TOPCon"
@@ -136,6 +142,7 @@ function Stats() {
       hi: "सरकारी सब्सिडी", 
       desc: "Direct Bank DBT Disbursal",
       icon: Zap,
+      likes: 276,
       accent: "from-emerald-500/15 via-blue-500/5 to-transparent border-emerald-200 hover:border-emerald-500",
       iconStyle: "bg-slate-900 text-amber-400 shadow-slate-900/30",
       badge: "Direct DBT"
@@ -146,15 +153,15 @@ function Stats() {
     <section className="relative z-20 -mt-8 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-200/90 p-5 sm:p-8">
         
-        {/* Header strip with Real-Time Collaborative Activity Ticker */}
+        {/* Header strip with Expressive Kinetic Typography & Real-Time Collaborative Activity Ticker */}
         <div className="flex flex-col lg:flex-row justify-between items-center pb-5 mb-6 border-b border-slate-100 gap-3 text-center lg:text-left">
           <div>
-            <h3 className="text-base sm:text-lg font-black text-slate-900 flex flex-wrap items-center justify-center lg:justify-start gap-2">
-              <span className="whitespace-nowrap">Satyarthi Solar Solution</span>
-              <span className="text-slate-300 hidden sm:inline">•</span>
-              <span className="text-xs sm:text-sm font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                2500+ Happy Clients Across Uttar Pradesh
-              </span>
+            <h3 className="text-base sm:text-xl font-black text-slate-900 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+              <ExpressiveKineticText
+                text="Satyarthi Solar Solution • 2500+ Happy Clients"
+                highlightWords={["2500+", "Happy", "Clients"]}
+                className="!justify-start"
+              />
             </h3>
             <p className="text-xs text-slate-500 mt-1">
               UPNEDA Approved Vendor Code: <strong className="text-slate-800 font-mono">{businessData.vendorCode}</strong> • Primary Dealer of TATA, Adani, Waaree & Loom Solar
@@ -178,8 +185,8 @@ function Stats() {
           </motion.div>
         </div>
 
-        {/* Interactive 3D Bento Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        {/* Interactive 3D Bento Stats Grid with ⚡ Bursts */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5" style={{ perspective: "1000px" }}>
           {bilingualStats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
@@ -189,7 +196,7 @@ function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                whileHover={{ y: -6, scale: 1.03 }}
+                whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.03 }}
                 className={`group relative rounded-2xl p-4 bg-gradient-to-br ${stat.accent} border transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden cursor-default`}
               >
                 {/* Animated Shimmer Sweep on Hover */}
@@ -202,9 +209,7 @@ function Stats() {
                   >
                     <Icon className="w-4 h-4" />
                   </motion.div>
-                  <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/90 text-slate-700 border border-slate-200/80 shadow-2xs">
-                    {stat.badge}
-                  </span>
+                  <InteractiveZapBurstButton initialCount={stat.likes} label="" />
                 </div>
 
                 <div className="space-y-1 relative z-10">

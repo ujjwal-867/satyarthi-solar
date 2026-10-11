@@ -1,8 +1,18 @@
-import { BatteryCharging, Zap, CheckCircle2, ArrowRight, MessageCircle, Phone, Sparkles, Wheat } from "lucide-react";
+import { motion } from "framer-motion";
+import { BatteryCharging, MessageCircle, Phone, Wheat } from "lucide-react";
 import { businessData } from "../data/businessData";
+import PortalNavigationHub from "../components/PortalNavigationHub";
+import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
 import Footer from "../components/Footer";
+import {
+  ExpressiveKineticText,
+  KineticMarqueeStrip,
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton,
+  LiveActivityStreamBadge
+} from "../components/MotionEffects";
 
-export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) {
+export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
   const offGridTiers = [
     {
       capacity: "1 kW Off-Grid System",
@@ -13,7 +23,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
       idealFor: "1-2 Room Houses, basic lights, fans, TV, Wi-Fi router",
       inverterSpec: "12V / 24V Pure Sine Wave MPPT Solar PCU",
       panelSpec: "2x 550W High-Efficiency Mono PERC Panels",
-      backup: "4 - 6 Hours continuous backup during power outages"
+      backup: "4 - 6 Hours continuous backup during power outages",
+      likes: 118
     },
     {
       capacity: "2 kW Off-Grid System",
@@ -25,7 +36,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
       inverterSpec: "24V MPPT Intelligent Solar PCU",
       panelSpec: "4x 550W Tier-1 Mono PERC Panels",
       backup: "6 - 8 Hours reliable night-time battery backup",
-      popular: true
+      popular: true,
+      likes: 164
     },
     {
       capacity: "3 kW Off-Grid System",
@@ -37,7 +49,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
       inverterSpec: "48V Commercial Grade Pure Sine Wave PCU",
       panelSpec: "6x 550W Monocrystalline Half-Cut Panels",
       backup: "Heavy load backup including Inverter AC & Fridge",
-      bestValue: true
+      bestValue: true,
+      likes: 219
     },
     {
       capacity: "5 kW Hybrid Smart System",
@@ -49,7 +62,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
       inverterSpec: "Bi-directional Hybrid Solar Inverter with Grid Export",
       panelSpec: "10x 550W High-Efficiency Monocrystalline Panels",
       backup: "24x7 Uninterrupted Clean Power with Zero Cut",
-      specialOffer: true
+      specialOffer: true,
+      likes: 152
     },
     {
       capacity: "15 HP Solar Aata Chakki Drive",
@@ -61,7 +75,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
       inverterSpec: "Heavy Duty High-Torque Solar VFD (IP54 Enclosure)",
       panelSpec: "28x - 32x 550W High-Yield Solar Panels + Elevated Pillars",
       backup: "दिन भर 8 घंटे लगातार सूर्य से संचालन — हर माह ₹35,000+ डीजल बचत",
-      aataChakki: true
+      aataChakki: true,
+      likes: 243
     }
   ];
 
@@ -73,70 +88,118 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
   return (
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Hero Section */}
+        {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
         <section className="py-16 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
+          <CollaborativeCursorsOverlay
+            cursors={[
+              {
+                name: "Er. Satyaprakash",
+                badge: "24×7 Hybrid Storage",
+                color: "bg-amber-400 text-slate-950",
+                pathX: ["6%", "20%", "12%", "6%"],
+                pathY: ["18%", "48%", "66%", "18%"],
+                duration: 16
+              },
+              {
+                name: "15HP Chakki VFD",
+                badge: "Zero Diesel • Kushinagar",
+                color: "bg-emerald-500 text-slate-950",
+                pathX: ["83%", "68%", "77%", "83%"],
+                pathY: ["22%", "52%", "32%", "22%"],
+                duration: 18
+              }
+            ]}
+          />
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-              <BatteryCharging className="w-3.5 h-3.5 text-amber-400" />
-              <span>Independent Energy • 24x7 Power Backup Rate Card</span>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+                <BatteryCharging className="w-3.5 h-3.5 text-amber-400" />
+                <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
+              </div>
+              <LiveActivityStreamBadge dark />
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              Off-Grid & Hybrid Solar: <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200">Our True Rate List</span>
+              <ExpressiveKineticText
+                text="Off-Grid & Hybrid Solar: Our True Rate List"
+                highlightWords={["True", "Rate", "List"]}
+                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200"
+              />
             </h1>
 
             <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
-              ऑफ-ग्रिड सोलर एवं आटा चक्की ड्राइव • वास्तविक व पारदर्शी दर सूची
+              ऑफ-ग्रिड, हाइब्रिड बैटरी सोलर एवं 15 HP सोलर आटा चक्की की पारदर्शी दर सूची
             </h2>
 
-            <p className="max-w-3xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
-              No grid power cuts, no diesel expenses. Complete heavy-duty systems with pure sine wave solar PCUs, C10 tall tubular batteries, and 550W mono PERC panels engineered for Gorakhpur & Uttar Pradesh.
+            <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
+              Ideal for areas with frequent power cuts, rural homes, hospitals, and commercial flour mills. Genuine C10 solar tubular & LiFePO4 lithium battery banks.
             </p>
-
-            <div className="mt-6 inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
-                ★ Genuine Quality Assurance • हमारा संकल्प
-              </span>
-              <p className="text-xl font-black text-white font-hindi mt-0.5">
-                &ldquo;हम सस्ता नहीं, क्वालिटी लगाते हैं&rdquo;
-              </p>
-            </div>
           </div>
         </section>
 
-        {/* True Rates Grid */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Expressive Kinetic Marquee Ribbon */}
+        <KineticMarqueeStrip
+          items={[
+            "24×7 BATTERY BACKUP",
+            "15 HP SOLAR AATA CHAKKI VFD",
+            "C10 TALL TUBULAR & LIFEPO4 LITHIUM",
+            "UTL • LUMINOUS • EXIDE • FUJIYAMA",
+            "2500+ HAPPY FAMILIES IN UP"
+          ]}
+        />
+
+        {/* True Rate List 3D Bento Cards */}
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="text-center mb-10">
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-              Verified Off-Grid & Agro Solar Capacities
+              <ExpressiveKineticText
+                text="Verified Off-Grid & Solar Aata Chakki Packages"
+                highlightWords={["Off-Grid", "Aata", "Chakki"]}
+              />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              सत्यार्थी सोलर सॉल्यूशन — शुद्ध साइन वेव पीसीयू, सी-10 सोलर बैटरी व 25 वर्ष वारंटी पैनल
+              हम सस्ता नहीं, क्वालिटी लगाते हैं • 100% ओरिजिनल ब्रांडेड उपकरण
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: "1100px" }}>
             {offGridTiers.map((tier, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className={`rounded-3xl p-6 border flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.07 }}
+                whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
+                className={`group relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 overflow-hidden ${
                   tier.bestValue
-                    ? "bg-gradient-to-b from-blue-950 via-slate-900 to-slate-950 text-white border-blue-500/40 shadow-lg"
+                    ? "bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl ring-2 ring-amber-400"
                     : tier.aataChakki
-                    ? "bg-gradient-to-b from-amber-950/20 via-white to-amber-50/30 text-slate-900 border-amber-300 shadow-md"
-                    : "bg-white text-slate-900 border-slate-200"
+                    ? "bg-gradient-to-br from-amber-50 to-orange-50/40 text-slate-900 border-2 border-amber-400 shadow-md hover:shadow-2xl"
+                    : "bg-white text-slate-900 border border-slate-200 hover:border-amber-400 shadow-xs hover:shadow-2xl"
                 }`}
               >
-                <div>
-                  <div className="flex justify-between items-start mb-2">
+                {/* Animated Shimmer Sweep */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/35 to-transparent pointer-events-none" />
+
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start gap-2 mb-2">
                     <span className="text-[11px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full">
                       {tier.rateBadge}
                     </span>
-                    {tier.aataChakki && (
-                      <span className="p-1.5 bg-amber-100 text-amber-800 rounded-xl">
-                        <Wheat className="w-5 h-5" />
-                      </span>
-                    )}
+                    <div className="flex items-center gap-1.5">
+                      <InteractiveZapBurstButton
+                        initialCount={tier.likes}
+                        label=""
+                        dark={Boolean(tier.bestValue)}
+                      />
+                      {tier.aataChakki && (
+                        <span className="p-1.5 bg-amber-100 text-amber-800 rounded-xl">
+                          <Wheat className="w-4 h-4" />
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   <h4 className={`text-xl font-black mt-2 ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
@@ -149,17 +212,17 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
                   <div className={`mt-4 p-3 rounded-2xl space-y-1.5 text-xs ${
                     tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"
                   }`}>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Battery Setup:</span>
-                      <strong className={tier.bestValue ? "text-amber-300" : "text-slate-900"}>{tier.batterySetup}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-slate-900"}`}>{tier.batterySetup}</strong>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Inverter PCU:</span>
-                      <strong className={tier.bestValue ? "text-white" : "text-blue-700"}>{tier.inverterSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-white" : "text-blue-700"}`}>{tier.inverterSpec}</strong>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Solar Panels:</span>
-                      <strong className={tier.bestValue ? "text-emerald-300" : "text-emerald-700"}>{tier.panelSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-emerald-300" : "text-emerald-700"}`}>{tier.panelSpec}</strong>
                     </div>
                   </div>
 
@@ -173,7 +236,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100/20 flex gap-2">
+                <div className="relative z-10 mt-6 pt-4 border-t border-slate-100/20 flex gap-2">
                   <button
                     type="button"
                     onClick={() => handleInquire(tier.capacity)}
@@ -190,12 +253,15 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
                     <Phone className="w-4 h-4 text-emerald-600" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Agro Mill Direct Consultation Banner */}
-          <div className="mt-14 bg-gradient-to-r from-amber-900 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
+          <motion.div
+            whileHover={{ y: -4, scale: 1.005 }}
+            className="mt-14 bg-gradient-to-r from-amber-900 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6"
+          >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
                 🌾 Solar Flour Mill & Agro VFD Engineering
@@ -215,8 +281,20 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
             >
               Get Chakki Quotation ↗
             </a>
-          </div>
+          </motion.div>
         </section>
+
+        {/* Interactive 3D AR / VR Solar Roof & Sun-Path Visualizer */}
+        <ARVRSolarVisualizer
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
+
+        {/* Compact Single-Row 6-Button Portal Navigation Bar */}
+        <PortalNavigationHub
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
       </div>
 
       <Footer onOpenAdmin={onOpenAdmin} onNavigate={onNavigate || onNavigateHome} />

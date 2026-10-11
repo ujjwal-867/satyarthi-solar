@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
 import { 
   Tv, 
@@ -13,9 +14,18 @@ import {
   Snowflake, 
   PhoneCall
 } from "lucide-react";
+import PortalNavigationHub from "../components/PortalNavigationHub";
+import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
 import Footer from "../components/Footer";
+import {
+  ExpressiveKineticText,
+  KineticMarqueeStrip,
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton,
+  LiveActivityStreamBadge
+} from "../components/MotionEffects";
 
-export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmin }) {
+export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = [
@@ -51,7 +61,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
       `• Category: ${item.category}\n` +
       `• Model: ${item.name}\n` +
       `• Price Range: ${item.priceRange}\n` +
-      `Please share models in stock, best discount, and delivery in Gorakhpur.`;
+      `Please share models in stock, best Navratri/Diwali festive gift & discount, and delivery in Gorakhpur.`;
 
     window.open(`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -59,16 +69,44 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
   return (
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Hero Section of Electronics Page */}
+        {/* Hero Section of Electronics Page with Expressive Kinetic Typography & Collaborative Cursors */}
         <section className="py-16 bg-gradient-to-b from-blue-900 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+          <CollaborativeCursorsOverlay
+            cursors={[
+              {
+                name: "Motiram Adda Showroom",
+                badge: "5-Star Solar Appliances",
+                color: "bg-emerald-500 text-slate-950",
+                pathX: ["5%", "19%", "11%", "5%"],
+                pathY: ["18%", "45%", "68%", "18%"],
+                duration: 16
+              },
+              {
+                name: "Diwali Utsav Desk",
+                badge: "Assured Gift Active 🎁",
+                color: "bg-amber-400 text-slate-950",
+                pathX: ["84%", "70%", "78%", "84%"],
+                pathY: ["22%", "54%", "32%", "22%"],
+                duration: 18
+              }
+            ]}
+          />
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-            <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
+              </div>
+              <LiveActivityStreamBadge dark />
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              Home Appliances & <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400">Smart Living</span>
+              <ExpressiveKineticText
+                text="Home Appliances & Smart Living"
+                highlightWords={["Smart", "Living"]}
+                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400"
+              />
             </h1>
 
             <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
@@ -80,28 +118,44 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
             </p>
 
             {/* Quality Slogan Ribbon */}
-            <div className="mt-6 inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
+            <motion.div
+              whileHover={{ scale: 1.03, y: -2 }}
+              className="mt-6 inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3"
+            >
               <span className="text-emerald-400 font-bold text-xs uppercase tracking-wider block">
                 ★ Our Core Principle • हमारा संकल्प
               </span>
               <p className="text-xl font-black text-white font-hindi mt-0.5">
                 &ldquo;हम सस्ता नहीं, क्वालिटी लगाते हैं&rdquo;
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
+        {/* Expressive Kinetic Marquee Ribbon */}
+        <KineticMarqueeStrip
+          items={[
+            "5-STAR SOLAR INVERTER AC",
+            "FROST-FREE DOUBLE DOOR FRIDGE",
+            "BLDC SOLAR CEILING FANS",
+            "SMART 4K LED TV & RO PURIFIER",
+            "NAVRATRI & DIWALI ASSURED GIFTS"
+          ]}
+        />
+
         {/* Product Catalog Section */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           
           {/* Category Filter Pills */}
           <div className="flex justify-start sm:justify-center items-center gap-2 overflow-x-auto pb-4 scrollbar-none">
             {categories.map((cat) => {
               const Icon = categoryIcons[cat.id] || Sparkles;
               return (
-                <button
+                <motion.button
                   key={cat.id}
                   type="button"
+                  whileHover={{ y: -2, scale: 1.03 }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                     selectedCategory === cat.id
@@ -112,34 +166,48 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                   <Icon className="w-3.5 h-3.5" />
                   <span>{cat.en}</span>
                   <span className="text-[10px] opacity-80 font-hindi">({cat.hi})</span>
-                </button>
+                </motion.button>
               );
             })}
           </div>
 
-          {/* Appliances Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            {filteredAppliances.map((app) => {
+          {/* Appliances 3D Bento Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" style={{ perspective: "1100px" }}>
+            {filteredAppliances.map((app, idx) => {
               const Icon = categoryIcons[app.category] || Sparkles;
               return (
-                <div
+                <motion.div
                   key={app.id}
-                  className="bg-white rounded-3xl p-6 border border-slate-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (idx % 4) * 0.06 }}
+                  whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
+                  className="group relative bg-white rounded-3xl p-6 border border-slate-200 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
                 >
-                  <div>
+                  {/* Animated Diagonal Shimmer Sweep */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-blue-50/80 to-transparent pointer-events-none" />
+
+                  <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
-                      <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                      <motion.div
+                        whileHover={{ rotate: 12, scale: 1.12 }}
+                        className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors flex items-center justify-center shadow-2xs"
+                      >
                         <Icon className="w-6 h-6" />
+                      </motion.div>
+                      <div className="flex flex-col items-end gap-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                          In Stock • उपलब्ध
+                        </span>
+                        <InteractiveZapBurstButton initialCount={64 + idx * 11} label="" />
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                        In Stock • उपलब्ध
-                      </span>
                     </div>
 
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                       {app.category}
                     </span>
-                    <h3 className="text-lg font-black text-slate-900 mt-1 leading-snug">
+                    <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-700 transition-colors mt-1 leading-snug">
                       {app.name}
                     </h3>
                     <p className="text-xs font-semibold text-emerald-700 font-hindi mt-0.5">
@@ -171,7 +239,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex gap-2">
+                  <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex gap-2">
                     <button
                       type="button"
                       onClick={() => handleWhatsAppOrder(app)}
@@ -188,13 +256,16 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                       <PhoneCall className="w-4 h-4 text-emerald-600" />
                     </a>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Showroom Visit CTA */}
-          <div className="mt-14 bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
+          <motion.div
+            whileHover={{ y: -4, scale: 1.005 }}
+            className="mt-14 bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6"
+          >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-emerald-300 font-bold text-xs uppercase tracking-wider block">
                 📍 Showroom Location & Timing • शोरूम का पता
@@ -218,17 +289,27 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               <button
                 type="button"
                 onClick={onNavigateHome}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl text-xs text-center transition"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl text-xs text-center transition cursor-pointer"
               >
                 Back to Solar Rooftop
               </button>
             </div>
-          </div>
-
+          </motion.div>
         </section>
+
+        {/* Interactive 3D AR / VR Solar Roof & Sun-Path Visualizer */}
+        <ARVRSolarVisualizer
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
+
+        {/* Compact Single-Row 6-Button Portal Navigation Bar */}
+        <PortalNavigationHub
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
       </div>
 
-      {/* Footer */}
       <Footer onOpenAdmin={onOpenAdmin} onNavigate={onNavigate || onNavigateHome} />
     </div>
   );

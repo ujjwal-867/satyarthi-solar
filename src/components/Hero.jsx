@@ -19,6 +19,10 @@ import {
   Clock,
   Calculator
 } from "lucide-react";
+import {
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton
+} from "./MotionEffects";
 
 // Real Gorakhpur Site Slides rotating in the Hero Section
 const HERO_SLIDES = [
@@ -179,6 +183,28 @@ function Hero({ onNavigate, onOpenCalculator }) {
         <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
       </div>
 
+      {/* Real-Time Collaborative Engineering Cursors */}
+      <CollaborativeCursorsOverlay
+        cursors={[
+          {
+            name: "Er. Satyaprakash",
+            badge: "Chief EPC Engineer",
+            color: "bg-emerald-500 text-slate-950",
+            pathX: ["4%", "16%", "9%", "4%"],
+            pathY: ["14%", "34%", "58%", "14%"],
+            duration: 16
+          },
+          {
+            name: "PM Surya Ghar DBT",
+            badge: "₹1,08,000 Subsidy Live",
+            color: "bg-amber-400 text-slate-950",
+            pathX: ["84%", "70%", "78%", "84%"],
+            pathY: ["18%", "44%", "26%", "18%"],
+            duration: 18
+          }
+        ]}
+      />
+
       {/* =========================================================================
           MAIN HERO CONTAINER (RESPONSIVE SIDE-BY-SIDE LAYOUT)
       ========================================================================= */}
@@ -195,19 +221,21 @@ function Hero({ onNavigate, onOpenCalculator }) {
             animate="visible"
             className="lg:col-span-7 space-y-6"
           >
-            {/* Top Govt Empanelled Badge (Bilingual) */}
+            {/* Top Govt Empanelled Badge (Bilingual) + Interactive ⚡ Burst */}
             <motion.div 
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              className="inline-flex items-center gap-2.5 bg-emerald-500/15 backdrop-blur-md border border-emerald-400/40 text-emerald-300 px-4 py-1.5 rounded-full text-xs font-bold shadow-lg"
+              className="flex flex-wrap items-center gap-2"
             >
-              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>UPNEDA Empanelled Vendor</span>
-              <span className="text-emerald-400/60">•</span>
-              <span className="text-emerald-200">यूपीनेडा अधिकृत वेंडर</span>
-              <span className="bg-emerald-500 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full ml-1">
-                {businessData.vendorCode}
-              </span>
+              <div className="inline-flex items-center gap-2 bg-emerald-500/15 backdrop-blur-md border border-emerald-400/40 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-lg">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>UPNEDA Empanelled Vendor</span>
+                <span className="text-emerald-400/60">•</span>
+                <span className="text-emerald-200">यूपीनेडा अधिकृत वेंडर</span>
+                <span className="bg-emerald-500 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full ml-1">
+                  {businessData.vendorCode}
+                </span>
+              </div>
+              <InteractiveZapBurstButton initialCount={2500} label="Happy Clients" dark />
             </motion.div>
 
             {/* Business Name Badge & Main Headline (Satyarthi Solar Solution - Single Line on Mobile) */}
@@ -242,21 +270,22 @@ function Hero({ onNavigate, onOpenCalculator }) {
               </p>
             </motion.div>
 
-            {/* Dual Key Highlights Checklist (English & Hindi Together) */}
-            <motion.div variants={itemVariants} className="grid sm:grid-cols-2 gap-2.5 pt-1">
+            {/* Dual Key Highlights Checklist with 3D Bento Hover & Shimmer Sweeps */}
+            <motion.div variants={itemVariants} className="grid sm:grid-cols-2 gap-2.5 pt-1" style={{ perspective: "1000px" }}>
               {DUAL_POINTS.map((pt, idx) => (
                 <motion.div
                   key={idx}
-                  whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.14)" }}
-                  className="bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-3 shadow-md space-y-1 transition"
+                  whileHover={{ y: -5, rotateX: 4, rotateY: -3, scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.14)" }}
+                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-emerald-400/60 rounded-2xl p-3 shadow-md space-y-1 transition overflow-hidden"
                 >
-                  <div className="flex items-start gap-2">
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+                  <div className="flex items-start gap-2 relative z-10">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span className="text-xs font-bold text-white leading-tight">
                       {pt.en}
                     </span>
                   </div>
-                  <p className="text-[11px] text-emerald-300 font-semibold pl-6 leading-tight font-hindi">
+                  <p className="text-[11px] text-emerald-300 font-semibold pl-6 leading-tight font-hindi relative z-10">
                     {pt.hi}
                   </p>
                 </motion.div>

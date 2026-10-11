@@ -11,6 +11,11 @@ import {
   Sparkles,
   Box
 } from "lucide-react";
+import {
+  ExpressiveKineticText,
+  CollaborativeCursorsOverlay,
+  LiveActivityStreamBadge
+} from "./MotionEffects";
 
 export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
   const portalButtons = [
@@ -98,17 +103,46 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
 
   return (
     <section id="portal-hub" className="py-12 sm:py-16 bg-white border-t border-b border-slate-200/80 relative overflow-hidden">
+      {/* Real-Time Collaborative Engineering Cursors */}
+      <CollaborativeCursorsOverlay
+        cursors={[
+          {
+            name: "PM Surya Ghar Portal",
+            badge: "₹1,08,000 Subsidy Live",
+            color: "bg-emerald-500 text-slate-950",
+            pathX: ["8%", "24%", "14%", "8%"],
+            pathY: ["15%", "45%", "68%", "15%"],
+            duration: 15
+          },
+          {
+            name: "Showroom Desk • GKP",
+            badge: "True Rate List 2026",
+            color: "bg-amber-400 text-slate-950",
+            pathX: ["82%", "68%", "76%", "82%"],
+            pathY: ["22%", "52%", "30%", "22%"],
+            duration: 17
+          }
+        ]}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header - Compact & Clean Tata Power Solar Style */}
+        {/* Header - Compact & Clean Tata Power Solar Style with Expressive Kinetic Title */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-slate-100">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 mb-2">
-              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-              <span>Interactive Bento Portals • 2500+ Happy Clients</span>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                <span>Interactive Bento Portals • 2500+ Happy Clients</span>
+              </div>
+              <LiveActivityStreamBadge />
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Explore Our Divisions & <span className="text-emerald-600">Verified Rates</span>
+              <ExpressiveKineticText
+                text="Explore Our Divisions & Verified Rates"
+                highlightWords={["Divisions", "Verified", "Rates"]}
+                className="!justify-start"
+              />
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 font-hindi font-medium mt-0.5">
               अपनी आवश्यकता के अनुसार दरें, सब्सिडी, सोलर कैलकुलेटर व गैलरी देखें
@@ -124,8 +158,8 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
           </div>
         </div>
 
-        {/* COMPACT SINGLE-LINE ANIMATED BENTO ROW ON DESKTOP (6 Columns in 1 Row) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 mt-6">
+        {/* COMPACT SINGLE-LINE ANIMATED 3D BENTO ROW ON DESKTOP (6 Columns in 1 Row) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 mt-6" style={{ perspective: "1000px" }}>
           {portalButtons.map((btn, idx) => {
             const Icon = btn.icon;
             return (
@@ -136,7 +170,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                whileHover={{ y: -8, scale: 1.03 }}
+                whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={btn.onClick}
                 className={`group relative text-left p-4 rounded-2xl border bg-gradient-to-br ${btn.glowColor} transition-all duration-300 flex flex-col justify-between cursor-pointer shadow-xs hover:shadow-xl overflow-hidden`}
