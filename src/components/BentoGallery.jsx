@@ -511,34 +511,6 @@ export function BentoGallery() {
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
             Explore authentic installation photos from customer rooftops across Gorakhpur (Rajendra Nagar, Purdilpur, Railvihar, Fertilizer Colony, Jangl Ramgarh, Gauri Bazar). Every system is engineered under the direct supervision of <strong className="text-slate-900">Er. Satya Prakash Satyarthi</strong>.
           </p>
-
-          {/* Real-Time Collaborative Activity & Cursor Control Strip */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <motion.div
-              key={collabFeedIdx}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-xs font-bold border border-emerald-500/40 shadow-md"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
-              <Radio className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span className="truncate max-w-[260px] sm:max-w-md">{GALLERY_COLLAB_FEED[collabFeedIdx]}</span>
-            </motion.div>
-
-            <button
-              type="button"
-              onClick={() => setShowCollabCursors((prev) => !prev)}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-black transition cursor-pointer border ${
-                showCollabCursors
-                  ? "bg-emerald-100 text-emerald-900 border-emerald-300"
-                  : "bg-white text-slate-600 border-slate-200"
-              }`}
-            >
-              <Users className="w-3.5 h-3.5" />
-              <span>Collab Pointers: {showCollabCursors ? "LIVE" : "HIDDEN"}</span>
-            </button>
-          </div>
         </motion.div>
 
         {/* Filter Navigation Tabs with Spring Animation */}
@@ -571,38 +543,8 @@ export function BentoGallery() {
           ))}
         </div>
 
-        {/* Bento Grid Container with Real-Time Collaborative Cursors & 3D Hover Effects */}
+        {/* Bento Grid Container with 3D Hover Effects */}
         <div className="relative mt-8">
-          {/* Floating Collaborative Engineering Cursors */}
-          <AnimatePresence>
-            {showCollabCursors &&
-              GALLERY_COLLAB_CURSORS.map((cursor) => (
-                <motion.div
-                  key={cursor.id}
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                    left: cursor.x,
-                    top: cursor.y
-                  }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    left: { duration: 14, repeat: Infinity, ease: "easeInOut" },
-                    top: { duration: 14, repeat: Infinity, ease: "easeInOut" }
-                  }}
-                  className="absolute z-30 pointer-events-none hidden md:flex flex-col items-start"
-                >
-                  <MousePointer
-                    className="w-4 h-4 -rotate-12 drop-shadow-md"
-                    style={{ color: cursor.hex, fill: cursor.hex }}
-                  />
-                  <div className={`mt-0.5 px-2.5 py-1 rounded-xl border text-[10px] font-black shadow-xl whitespace-nowrap ${cursor.color}`}>
-                    <div>{cursor.label}</div>
-                    <div className="text-[9px] font-mono opacity-85">{cursor.tag}</div>
-                  </div>
-                </motion.div>
-              ))}
-          </AnimatePresence>
 
           <motion.div 
             layout

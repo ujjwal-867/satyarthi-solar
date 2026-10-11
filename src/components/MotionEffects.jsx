@@ -100,49 +100,10 @@ export function KineticMarqueeStrip({
 }
 
 /**
- * 3. Real-Time Collaborative Engineering Cursors Overlay
- * Floating multi-user style cursors gliding across sections
+ * 3. Real-Time Collaborative Engineering Cursors Overlay (Disabled per user request)
  */
-export function CollaborativeCursorsOverlay({ 
-  cursors = [
-    {
-      name: "Er. Satyaprakash",
-      badge: "Verified EPC Lead",
-      color: "bg-emerald-500 text-slate-950",
-      pathX: ["6%", "22%", "14%", "6%"],
-      pathY: ["16%", "38%", "62%", "16%"],
-      duration: 15
-    },
-    {
-      name: "UPNEDA Audit • GKP",
-      badge: "Subsidy Approved ✓",
-      color: "bg-sky-500 text-slate-950",
-      pathX: ["84%", "68%", "78%", "84%"],
-      pathY: ["22%", "52%", "28%", "22%"],
-      duration: 18
-    }
-  ]
-}) {
-  return (
-    <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden hidden lg:block">
-      {cursors.map((c, idx) => (
-        <motion.div
-          key={idx}
-          animate={{ left: c.pathX, top: c.pathY }}
-          transition={{ duration: c.duration, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute flex items-start gap-1 opacity-85"
-        >
-          <svg className="w-4 h-4 text-emerald-400 -rotate-12 drop-shadow-md shrink-0" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M4 2l16 10-7 2-3 7L4 2z" />
-          </svg>
-          <div className={`px-2 py-0.5 rounded-full text-[9.5px] font-black shadow-lg ${c.color} whitespace-nowrap flex items-center gap-1`}>
-            <span>{c.name}</span>
-            <span className="opacity-75">• {c.badge}</span>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
+export function CollaborativeCursorsOverlay() {
+  return null;
 }
 
 /**
@@ -206,52 +167,9 @@ export function InteractiveZapBurstButton({
 }
 
 /**
- * 5. Real-Time Collaborative Activity Ticker Pill
- * Can be placed in headers/banners of any section or subpage
+ * 5. Real-Time Collaborative Activity Ticker Pill (Disabled per user request)
  */
-const LIVE_COLLAB_FEED = [
-  "🟢 Er. Satyaprakash inspecting 5kW On-Grid Plant in Taramandal, Gorakhpur",
-  "⚡ ₹1,08,000 PM Surya Ghar Subsidy credited to Rajesh V. (Padrauna)",
-  "🔋 3kW Hybrid Solar PCU commissioned in Rajendra Nagar, Gorakhpur",
-  "❄️ 5-Star Solar Inverter AC + 5kW Solar Combo booked at Motiram Adda Showroom",
-  "🌾 15 HP Solar Aata Chakki VFD commissioned in Kasia, Kushinagar"
-];
-
-export function LiveActivityStreamBadge({ dark = false }) {
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIdx((prev) => (prev + 1) % LIVE_COLLAB_FEED.length);
-    }, 3600);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div
-      className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold border max-w-full overflow-hidden ${
-        dark
-          ? "bg-slate-900/85 border-emerald-500/30 text-slate-200"
-          : "bg-white border-emerald-200 text-slate-700 shadow-2xs"
-      }`}
-    >
-      <span className="flex items-center gap-1 text-emerald-500 font-black uppercase tracking-wider shrink-0">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-        <Users className="w-3 h-3" />
-        <span className="hidden sm:inline">Live Hub:</span>
-      </span>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={idx}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.25 }}
-          className="truncate font-semibold"
-        >
-          {LIVE_COLLAB_FEED[idx]}
-        </motion.span>
-      </AnimatePresence>
-    </div>
-  );
+export function LiveActivityStreamBadge() {
+  return null;
 }
+

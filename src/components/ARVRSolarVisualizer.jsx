@@ -234,20 +234,6 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
               <Camera className="w-3.5 h-3.5" />
               <span>AR Roof HUD Mode</span>
             </button>
-
-            <button
-              type="button"
-              onClick={() => setShowCollabCursors((prev) => !prev)}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition cursor-pointer border ${
-                showCollabCursors
-                  ? "bg-amber-400/20 text-amber-300 border-amber-400/50"
-                  : "bg-slate-900 text-slate-400 border-slate-800"
-              }`}
-              title="Toggle Real-Time Collaborative Engineering Cursors"
-            >
-              <Users className="w-3.5 h-3.5" />
-              <span>Live Collab: {showCollabCursors ? "ON" : "OFF"}</span>
-            </button>
           </div>
         </div>
 
@@ -448,41 +434,6 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                 </div>
               </motion.div>
             </div>
-
-            {/* ===============================================================
-                REAL-TIME COLLABORATIVE ENGINEERING CURSORS OVERLAY
-            =============================================================== */}
-            <AnimatePresence>
-              {showCollabCursors &&
-                COLLAB_AGENTS.map((agent) => (
-                  <motion.div
-                    key={agent.id}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      left: agent.keyframesX.map((v) => `${v}%`),
-                      top: agent.keyframesY.map((v) => `${v}%`)
-                    }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{
-                      left: { duration: 11, repeat: Infinity, ease: "easeInOut" },
-                      top: { duration: 11, repeat: Infinity, ease: "easeInOut" },
-                      opacity: { duration: 0.25 }
-                    }}
-                    className="absolute z-30 pointer-events-none hidden sm:flex flex-col items-start"
-                  >
-                    <MousePointer
-                      className="w-4 h-4 -rotate-12 drop-shadow-md"
-                      style={{ color: agent.cursorColor, fill: agent.cursorColor }}
-                    />
-                    <div className={`mt-0.5 px-2.5 py-1 rounded-xl border text-[10px] font-black shadow-lg whitespace-nowrap ${agent.color}`}>
-                      <div>{agent.name}</div>
-                      <div className="text-[9px] font-mono opacity-85 font-semibold">{agent.note}</div>
-                    </div>
-                  </motion.div>
-                ))}
-            </AnimatePresence>
 
             {/* Bottom Interactive Sun-Path Scrubber Controls */}
             <div className="relative z-20 bg-slate-950/85 backdrop-blur-md border border-white/15 rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3">

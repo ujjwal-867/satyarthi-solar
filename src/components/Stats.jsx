@@ -168,21 +168,10 @@ function Stats() {
             </p>
           </div>
 
-          {/* Real-Time Collaborative Live Telemetry Pill */}
-          <motion.div 
-            key={liveIdx}
-            initial={{ opacity: 0, y: 6, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.35 }}
-            className="flex items-center gap-2.5 bg-slate-900 text-white text-[11px] sm:text-xs font-bold px-4 py-2 rounded-full border border-emerald-500/40 shadow-lg"
-          >
-            <span className="relative flex h-2.5 w-2.5 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <Radio className="w-3.5 h-3.5 text-emerald-400 shrink-0 animate-pulse" />
-            <span className="truncate max-w-[260px] sm:max-w-md">{LIVE_COLLAB_UPDATES[liveIdx]}</span>
-          </motion.div>
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 text-[11px] sm:text-xs font-black px-4 py-2 rounded-full border border-emerald-200">
+            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>Govt. Empanelled • 2500+ Verified Rooftops</span>
+          </div>
         </div>
 
         {/* Interactive 3D Bento Stats Grid with ⚡ Bursts */}
