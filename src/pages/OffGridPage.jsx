@@ -101,19 +101,23 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
             <button
               type="button"
               onClick={onNavigateHome}
-              className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3.5 py-2 rounded-xl text-xs transition cursor-pointer shadow-xs border border-slate-200"
+              className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-2.5 sm:px-3.5 py-2 rounded-xl text-[11px] sm:text-xs transition cursor-pointer shadow-xs border border-slate-200 shrink-0"
             >
-              <ArrowLeft className="w-4 h-4 text-emerald-600" />
-              <span>Back to Main Home • सोलर होम</span>
+              <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
+              <span className="whitespace-nowrap">Home <span className="hidden sm:inline">• सोलर होम</span></span>
             </button>
 
-            <div className="text-right">
-              <span className="text-sm font-black text-slate-900 block">OFF-GRID & HYBRID SOLAR</span>
-              <span className="text-[11px] font-bold text-blue-700 font-hindi">सत्य व पारदर्शी दर सूची • बैटरी बैकअप</span>
+            <div className="text-right min-w-0">
+              <span className="text-[11px] min-[375px]:text-xs sm:text-sm font-black text-slate-900 block whitespace-nowrap tracking-tight">
+                SATYARTHI SOLAR SOLUTION
+              </span>
+              <span className="text-[9.5px] sm:text-[11px] font-bold text-blue-700 font-hindi whitespace-nowrap block">
+                Off-Grid & Hybrid • बैटरी बैकअप दर सूची
+              </span>
             </div>
           </div>
         </header>

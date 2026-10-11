@@ -23,13 +23,13 @@ function Testimonials() {
         >
           <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            <span>4.9 / 5 Google Rating • 45+ Verified Client Reviews</span>
+            <span>4.9 / 5 Google Rating • 2500+ Happy Clients Across UP</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             What Our Customers Say in <span className="text-blue-600">Uttar Pradesh</span>
             <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
-              संतुष्ट ग्राहकों की राय एवं अनुभव
+              2500+ संतुष्ट ग्राहकों की राय एवं अनुभव
             </span>
           </h2>
 
@@ -50,9 +50,11 @@ function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white rounded-3xl p-7 border border-slate-200 shadow-xs hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between group"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="relative bg-white rounded-3xl p-7 border border-slate-200 shadow-xs hover:shadow-2xl hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              <div>
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/70 to-transparent pointer-events-none" />
+              <div className="relative z-10">
                 {/* Stars */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-1">
