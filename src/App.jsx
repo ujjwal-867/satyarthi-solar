@@ -80,7 +80,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       {/* Persistent Global Navigation Panel across Every Window (Desktop + 1-Tap Mobile Strip) */}
       <Navbar 
         onOpenAdmin={() => setIsAdminOpen(true)} 

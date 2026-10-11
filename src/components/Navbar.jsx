@@ -27,13 +27,13 @@ function Navbar({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Simultaneous English + Hindi Navigation Links across all windows
+  // Simultaneous English + Hindi Navigation Links across all windows (Compact to fit 1280px screens cleanly)
   const navLinks = [
     { en: "Home", hi: "होम", route: "/", icon: Home },
-    { en: "On-Grid (Subsidy)", hi: "सब्सिडी दरें", route: "/on-grid", icon: Sun },
-    { en: "Off-Grid & Rates", hi: "ऑफ-ग्रिड सूची", route: "/off-grid", icon: BatteryCharging },
-    { en: "Electronics Store", hi: "इलेक्ट्रॉनिक्स", route: "/appliances", icon: Tv },
-    { en: "Site Gallery", hi: "गैलरी", route: "/gallery", icon: Camera },
+    { en: "On-Grid", hi: "सब्सिडी दरें", route: "/on-grid", icon: Sun },
+    { en: "Off-Grid", hi: "ऑफ-ग्रिड सूची", route: "/off-grid", icon: BatteryCharging },
+    { en: "Electronics", hi: "इलेक्ट्रॉनिक्स", route: "/appliances", icon: Tv },
+    { en: "Gallery", hi: "गैलरी", route: "/gallery", icon: Camera },
     { en: "Certificates", hi: "प्रमाणपत्र", href: "#certificates" },
     { en: "Contact", hi: "संपर्क", href: "#contact" },
   ];
@@ -75,7 +75,7 @@ function Navbar({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+    <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
       {/* Top Govt & Contact Strip with Direct Social Links & Festive Offer Trigger */}
       <div className="bg-slate-900 text-slate-100 text-xs py-1.5 px-3 sm:px-6 lg:px-8 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
@@ -158,10 +158,10 @@ function Navbar({
       </div>
 
       {/* Main Navbar Row */}
-      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-15 sm:h-18 gap-1.5">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-4 lg:px-6">
+        <div className="flex justify-between items-center h-15 sm:h-17 gap-2">
           
-          {/* Logo & Branding - Guaranteed Single Line on Mobile */}
+          {/* Logo & Branding - Guaranteed Single Line on Mobile & Desktop */}
           <button
             type="button"
             onClick={() => {
@@ -172,55 +172,54 @@ function Navbar({
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="flex items-center gap-2 sm:gap-2.5 group text-left cursor-pointer min-w-0 shrink-0"
+            className="flex items-center gap-2 group text-left cursor-pointer min-w-0 shrink-0"
           >
-            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 group-hover:rotate-2 transition duration-300 border-2 border-emerald-600 bg-white p-0.5 shrink-0">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-xs group-hover:scale-105 transition duration-300 border-2 border-emerald-600 bg-white p-0.5 shrink-0">
               <img
                 src={businessData.logoImage}
                 alt="Satyarthi Solar Solution Logo"
-                className="w-full h-full object-contain rounded-lg sm:rounded-xl"
+                className="w-full h-full object-contain rounded-lg"
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-base lg:text-lg font-black tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-emerald-700 transition-colors">
+              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-[15px] lg:text-base font-black tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-emerald-700 transition-colors">
                 SATYARTHI SOLAR SOLUTION
               </span>
-              <p className="text-[9px] sm:text-[10px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1 whitespace-nowrap">
+              <p className="text-[9px] sm:text-[9.5px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1 whitespace-nowrap">
                 <span>सत्यार्थी सोलर सॉल्यूशन</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-blue-800 hidden sm:inline">UPNEDA ({businessData.vendorCode})</span>
-                <span className="text-blue-800 sm:hidden">{businessData.vendorCode}</span>
+                <span className="text-blue-800">{businessData.vendorCode}</span>
               </p>
             </div>
           </button>
 
-          {/* Streamlined Desktop Navigation Links with Active State & Animated Hover Underline */}
-          <nav className="hidden xl:flex items-center gap-0.5 text-sm font-semibold text-slate-700">
+          {/* Streamlined Desktop Navigation Links (Compact padding so 1280px screens never overflow) */}
+          <nav className="hidden xl:flex items-center gap-0.5 text-sm font-semibold text-slate-700 min-w-0">
             {navLinks.map((link, idx) => {
               const active = isRouteActive(link.route);
               return (
                 <motion.button
                   key={idx}
-                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleNavClick(link)}
-                  className={`relative px-2.5 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight group overflow-hidden whitespace-nowrap ${
+                  className={`relative px-2 2xl:px-2.5 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight group overflow-hidden whitespace-nowrap ${
                     active
                       ? "bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs"
                       : "hover:text-emerald-700 hover:bg-emerald-50/70"
                   }`}
                 >
-                  <span className={`text-[11.5px] font-black transition ${
+                  <span className={`text-[11px] 2xl:text-xs font-black transition ${
                     active ? "text-emerald-700" : "text-slate-800 group-hover:text-emerald-700"
                   }`}>
                     {link.en}
                   </span>
-                  <span className={`text-[9.5px] font-bold transition ${
+                  <span className={`text-[9px] font-bold transition ${
                     active ? "text-emerald-800" : "text-slate-500 group-hover:text-emerald-800"
                   }`}>
                     {link.hi}
                   </span>
-                  <span className={`absolute bottom-0 inset-x-2.5 h-0.5 bg-gradient-to-r from-emerald-500 to-blue-600 transition-transform duration-300 origin-center rounded-full ${
+                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-gradient-to-r from-emerald-500 to-blue-600 transition-transform duration-300 origin-center rounded-full ${
                     active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   }`} />
                 </motion.button>
@@ -228,22 +227,23 @@ function Navbar({
             })}
           </nav>
 
-          {/* Action CTAs: Solar Calculator & Get Quote (Cleanly Sized to Prevent Right Clipping) */}
-          <div className="hidden sm:flex items-center gap-1.5 lg:gap-2 shrink-0">
+          {/* Action CTAs: Solar Calculator & Get Quote (Responsive labels so they never clip on the right) */}
+          <div className="hidden sm:flex items-center gap-1.5 shrink-0">
             <motion.button
               type="button"
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.97 }}
               onClick={onOpenCalculator}
-              className="inline-flex items-center gap-1.5 text-[11px] lg:text-xs font-black text-slate-900 bg-amber-400 hover:bg-amber-300 px-2.5 lg:px-3 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-[11px] font-black text-slate-900 bg-amber-400 hover:bg-amber-300 px-2.5 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
             >
               <Calculator className="w-3.5 h-3.5 text-slate-950 shrink-0" />
-              <span>Calculator • कैलकुलेटर</span>
+              <span>Calculator</span>
+              <span className="hidden 2xl:inline">• कैलकुलेटर</span>
             </motion.button>
 
             <motion.button
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => {
                 if (currentRoute !== "/" && onNavigate) {
                   onNavigate("/#contact");
@@ -252,10 +252,11 @@ function Navbar({
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center gap-1.5 text-[11px] lg:text-xs font-bold text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-3 py-2 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-2.5 py-2 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30 whitespace-nowrap"
             >
               <FileText className="w-3.5 h-3.5 text-white shrink-0" />
-              <span>Get Quote | कोटेशन</span>
+              <span>Get Quote</span>
+              <span className="hidden 2xl:inline">| कोटेशन</span>
             </motion.button>
           </div>
 

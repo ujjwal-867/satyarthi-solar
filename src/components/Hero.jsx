@@ -198,8 +198,8 @@ function Hero({ onOpenCalculator }) {
       {/* =========================================================================
           MAIN HERO CONTAINER (3D BENTO HOVER & EXPRESSIVE KINETIC TYPOGRAPHY)
       ========================================================================= */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-14 lg:px-16 xl:px-12 my-auto">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* LEFT COLUMN: KINETIC HEADLINE, 3D BENTO HIGHLIGHTS & SHIMMER CTAS */}
           <motion.div 
@@ -468,38 +468,36 @@ function Hero({ onOpenCalculator }) {
                   <Phone className="w-4 h-4 text-emerald-300" />
                 </motion.a>
               </div>
-            </motion.div>
 
-            {/* Active Real Site Location Pill & Slide Dots */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 px-1">
-              <motion.div 
-                key={currentSlide}
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35 }}
-                className="inline-flex items-center gap-2 bg-slate-900/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 text-left"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span className="font-semibold text-white text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
-                <span className="text-white/30 hidden sm:inline">•</span>
-                <span className="text-emerald-300 font-hindi text-[10px] hidden sm:inline truncate">{HERO_SLIDES[currentSlide].hindi}</span>
-              </motion.div>
+              {/* Active Real Site Location & Slide Dots Integrated Inside Card */}
+              <div className="relative z-10 pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+                <motion.div 
+                  key={currentSlide}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35 }}
+                  className="inline-flex items-center gap-1.5 text-left min-w-0"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="font-semibold text-slate-200 text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
+                </motion.div>
 
-              <div className="flex items-center gap-1.5">
-                {HERO_SLIDES.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      currentSlide === idx 
-                        ? "w-6 bg-emerald-400" 
-                        : "w-2 bg-white/35 hover:bg-white/60"
-                    }`}
-                    aria-label={`Switch to slide ${idx + 1}`}
-                  />
-                ))}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {HERO_SLIDES.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                        currentSlide === idx 
+                          ? "w-5 bg-emerald-400" 
+                          : "w-1.5 bg-white/35 hover:bg-white/60"
+                      }`}
+                      aria-label={`Switch to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
         </div>
