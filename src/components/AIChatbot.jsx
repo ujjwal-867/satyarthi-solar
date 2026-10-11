@@ -240,13 +240,17 @@ export function AIChatbot() {
 
   return (
     <>
-      {/* Floating Trigger Button (Positioned cleanly at BOTTOM-RIGHT, separated from WhatsApp on bottom-left) */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
+      {/* Floating Trigger Button (Positioned cleanly at BOTTOM-RIGHT, with label to the left so it never collides vertically) */}
+      <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5">
         {hasUnread && !isOpen && (
-          <div className="bg-slate-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-2xl shadow-xl border border-amber-400/50 flex items-center gap-1.5 animate-bounce">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-            <span>{lang === "hi" ? "सूर्य साथी AI • सब्सिडी व रेट्स" : "Surya AI • Subsidies & Rates"}</span>
-          </div>
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className="bg-slate-900/95 hover:bg-slate-900 text-white text-[11px] font-bold px-3.5 py-2 rounded-full shadow-xl border border-amber-400/60 flex items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
+          >
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping shrink-0"></span>
+            <span className="whitespace-nowrap">{lang === "hi" ? "सूर्य साथी AI • सब्सिडी" : "Surya AI • Subsidies & Rates"}</span>
+          </button>
         )}
 
         <button
