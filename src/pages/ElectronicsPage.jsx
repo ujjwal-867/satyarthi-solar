@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
 import { 
   Tv, 
@@ -9,17 +8,11 @@ import {
   Shirt, 
   Sparkles, 
   Zap, 
-  ShieldCheck, 
   MessageCircle, 
-  ArrowLeft, 
   Check, 
   Snowflake, 
-  PhoneCall,
-  MapPin,
-  Clock,
-  Phone
+  PhoneCall
 } from "lucide-react";
-import { InstagramIcon, FacebookIcon } from "../components/SocialIcons";
 import Footer from "../components/Footer";
 
 export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmin }) {
@@ -64,87 +57,8 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Dedicated Top Navbar for Electronics Page */}
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
-          {/* Top Bar */}
-          <div className="bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white text-xs py-1.5 px-4 sm:px-8">
-            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-              <div className="flex items-center gap-2 text-[11px]">
-                <span className="bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px]">
-                  SHOWROOM
-                </span>
-                <span>Motiram Adda, Deoria Road, Gorakhpur (273202)</span>
-                <span className="text-slate-400 hidden sm:inline">•</span>
-                <span className="text-amber-300 font-hindi hidden sm:inline">हम सस्ता नहीं, क्वालिटी लगाते हैं</span>
-              </div>
-
-              <div className="flex items-center gap-3 text-xs">
-                <a 
-                  href={businessData.instagramUrl} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-slate-300 hover:text-pink-400 transition"
-                  title="Instagram"
-                >
-                  <InstagramIcon className="w-3.5 h-3.5" />
-                </a>
-                <a 
-                  href={businessData.facebookUrl} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-slate-300 hover:text-blue-400 transition"
-                  title="Facebook"
-                >
-                  <FacebookIcon className="w-3.5 h-3.5" />
-                </a>
-                <span className="text-slate-600">|</span>
-                <a href={`tel:${businessData.phone[0]}`} className="text-emerald-400 font-bold hover:underline">
-                  📞 +91 {businessData.phone[0]}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Main Navigation Row */}
-          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-              <button
-                type="button"
-                onClick={onNavigateHome}
-                className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-2.5 sm:px-3.5 py-2 rounded-xl text-[11px] sm:text-xs transition cursor-pointer shadow-xs border border-slate-200 shrink-0"
-              >
-                <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-                <span className="whitespace-nowrap">Home <span className="hidden sm:inline">• सोलर होम</span></span>
-              </button>
-
-              <div className="flex flex-col pl-2 sm:pl-3 border-l border-slate-200 min-w-0">
-                <span className="text-[11px] min-[375px]:text-xs sm:text-base font-black text-slate-900 tracking-tight whitespace-nowrap">
-                  SATYARTHI SOLAR SOLUTION
-                </span>
-                <span className="text-[9.5px] sm:text-[10px] font-bold text-emerald-700 font-hindi whitespace-nowrap">
-                  सत्यार्थी सोलर एवं होम इलेक्ट्रॉनिक्स शोरूम
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 shrink-0">
-              <a
-                href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(
-                  "Hello Er. Satyaprakash, I want to inquire about home electronics availability at your Gorakhpur showroom."
-                )}`}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] sm:text-xs px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-xs transition flex items-center gap-1.5"
-              >
-                <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                <span className="hidden sm:inline">WhatsApp Order</span>
-              </a>
-            </div>
-          </div>
-        </header>
-
         {/* Hero Section of Electronics Page */}
         <section className="py-16 bg-gradient-to-b from-blue-900 via-slate-900 to-slate-950 text-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">

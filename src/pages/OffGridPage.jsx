@@ -1,6 +1,5 @@
-import { ArrowLeft, BatteryCharging, Zap, ShieldCheck, CheckCircle2, ArrowRight, MessageCircle, Phone, Sparkles, Wheat } from "lucide-react";
+import { BatteryCharging, Zap, CheckCircle2, ArrowRight, MessageCircle, Phone, Sparkles, Wheat } from "lucide-react";
 import { businessData } from "../data/businessData";
-import { InstagramIcon, FacebookIcon } from "../components/SocialIcons";
 import Footer from "../components/Footer";
 
 export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin }) {
@@ -72,56 +71,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin })
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Navigation Bar */}
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
-          <div className="bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white text-xs py-1.5 px-4 sm:px-8">
-            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-              <div className="flex items-center gap-2 text-[11px]">
-                <span className="bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px]">
-                  TRUE RATE LIST
-                </span>
-                <span>Off-Grid & Battery Storage Systems • स्वतंत्र सौर ऊर्जा</span>
-                <span className="text-slate-500">•</span>
-                <span className="text-amber-300 font-hindi">हम सस्ता नहीं, क्वालिटी लगाते हैं</span>
-              </div>
-              <div className="flex items-center gap-3 text-xs">
-                <a href={businessData.instagramUrl} target="_blank" rel="noreferrer" className="text-slate-300 hover:text-pink-400">
-                  <InstagramIcon className="w-3.5 h-3.5" />
-                </a>
-                <a href={businessData.facebookUrl} target="_blank" rel="noreferrer" className="text-slate-300 hover:text-blue-400">
-                  <FacebookIcon className="w-3.5 h-3.5" />
-                </a>
-                <span className="text-slate-600">|</span>
-                <a href={`tel:${businessData.phone[0]}`} className="text-emerald-400 font-bold hover:underline">
-                  📞 +91 {businessData.phone[0]}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
-            <button
-              type="button"
-              onClick={onNavigateHome}
-              className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-2.5 sm:px-3.5 py-2 rounded-xl text-[11px] sm:text-xs transition cursor-pointer shadow-xs border border-slate-200 shrink-0"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-              <span className="whitespace-nowrap">Home <span className="hidden sm:inline">• सोलर होम</span></span>
-            </button>
-
-            <div className="text-right min-w-0">
-              <span className="text-[11px] min-[375px]:text-xs sm:text-sm font-black text-slate-900 block whitespace-nowrap tracking-tight">
-                SATYARTHI SOLAR SOLUTION
-              </span>
-              <span className="text-[9.5px] sm:text-[11px] font-bold text-blue-700 font-hindi whitespace-nowrap block">
-                Off-Grid & Hybrid • बैटरी बैकअप दर सूची
-              </span>
-            </div>
-          </div>
-        </header>
-
         {/* Hero Section */}
         <section className="py-16 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">

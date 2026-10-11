@@ -14,6 +14,7 @@ import AIChatbot from "./components/AIChatbot";
 import Footer from "./components/Footer";
 import AdminModal from "./components/AdminModal";
 import CalculatorModal from "./components/CalculatorModal";
+import FestiveOfferPopup from "./components/FestiveOfferPopup";
 import { LanguageProvider } from "./context/LanguageContext";
 
 // Dedicated Independent Portal Pages
@@ -25,6 +26,7 @@ import GalleryPage from "./pages/GalleryPage";
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [isFestiveOfferOpen, setIsFestiveOfferOpen] = useState(false);
 
   // Parse path or hash for clean SPA routing with full browser Back/Forward support
   const getInitialRoute = () => {
@@ -79,6 +81,15 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+      {/* Persistent Global Navigation Panel across Every Window (Desktop + 1-Tap Mobile Strip) */}
+      <Navbar 
+        onOpenAdmin={() => setIsAdminOpen(true)} 
+        onNavigate={navigateTo}
+        onOpenCalculator={() => setIsCalculatorOpen(true)}
+        onOpenFestiveOffer={() => setIsFestiveOfferOpen(true)}
+        currentRoute={currentRoute}
+      />
+
       {/* Route-Based Dynamic View Rendering */}
       {currentRoute === "/on-grid" ? (
         <OnGridPage 
@@ -107,15 +118,7 @@ function AppContent() {
         />
       ) : (
         /* Main Spacious Homepage: Only Highlighted Points, 6 Navigation Portals, 3D AR/VR & Contact */
-        <div>
-          {/* Sticky Header with UPNEDA Verification & Route Navigation */}
-          <Navbar 
-            onOpenAdmin={() => setIsAdminOpen(true)} 
-            onNavigate={navigateTo}
-            onOpenCalculator={() => setIsCalculatorOpen(true)}
-            currentRoute="/"
-          />
-
+        <div className="flex-1 flex flex-col justify-between">
           {/* Website Master Headline Bar: Primary Dealer of All Leading Solar Brands */}
           <BrandHeadlineTicker />
 
@@ -162,6 +165,12 @@ function AppContent() {
           />
         </div>
       )}
+
+      {/* Navratri & Diwali Maha-Utsav Animated Popup & Floating Gift Trigger */}
+      <FestiveOfferPopup 
+        isOpenExternal={isFestiveOfferOpen}
+        onCloseExternal={() => setIsFestiveOfferOpen(false)}
+      />
 
       {/* Persistent Global Floating Assistants across All Pages */}
       <AIChatbot />
