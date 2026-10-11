@@ -450,32 +450,6 @@ export function BentoGallery() {
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* =====================================================================
-          EXPRESSIVE KINETIC TYPOGRAPHY MARQUEE RIBBON
-      ===================================================================== */}
-      <div className="w-full overflow-hidden bg-slate-950 text-white py-3 mb-12 border-y border-slate-800 select-none">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-          className="flex items-center gap-8 whitespace-nowrap w-max"
-        >
-          {[1, 2].map((loop) => (
-            <div key={loop} className="flex items-center gap-8 text-sm sm:text-lg font-black tracking-widest uppercase">
-              <span className="text-emerald-400">★ 2500+ HAPPY CLIENTS IN UP</span>
-              <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.65)" }}>
-                GPS VERIFIED ROOFTOP SITES
-              </span>
-              <span className="text-amber-400">⚡ ELEVATED SOLAR PERGOLA</span>
-              <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(56,189,248,0.75)" }}>
-                150 KM/H STORM PROOF GI
-              </span>
-              <span className="text-sky-400">🏛️ UPNEDA VENDOR #GKP2604066741</span>
-              <span className="text-emerald-300 font-hindi">सत्यार्थी सोलर सॉल्यूशन • 2500+ संतुष्ट परिवार</span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Expressive Kinetic Typography */}

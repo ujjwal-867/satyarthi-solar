@@ -242,29 +242,6 @@ function Certificates() {
           ))}
         </div>
 
-        {/* GSTIN & UPNEDA Trust Callout */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -3, scale: 1.005 }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 max-w-4xl mx-auto bg-slate-50 rounded-3xl p-6 border border-slate-200 hover:border-emerald-400 text-xs text-slate-700 leading-relaxed flex items-start gap-4 shadow-sm transition"
-        >
-          <ShieldCheck className="w-7 h-7 text-emerald-600 shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <strong className="text-slate-900 block text-sm font-bold">
-              Official Government Verified Entity • सरकारी व जीएसटी पंजीकृत संस्था:
-            </strong>
-            <p>
-              <strong>Satyarthi Solar Solution (सत्यार्थी सोलर सॉल्यूशन)</strong> is legally registered under GST with GSTIN <strong className="font-mono text-blue-700">09JCNPS2666N1ZE</strong> (Commercial Tax Department, Govt of Uttar Pradesh) and empanelled with UPNEDA (Vendor Code: <strong className="font-mono text-emerald-700">GKP2604066741</strong>).
-            </p>
-            <p className="text-slate-500 font-hindi">
-              केवल यूपीनेडा सूचीबद्ध वेंडर ही आपके नेट मीटर की स्वीकृति करा सकते हैं और पीएम सूर्य घर योजना के तहत ₹1,08,000 की सब्सिडी आपके बैंक खाते में अंतरित करा सकते हैं।
-            </p>
-          </div>
-        </motion.div>
-
       </div>
 
       {/* Full Certificate Modal */}

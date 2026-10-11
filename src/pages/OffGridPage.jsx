@@ -283,18 +283,6 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
             </a>
           </motion.div>
         </section>
-
-        {/* Interactive 3D AR / VR Solar Roof & Sun-Path Visualizer */}
-        <ARVRSolarVisualizer
-          onNavigate={onNavigate || onNavigateHome}
-          onOpenCalculator={onOpenCalculator}
-        />
-
-        {/* Compact Single-Row 6-Button Portal Navigation Bar */}
-        <PortalNavigationHub
-          onNavigate={onNavigate || onNavigateHome}
-          onOpenCalculator={onOpenCalculator}
-        />
       </div>
 
       <Footer onOpenAdmin={onOpenAdmin} onNavigate={onNavigate || onNavigateHome} />

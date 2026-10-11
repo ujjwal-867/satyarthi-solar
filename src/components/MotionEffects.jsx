@@ -52,51 +52,10 @@ export function ExpressiveKineticText({
 }
 
 /**
- * 2. Expressive Kinetic Typography Marquee Ribbon
- * Infinite horizontal kinetic ticker with alternating filled & outlined display typography
+ * 2. Expressive Kinetic Typography Marquee Ribbon (Disabled to avoid duplicate marquee strips)
  */
-export function KineticMarqueeStrip({ 
-  items = [
-    "SATYARTHI SOLAR SOLUTION",
-    "2500+ HAPPY FAMILIES",
-    "UPNEDA VENDOR GKP2604066741",
-    "₹1,08,000 DIRECT DBT SUBSIDY",
-    "3D AR/VR SOLAR ENGINEERING",
-    "25-YEAR PERFORMANCE WARRANTY"
-  ],
-  dark = false
-}) {
-  const repeated = [...items, ...items];
-  return (
-    <div
-      className={`overflow-hidden py-2.5 border-y select-none ${
-        dark
-          ? "bg-slate-950/90 border-slate-800/80 text-white"
-          : "bg-slate-900 border-slate-800 text-white"
-      }`}
-    >
-      <motion.div
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
-        className="flex items-center gap-8 whitespace-nowrap w-max"
-      >
-        {repeated.map((phrase, idx) => (
-          <div key={idx} className="flex items-center gap-4">
-            <span
-              className={`text-xs sm:text-sm font-black tracking-widest uppercase ${
-                idx % 2 === 0
-                  ? "text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400"
-                  : "text-slate-300"
-              }`}
-            >
-              {phrase}
-            </span>
-            <span className="text-amber-400 text-xs">✦</span>
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  );
+export function KineticMarqueeStrip() {
+  return null;
 }
 
 /**
