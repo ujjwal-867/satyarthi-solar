@@ -4,6 +4,7 @@ import BrandHeadlineTicker from "./components/BrandHeadlineTicker";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import PortalNavigationHub from "./components/PortalNavigationHub";
+import ARVRSolarVisualizer from "./components/ARVRSolarVisualizer";
 import Services from "./components/Services";
 import Certificates from "./components/Certificates";
 import Testimonials from "./components/Testimonials";
@@ -102,9 +103,10 @@ function AppContent() {
           onNavigateHome={() => navigateTo("/")}
           onNavigate={navigateTo}
           onOpenAdmin={() => setIsAdminOpen(true)}
+          onOpenCalculator={() => setIsCalculatorOpen(true)}
         />
       ) : (
-        /* Main Spacious Homepage: Only Highlighted Points, 5 Navigation Portals & Contact */
+        /* Main Spacious Homepage: Only Highlighted Points, 6 Navigation Portals, 3D AR/VR & Contact */
         <div>
           {/* Sticky Header with UPNEDA Verification & Route Navigation */}
           <Navbar 
@@ -119,18 +121,24 @@ function AppContent() {
 
           {/* Main Content Sections - Strictly Highlighted Points & Contact */}
           <main>
-            {/* Strictly Solar Hero with 5-Button Portal Dock & Real Site Slider */}
+            {/* Strictly Solar Hero with 6-Button Portal Dock & Real Site Slider */}
             <Hero 
               onNavigate={navigateTo} 
               onOpenCalculator={() => setIsCalculatorOpen(true)}
             />
 
-            {/* Concise Verified Statistics */}
+            {/* Concise Verified Statistics (2500+ Happy Clients & Live Collab Ticker) */}
             <Stats />
 
-            {/* 6-Portal Compact Action Cards (Single-Line on Desktop) */}
+            {/* 6-Portal Compact Bento Action Cards (Single-Line on Desktop) */}
             <PortalNavigationHub 
               onNavigate={navigateTo} 
+              onOpenCalculator={() => setIsCalculatorOpen(true)}
+            />
+
+            {/* Interactive 3D AR / VR Solar Roof & Sun-Path Motion Graphics Visualizer */}
+            <ARVRSolarVisualizer 
+              onNavigate={navigateTo}
               onOpenCalculator={() => setIsCalculatorOpen(true)}
             />
 

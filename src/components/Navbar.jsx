@@ -120,10 +120,10 @@ function Navbar({ onOpenAdmin, onNavigate, onOpenCalculator, currentRoute = "/" 
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-20 gap-1.5">
           
-          {/* Logo & Branding */}
+          {/* Logo & Branding - Guaranteed Single Line on Mobile */}
           <button
             type="button"
             onClick={() => {
@@ -134,34 +134,37 @@ function Navbar({ onOpenAdmin, onNavigate, onOpenCalculator, currentRoute = "/" 
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="flex items-center gap-3 group text-left cursor-pointer"
+            className="flex items-center gap-2 sm:gap-3 group text-left cursor-pointer min-w-0 shrink-0"
           >
-            <div className="relative w-12 h-12 rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition duration-300 border-2 border-emerald-600 bg-white p-0.5">
+            <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 group-hover:rotate-2 transition duration-300 border-2 border-emerald-600 bg-white p-0.5 shrink-0">
               <img
                 src={businessData.logoImage}
                 alt="Satyarthi Solar Solution Logo"
-                className="w-full h-full object-contain rounded-xl"
+                className="w-full h-full object-contain rounded-lg sm:rounded-xl"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 font-sans">
+            <div className="flex flex-col min-w-0">
+              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-lg lg:text-xl font-black tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-emerald-700 transition-colors">
                 SATYARTHI SOLAR SOLUTION
               </span>
-              <p className="text-[10px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1.5">
+              <p className="text-[9px] sm:text-[10px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1 whitespace-nowrap">
                 <span>सत्यार्थी सोलर सॉल्यूशन</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-blue-800">UPNEDA Empanelled ({businessData.vendorCode})</span>
+                <span className="text-blue-800 hidden sm:inline">UPNEDA Empanelled ({businessData.vendorCode})</span>
+                <span className="text-blue-800 sm:hidden">{businessData.vendorCode}</span>
               </p>
             </div>
           </button>
 
-          {/* Streamlined Desktop Navigation Links */}
+          {/* Streamlined Desktop Navigation Links with Animated Hover Underline */}
           <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700">
             {navLinks.map((link, idx) => (
-              <button
+              <motion.button
                 key={idx}
+                whileHover={{ y: -2, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => handleNavClick(link)}
-                className="px-3 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight hover:text-emerald-700 hover:bg-slate-100/80 group"
+                className="relative px-3 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight hover:text-emerald-700 hover:bg-emerald-50/70 group overflow-hidden"
               >
                 <span className="text-xs font-black text-slate-800 group-hover:text-emerald-700 transition">
                   {link.en}
@@ -169,24 +172,27 @@ function Navbar({ onOpenAdmin, onNavigate, onOpenCalculator, currentRoute = "/" 
                 <span className="text-[10px] font-bold text-slate-500 group-hover:text-emerald-800 transition">
                   {link.hi}
                 </span>
-              </button>
+                <span className="absolute bottom-0 inset-x-3 h-0.5 bg-gradient-to-r from-emerald-500 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full" />
+              </motion.button>
             ))}
           </nav>
 
           {/* Action CTAs: Solar Calculator & Get Quote */}
-          <div className="hidden sm:flex items-center gap-2">
-            <button
+          <div className="hidden sm:flex items-center gap-2 shrink-0">
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
               onClick={onOpenCalculator}
               className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2.5 rounded-xl transition shadow-xs cursor-pointer border border-amber-300"
             >
               <Calculator className="w-3.5 h-3.5 text-slate-950" />
               <span>Solar Calculator • कैलकुलेटर</span>
-            </button>
+            </motion.button>
 
             <motion.button
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => {
                 if (currentRoute !== "/" && onNavigate) {
                   onNavigate("/#contact");
@@ -202,14 +208,15 @@ function Navbar({ onOpenAdmin, onNavigate, onOpenCalculator, currentRoute = "/" 
             </motion.button>
           </div>
 
-          {/* Mobile Right Controls: Toggle */}
-          <div className="flex items-center gap-2 xl:hidden">
+          {/* Mobile Right Controls: Compact so Brand Name stays on 1 Line */}
+          <div className="flex items-center gap-1 sm:gap-2 xl:hidden shrink-0">
             <button
               onClick={onOpenCalculator}
-              className="text-xs font-black text-slate-950 bg-amber-400 px-2.5 py-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center gap-1"
+              aria-label="Open Solar Calculator"
+              title="Solar Calculator"
+              className="text-[11px] font-black text-slate-950 bg-amber-400 p-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center justify-center"
             >
-              <Calculator className="w-3.5 h-3.5" />
-              <span>कैलकुलेटर</span>
+              <Calculator className="w-4 h-4" />
             </button>
 
             <button
@@ -217,17 +224,17 @@ function Navbar({ onOpenAdmin, onNavigate, onOpenCalculator, currentRoute = "/" 
                 const el = document.querySelector("#contact");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="text-xs font-black text-white bg-emerald-600 px-3 py-2 rounded-xl sm:hidden shadow-xs"
+              className="text-[11px] font-black text-white bg-emerald-600 px-2.5 py-1.5 rounded-xl sm:hidden shadow-xs whitespace-nowrap"
             >
-              Quote | कोटेशन
+              Quote
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition"
+              className="p-1.5 sm:p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition"
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
 

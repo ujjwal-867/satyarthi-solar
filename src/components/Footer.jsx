@@ -32,12 +32,12 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <div className="w-11 h-11 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-2xl flex items-center justify-center text-white font-bold shadow-md shadow-blue-600/30">
                 <Sun className="w-6 h-6" />
               </div>
-              <div>
-                <span className="text-xl font-black tracking-tight text-white block">
+              <div className="min-w-0">
+                <span className="text-base sm:text-xl font-black tracking-tight text-white block whitespace-nowrap">
                   SATYARTHI <span className="text-emerald-400">SOLAR SOLUTION</span>
                 </span>
-                <p className="text-[11px] text-emerald-300 font-hindi font-medium">
-                  सत्यार्थी सोलर सॉल्यूशन • मोतीराम अड्डा गोरखपुर
+                <p className="text-[11px] text-emerald-300 font-hindi font-medium whitespace-nowrap">
+                  सत्यार्थी सोलर सॉल्यूशन • 2500+ संतुष्ट परिवार
                 </p>
               </div>
             </div>

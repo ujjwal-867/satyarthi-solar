@@ -210,24 +210,24 @@ function Hero({ onNavigate, onOpenCalculator }) {
               </span>
             </motion.div>
 
-            {/* Business Name Badge & Main Headline (Satyarthi Solar Solution) */}
+            {/* Business Name Badge & Main Headline (Satyarthi Solar Solution - Single Line on Mobile) */}
             <motion.div variants={itemVariants} className="space-y-3">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3.5 py-1 rounded-xl text-xs font-black tracking-wide shadow-xs">
-                <Sun className="w-3.5 h-3.5 text-amber-400" />
-                <span>Satyarthi Solar Solution</span>
-                <span className="text-white/40">•</span>
-                <span className="text-emerald-400 font-hindi">सत्यार्थी सोलर सॉल्यूशन</span>
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black tracking-wide shadow-xs max-w-full overflow-hidden">
+                <Sun className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="whitespace-nowrap">Satyarthi Solar Solution</span>
+                <span className="text-white/40 shrink-0">•</span>
+                <span className="text-emerald-400 font-hindi whitespace-nowrap">2500+ संतुष्ट परिवार</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.12] text-white drop-shadow-md">
-                Switch to Clean Energy with{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.14] text-white drop-shadow-md">
+                <span className="block sm:inline">Switch to Clean Energy with </span>
+                <span className="inline-block whitespace-nowrap text-[1.38rem] min-[375px]:text-[1.55rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400">
                   Satyarthi Solar Solution
                 </span>
               </h1>
               
               {/* Simultaneous Hindi Title */}
-              <h2 className="text-xl sm:text-2xl lg:text-[1.65rem] font-extrabold text-emerald-400 tracking-tight leading-snug font-hindi drop-shadow-sm">
+              <h2 className="text-lg sm:text-2xl lg:text-[1.65rem] font-extrabold text-emerald-400 tracking-tight leading-snug font-hindi drop-shadow-sm">
                 सत्यार्थी सोलर सॉल्यूशन • <span className="text-sky-300">विश्वसनीय सोलर से बिजली बिल शून्य बनाएं</span>
               </h2>
             </motion.div>
@@ -528,8 +528,8 @@ function Hero({ onNavigate, onOpenCalculator }) {
                   <p className="text-base font-black text-sky-400">2,200+ kW</p>
                 </div>
                 <div className="bg-white/8 p-2.5 rounded-xl border border-white/15">
-                  <p className="text-[10px] text-slate-400 font-medium">Happy Homes | परिवार</p>
-                  <p className="text-base font-black text-emerald-400">450+ Sites</p>
+                  <p className="text-[10px] text-slate-400 font-medium">Happy Clients | परिवार</p>
+                  <p className="text-base font-black text-emerald-400">2500+ Clients</p>
                 </div>
               </div>
 

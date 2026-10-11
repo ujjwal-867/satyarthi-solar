@@ -64,9 +64,9 @@ export const businessData = {
   // Business Performance Metrics
   stats: [
     { label: "Years Experience", value: "5+", suffix: "Years", desc: "Delivering reliable solar engineering in Purvanchal" },
-    { label: "Installations Completed", value: "2,200+", suffix: "Sites", desc: "Homes, schools, commercial complexes & chakki plants" },
+    { label: "Happy Clients", value: "2500+", suffix: "Clients", desc: "Satisfied homes, schools, commercial complexes & chakki plants" },
     { label: "Electricity Cost Saved", value: "₹4.5+", suffix: "Crore", desc: "Saved by our residential & commercial clients" },
-    { label: "Customer Rating", value: "4.9/5", suffix: "(45+ Reviews)", desc: "100% satisfaction & verified customer trust" },
+    { label: "Customer Rating", value: "4.9/5", suffix: "(2500+ Clients)", desc: "100% satisfaction & verified customer trust" },
     { label: "Bank Loan Facility", value: "6-7%", suffix: "Interest", desc: "₹1,800/mo easy EMI on 3kW rooftop plant" },
     { label: "Clean Green Energy", value: "35+", suffix: "Lakh Units", desc: "Clean units generated reducing carbon footprint" },
   ],

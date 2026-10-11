@@ -89,26 +89,37 @@ export default function Services() {
           </p>
         </div>
 
-        {/* 3 Core Clean Cards */}
+        {/* 3 Core Bento Animated Cards */}
         <div className="grid md:grid-cols-3 gap-6 mt-10">
-          {coreServices.map((service) => {
+          {coreServices.map((service, idx) => {
             const Icon = service.icon;
             return (
-              <div
+              <motion.div
                 key={service.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="relative bg-white rounded-3xl p-6 border border-slate-200 hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-600/10 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
               >
-                <div>
+                {/* Animated Shimmer Sweep */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/80 to-transparent pointer-events-none" />
+
+                <div className="relative z-10">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition">
+                    <motion.div 
+                      whileHover={{ rotate: 10, scale: 1.12 }}
+                      className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-xs"
+                    >
                       <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-xl font-black text-slate-300 font-mono">
+                    </motion.div>
+                    <span className="text-xl font-black text-slate-300 group-hover:text-emerald-500 transition-colors font-mono">
                       {service.number}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-black text-slate-900 leading-snug">
+                  <h3 className="text-lg font-black text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
                     {service.title}
                   </h3>
                   <p className="text-xs font-bold text-emerald-700 font-hindi mt-0.5">
@@ -130,17 +141,17 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-slate-100">
+                <div className="relative z-10 mt-6 pt-3 border-t border-slate-100">
                   <button
                     type="button"
                     onClick={() => handleBookService(service.title)}
-                    className="w-full py-2.5 bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="w-full py-2.5 bg-slate-100 group-hover:bg-emerald-600 group-hover:text-white text-slate-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <span>Inquire Now • परामर्श लें</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { 
   Sun, 
   BatteryCharging, 
@@ -7,7 +8,8 @@ import {
   ShieldCheck, 
   PhoneCall,
   Calculator,
-  Sparkles
+  Sparkles,
+  Box
 } from "lucide-react";
 
 export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
@@ -20,10 +22,10 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
       info: "1 kW – 10 kW • Up to ₹1.08L Direct Subsidy",
       icon: Sun,
-      iconColor: "bg-emerald-50 text-emerald-600 border-emerald-200",
+      iconColor: "bg-emerald-500 text-white shadow-emerald-500/30",
+      glowColor: "from-emerald-500/15 via-teal-500/5 to-transparent border-emerald-300 hover:border-emerald-500",
       actionText: "View Rates",
-      onClick: () => onNavigate("/on-grid"),
-      highlight: true
+      onClick: () => onNavigate("/on-grid")
     },
     {
       id: "off-grid",
@@ -33,10 +35,10 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
       info: "1 kW – 5 kW Battery + 15 HP Agro Flour Mills",
       icon: BatteryCharging,
-      iconColor: "bg-amber-50 text-amber-600 border-amber-200",
+      iconColor: "bg-amber-500 text-slate-950 shadow-amber-500/30",
+      glowColor: "from-amber-500/15 via-yellow-500/5 to-transparent border-amber-200 hover:border-amber-500",
       actionText: "True Rate List",
-      onClick: () => onNavigate("/off-grid"),
-      highlight: false
+      onClick: () => onNavigate("/off-grid")
     },
     {
       id: "calculator",
@@ -46,12 +48,12 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-yellow-100 text-yellow-900 border-yellow-300",
       info: "Calculate Bill, Subsidy & ROI in 30 Seconds",
       icon: Calculator,
-      iconColor: "bg-amber-100 text-amber-800 border-amber-300",
+      iconColor: "bg-slate-900 text-amber-400 shadow-slate-900/30",
+      glowColor: "from-yellow-400/20 via-amber-500/5 to-transparent border-amber-300 hover:border-amber-500",
       actionText: "Calculate Now",
       onClick: () => {
         if (onOpenCalculator) onOpenCalculator();
-      },
-      highlight: true
+      }
     },
     {
       id: "appliances",
@@ -61,23 +63,23 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
       info: "Solar Inverter ACs, Fridges & Heavy Coolers",
       icon: Tv,
-      iconColor: "bg-blue-50 text-blue-600 border-blue-200",
+      iconColor: "bg-blue-600 text-white shadow-blue-600/30",
+      glowColor: "from-blue-500/15 via-sky-500/5 to-transparent border-blue-200 hover:border-blue-500",
       actionText: "Showroom",
-      onClick: () => onNavigate("/appliances"),
-      highlight: false
+      onClick: () => onNavigate("/appliances")
     },
     {
       id: "gallery",
       title: "Real Works & Sites",
       titleHi: "साइट फोटो गैलरी",
-      badge: "20+ Live Sites",
+      badge: "2500+ Clients",
       badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
       info: "Pergolas & High-Rise GI Structures in UP",
       icon: Camera,
-      iconColor: "bg-purple-50 text-purple-600 border-purple-200",
+      iconColor: "bg-purple-600 text-white shadow-purple-600/30",
+      glowColor: "from-purple-500/15 via-pink-500/5 to-transparent border-purple-200 hover:border-purple-500",
       actionText: "View Photos",
-      onClick: () => onNavigate("/gallery"),
-      highlight: false
+      onClick: () => onNavigate("/gallery")
     },
     {
       id: "contact",
@@ -87,23 +89,23 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-teal-100 text-teal-800 border-teal-200",
       info: "Free Roof Survey & Shadow Analysis in UP",
       icon: PhoneCall,
-      iconColor: "bg-teal-50 text-teal-600 border-teal-200",
+      iconColor: "bg-teal-600 text-white shadow-teal-600/30",
+      glowColor: "from-teal-500/15 via-emerald-500/5 to-transparent border-teal-200 hover:border-teal-500",
       actionText: "Book Now",
-      onClick: () => onNavigate("/#contact"),
-      highlight: false
+      onClick: () => onNavigate("/#contact")
     }
   ];
 
   return (
-    <section id="portal-hub" className="py-12 sm:py-16 bg-white border-t border-b border-slate-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portal-hub" className="py-12 sm:py-16 bg-white border-t border-b border-slate-200/80 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header - Compact & Clean Tata Power Solar Style */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-slate-100">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Dedicated Solutions & Official Portals</span>
+              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+              <span>Interactive Bento Portals • 2500+ Happy Clients</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Explore Our Divisions & <span className="text-emerald-600">Verified Rates</span>
@@ -122,27 +124,35 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
           </div>
         </div>
 
-        {/* COMPACT SINGLE-LINE ROW ON DESKTOP (6 Columns in 1 Row) */}
+        {/* COMPACT SINGLE-LINE ANIMATED BENTO ROW ON DESKTOP (6 Columns in 1 Row) */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 mt-6">
-          {portalButtons.map((btn) => {
+          {portalButtons.map((btn, idx) => {
             const Icon = btn.icon;
             return (
-              <button
+              <motion.button
                 key={btn.id}
                 type="button"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+                whileHover={{ y: -8, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={btn.onClick}
-                className={`group text-left p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between cursor-pointer hover:-translate-y-1 ${
-                  btn.highlight
-                    ? "bg-gradient-to-b from-white to-emerald-50/40 border-emerald-300 hover:border-emerald-500 hover:shadow-md"
-                    : "bg-white hover:bg-slate-50/80 border-slate-200 hover:border-blue-300 hover:shadow-md"
-                }`}
+                className={`group relative text-left p-4 rounded-2xl border bg-gradient-to-br ${btn.glowColor} transition-all duration-300 flex flex-col justify-between cursor-pointer shadow-xs hover:shadow-xl overflow-hidden`}
               >
-                <div>
+                {/* Animated Shimmer Sweep on Hover */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+
+                <div className="relative z-10">
                   {/* Top Bar with Icon & Mini Badge */}
                   <div className="flex items-center justify-between gap-1.5 mb-3">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center border ${btn.iconColor} shadow-2xs group-hover:scale-105 transition`}>
+                    <motion.div 
+                      whileHover={{ rotate: 12, scale: 1.12 }}
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-md ${btn.iconColor} transition`}
+                    >
                       <Icon className="w-4 h-4" />
-                    </div>
+                    </motion.div>
                     <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${btn.badgeColor}`}>
                       {btn.badge}
                     </span>
@@ -163,34 +173,54 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                 </div>
 
                 {/* Bottom Compact Action Arrow */}
-                <div className="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-black text-emerald-700 group-hover:text-emerald-800">
+                <div className="relative z-10 mt-4 pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-black text-emerald-700 group-hover:text-emerald-800">
                   <span>{btn.actionText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition text-emerald-600" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform text-emerald-600" />
                 </div>
-              </button>
+              </motion.button>
             );
           })}
         </div>
 
-        {/* Clean, Compact Trust Banner */}
-        <div className="mt-8 bg-slate-900 text-white rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        {/* Clean, Compact Trust Banner with 3D AR/VR Shortcut */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 text-white rounded-2xl p-4 sm:p-5 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs border border-slate-800 shadow-xl"
+        >
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
               <strong className="text-white text-xs sm:text-sm block">
                 Primary Dealer: Tata Power, Adani, Waaree, Loom, UTL, Exide, Vikram & Servotech
               </strong>
-              <p className="text-slate-400 text-[11px] font-hindi">
+              <p className="text-slate-300 text-[11px] font-hindi">
                 🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी। 6% से 7% ब्याज दर पर आसान बैंक ऋण।
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
-            <button
+          <div className="flex flex-wrap items-center justify-center gap-2 shrink-0">
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => {
+                const el = document.querySelector("#ar-vr-solar");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 transition cursor-pointer border border-sky-400/40"
+            >
+              <Box className="w-3.5 h-3.5" />
+              <span>3D AR/VR View</span>
+            </motion.button>
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => {
                 if (onOpenCalculator) onOpenCalculator();
               }}
@@ -198,16 +228,18 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
             >
               <Calculator className="w-3.5 h-3.5" />
               <span>Solar Calculator</span>
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => onNavigate("/#contact")}
               className="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-3.5 py-2 rounded-xl text-xs transition cursor-pointer"
             >
               Book Site Survey ↗
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

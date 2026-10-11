@@ -1,10 +1,11 @@
 import { ArrowLeft, Sparkles, MapPin, Phone } from "lucide-react";
 import { BentoGallery } from "../components/BentoGallery";
+import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
 import { businessData } from "../data/businessData";
 import { InstagramIcon, FacebookIcon } from "../components/SocialIcons";
 import Footer from "../components/Footer";
 
-export default function GalleryPage({ onNavigateHome, onNavigate, onOpenAdmin }) {
+export default function GalleryPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
@@ -14,7 +15,7 @@ export default function GalleryPage({ onNavigateHome, onNavigate, onOpenAdmin })
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
               <div className="flex items-center gap-2 text-[11px]">
                 <span className="bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px]">
-                  VERIFIED SITES
+                  2500+ HAPPY CLIENTS
                 </span>
                 <span>Real Works & Sites • Gorakhpur, Deoria & Purvanchal Hub</span>
               </div>
@@ -33,25 +34,35 @@ export default function GalleryPage({ onNavigateHome, onNavigate, onOpenAdmin })
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
             <button
               type="button"
               onClick={onNavigateHome}
-              className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3.5 py-2 rounded-xl text-xs transition cursor-pointer shadow-xs border border-slate-200"
+              className="inline-flex items-center gap-1.5 sm:gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3 py-2 rounded-xl text-xs transition cursor-pointer shadow-xs border border-slate-200 shrink-0"
             >
               <ArrowLeft className="w-4 h-4 text-emerald-600" />
-              <span>Back to Main Home • सोलर होम</span>
+              <span className="whitespace-nowrap">Back to Home • होम</span>
             </button>
 
-            <div className="text-right">
-              <span className="text-sm font-black text-slate-900 block">REAL WORKS & SITES GALLERY</span>
-              <span className="text-[11px] font-bold text-emerald-700 font-hindi">लाइव साइट इंस्टॉलेशन फोटो गैलरी</span>
+            <div className="text-right min-w-0">
+              <span className="text-xs sm:text-sm font-black text-slate-900 block whitespace-nowrap truncate">
+                SATYARTHI SOLAR SOLUTION
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-bold text-emerald-700 font-hindi whitespace-nowrap">
+                2500+ संतुष्ट परिवार • लाइव फोटो गैलरी
+              </span>
             </div>
           </div>
         </header>
 
-        {/* Gallery Content */}
+        {/* Gallery Content with Expressive Kinetic Typography & Real-Time Collaborative Animations */}
         <BentoGallery />
+
+        {/* Interactive 3D AR/VR Solar Roof Visualizer */}
+        <ARVRSolarVisualizer
+          onNavigate={onNavigate || onNavigateHome}
+          onOpenCalculator={onOpenCalculator}
+        />
       </div>
 
       <Footer onOpenAdmin={onOpenAdmin} onNavigate={onNavigate || onNavigateHome} />

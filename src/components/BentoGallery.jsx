@@ -16,12 +16,102 @@ import {
   Maximize2,
   Navigation,
   CheckCircle2,
-  Award
+  Award,
+  Users,
+  MousePointer,
+  Radio
 } from "lucide-react";
+
+const GALLERY_COLLAB_FEED = [
+  "🟢 Er. Satyaprakash (Lead EPC) verified GPS coordinates at Saketpuri Pergola",
+  "⚡ 22 Homeowners in Gorakhpur & Deoria inspecting live site photos now",
+  "🏆 2500+ Happy Clients milestone verified across Purvanchal & UP",
+  "🔋 UPNEDA Inspector audited 5.4 kVA Okaya MPPT setup in Khorabar"
+];
+
+const GALLERY_COLLAB_CURSORS = [
+  {
+    id: "cursor-er",
+    label: "Er. Satyaprakash • Structural Audit",
+    tag: "150 km/h Wind-Load GI Frame",
+    color: "bg-emerald-500 text-slate-950 border-emerald-300",
+    hex: "#10b981",
+    x: ["8%", "42%", "24%", "8%"],
+    y: ["16%", "28%", "56%", "16%"]
+  },
+  {
+    id: "cursor-upneda",
+    label: "UPNEDA Verification (#GKP2604066741)",
+    tag: "GPS Coordinates & Net-Meter Synced",
+    color: "bg-sky-400 text-slate-950 border-sky-200",
+    hex: "#38bdf8",
+    x: ["72%", "54%", "78%", "72%"],
+    y: ["22%", "48%", "34%", "22%"]
+  }
+];
+
+function ExpressiveKineticTitle({ text, highlightWords = [] }) {
+  const words = text.split(" ");
+  return (
+    <span className="inline-flex flex-wrap justify-center gap-x-2.5 gap-y-1" style={{ perspective: "800px" }}>
+      {words.map((word, wIdx) => {
+        const isHighlight = highlightWords.includes(word);
+        return (
+          <motion.span
+            key={wIdx}
+            initial={{ opacity: 0, y: 28, rotateX: -65, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 14,
+              delay: wIdx * 0.08
+            }}
+            whileHover={{
+              y: -6,
+              scale: 1.09,
+              rotate: wIdx % 2 === 0 ? -2 : 2,
+              transition: { type: "spring", stiffness: 300, damping: 12 }
+            }}
+            className={`inline-block cursor-default select-none ${
+              isHighlight
+                ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600"
+                : "text-slate-900"
+            }`}
+          >
+            {word}
+          </motion.span>
+        );
+      })}
+    </span>
+  );
+}
 
 export function BentoGallery() {
   const [activeTab, setActiveTab] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [showCollabCursors, setShowCollabCursors] = useState(true);
+  const [collabFeedIdx, setCollabFeedIdx] = useState(0);
+  const [likesMap, setLikesMap] = useState({});
+  const [burstMap, setBurstMap] = useState({});
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCollabFeedIdx((prev) => (prev + 1) % GALLERY_COLLAB_FEED.length);
+    }, 3600);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleCollabVerify = (e, itemId, idx) => {
+    e.stopPropagation();
+    const baseCount = 118 + (idx * 17) % 90;
+    setLikesMap((prev) => ({
+      ...prev,
+      [itemId]: (prev[itemId] || baseCount) + 1
+    }));
+    setBurstMap((prev) => ({ ...prev, [itemId]: Date.now() }));
+  };
 
   // Complete Catalog of 20 Real Work Photos (GPS Verified Sites, Gazebo Pergolas, Inverters & Industrial Systems)
   const bentoItems = useMemo(() => [
@@ -355,43 +445,104 @@ export function BentoGallery() {
   }, [lightboxIndex, filteredItems.length]);
 
   return (
-    <section id="gallery" className="py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="gallery" className="py-16 sm:py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
 
+      {/* =====================================================================
+          EXPRESSIVE KINETIC TYPOGRAPHY MARQUEE RIBBON
+      ===================================================================== */}
+      <div className="w-full overflow-hidden bg-slate-950 text-white py-3 mb-12 border-y border-slate-800 select-none">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+          className="flex items-center gap-8 whitespace-nowrap w-max"
+        >
+          {[1, 2].map((loop) => (
+            <div key={loop} className="flex items-center gap-8 text-sm sm:text-lg font-black tracking-widest uppercase">
+              <span className="text-emerald-400">★ 2500+ HAPPY CLIENTS IN UP</span>
+              <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.65)" }}>
+                GPS VERIFIED ROOFTOP SITES
+              </span>
+              <span className="text-amber-400">⚡ ELEVATED SOLAR PERGOLA</span>
+              <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(56,189,248,0.75)" }}>
+                150 KM/H STORM PROOF GI
+              </span>
+              <span className="text-sky-400">🏛️ UPNEDA VENDOR #GKP2604066741</span>
+              <span className="text-emerald-300 font-hindi">सत्यार्थी सोलर सॉल्यूशन • 2500+ संतुष्ट परिवार</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
+        {/* Section Header with Expressive Kinetic Typography */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
+          className="text-center max-w-4xl mx-auto space-y-4"
         >
           <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-300 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <Sparkles className="w-4 h-4 text-emerald-600" />
-            <span>Real Site Proof • GPS Verified Installations in Gorakhpur & UP</span>
+            <Sparkles className="w-4 h-4 text-emerald-600 animate-spin" style={{ animationDuration: "6s" }} />
+            <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur & UP</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Real Works, Sites & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600">Photo Gallery</span>
-            <span className="block text-xl sm:text-2xl font-extrabold text-emerald-700 mt-2 font-hindi">
-              वास्तविक कार्य, जीपीएस प्रमाणित साइट्स व फोटो गैलरी
-            </span>
+          {/* 3D Expressive Kinetic Word-by-Word Animated Title */}
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            <ExpressiveKineticTitle
+              text="Real Works, Sites & Photo Gallery"
+              highlightWords={["Sites", "&", "Photo", "Gallery"]}
+            />
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35, duration: 0.5 }}
+              className="block text-xl sm:text-2xl font-extrabold text-emerald-700 mt-3 font-hindi"
+            >
+              2500+ संतुष्ट परिवार • वास्तविक कार्य, जीपीएस प्रमाणित साइट्स व फोटो गैलरी
+            </motion.span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
             Explore authentic installation photos from customer rooftops across Gorakhpur (Rajendra Nagar, Purdilpur, Railvihar, Fertilizer Colony, Jangl Ramgarh, Gauri Bazar). Every system is engineered under the direct supervision of <strong className="text-slate-900">Er. Satya Prakash Satyarthi</strong>.
-            <span className="block text-slate-700 font-medium text-xs sm:text-sm mt-1.5 font-hindi bg-white/80 p-2.5 rounded-xl border border-slate-200 shadow-2xs">
-              📸 <strong>असली काम का प्रमाण:</strong> सभी तस्वीरें हमारे द्वारा स्थापित वास्तविक साइट्स की हैं, जो जीपीएस मैप कैमरा द्वारा प्रमाणित हैं।
-            </span>
           </p>
+
+          {/* Real-Time Collaborative Activity & Cursor Control Strip */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <motion.div
+              key={collabFeedIdx}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-xs font-bold border border-emerald-500/40 shadow-md"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
+              <Radio className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="truncate max-w-[260px] sm:max-w-md">{GALLERY_COLLAB_FEED[collabFeedIdx]}</span>
+            </motion.div>
+
+            <button
+              type="button"
+              onClick={() => setShowCollabCursors((prev) => !prev)}
+              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-black transition cursor-pointer border ${
+                showCollabCursors
+                  ? "bg-emerald-100 text-emerald-900 border-emerald-300"
+                  : "bg-white text-slate-600 border-slate-200"
+              }`}
+            >
+              <Users className="w-3.5 h-3.5" />
+              <span>Collab Pointers: {showCollabCursors ? "LIVE" : "HIDDEN"}</span>
+            </button>
+          </div>
         </motion.div>
 
-        {/* Filter Navigation Tabs with Animation */}
-        <div className="flex justify-center items-center gap-2 mt-10 overflow-x-auto pb-2 scrollbar-none">
+        {/* Filter Navigation Tabs with Spring Animation */}
+        <div className="flex justify-center items-center gap-2 mt-8 overflow-x-auto pb-2 scrollbar-none">
           {[
             { id: "all", label: "All Works", hindi: "सभी कार्य (20)" },
             { id: "elevated", label: "Elevated Rooftops", hindi: "एलिवेटेड स्ट्रक्चर" },
@@ -401,8 +552,8 @@ export function BentoGallery() {
           ].map((tab) => (
             <motion.button
               key={tab.id}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.96 }}
               type="button"
               onClick={() => {
                 setActiveTab(tab.id);
@@ -420,84 +571,155 @@ export function BentoGallery() {
           ))}
         </div>
 
-        {/* Bento Grid with Framer Motion Layout Animation */}
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10 auto-rows-[260px] md:auto-rows-[290px]"
-        >
+        {/* Bento Grid Container with Real-Time Collaborative Cursors & 3D Hover Effects */}
+        <div className="relative mt-8">
+          {/* Floating Collaborative Engineering Cursors */}
           <AnimatePresence>
-            {filteredItems.map((item, idx) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.92, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.92 }}
-                transition={{ duration: 0.45, delay: idx * 0.03 }}
-                whileHover={{ y: -6 }}
-                onClick={() => setLightboxIndex(idx)}
-                className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200 hover:border-emerald-500 transition-all duration-300 shadow-md hover:shadow-2xl hover:shadow-emerald-600/15 ${item.span}`}
-              >
-                {/* Background Image */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700"
-                />
-
-                {/* Gradient Scrim for Perfect Typography Contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent group-hover:via-slate-950/70 transition-colors duration-300"></div>
-
-                {/* Top Badges */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-md ${item.badgeColor}`}>
-                    {item.badge}
-                  </span>
-
-                  <button
-                    type="button"
-                    aria-label="View Full Photo"
-                    className="w-8 h-8 rounded-full bg-slate-900/85 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-200 shadow-md"
-                  >
-                    <Maximize2 className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Bottom Content Card */}
-                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end space-y-1">
-                  <div className="flex items-center gap-1.5 text-emerald-300 text-xs font-semibold truncate">
-                    <MapPin className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
-                    <span className="truncate">{item.location}</span>
+            {showCollabCursors &&
+              GALLERY_COLLAB_CURSORS.map((cursor) => (
+                <motion.div
+                  key={cursor.id}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    left: cursor.x,
+                    top: cursor.y
+                  }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    left: { duration: 14, repeat: Infinity, ease: "easeInOut" },
+                    top: { duration: 14, repeat: Infinity, ease: "easeInOut" }
+                  }}
+                  className="absolute z-30 pointer-events-none hidden md:flex flex-col items-start"
+                >
+                  <MousePointer
+                    className="w-4 h-4 -rotate-12 drop-shadow-md"
+                    style={{ color: cursor.hex, fill: cursor.hex }}
+                  />
+                  <div className={`mt-0.5 px-2.5 py-1 rounded-xl border text-[10px] font-black shadow-xl whitespace-nowrap ${cursor.color}`}>
+                    <div>{cursor.label}</div>
+                    <div className="text-[9px] font-mono opacity-85">{cursor.tag}</div>
                   </div>
-
-                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-amber-300 font-semibold font-hindi line-clamp-1">
-                    {item.hindiTitle}
-                  </p>
-
-                  <p className="text-xs text-slate-300 line-clamp-2 hidden sm:block leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  {/* Google Map quick action indicator */}
-                  {item.googleMapLink && (
-                    <div className="pt-1 flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
-                        <Navigation className="w-3 h-3" />
-                        GPS Coordinates Verified • क्लिक कर देखें
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
           </AnimatePresence>
-        </motion.div>
 
-        {/* Bento Trust Metrics Ribbon */}
+          <motion.div 
+            layout
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[270px] md:auto-rows-[295px]"
+          >
+            <AnimatePresence>
+              {filteredItems.map((item, idx) => {
+                const count = likesMap[item.id] || (118 + (idx * 17) % 90);
+                const burstKey = burstMap[item.id];
+                return (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92 }}
+                    transition={{ duration: 0.45, delay: idx * 0.03 }}
+                    whileHover={{ y: -8, scale: 1.015 }}
+                    onClick={() => setLightboxIndex(idx)}
+                    className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200/90 hover:border-emerald-400 transition-all duration-300 shadow-md hover:shadow-2xl hover:shadow-emerald-600/20 ${item.span}`}
+                  >
+                    {/* Background Image with Smooth Zoom */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    />
+
+                    {/* Animated Glassmorphic Shine Sweep on Hover */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
+
+                    {/* Gradient Scrim for Perfect Typography Contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/55 to-transparent group-hover:via-slate-950/75 transition-colors duration-300"></div>
+
+                    {/* Top Badges + Real-Time Collaborative Reaction Button */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-20">
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-md ${item.badgeColor}`}>
+                        {item.badge}
+                      </span>
+
+                      <div className="flex items-center gap-1.5">
+                        {/* Real-Time Collaborative Appreciate / Verify Button */}
+                        <motion.button
+                          type="button"
+                          whileHover={{ scale: 1.08 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={(e) => handleCollabVerify(e, item.id, idx)}
+                          title="Real-Time Verify / Appreciate Installation"
+                          className="relative px-2.5 py-1 rounded-full bg-slate-900/85 hover:bg-emerald-600 backdrop-blur-md text-white text-[11px] font-black flex items-center gap-1 border border-white/20 shadow-md transition cursor-pointer"
+                        >
+                          <span>⚡</span>
+                          <span>{count}</span>
+
+                          {/* Floating Particle Burst on Click */}
+                          <AnimatePresence>
+                            {burstKey && (
+                              <motion.span
+                                key={burstKey}
+                                initial={{ opacity: 1, y: 0, scale: 0.8 }}
+                                animate={{ opacity: 0, y: -34, scale: 1.5 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.65 }}
+                                className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs pointer-events-none"
+                              >
+                                ⚡☀️👏
+                              </motion.span>
+                            )}
+                          </AnimatePresence>
+                        </motion.button>
+
+                        <button
+                          type="button"
+                          aria-label="View Full Photo"
+                          className="w-8 h-8 rounded-full bg-slate-900/85 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-200 shadow-md"
+                        >
+                          <Maximize2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Bottom Content Card with Expressive Slide-Up Typography */}
+                    <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 flex flex-col justify-end space-y-1 transition-transform duration-300 group-hover:-translate-y-1">
+                      <div className="flex items-center gap-1.5 text-emerald-300 text-xs font-semibold truncate">
+                        <MapPin className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
+                        <span className="truncate">{item.location}</span>
+                      </div>
+
+                      <h3 className="text-base sm:text-lg font-black text-white group-hover:text-emerald-300 transition-colors line-clamp-1 tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-amber-300 font-semibold font-hindi line-clamp-1">
+                        {item.hindiTitle}
+                      </p>
+
+                      <p className="text-xs text-slate-300 line-clamp-2 hidden sm:block leading-relaxed">
+                        {item.description}
+                      </p>
+
+                      {/* Google Map quick action indicator */}
+                      {item.googleMapLink && (
+                        <div className="pt-1 flex items-center gap-2">
+                          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
+                            <Navigation className="w-3 h-3" />
+                            GPS Coordinates Verified • क्लिक कर देखें
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+
+        {/* Bento Trust Metrics Ribbon (Updated to 2500+ Happy Clients) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -505,26 +727,26 @@ export function BentoGallery() {
           transition={{ duration: 0.6 }}
           className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
         >
-          <div className="space-y-1">
+          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+            <div className="text-2xl sm:text-3xl font-black text-emerald-700">2500+ Clients</div>
+            <div className="text-xs text-slate-800 font-bold">Happy Clients • संतुष्ट परिवार</div>
+            <p className="text-[11px] text-slate-500">Residential & Commercial Plants</p>
+          </motion.div>
+          <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-700">2,200+ kW</div>
             <div className="text-xs text-slate-800 font-bold">Installed Capacity • क्षमता</div>
             <p className="text-[11px] text-slate-500">Across Gorakhpur & Eastern UP</p>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-700">450+ Sites</div>
-            <div className="text-xs text-slate-800 font-bold">Happy Families • संतुष्ट परिवार</div>
-            <p className="text-[11px] text-slate-500">Residential & Commercial Plants</p>
-          </div>
-          <div className="space-y-1">
+          </motion.div>
+          <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-700">₹1,08,000</div>
             <div className="text-xs text-slate-800 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
             <p className="text-[11px] text-slate-500">Direct Bank DBT Credit</p>
-          </div>
-          <div className="space-y-1">
+          </motion.div>
+          <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-emerald-700">25 Years</div>
             <div className="text-xs text-slate-800 font-bold">Panel Warranty • वारंटी</div>
             <p className="text-[11px] text-slate-500">Tier-1 Mono PERC Reliability</p>
-          </div>
+          </motion.div>
         </motion.div>
 
       </div>
