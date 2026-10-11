@@ -59,42 +59,11 @@ const SYSTEM_PRESETS = [
   }
 ];
 
-const COLLAB_AGENTS = [
-  {
-    id: "er-satya",
-    name: "Er. Satyaprakash (Lead EPC)",
-    note: "26° South Tilt • 80μm Hot-Dip GI Verified",
-    color: "bg-emerald-500 text-slate-950 border-emerald-300",
-    cursorColor: "#10b981",
-    keyframesX: [18, 38, 25, 18],
-    keyframesY: [24, 34, 52, 24]
-  },
-  {
-    id: "upneda-sync",
-    name: "UPNEDA Audit (#GKP2604066741)",
-    note: "₹1,08,000 DBT Subsidy Eligible",
-    color: "bg-sky-500 text-slate-950 border-sky-300",
-    cursorColor: "#0ea5e9",
-    keyframesX: [68, 52, 72, 68],
-    keyframesY: [28, 48, 36, 28]
-  },
-  {
-    id: "net-meter",
-    name: "UPPCL Net-Meter Live",
-    note: "Bi-Directional Grid Export Active",
-    color: "bg-amber-400 text-slate-950 border-amber-200",
-    cursorColor: "#fbbf24",
-    keyframesX: [46, 64, 34, 46],
-    keyframesY: [68, 58, 72, 68]
-  }
-];
-
 export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   const [selectedPreset, setSelectedPreset] = useState(SYSTEM_PRESETS[0]);
   const [sunHour, setSunHour] = useState(12.5); // 6 AM (6) to 6 PM (18)
   const [autoSun, setAutoSun] = useState(true);
   const [viewMode, setViewMode] = useState("vr3d"); // "vr3d" | "ar_hud"
-  const [showCollabCursors, setShowCollabCursors] = useState(true);
   const [tilt, setTilt] = useState({ rotateX: 22, rotateY: -18 });
   const [cameraActive, setCameraActive] = useState(false);
   const [cameraError, setCameraError] = useState("");
@@ -158,9 +127,9 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   const liveKw = (selectedPreset.peakKw * irradianceFactor).toFixed(2);
   const efficiencyPct = Math.round(irradianceFactor * 100);
 
-  // Sun X & Y coordinates along the sky arc
-  const sunX = 12 + normalizedProgress * 76; // 12% to 88%
-  const sunY = 68 - Math.sin(normalizedProgress * Math.PI) * 52; // Arc peak at top
+  // Sun X & Y coordinates along the upper sky arc (stays cleanly above the 3D solar card on mobile & desktop)
+  const sunX = 14 + normalizedProgress * 72; // 14% to 86%
+  const sunY = 42 - Math.sin(normalizedProgress * Math.PI) * 24; // 18% at peak noon, 42% at horizon
 
   const formatTime = (decimalHour) => {
     const hrs = Math.floor(decimalHour);
@@ -185,7 +154,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   };
 
   return (
-    <section id="ar-vr-solar" className="py-14 sm:py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+    <section id="ar-vr-solar" className="py-12 sm:py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
       {/* Ambient Motion Graphics Background Glows */}
       <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
@@ -193,13 +162,13 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-8 border-b border-slate-800/90">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 sm:pb-8 border-b border-slate-800/90">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
-              <span>Interactive 3D AR / VR Motion Graphics • लाइव 3D सोलर विजुअलाइज़र</span>
+            <div className="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin shrink-0" style={{ animationDuration: "6s" }} />
+              <span className="truncate">Interactive 3D AR / VR • लाइव 3D विजुअलाइज़र</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
               Experience Your Rooftop in <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">3D VR & Augmented Reality</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 font-hindi">
@@ -207,38 +176,38 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             </p>
           </div>
 
-          {/* Mode Switcher & Collaborative Toggle */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Mode Switcher: Equal 2-Col Grid on Mobile, Inline on Desktop */}
+          <div className="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setViewMode("vr3d")}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-black transition cursor-pointer border ${
+              className={`inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-black transition cursor-pointer border ${
                 viewMode === "vr3d"
                   ? "bg-emerald-500 text-slate-950 border-emerald-400 shadow-lg shadow-emerald-500/25"
                   : "bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500"
               }`}
             >
-              <Box className="w-3.5 h-3.5" />
-              <span>3D VR Digital Twin</span>
+              <Box className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">3D VR Digital Twin</span>
             </button>
 
             <button
               type="button"
               onClick={() => setViewMode("ar_hud")}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-black transition cursor-pointer border ${
+              className={`inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-black transition cursor-pointer border ${
                 viewMode === "ar_hud"
                   ? "bg-sky-400 text-slate-950 border-sky-300 shadow-lg shadow-sky-400/25"
                   : "bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500"
               }`}
             >
-              <Camera className="w-3.5 h-3.5" />
-              <span>AR Roof HUD Mode</span>
+              <Camera className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">AR Roof HUD Mode</span>
             </button>
           </div>
         </div>
 
         {/* Main Interactive Bento Grid: Left 3D/AR Viewport (8 cols) + Right Telemetry & Controls (4 cols) */}
-        <div className="grid lg:grid-cols-12 gap-6 mt-8 items-stretch">
+        <div className="grid lg:grid-cols-12 gap-5 sm:gap-6 mt-6 sm:mt-8 items-stretch">
           
           {/* =================================================================
               LEFT: INTERACTIVE 3D VR / AR MOTION GRAPHICS STAGE
@@ -246,7 +215,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
           <div 
             onMouseMove={handlePointerMove}
             onMouseLeave={resetTilt}
-            className="lg:col-span-8 relative min-h-[430px] sm:min-h-[490px] rounded-3xl border border-slate-800 bg-gradient-to-b from-[#06152d] via-[#09203f] to-[#040d1a] overflow-hidden shadow-2xl flex flex-col justify-between p-4 sm:p-6 select-none"
+            className="lg:col-span-8 relative min-h-[430px] sm:min-h-[490px] rounded-3xl border border-slate-800 bg-gradient-to-b from-[#06152d] via-[#09203f] to-[#040d1a] overflow-hidden shadow-2xl flex flex-col justify-between p-3.5 sm:p-6 select-none"
           >
             {/* Optional WebRTC Live AR Camera Feed Background */}
             {viewMode === "ar_hud" && cameraActive && (
@@ -282,19 +251,19 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="sunArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.15" />
-                  <stop offset="50%" stopColor="#fde047" stopOpacity="0.65" />
-                  <stop offset="100%" stopColor="#f97316" stopOpacity="0.15" />
+                  <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.18" />
+                  <stop offset="50%" stopColor="#fde047" stopOpacity="0.7" />
+                  <stop offset="100%" stopColor="#f97316" stopOpacity="0.18" />
                 </linearGradient>
                 <linearGradient id="photonBeam" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#fde047" stopOpacity="0.55" />
+                  <stop offset="0%" stopColor="#fde047" stopOpacity="0.5" />
                   <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
 
-              {/* Dashed Solar Trajectory Path */}
+              {/* Dashed Solar Trajectory Path in Upper Sky Zone */}
               <path
-                d="M 12 68 Q 50 -20 88 68"
+                d="M 14 42 Q 50 -6 86 42"
                 fill="none"
                 stroke="url(#sunArcGrad)"
                 strokeWidth="0.6"
@@ -303,51 +272,56 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
 
               {/* Dynamic Photon Energy Cone from Sun to Solar Array */}
               <polygon
-                points={`${sunX},${sunY} 32,62 68,62`}
+                points={`${sunX},${sunY} 28,60 72,60`}
                 fill="url(#photonBeam)"
-                opacity={irradianceFactor * 0.65}
+                opacity={irradianceFactor * 0.6}
               />
             </svg>
 
-            {/* Glowing Animated Sun Orb */}
+            {/* Glowing Animated Sun Orb (Time Pill placed above orb so it never touches the 3D frame) */}
             <motion.div
               animate={{ left: `${sunX}%`, top: `${sunY}%` }}
               transition={{ type: "spring", stiffness: 90, damping: 18 }}
               className="absolute -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
             >
               <div className="relative flex items-center justify-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-400/30 blur-xl animate-pulse" />
-                <div className="absolute w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-yellow-200 via-amber-400 to-orange-500 shadow-[0_0_30px_#fbbf24] flex items-center justify-center border border-white/80">
-                  <Sun className="w-5 h-5 text-slate-950 animate-spin" style={{ animationDuration: "10s" }} />
-                </div>
-                <span className="absolute -bottom-6 bg-slate-950/90 text-amber-300 border border-amber-400/40 px-2 py-0.5 rounded text-[10px] font-mono font-bold whitespace-nowrap shadow-md">
+                <span className="absolute -top-6 bg-slate-950/90 text-amber-300 border border-amber-400/50 px-2 py-0.5 rounded-md text-[9.5px] sm:text-[10px] font-mono font-bold whitespace-nowrap shadow-md">
                   {formatTime(sunHour)}
                 </span>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-amber-400/30 blur-xl animate-pulse" />
+                <div className="absolute w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-yellow-200 via-amber-400 to-orange-500 shadow-[0_0_30px_#fbbf24] flex items-center justify-center border border-white/80">
+                  <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 animate-spin" style={{ animationDuration: "10s" }} />
+                </div>
               </div>
             </motion.div>
 
-            {/* Top HUD Bar */}
-            <div className="relative z-20 flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2 bg-slate-950/80 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-xl text-xs">
-                <Compass className="w-4 h-4 text-emerald-400 animate-pulse" />
-                <span className="font-mono text-[11px] text-slate-200">
-                  LAT: <strong className="text-emerald-300">26.76°N (GKP)</strong> • TILT: <strong className="text-amber-300">26° SOUTH</strong>
+            {/* Top HUD Bar: Always Single-Line on Mobile & Desktop */}
+            <div className="relative z-30 flex items-center justify-between gap-1.5">
+              <div className="flex items-center gap-1.5 bg-slate-950/85 backdrop-blur-md border border-white/15 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[10px] sm:text-xs min-w-0">
+                <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 animate-pulse shrink-0" />
+                <span className="font-mono text-[10px] sm:text-[11px] text-slate-200 truncate">
+                  <span className="sm:hidden">
+                    <strong className="text-emerald-300">26.76°N (GKP)</strong> • <strong className="text-amber-300">26°S TILT</strong>
+                  </span>
+                  <span className="hidden sm:inline">
+                    LAT: <strong className="text-emerald-300">26.76°N (GKP)</strong> • TILT: <strong className="text-amber-300">26° SOUTH</strong>
+                  </span>
                 </span>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 shrink-0">
                 {viewMode === "ar_hud" && (
                   <button
                     type="button"
                     onClick={toggleLiveCamera}
-                    className="inline-flex items-center gap-1.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-black px-3 py-1.5 rounded-xl text-[11px] transition cursor-pointer shadow-md"
+                    className="inline-flex items-center gap-1 bg-sky-500 hover:bg-sky-400 text-slate-950 font-black px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[10px] sm:text-[11px] transition cursor-pointer shadow-md"
                   >
-                    {cameraActive ? <VideoOff className="w-3.5 h-3.5" /> : <Video className="w-3.5 h-3.5" />}
-                    <span>{cameraActive ? "Stop Camera" : "Try Live Camera AR"}</span>
+                    {cameraActive ? <VideoOff className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> : <Video className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
+                    <span>{cameraActive ? "Stop AR" : "Live AR"}</span>
                   </button>
                 )}
 
-                <span className="bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] font-black px-3 py-1.5 rounded-xl font-mono">
+                <span className="bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[10px] sm:text-[11px] font-black px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl font-mono whitespace-nowrap">
                   ⚡ {liveKw} kW LIVE
                 </span>
               </div>
@@ -356,7 +330,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             {/* ===============================================================
                 CENTER 3D ISOMETRIC SOLAR ROOF & PERGOLA DIGITAL TWIN
             =============================================================== */}
-            <div className="relative z-20 my-auto flex items-center justify-center py-6" style={{ perspective: "1100px" }}>
+            <div className="relative z-20 mt-14 sm:mt-12 mb-4 flex items-center justify-center py-2 sm:py-4" style={{ perspective: "1100px" }}>
               <motion.div
                 animate={{
                   rotateX: tilt.rotateX,
@@ -364,20 +338,20 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                 }}
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
                 style={{ transformStyle: "preserve-3d" }}
-                className="relative w-72 sm:w-96 h-52 sm:h-60 rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/95 shadow-[0_25px_60px_rgba(0,0,0,0.75)] p-4 flex flex-col justify-between"
+                className="relative w-full max-w-[305px] sm:max-w-[390px] h-48 sm:h-60 rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/95 shadow-[0_25px_60px_rgba(0,0,0,0.75)] p-3 sm:p-4 flex flex-col justify-between"
               >
-                {/* 4 Elevated Hot-Dip GI Pergola Pillars */}
-                <div className="absolute -bottom-6 left-4 w-2.5 h-8 bg-gradient-to-b from-slate-300 to-slate-500 rounded-b border border-white/30" />
-                <div className="absolute -bottom-6 right-4 w-2.5 h-8 bg-gradient-to-b from-slate-300 to-slate-500 rounded-b border border-white/30" />
+                {/* Elevated Hot-Dip GI Pergola Pillars */}
+                <div className="absolute -bottom-5 left-4 w-2.5 h-6 sm:h-8 bg-gradient-to-b from-slate-300 to-slate-500 rounded-b border border-white/30" />
+                <div className="absolute -bottom-5 right-4 w-2.5 h-6 sm:h-8 bg-gradient-to-b from-slate-300 to-slate-500 rounded-b border border-white/30" />
 
-                {/* Top Structure Label */}
-                <div className="flex items-center justify-between text-[10px] font-mono text-sky-300 border-b border-white/10 pb-1.5">
-                  <span>{selectedPreset.structure}</span>
-                  <span className="text-emerald-400 font-bold">{selectedPreset.panels}× TOPCon Bifacial</span>
+                {/* Top Structure Label (Single-line on Mobile & Desktop) */}
+                <div className="flex items-center justify-between gap-2 text-[9.5px] sm:text-[10px] font-mono text-sky-300 border-b border-white/10 pb-1.5 whitespace-nowrap">
+                  <span className="truncate">{selectedPreset.structure}</span>
+                  <span className="text-emerald-400 font-bold shrink-0">{selectedPreset.panels}× TOPCon Bifacial</span>
                 </div>
 
                 {/* 3D Solar PV Cell Matrix Grid */}
-                <div className="grid grid-cols-3 gap-2 my-2 flex-1">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 my-1.5 sm:my-2 flex-1">
                   {Array.from({ length: 6 }).map((_, idx) => (
                     <motion.div
                       key={idx}
@@ -417,8 +391,8 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                 </div>
 
                 {/* Animated Energy Flow Stream Bar (Solar -> Inverter -> Home & Grid) */}
-                <div className="bg-slate-950/90 rounded-xl p-2 border border-white/10 flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-amber-300 flex items-center gap-1">
+                <div className="bg-slate-950/90 rounded-xl p-2 border border-white/10 flex items-center justify-between text-[9.5px] sm:text-[10px] font-mono">
+                  <span className="text-amber-300 flex items-center gap-1 shrink-0">
                     <Sun className="w-3 h-3" /> PV Array
                   </span>
                   <div className="flex-1 mx-2 h-1.5 rounded-full bg-slate-800 overflow-hidden relative">
@@ -428,20 +402,20 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                       className="w-1/2 h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-sky-400 rounded-full"
                     />
                   </div>
-                  <span className="text-emerald-400 flex items-center gap-1">
+                  <span className="text-emerald-400 flex items-center gap-1 shrink-0">
                     <Zap className="w-3 h-3" /> Net-Meter
                   </span>
                 </div>
               </motion.div>
             </div>
 
-            {/* Bottom Interactive Sun-Path Scrubber Controls */}
-            <div className="relative z-20 bg-slate-950/85 backdrop-blur-md border border-white/15 rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3">
-              <div className="flex items-center gap-2 shrink-0">
+            {/* Bottom Interactive Sun-Path Scrubber Controls (Compact 2-Row on Mobile, 1-Row on Desktop) */}
+            <div className="relative z-20 bg-slate-950/90 backdrop-blur-md border border-white/15 rounded-2xl p-2.5 sm:p-3.5 flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+              <div className="flex items-center justify-between w-full sm:w-auto gap-2 shrink-0">
                 <button
                   type="button"
                   onClick={() => setAutoSun((prev) => !prev)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black flex items-center gap-1.5 transition cursor-pointer ${
                     autoSun
                       ? "bg-amber-400 text-slate-950"
                       : "bg-slate-800 text-slate-200 hover:bg-slate-700"
@@ -450,10 +424,14 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   <RotateCw className={`w-3.5 h-3.5 ${autoSun ? "animate-spin" : ""}`} />
                   <span>{autoSun ? "Auto Sun Orbit" : "Manual Sun"}</span>
                 </button>
+
+                <span className="sm:hidden text-[11px] text-emerald-300 font-mono font-bold bg-emerald-500/15 border border-emerald-400/30 px-2.5 py-1 rounded-lg">
+                  Irradiance: {efficiencyPct}%
+                </span>
               </div>
 
-              <div className="flex-1 w-full flex items-center gap-3">
-                <span className="text-[11px] font-mono text-slate-400 shrink-0">6 AM</span>
+              <div className="flex-1 w-full flex items-center gap-2.5">
+                <span className="text-[10px] sm:text-[11px] font-mono text-slate-300 shrink-0">6 AM</span>
                 <input
                   type="range"
                   min="6"
@@ -467,10 +445,10 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   aria-label="Sun Path Hour Slider"
                   className="w-full accent-amber-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
                 />
-                <span className="text-[11px] font-mono text-slate-400 shrink-0">6 PM</span>
+                <span className="text-[10px] sm:text-[11px] font-mono text-slate-300 shrink-0">6 PM</span>
               </div>
 
-              <span className="text-[11px] text-emerald-300 font-mono font-bold shrink-0">
+              <span className="hidden sm:inline-block text-[11px] text-emerald-300 font-mono font-bold shrink-0">
                 Irradiance: {efficiencyPct}%
               </span>
             </div>

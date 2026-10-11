@@ -91,7 +91,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
 
   return (
     <>
-      {/* Persistent Floating Festive Gift Pill (Bottom-Left on Mobile & Desktop when Popup is Closed) */}
+      {/* Persistent Floating Festive Gift Pill (Shown on Tablet/Desktop; Mobile uses Top Navbar & Bottom Dock Offer 🎁 button) */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
@@ -102,7 +102,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
             whileHover={{ scale: 1.06, y: -2 }}
             whileTap={{ scale: 0.94 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-24 right-4 sm:bottom-26 sm:right-6 z-30 flex items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white font-black px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl shadow-xl shadow-orange-600/40 border-2 border-amber-300/80 cursor-pointer group overflow-hidden"
+            className="hidden sm:flex fixed bottom-26 right-6 z-30 items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white font-black px-3.5 py-2.5 rounded-2xl shadow-xl shadow-orange-600/40 border-2 border-amber-300/80 cursor-pointer group overflow-hidden"
             aria-label="Open Navratri and Diwali Special Offer"
           >
             {/* Animated Shimmer Sweep */}

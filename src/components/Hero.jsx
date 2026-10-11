@@ -294,21 +294,21 @@ function Hero({ onOpenCalculator }) {
               ))}
             </motion.div>
 
-            {/* Primary Action Buttons with Shimmer & 3D AR/VR Quick-Launch */}
+            {/* Primary Action Buttons with Shimmer & 3D AR/VR Quick-Launch (Crisp 2-Col Grid on Mobile, Inline on Desktop) */}
             <motion.div 
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-3 pt-2"
+              className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
             >
               <motion.button
                 whileHover={{ scale: 1.04, y: -3 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo("#contact")}
-                className="group relative overflow-hidden inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-emerald-950/40 transition cursor-pointer text-sm border border-emerald-400/40"
+                className="col-span-2 sm:w-auto group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-emerald-950/40 transition cursor-pointer text-sm border border-emerald-400/40"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
-                <FileText className="w-4 h-4 text-white relative z-10" />
+                <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
                 <span className="relative z-10">Book Free Survey • मुफ्त सर्वे</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10 shrink-0" />
               </motion.button>
 
               <motion.button
@@ -317,10 +317,10 @@ function Hero({ onOpenCalculator }) {
                 onClick={() => {
                   if (onOpenCalculator) onOpenCalculator();
                 }}
-                className="group relative overflow-hidden inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
+                className="col-span-2 sm:w-auto group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
-                <Calculator className="w-4 h-4 text-slate-950 relative z-10" />
+                <Calculator className="w-4 h-4 text-slate-950 relative z-10 shrink-0" />
                 <span className="relative z-10">Solar Calculator • कैलकुलेटर</span>
               </motion.button>
 
@@ -329,9 +329,9 @@ function Hero({ onOpenCalculator }) {
                 whileHover={{ scale: 1.04, y: -3 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo("#ar-vr-solar")}
-                className="inline-flex items-center gap-2 bg-sky-500/20 hover:bg-sky-500/30 backdrop-blur-md text-sky-200 font-bold px-4 py-3 rounded-2xl border border-sky-400/35 transition text-sm cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 bg-sky-500/20 hover:bg-sky-500/30 backdrop-blur-md text-sky-200 font-bold px-3 sm:px-4 py-3 rounded-2xl border border-sky-400/35 transition text-xs sm:text-sm cursor-pointer"
               >
-                <Box className="w-4 h-4 text-sky-300" />
+                <Box className="w-4 h-4 text-sky-300 shrink-0" />
                 <span>3D AR/VR View</span>
               </motion.button>
 
@@ -339,9 +339,9 @@ function Hero({ onOpenCalculator }) {
                 whileHover={{ scale: 1.04, y: -3 }}
                 whileTap={{ scale: 0.97 }}
                 href={`tel:${businessData.phone[0]}`}
-                className="inline-flex items-center gap-2 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-4 py-3 rounded-2xl border border-white/20 transition text-sm cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-3 sm:px-4 py-3 rounded-2xl border border-white/20 transition text-xs sm:text-sm cursor-pointer"
               >
-                <Phone className="w-4 h-4 text-emerald-300" />
+                <Phone className="w-4 h-4 text-emerald-300 shrink-0" />
                 <span>+91 {businessData.phone[0]}</span>
               </motion.a>
             </motion.div>
@@ -360,15 +360,15 @@ function Hero({ onOpenCalculator }) {
               animate={{ opacity: 1, y: 0, rotateY: 0 }}
               transition={{ duration: 0.65, delay: 0.15, type: "spring", stiffness: 140 }}
               whileHover={{ y: -6, rotateX: 3, rotateY: -3, scale: 1.015 }}
-              className="group relative bg-slate-900/80 backdrop-blur-xl border border-white/20 hover:border-teal-400/60 rounded-3xl p-5 sm:p-6 shadow-2xl space-y-4 text-white overflow-hidden transition-colors"
+              className="group relative bg-slate-900/80 backdrop-blur-xl border border-white/20 hover:border-teal-400/60 rounded-3xl p-4 sm:p-6 shadow-2xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
 
-              <div className="relative z-10 flex items-center gap-4">
+              <div className="relative z-10 flex items-center gap-3.5 sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.06, rotate: -2 }}
-                  className="relative w-20 h-20 rounded-2xl overflow-hidden border-2 border-teal-400/80 shadow-md shrink-0"
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-teal-400/80 shadow-md shrink-0"
                 >
                   <img
                     src={businessData.engineerImage}
@@ -381,9 +381,9 @@ function Hero({ onOpenCalculator }) {
                 </motion.div>
 
                 <div className="min-w-0 flex-1 space-y-1">
-                  <div className="inline-flex items-center gap-1 bg-teal-500/20 text-teal-200 border border-teal-400/30 px-2.5 py-0.5 rounded-full text-[10px] font-bold">
-                    <UserCheck className="w-3 h-3 text-teal-300" />
-                    <span>Lead Solar Engineer • मुख्य सोलर इंजीनियर</span>
+                  <div className="inline-flex items-center gap-1 bg-teal-500/20 text-teal-200 border border-teal-400/30 px-2 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-bold max-w-full">
+                    <UserCheck className="w-3 h-3 text-teal-300 shrink-0" />
+                    <span className="truncate">Lead Solar Engineer • मुख्य इंजीनियर</span>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-black text-white leading-tight">

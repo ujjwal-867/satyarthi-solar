@@ -240,13 +240,13 @@ export function AIChatbot() {
 
   return (
     <>
-      {/* Floating Trigger Button (Positioned cleanly at BOTTOM-RIGHT, with label to the left so it never collides vertically) */}
-      <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5">
+      {/* Floating Trigger Button (Compact icon above mobile dock on phones; full pill + button on desktop) */}
+      <div className="fixed bottom-16 right-3 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5">
         {hasUnread && !isOpen && (
           <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className="bg-slate-900/95 hover:bg-slate-900 text-white text-[11px] font-bold px-3.5 py-2 rounded-full shadow-xl border border-amber-400/60 flex items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
+            className="hidden sm:flex bg-slate-900/95 hover:bg-slate-900 text-white text-[11px] font-bold px-3.5 py-2 rounded-full shadow-xl border border-amber-400/60 items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping shrink-0"></span>
             <span className="whitespace-nowrap">{lang === "hi" ? "सूर्य साथी AI • सब्सिडी" : "Surya AI • Subsidies & Rates"}</span>
@@ -257,25 +257,25 @@ export function AIChatbot() {
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Open AI Solar Assistant"
-          className="group relative flex items-center justify-center w-14 h-14 bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 rounded-full shadow-2xl shadow-amber-500/40 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white"
+          className="group relative flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 rounded-full shadow-2xl shadow-amber-500/40 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
         >
           {isOpen ? (
-            <X className="w-7 h-7 text-slate-950" />
+            <X className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950" />
           ) : (
             <>
-              <Bot className="w-7 h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
-              <span className="absolute -top-1 -right-1 flex h-4 w-4">
+              <Bot className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
+              <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5 sm:h-4 sm:w-4">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-emerald-500 border-2 border-white"></span>
               </span>
             </>
           )}
         </button>
       </div>
 
-      {/* Expanded AI Chatbot Window (docks neatly above trigger at bottom-24 right-4 sm:right-6) */}
+      {/* Expanded AI Chatbot Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-3 sm:right-6 z-50 w-[95vw] sm:w-[410px] max-h-[80vh] h-[580px] bg-white rounded-3xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed bottom-28 right-2.5 sm:bottom-24 sm:right-6 z-50 w-[95vw] sm:w-[410px] max-h-[75vh] sm:max-h-[80vh] h-[540px] sm:h-[580px] bg-white rounded-3xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
           
           {/* Header */}
           <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
