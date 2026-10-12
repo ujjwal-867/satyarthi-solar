@@ -20,9 +20,9 @@ function Certificates() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filterTabs = [
-    { id: "All", en: "All Certificates", hi: "सभी प्रमाणपत्र" },
-    { id: "Government Approval", en: "Govt Approvals", hi: "सरकारी मान्यता (UPNEDA)" },
-    { id: "Tax & Legal Registration", en: "Tax & GST", hi: "जीएसटी एवं कर पंजीकरण" },
+    { id: "All", en: "All Certificates (7)", hi: "सभी प्रमाणपत्र" },
+    { id: "Government Approval", en: "Govt Approvals & Awards", hi: "सरकारी मान्यता व सम्मान" },
+    { id: "Tax & Legal Registration", en: "GST & MSME Udyam", hi: "जीएसटी एवं उद्यम पंजीकरण" },
     { id: "Dealer Authorization", en: "Dealer Authorizations", hi: "कंपनी डीलरशिप प्रमाण" }
   ];
 
@@ -37,7 +37,9 @@ function Certificates() {
       <KineticMarqueeStrip
         items={[
           "UPNEDA EMPANELLED VENDOR GKP2604066741",
+          "SAUR SAMMAN AWARD HONOREE",
           "GSTIN 09JCNPS2666N1ZE",
+          "MSME UDYAM-UP-32-0049022",
           "LOOM SOLAR AUTHORIZED DEALER",
           "FUJIYAMA SOLAR PARTNER",
           "AMAZE AUTHORIZED CHANNEL",
@@ -68,14 +70,14 @@ function Certificates() {
               highlightWords={["Government", "Brand", "Authorizations"]}
             />
             <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
-              यूपीनेडा सूचीबद्धता एवं अधिकृत डीलर प्रमाणपत्र
+              यूपीनेडा सूचीबद्धता, सौर सम्मान, उद्यम एवं अधिकृत डीलर प्रमाणपत्र
             </span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Verify our official credentials. Satyarthi Solar Solution is an empanelled vendor with UPNEDA (Govt of UP), GST Registered (09JCNPS2666N1ZE), and Authorized Dealer for LOOM SOLAR, FUJIYAMA SOLAR, and AMAZE.
+            Verify our official credentials. Satyarthi Solar Solution is an empanelled vendor with UPNEDA (Govt of UP), Honoree at the UPNEDA-supported Saur Samman Awards, GST Registered (09JCNPS2666N1ZE), MSME Udyam Registered (UDYAM-UP-32-0049022), and Authorized Dealer for LOOM SOLAR, FUJIYAMA SOLAR, and AMAZE.
             <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              सत्यार्थी सोलर सॉल्यूशन उत्तर प्रदेश सरकार (UPNEDA) से अधिकृत वेंडर एवं प्रमुख सोलर ब्रांड्स का मान्यता प्राप्त डीलर है।
+              सत्यार्थी सोलर सॉल्यूशन उत्तर प्रदेश सरकार (UPNEDA) से अधिकृत वेंडर, सौर सम्मान विजेता, भारत सरकार (MSME Udyam एवं GST) से पंजीकृत तथा प्रमुख सोलर ब्रांड्स का मान्यता प्राप्त डीलर है।
             </span>
           </p>
         </motion.div>

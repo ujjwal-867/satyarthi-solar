@@ -50,13 +50,16 @@ function Footer({ onOpenAdmin, onNavigate }) {
             <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-2 text-xs">
               <div className="flex items-center gap-2 text-emerald-400 font-semibold">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
-                <span>UPNEDA & MNRE Approved Vendor</span>
+                <span>UPNEDA & MNRE Approved Vendor • Saur Samman Awardee</span>
               </div>
               <p className="text-slate-300 font-mono text-[11px]">
                 Vendor Code: <strong className="text-emerald-300">{businessData.vendorCode}</strong>
               </p>
               <p className="text-slate-300 font-mono text-[11px]">
                 GSTIN: <strong className="text-blue-300">{businessData.gstin}</strong>
+              </p>
+              <p className="text-slate-300 font-mono text-[11px]">
+                MSME Udyam: <strong className="text-amber-300">{businessData.udyamNo}</strong>
               </p>
               <p className="text-[11px] text-amber-300 font-semibold">
                 Authorized Primary Dealer & Channel Partner of Leading Solar Brands

@@ -19,6 +19,7 @@ export const businessData = {
   // Government & Industry Certifications
   vendorCode: "GKP2604066741",
   gstin: "09JCNPS2666N1ZE",
+  udyamNo: "UDYAM-UP-32-0049022",
   upnedaStatus: "UPNEDA Approved Vendor",
   upnedaAgency: "U.P. New and Renewable Energy Development Agency & MNRE",
   loomCertificateNo: "49531/UP/06/2023",
@@ -152,6 +153,19 @@ export const businessData = {
       type: "Government Approval"
     },
     {
+      id: "saur-samman",
+      title: "Saur Samman Awards – PM Surya Ghar Excellence",
+      authority: "Supported by UPNEDA • Pragya Power Foundation & Ecozen",
+      code: "Saur Samman Honor",
+      date: "2025–2026",
+      officer: "Presented to Er. Satya Prakash Satyarthi",
+      description: "Official Certificate of Honour presented to Satya Prakash Satyarthi in recognition of exemplary contribution and excellence in fostering the rooftop solar ecosystem under the PM Surya Ghar Muft Bijli Yojana.",
+      image: "/images/certificates/saur-samman-award.png",
+      pdf: "/images/certificates/saur-samman-award.pdf",
+      badge: "UPNEDA Saur Samman Award",
+      type: "Government Approval"
+    },
+    {
       id: "gst",
       title: "GST Registration Certificate (Form GST REG-06)",
       authority: "Government of India & Commercial Tax Dept Uttar Pradesh",
@@ -162,6 +176,19 @@ export const businessData = {
       image: "/images/certificates/gst-certificate.png?v=2",
       pdf: "/images/certificates/gst-certificate.pdf?v=2",
       badge: "Govt of India GST Verified",
+      type: "Tax & Legal Registration"
+    },
+    {
+      id: "udyam",
+      title: "MSME Udyam Registration Certificate",
+      authority: "Ministry of Micro, Small & Medium Enterprises (Govt. of India)",
+      code: "UDYAM-UP-32-0049022",
+      date: "15-12-2023 (Est. 17-03-2022)",
+      officer: "District Industries Centre, Gorakhpur (Uttar Pradesh)",
+      description: "Official Government of India MSME Udyam Registration for SATYARTHI SOLAR SOLUTION under NIC 35105 (Electric power generation using solar energy & solar equipment trading), Motiram Adda, Khorabar, Deoria Road, Gorakhpur - 273202.",
+      image: "/images/certificates/udyam-registration-certificate.png",
+      pdf: "/images/certificates/udyam-registration-certificate.pdf",
+      badge: "Govt of India MSME Verified",
       type: "Tax & Legal Registration"
     },
     {
