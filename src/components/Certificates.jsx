@@ -12,9 +12,7 @@ import {
 import {
   ExpressiveKineticText,
   KineticMarqueeStrip,
-  CollaborativeCursorsOverlay,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
+  InteractiveZapBurstButton
 } from "./MotionEffects";
 
 function Certificates() {
@@ -47,28 +45,6 @@ function Certificates() {
         ]}
       />
 
-      {/* Real-Time Collaborative Audit Cursors */}
-      <CollaborativeCursorsOverlay
-        cursors={[
-          {
-            name: "UPNEDA Audit Desk",
-            badge: "Code GKP2604066741 Active",
-            color: "bg-emerald-500 text-slate-950",
-            pathX: ["6%", "20%", "12%", "6%"],
-            pathY: ["22%", "48%", "70%", "22%"],
-            duration: 16
-          },
-          {
-            name: "GST & Legal Verification",
-            badge: "09JCNPS2666N1ZE ✓",
-            color: "bg-sky-500 text-slate-950",
-            pathX: ["84%", "70%", "78%", "84%"],
-            pathY: ["26%", "56%", "34%", "26%"],
-            duration: 18
-          }
-        ]}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 relative z-10">
         
         {/* Section Header with Expressive Kinetic Typography */}
@@ -84,7 +60,6 @@ function Certificates() {
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>100% Legally Verified & Empanelled • सरकारी व कंपनी प्रमाणित</span>
             </div>
-            <LiveActivityStreamBadge />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">

@@ -159,8 +159,8 @@ export const businessData = {
       date: "13-05-2025",
       officer: "Ashutosh Kumar Goswami (Assistant Commissioner, Gorakhpur Sector-12)",
       description: "Official GST Registration for M/s SATYARTHI SOLAR SOLUTION (Proprietorship: Satya Prakash Satyarthi), Principal Place of Business at Rampur, Near Motiram Chauraha, Gorakhpur - 273202.",
-      image: "/images/certificates/gst-certificate.png",
-      pdf: "/images/certificates/gst-certificate.pdf",
+      image: "/images/certificates/gst-certificate.png?v=2",
+      pdf: "/images/certificates/gst-certificate.pdf?v=2",
       badge: "Govt of India GST Verified",
       type: "Tax & Legal Registration"
     },
@@ -198,8 +198,8 @@ export const businessData = {
       validTill: "December 2026",
       officer: "Rajesh Kalra & Amit Shukla (Sr. Vice President)",
       description: "Official Certificate of Authorisation for Satyarthi Solar Solution, Gorakhpur as Authorised Dealer for Amaze solar inverters, batteries, and backup solutions.",
-      image: "/images/certificates/amaze-certificate.png",
-      pdf: "/images/certificates/amaze-certificate.pdf",
+      image: "/images/certificates/amaze-certificate.png?v=2",
+      pdf: "/images/certificates/amaze-certificate.pdf?v=2",
       badge: "Amaze Authorized Dealer",
       type: "Dealer Authorization"
     }
