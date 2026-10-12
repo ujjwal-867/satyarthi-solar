@@ -143,6 +143,17 @@ function Navbar({
               <span>+91 {businessData.phone[0]}</span>
             </a>
 
+            <span className="text-slate-600 hidden sm:inline">|</span>
+
+            <a 
+              href={`tel:${businessData.officeNumber}`}
+              className="hidden sm:inline-flex items-center gap-1 text-amber-300 hover:text-amber-200 transition font-bold text-[11px] sm:text-xs"
+              title="Official Office Number"
+            >
+              <Phone className="w-3 h-3 text-amber-400" />
+              <span>Office: +91 {businessData.officeNumber}</span>
+            </a>
+
             {/* Admin CRM Shortcut */}
             <button
               onClick={onOpenAdmin}
@@ -404,13 +415,23 @@ function Navbar({
               <span>Get Quote | मुफ्त कोटेशन प्राप्त करें</span>
             </button>
 
-            <a
-              href={`tel:${businessData.phone[0]}`}
-              className="w-full inline-flex justify-center items-center gap-2 border border-slate-300 text-slate-800 font-bold py-3 rounded-xl"
-            >
-              <Phone className="w-5 h-5 text-emerald-600" />
-              <span>Call 24×7: +91 {businessData.phone[0]}</span>
-            </a>
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href={`tel:${businessData.phone[0]}`}
+                className="w-full inline-flex justify-center items-center gap-1.5 border border-slate-300 text-slate-800 font-bold py-2.5 px-2 rounded-xl text-xs"
+              >
+                <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>24×7: {businessData.phone[0]}</span>
+              </a>
+
+              <a
+                href={`tel:${businessData.officeNumber}`}
+                className="w-full inline-flex justify-center items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold py-2.5 px-2 rounded-xl text-xs"
+              >
+                <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Office: {businessData.officeNumber}</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

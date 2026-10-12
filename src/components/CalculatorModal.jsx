@@ -1,7 +1,7 @@
 import { X, Sparkles, Calculator as CalcIcon } from "lucide-react";
 import Calculator from "./Calculator";
 
-export default function CalculatorModal({ isOpen, onClose }) {
+export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
   if (!isOpen) return null;
 
   return (
@@ -43,7 +43,12 @@ export default function CalculatorModal({ isOpen, onClose }) {
 
         {/* Modal Scrollable Body */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-50">
-          <Calculator onSelectQuote={() => onClose()} />
+          <Calculator
+            onSelectQuote={(quoteData) => {
+              if (onApplyQuote) onApplyQuote(quoteData);
+              onClose();
+            }}
+          />
         </div>
       </div>
     </div>

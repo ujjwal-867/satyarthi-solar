@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
 import confetti from "canvas-confetti";
@@ -18,9 +18,7 @@ import {
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
   ExpressiveKineticText,
-  CollaborativeCursorsOverlay,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
+  InteractiveZapBurstButton
 } from "./MotionEffects";
 
 function Contact({ prefilledData }) {
@@ -40,11 +38,59 @@ function Contact({ prefilledData }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedLead, setSubmittedLead] = useState(null);
 
+  // Sync when user applies an estimate from the Solar Calculator Modal
+  useEffect(() => {
+    if (prefilledData) {
+      setIsSubmitted(false);
+      setFormData((prev) => ({
+        ...prev,
+        bill: prefilledData.bill ? String(prefilledData.bill) : prev.bill,
+        roofArea: prefilledData.roofArea ? String(prefilledData.roofArea) : prev.roofArea,
+        location: prefilledData.location || prev.location,
+        message: prefilledData.recommendedKw
+          ? `Interested in ${prefilledData.recommendedKw} kW Solar System (Est. Net Cost: ₹${Number(prefilledData.netCost || 0).toLocaleString()} after subsidy).`
+          : prev.message
+      }));
+    }
+  }, [prefilledData]);
+
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
+  };
+
+  const buildWhatsAppMessage = (lead) => {
+    return (
+      `☀️ *New Solar & Electronics Inquiry (Satyarthi Solar Solution)*\n\n` +
+      `• *Name:* ${lead.name}\n` +
+      `• *Mobile:* +91 ${lead.phone}\n` +
+      (lead.email ? `• *Email:* ${lead.email}\n` : "") +
+      `• *District:* ${lead.location}\n` +
+      `• *Service:* ${lead.service}\n` +
+      (lead.bill ? `• *Monthly Bill:* ₹${lead.bill}\n` : "") +
+      (lead.roofArea ? `• *Roof Area:* ${lead.roofArea} sq.ft.\n` : "") +
+      (lead.message ? `• *Requirement:* ${lead.message}\n` : "") +
+      `\nPlease share the official quotation, subsidy breakdown, and schedule a free site survey.`
+    );
+  };
+
+  const buildMailtoHref = (lead) => {
+    const subject = encodeURIComponent(`☀️ New Solar Inquiry: ${lead.name} (${lead.phone}) - ${lead.location}`);
+    const body = encodeURIComponent(
+      `New Customer Inquiry from Satyarthi Solar Solution Website:\n\n` +
+      `Full Name: ${lead.name}\n` +
+      `Mobile / WhatsApp: +91 ${lead.phone}\n` +
+      `Email: ${lead.email || "Not provided"}\n` +
+      `District: ${lead.location}\n` +
+      `Interested Service: ${lead.service}\n` +
+      `Monthly Electricity Bill: ${lead.bill ? "₹" + lead.bill : "Not specified"}\n` +
+      `Rooftop Area: ${lead.roofArea ? lead.roofArea + " sq. ft." : "Not specified"}\n` +
+      `Additional Message: ${lead.message || "None"}\n` +
+      `Submitted At: ${new Date(lead.createdAt).toLocaleString("en-IN")}\n`
+    );
+    return `mailto:${businessData.email}?subject=${subject}&body=${body}`;
   };
 
   const handleSubmit = async (e) => {
@@ -99,72 +145,68 @@ function Contact({ prefilledData }) {
       console.error("Local storage error:", err);
     }
 
-    // 2. Try POSTing to PHP API endpoint (for cPanel hosting)
-    try {
-      await fetch("/api/lead.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newLead)
-      });
-    } catch (err) {
-      console.log("PHP backend endpoint pinged (optional on static):", err);
-    }
+    // 2. Dispatch Email Notification to satyarthisolarsolution@gmail.com (Works on Vercel & Static Hosting)
+    const emailPromise = fetch(`https://formsubmit.co/ajax/${businessData.email}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        _subject: `☀️ New Solar Lead: ${newLead.name} (+91 ${newLead.phone}) - ${newLead.location}`,
+        _template: "table",
+        _captcha: "false",
+        Lead_ID: newLead.id,
+        Customer_Name: newLead.name,
+        Mobile_Number: `+91 ${newLead.phone}`,
+        Customer_Email: newLead.email || "Not provided",
+        District: newLead.location,
+        Interested_Service: newLead.service,
+        Monthly_Bill: newLead.bill ? `₹${newLead.bill}` : "Not provided",
+        Roof_Area: newLead.roofArea ? `${newLead.roofArea} sq ft` : "Not provided",
+        Customer_Message: newLead.message || "None",
+        Direct_WhatsApp_Link: `https://wa.me/91${newLead.phone}`,
+        Office_Helpline: `+91 ${businessData.officeNumber} / +91 ${businessData.phone[0]}`
+      })
+    }).catch(() => {});
 
-    // 3. Trigger confetti celebration
+    // 3. Also POST to PHP API endpoint (for cPanel hosting database & server mail)
+    const phpPromise = fetch("/api/lead.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newLead)
+    }).catch(() => {});
+
+    await Promise.allSettled([emailPromise, phpPromise]);
+
+    // 4. Trigger confetti celebration
     try {
       confetti({
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 }
       });
-    } catch (e) {
+    } catch {
       // ignore
     }
 
     setIsSubmitting(false);
     setIsSubmitted(true);
     setSubmittedLead(newLead);
+
+    // 5. Automatically launch WhatsApp with pre-filled lead details so information goes straight to WhatsApp & Email!
+    const waText = buildWhatsAppMessage(newLead);
+    window.open(`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(waText)}`, "_blank");
   };
 
-  const openWhatsAppLead = () => {
+  const openWhatsAppLead = (targetNumber = businessData.whatsapp[0]) => {
     if (!submittedLead) return;
-    const text = `*New Solar Inquiry from Website (Satyarthi Solar Solution)*\n` +
-      `• Name: ${submittedLead.name}\n` +
-      `• Phone: ${submittedLead.phone}\n` +
-      `• Location: ${submittedLead.location}\n` +
-      `• Service: ${submittedLead.service}\n` +
-      (submittedLead.bill ? `• Monthly Bill: ₹${submittedLead.bill}\n` : "") +
-      (submittedLead.roofArea ? `• Roof Area: ${submittedLead.roofArea} sq ft\n` : "") +
-      (submittedLead.message ? `• Message: ${submittedLead.message}\n` : "") +
-      `Please contact me with quotation and subsidy details.`;
-
-    window.open(`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(text)}`, "_blank");
+    const text = buildWhatsAppMessage(submittedLead);
+    window.open(`https://wa.me/91${targetNumber}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
-      {/* Real-Time Collaborative Engineering Cursors */}
-      <CollaborativeCursorsOverlay
-        cursors={[
-          {
-            name: "Survey Desk • Gorakhpur",
-            badge: "24×7 Roof Analysis",
-            color: "bg-emerald-500 text-slate-950",
-            pathX: ["5%", "18%", "10%", "5%"],
-            pathY: ["14%", "36%", "64%", "14%"],
-            duration: 16
-          },
-          {
-            name: "Er. Satyaprakash",
-            badge: "UPNEDA Subsidy Support",
-            color: "bg-sky-500 text-slate-950",
-            pathX: ["86%", "74%", "81%", "86%"],
-            pathY: ["18%", "48%", "28%", "18%"],
-            duration: 18
-          }
-        ]}
-      />
-
+    <section id="contact" className="py-16 sm:py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
       <div className="absolute top-1/3 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -184,7 +226,6 @@ function Contact({ prefilledData }) {
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>Empanelled Solar Contractor • UPNEDA अधिकृत वेंडर</span>
             </div>
-            <LiveActivityStreamBadge />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
@@ -198,15 +239,15 @@ function Contact({ prefilledData }) {
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Fill the form below or contact Er. Satya Prakash Satyarthi directly. We provide complete technical shadow analysis and guaranteed subsidy approval.
+            Fill the form below or contact Er. Satya Prakash Satyarthi directly. Your inquiry is automatically sent to our official Email & WhatsApp desk for instant response.
             <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              फॉर्म भरें या सीधे कॉल करें — हमारी तकनीकी टीम 24 घंटे में आपकी छत का शैडो एनालिसिस व कोटेशन उपलब्ध कराएगी।
+              फॉर्म भरें या सीधे कॉल करें — आपका विवरण तुरंत हमारे आधिकारिक ईमेल व व्हाट्सएप डेस्क पर पहुंच जाएगा।
             </span>
           </p>
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="mt-14 grid lg:grid-cols-12 gap-10 items-start" style={{ perspective: "1100px" }}>
+        <div className="mt-10 sm:mt-14 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start" style={{ perspective: "1100px" }}>
           
           {/* Left Column: Office Details & Map (5 cols) */}
           <motion.div 
@@ -220,7 +261,7 @@ function Contact({ prefilledData }) {
             {/* Quick Contact 3D Bento Card */}
             <motion.div
               whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
-              className="relative bg-white border border-slate-200 hover:border-emerald-400 rounded-3xl p-6 sm:p-8 backdrop-blur-md space-y-6 shadow-xl transition-all duration-300 group overflow-hidden"
+              className="relative bg-white border border-slate-200 hover:border-emerald-400 rounded-3xl p-5 sm:p-8 backdrop-blur-md space-y-5 shadow-xl transition-all duration-300 group overflow-hidden"
             >
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/70 to-transparent pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
@@ -231,25 +272,26 @@ function Contact({ prefilledData }) {
                 <InteractiveZapBurstButton initialCount={264} label="24×7" />
               </div>
 
-              <div className="space-y-4 text-sm">
-                {/* Phone */}
+              <div className="space-y-4 text-sm relative z-10">
+                {/* Phone & Office Number 8112991914 */}
                 <div className="flex items-start gap-3.5">
                   <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-xs text-slate-600 font-bold block flex items-center gap-1.5">
-                      <span>24×7 Business Calling Lines • संपर्क सूत्र:</span>
-                      <span className="bg-emerald-50 text-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-black border border-emerald-200">24×7 Active</span>
+                  <div className="space-y-1 flex-1">
+                    <span className="text-xs text-slate-600 font-bold flex items-center gap-1.5 flex-wrap">
+                      <span>24×7 Calling & Office Lines • संपर्क सूत्र:</span>
+                      <span className="bg-emerald-50 text-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-black border border-emerald-200">Active</span>
                     </span>
-                    <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-600 transition block text-sm mt-0.5">
-                      +91 {businessData.phone[0]} (Er. Satya Prakash - 24×7)
+                    <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-600 transition block text-sm">
+                      +91 {businessData.phone[0]} <span className="text-xs text-slate-500 font-normal">(Er. Satya Prakash • 24×7)</span>
                     </a>
-                    <a href={`tel:${businessData.phone[1]}`} className="font-bold text-slate-700 hover:text-blue-600 transition block text-xs mt-0.5">
-                      +91 {businessData.phone[1]} (24×7 Business Desk)
+                    <a href={`tel:${businessData.officeNumber}`} className="font-black text-emerald-700 hover:text-emerald-800 transition flex items-center gap-1.5 text-sm bg-emerald-50/90 border border-emerald-200/80 px-2.5 py-1 rounded-xl w-fit">
+                      <PhoneCall className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <span>Office Number: +91 {businessData.officeNumber}</span>
                     </a>
-                    <a href={`tel:${businessData.officeNumber}`} className="font-semibold text-emerald-700 hover:underline transition block text-xs mt-0.5">
-                      Office Line: {businessData.officeNumber} (Motiram Adda)
+                    <a href={`tel:${businessData.phone[1]}`} className="font-semibold text-slate-700 hover:text-blue-600 transition block text-xs">
+                      +91 {businessData.phone[1]} <span className="text-slate-500 font-normal">(24×7 Business Helpline)</span>
                     </a>
                   </div>
                 </div>
@@ -259,15 +301,23 @@ function Contact({ prefilledData }) {
                   <div className="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl shrink-0">
                     <MessageCircle className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-xs text-slate-500 block">WhatsApp Desk • व्हाट्सएप:</span>
+                  <div className="space-y-0.5">
+                    <span className="text-xs text-slate-500 block">WhatsApp Desk • व्हाट्सएप सहायता:</span>
                     <a 
                       href={`https://wa.me/91${businessData.whatsapp[0]}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-bold text-emerald-600 hover:text-emerald-700 transition"
+                      className="font-bold text-emerald-600 hover:text-emerald-700 transition block"
                     >
-                      +91 {businessData.whatsapp[0]} (Instant Chat • तुरंत जवाब)
+                      +91 {businessData.whatsapp[0]} (Primary WhatsApp)
+                    </a>
+                    <a 
+                      href={`https://wa.me/91${businessData.officeNumber}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-semibold text-teal-700 hover:text-teal-800 transition block text-xs"
+                    >
+                      +91 {businessData.officeNumber} (Office Desk WhatsApp)
                     </a>
                   </div>
                 </div>
@@ -278,10 +328,10 @@ function Contact({ prefilledData }) {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Official Email • ईमेल:</span>
+                    <span className="text-xs text-slate-500 block">Official Email • आधिकारिक ईमेल:</span>
                     <a 
                       href={`mailto:${businessData.email}`}
-                      className="font-medium text-slate-800 hover:text-blue-600 transition break-all"
+                      className="font-bold text-slate-800 hover:text-blue-600 transition break-all"
                     >
                       {businessData.email}
                     </a>
@@ -324,7 +374,7 @@ function Contact({ prefilledData }) {
               </div>
 
               {/* Social Channels */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
                 <span className="text-xs text-slate-500">Follow Our Solar Updates:</span>
                 <div className="flex items-center gap-2">
                   <a
@@ -389,7 +439,7 @@ function Contact({ prefilledData }) {
             className="lg:col-span-7 bg-white text-slate-900 rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-200"
           >
             {isSubmitted ? (
-              <div className="text-center py-10 space-y-4 animate-fadeIn">
+              <div className="text-center py-8 space-y-4 animate-fadeIn">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
@@ -397,32 +447,63 @@ function Contact({ prefilledData }) {
                   Thank You, {submittedLead?.name}!
                 </h3>
                 <p className="text-base font-bold text-emerald-700 font-hindi">
-                  धन्यवाद! आपका कोटेशन अनुरोध दर्ज हो गया है।
-                </p>
-                <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                  Your solar quote request has been recorded. Er. Satya Prakash Satyarthi will review your roof and electrical parameters and call you within 24 hours.
+                  धन्यवाद! आपका कोटेशन अनुरोध ईमेल और व्हाट्सएप पर भेज दिया गया है।
                 </p>
 
-                {/* Instant WhatsApp Prompt */}
-                <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 max-w-md mx-auto text-left space-y-3">
-                  <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
-                    <MessageCircle className="w-4 h-4 text-emerald-700" />
-                    <span>Get Instant Priority Response on WhatsApp</span>
-                  </div>
-                  <p className="text-xs text-slate-600">
-                    Click the button below to directly send your filled parameters to Er. Satyaprakash on WhatsApp for faster quotation.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={openWhatsAppLead}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md cursor-pointer"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>Send My Details via WhatsApp • व्हाट्सएप पर भेजें</span>
-                  </button>
+                <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-100 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700">
+                  <span>✅ Email Sent: {businessData.email}</span>
+                  <span>•</span>
+                  <span>✅ WhatsApp: +91 {businessData.whatsapp[0]}</span>
                 </div>
 
-                <div className="pt-4">
+                {/* Instant WhatsApp & Email Dispatch Actions */}
+                <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 max-w-lg mx-auto text-left space-y-3">
+                  <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+                    <MessageCircle className="w-4 h-4 text-emerald-700" />
+                    <span>Direct WhatsApp & Email Confirmation</span>
+                  </div>
+                  <p className="text-xs text-slate-600">
+                    Your details have been automatically forwarded. You can also tap below to message our Primary Helpline, Office Number ({businessData.officeNumber}), or send a direct copy via your Email app:
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-2.5">
+                    <button
+                      type="button"
+                      onClick={() => openWhatsAppLead(businessData.whatsapp[0])}
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                      <span>WhatsApp (+91 {businessData.whatsapp[0]})</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => openWhatsAppLead(businessData.officeNumber)}
+                      className="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                      <span>Office WhatsApp ({businessData.officeNumber})</span>
+                    </button>
+
+                    <a
+                      href={submittedLead ? buildMailtoHref(submittedLead) : `mailto:${businessData.email}`}
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
+                    >
+                      <Mail className="w-4 h-4 shrink-0" />
+                      <span>Send via Email App</span>
+                    </a>
+
+                    <a
+                      href={`tel:${businessData.officeNumber}`}
+                      className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
+                    >
+                      <PhoneCall className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Call Office: {businessData.officeNumber}</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-3">
                   <button
                     type="button"
                     onClick={() => {

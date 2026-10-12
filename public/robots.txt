@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://satyarthi-solar.vercel.app/sitemap.xml

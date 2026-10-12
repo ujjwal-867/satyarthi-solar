@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import BrandHeadlineTicker from "./components/BrandHeadlineTicker";
 import Hero from "./components/Hero";
@@ -12,21 +12,22 @@ import Contact from "./components/Contact";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AIChatbot from "./components/AIChatbot";
 import Footer from "./components/Footer";
-import AdminModal from "./components/AdminModal";
-import CalculatorModal from "./components/CalculatorModal";
 import FestiveOfferPopup from "./components/FestiveOfferPopup";
 import { LanguageProvider } from "./context/LanguageContext";
 
-// Dedicated Independent Portal Pages
-import OnGridPage from "./pages/OnGridPage";
-import OffGridPage from "./pages/OffGridPage";
-import ElectronicsPage from "./pages/ElectronicsPage";
-import GalleryPage from "./pages/GalleryPage";
+// Lazy-loaded Modals & Independent Portal Pages for Fast Initial Mobile Load
+const AdminModal = lazy(() => import("./components/AdminModal"));
+const CalculatorModal = lazy(() => import("./components/CalculatorModal"));
+const OnGridPage = lazy(() => import("./pages/OnGridPage"));
+const OffGridPage = lazy(() => import("./pages/OffGridPage"));
+const ElectronicsPage = lazy(() => import("./pages/ElectronicsPage"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage"));
 
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isFestiveOfferOpen, setIsFestiveOfferOpen] = useState(false);
+  const [prefilledQuote, setPrefilledQuote] = useState(null);
 
   // Parse path or hash for clean SPA routing with full browser Back/Forward support
   const getInitialRoute = () => {
@@ -91,83 +92,91 @@ function AppContent() {
       />
 
       {/* Route-Based Dynamic View Rendering */}
-      {currentRoute === "/on-grid" ? (
-        <OnGridPage 
-          onNavigateHome={() => navigateTo("/")}
-          onNavigate={navigateTo}
-          onOpenAdmin={() => setIsAdminOpen(true)}
-          onOpenCalculator={() => setIsCalculatorOpen(true)}
-        />
-      ) : currentRoute === "/off-grid" ? (
-        <OffGridPage 
-          onNavigateHome={() => navigateTo("/")}
-          onNavigate={navigateTo}
-          onOpenAdmin={() => setIsAdminOpen(true)}
-          onOpenCalculator={() => setIsCalculatorOpen(true)}
-        />
-      ) : currentRoute === "/appliances" || currentRoute === "/electronics" ? (
-        <ElectronicsPage 
-          onNavigateHome={() => navigateTo("/")}
-          onNavigate={navigateTo}
-          onOpenAdmin={() => setIsAdminOpen(true)}
-          onOpenCalculator={() => setIsCalculatorOpen(true)}
-        />
-      ) : currentRoute === "/gallery" ? (
-        <GalleryPage 
-          onNavigateHome={() => navigateTo("/")}
-          onNavigate={navigateTo}
-          onOpenAdmin={() => setIsAdminOpen(true)}
-          onOpenCalculator={() => setIsCalculatorOpen(true)}
-        />
-      ) : (
-        /* Main Spacious Homepage: Only Highlighted Points, 6 Navigation Portals, 3D AR/VR & Contact */
-        <div className="flex-1 flex flex-col justify-between">
-          {/* Website Master Headline Bar: Primary Dealer of All Leading Solar Brands */}
-          <BrandHeadlineTicker />
-
-          {/* Main Content Sections - Strictly Highlighted Points & Contact */}
-          <main>
-            {/* Strictly Solar Hero with 6-Button Portal Dock & Real Site Slider */}
-            <Hero 
-              onNavigate={navigateTo} 
-              onOpenCalculator={() => setIsCalculatorOpen(true)}
-            />
-
-            {/* Concise Verified Statistics (2500+ Happy Clients & Live Collab Ticker) */}
-            <Stats />
-
-            {/* 6-Portal Compact Bento Action Cards (Single-Line on Desktop) */}
-            <PortalNavigationHub 
-              onNavigate={navigateTo} 
-              onOpenCalculator={() => setIsCalculatorOpen(true)}
-            />
-
-            {/* Interactive 3D AR / VR Solar Roof & Sun-Path Motion Graphics Visualizer */}
-            <ARVRSolarVisualizer 
-              onNavigate={navigateTo}
-              onOpenCalculator={() => setIsCalculatorOpen(true)}
-            />
-
-            {/* Condensed Core Solar EPC Pillars (Residential, Commercial, Solar Aata Chakki) */}
-            <Services onNavigate={navigateTo} />
-
-            {/* Verified Government Empanelment & Brand Dealership Certificates */}
-            <Certificates />
-
-            {/* Google Reviews & Real Purvanchal Client Ratings */}
-            <Testimonials />
-
-            {/* High-Converting Lead Generation & Free Site Survey Booking */}
-            <Contact />
-          </main>
-
-          {/* Comprehensive Clean Footer with Direct Portal Links & Socials */}
-          <Footer 
-            onOpenAdmin={() => setIsAdminOpen(true)} 
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] flex items-center justify-center bg-slate-50 text-slate-600 text-sm font-bold">
+            Loading Satyarthi Solar Portal...
+          </div>
+        }
+      >
+        {currentRoute === "/on-grid" ? (
+          <OnGridPage 
+            onNavigateHome={() => navigateTo("/")}
             onNavigate={navigateTo}
+            onOpenAdmin={() => setIsAdminOpen(true)}
+            onOpenCalculator={() => setIsCalculatorOpen(true)}
           />
-        </div>
-      )}
+        ) : currentRoute === "/off-grid" ? (
+          <OffGridPage 
+            onNavigateHome={() => navigateTo("/")}
+            onNavigate={navigateTo}
+            onOpenAdmin={() => setIsAdminOpen(true)}
+            onOpenCalculator={() => setIsCalculatorOpen(true)}
+          />
+        ) : currentRoute === "/appliances" || currentRoute === "/electronics" ? (
+          <ElectronicsPage 
+            onNavigateHome={() => navigateTo("/")}
+            onNavigate={navigateTo}
+            onOpenAdmin={() => setIsAdminOpen(true)}
+            onOpenCalculator={() => setIsCalculatorOpen(true)}
+          />
+        ) : currentRoute === "/gallery" ? (
+          <GalleryPage 
+            onNavigateHome={() => navigateTo("/")}
+            onNavigate={navigateTo}
+            onOpenAdmin={() => setIsAdminOpen(true)}
+            onOpenCalculator={() => setIsCalculatorOpen(true)}
+          />
+        ) : (
+          /* Main Spacious Homepage: Only Highlighted Points, 6 Navigation Portals, 3D AR/VR & Contact */
+          <div className="flex-1 flex flex-col justify-between">
+            {/* Website Master Headline Bar: Primary Dealer of All Leading Solar Brands */}
+            <BrandHeadlineTicker />
+
+            {/* Main Content Sections - Strictly Highlighted Points & Contact */}
+            <main>
+              {/* Strictly Solar Hero with 6-Button Portal Dock & Real Site Slider */}
+              <Hero 
+                onNavigate={navigateTo} 
+                onOpenCalculator={() => setIsCalculatorOpen(true)}
+              />
+
+              {/* Concise Verified Statistics (2500+ Happy Clients) */}
+              <Stats />
+
+              {/* 6-Portal Compact Bento Action Cards (Single-Line on Desktop) */}
+              <PortalNavigationHub 
+                onNavigate={navigateTo} 
+                onOpenCalculator={() => setIsCalculatorOpen(true)}
+              />
+
+              {/* Interactive 3D AR / VR Solar Roof & Sun-Path Motion Graphics Visualizer */}
+              <ARVRSolarVisualizer 
+                onNavigate={navigateTo}
+                onOpenCalculator={() => setIsCalculatorOpen(true)}
+              />
+
+              {/* Condensed Core Solar EPC Pillars (Residential, Commercial, Solar Aata Chakki) */}
+              <Services onNavigate={navigateTo} />
+
+              {/* Verified Government Empanelment & Brand Dealership Certificates */}
+              <Certificates />
+
+              {/* Google Reviews & Real Purvanchal Client Ratings */}
+              <Testimonials />
+
+              {/* High-Converting Lead Generation & Free Site Survey Booking */}
+              <Contact prefilledData={prefilledQuote} />
+            </main>
+
+            {/* Comprehensive Clean Footer with Direct Portal Links & Socials */}
+            <Footer 
+              onOpenAdmin={() => setIsAdminOpen(true)} 
+              onNavigate={navigateTo}
+            />
+          </div>
+        )}
+      </Suspense>
 
       {/* Navratri & Diwali Maha-Utsav Animated Popup & Floating Gift Trigger */}
       <FestiveOfferPopup 
@@ -179,17 +188,27 @@ function AppContent() {
       <AIChatbot />
       <FloatingWhatsApp onOpenFestiveOffer={() => setIsFestiveOfferOpen(true)} />
 
-      {/* Interactive Solar Subsidy & Savings Calculator Modal */}
-      <CalculatorModal 
-        isOpen={isCalculatorOpen} 
-        onClose={() => setIsCalculatorOpen(false)} 
-      />
+      {/* Lazy-Loaded Modals */}
+      <Suspense fallback={null}>
+        {isCalculatorOpen && (
+          <CalculatorModal 
+            isOpen={isCalculatorOpen} 
+            onClose={() => setIsCalculatorOpen(false)}
+            onApplyQuote={(quoteData) => {
+              setPrefilledQuote(quoteData);
+              setIsCalculatorOpen(false);
+              navigateTo("/#contact");
+            }}
+          />
+        )}
 
-      {/* Secure In-Browser & Server Admin CRM Modal */}
-      <AdminModal 
-        isOpen={isAdminOpen} 
-        onClose={() => setIsAdminOpen(false)} 
-      />
+        {isAdminOpen && (
+          <AdminModal 
+            isOpen={isAdminOpen} 
+            onClose={() => setIsAdminOpen(false)} 
+          />
+        )}
+      </Suspense>
     </div>
   );
 }

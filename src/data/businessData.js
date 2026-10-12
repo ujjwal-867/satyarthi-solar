@@ -29,18 +29,19 @@ export const businessData = {
   bankLoanInterest: "6% - 7% per annum",
   threeKwEmi: "₹1,800 / month",
 
-  // Contact details (Both numbers are dedicated 24x7 for business purposes)
+  // Contact details (Primary 24x7 Helplines & Official Office Number 8112991914)
   phone: [
     "8112991941",
     "8112991441",
-    "8112991914" // Office direct
+    "8112991914" // Official Office Number
   ],
   whatsapp: [
     "8112991941",
-    "8112991441"
+    "8112991441",
+    "8112991914"
   ],
-  phoneAvailability: "Both business numbers (+91 8112991941 & +91 8112991441) are active 24x7 for urgent calls, booking & technical support",
-  supportHours: "24x7 Helpline & Support",
+  phoneAvailability: "24×7 Helplines (+91 8112991941, +91 8112991441) & Office Desk (+91 8112991914) active for calls, bookings & support",
+  supportHours: "24x7 Helpline & Office Support",
   officeHours: "Monday - Saturday: 9:00 AM - 7:30 PM | Sunday: 10:00 AM - 4:00 PM (Surveys by appointment)",
   officeNumber: "8112991914",
   email: "satyarthisolarsolution@gmail.com",
