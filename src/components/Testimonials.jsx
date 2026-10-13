@@ -4,7 +4,6 @@ import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink, Sparkles 
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
   ExpressiveKineticText,
-  CollaborativeCursorsOverlay,
   InteractiveZapBurstButton,
   LiveActivityStreamBadge
 } from "./MotionEffects";
@@ -23,28 +22,7 @@ function Testimonials() {
   ];
 
   return (
-    <section className="py-20 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
-      {/* Real-Time Collaborative Cursors */}
-      <CollaborativeCursorsOverlay
-        cursors={[
-          {
-            name: "2500+ Happy Clients",
-            badge: "4.9★ Google Verified",
-            color: "bg-amber-400 text-slate-950",
-            pathX: ["7%", "24%", "15%", "7%"],
-            pathY: ["20%", "50%", "74%", "20%"],
-            duration: 17
-          },
-          {
-            name: "UPPCL Net-Meter",
-            badge: "Zero Bill Confirmed ✓",
-            color: "bg-emerald-500 text-slate-950",
-            pathX: ["83%", "69%", "77%", "83%"],
-            pathY: ["25%", "55%", "30%", "25%"],
-            duration: 15
-          }
-        ]}
-      />
+    <section id="testimonials" className="py-20 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -57,14 +57,14 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [bonusRevealed, setBonusRevealed] = useState(false);
 
-  // Auto-trigger once per session after 1.6s (optimized for mobile users)
+  // Auto-trigger once per session after 6s (non-intrusive for fast initial mobile browsing)
   useEffect(() => {
     const hasSeenOffer = sessionStorage.getItem("satyarthi_festive_popup_seen_v1");
     if (!hasSeenOffer) {
       const timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("satyarthi_festive_popup_seen_v1", "true");
-      }, 1600);
+      }, 6000);
       return () => clearTimeout(timer);
     }
   }, []);

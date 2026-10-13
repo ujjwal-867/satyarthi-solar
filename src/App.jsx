@@ -4,17 +4,22 @@ import BrandHeadlineTicker from "./components/BrandHeadlineTicker";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import PortalNavigationHub from "./components/PortalNavigationHub";
-import ARVRSolarVisualizer from "./components/ARVRSolarVisualizer";
-import Services from "./components/Services";
-import Certificates from "./components/Certificates";
-import DistrictsCoverage from "./components/DistrictsCoverage";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
-import AIChatbot from "./components/AIChatbot";
-import Footer from "./components/Footer";
-import FestiveOfferPopup from "./components/FestiveOfferPopup";
+import LazySection from "./components/LazySection";
 import { LanguageProvider } from "./context/LanguageContext";
+
+// Lazy-loaded Below-the-Fold Sections (Dramatically accelerates initial phone page load)
+const ARVRSolarVisualizer = lazy(() => import("./components/ARVRSolarVisualizer"));
+const Services = lazy(() => import("./components/Services"));
+const Certificates = lazy(() => import("./components/Certificates"));
+const DistrictsCoverage = lazy(() => import("./components/DistrictsCoverage"));
+const Testimonials = lazy(() => import("./components/Testimonials"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+
+// Deferred Floating Assistants & Popups (Zero overhead during initial paint)
+const AIChatbot = lazy(() => import("./components/AIChatbot"));
+const FestiveOfferPopup = lazy(() => import("./components/FestiveOfferPopup"));
 
 // Lazy-loaded Modals & Independent Portal Pages for Fast Initial Mobile Load
 const AdminModal = lazy(() => import("./components/AdminModal"));
@@ -29,6 +34,29 @@ function AppContent() {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isFestiveOfferOpen, setIsFestiveOfferOpen] = useState(false);
   const [prefilledQuote, setPrefilledQuote] = useState(null);
+  const [loadChatbot, setLoadChatbot] = useState(false);
+
+  // Defer AIChatbot mounting until 2.8s or first scroll/touch to prevent initial thread blocking
+  useEffect(() => {
+    const onUserActive = () => {
+      setLoadChatbot(true);
+      window.removeEventListener("scroll", onUserActive);
+      window.removeEventListener("touchstart", onUserActive);
+    };
+
+    const timer = setTimeout(() => {
+      setLoadChatbot(true);
+    }, 2800);
+
+    window.addEventListener("scroll", onUserActive, { passive: true });
+    window.addEventListener("touchstart", onUserActive, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onUserActive);
+      window.removeEventListener("touchstart", onUserActive);
+    };
+  }, []);
 
   // Parse path or hash for clean SPA routing with full browser Back/Forward support
   const getInitialRoute = () => {
@@ -60,6 +88,11 @@ function AppContent() {
   }, []);
 
   const navigateTo = (route) => {
+    // Notify all lazy sections to mount immediately if navigation occurred
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("mount-all-sections"));
+    }
+
     if (route.startsWith("/#") || route.startsWith("#")) {
       const targetHash = route.replace("/", "");
       if (currentRoute !== "/") {
@@ -151,54 +184,91 @@ function AppContent() {
                 onOpenCalculator={() => setIsCalculatorOpen(true)}
               />
 
-              {/* Interactive 3D AR / VR Solar Roof & Sun-Path Motion Graphics Visualizer */}
-              <ARVRSolarVisualizer 
-                onNavigate={navigateTo}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
-              />
+              {/* Interactive 3D AR / VR Solar Roof & Sun-Path Motion Graphics Visualizer (Lazy Loaded) */}
+              <LazySection anchorId="ar-vr-solar" minHeight="520px">
+                <Suspense fallback={<div className="min-h-[420px]" />}>
+                  <ARVRSolarVisualizer 
+                    onNavigate={navigateTo}
+                    onOpenCalculator={() => setIsCalculatorOpen(true)}
+                  />
+                </Suspense>
+              </LazySection>
 
               {/* Condensed Core Solar EPC Pillars (Residential, Commercial, Solar Aata Chakki) */}
-              <Services onNavigate={navigateTo} />
+              <LazySection anchorId="services" minHeight="420px">
+                <Suspense fallback={<div className="min-h-[380px]" />}>
+                  <Services onNavigate={navigateTo} />
+                </Suspense>
+              </LazySection>
 
               {/* Verified Government Empanelment & Brand Dealership Certificates */}
-              <Certificates />
+              <LazySection anchorId="certificates" minHeight="500px">
+                <Suspense fallback={<div className="min-h-[450px]" />}>
+                  <Certificates />
+                </Suspense>
+              </LazySection>
 
               {/* District-Specific SEO Anchors & All 75 Districts of UP Coverage */}
-              <DistrictsCoverage 
-                onSelectDistrict={(district) => {
-                  setPrefilledQuote({
-                    location: district,
-                    customMessage: `I am interested in a free rooftop solar survey and PM Surya Ghar subsidy consultation in ${district}, Uttar Pradesh.`
-                  });
-                  const el = document.querySelector("#contact");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-              />
+              <LazySection anchorId="districts-coverage" minHeight="460px">
+                <Suspense fallback={<div className="min-h-[420px]" />}>
+                  <DistrictsCoverage 
+                    onSelectDistrict={(district) => {
+                      if (typeof window !== "undefined") {
+                        window.dispatchEvent(new CustomEvent("mount-all-sections"));
+                      }
+                      setPrefilledQuote({
+                        location: district,
+                        customMessage: `I am interested in a free rooftop solar survey and PM Surya Ghar subsidy consultation in ${district}, Uttar Pradesh.`
+                      });
+                      const el = document.querySelector("#contact");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  />
+                </Suspense>
+              </LazySection>
 
               {/* Google Reviews & Real Purvanchal Client Ratings */}
-              <Testimonials />
+              <LazySection anchorId="testimonials" minHeight="420px">
+                <Suspense fallback={<div className="min-h-[380px]" />}>
+                  <Testimonials />
+                </Suspense>
+              </LazySection>
 
               {/* High-Converting Lead Generation & Free Site Survey Booking */}
-              <Contact prefilledData={prefilledQuote} />
+              <LazySection anchorId="contact" minHeight="550px">
+                <Suspense fallback={<div className="min-h-[500px]" />}>
+                  <Contact prefilledData={prefilledQuote} />
+                </Suspense>
+              </LazySection>
             </main>
 
             {/* Comprehensive Clean Footer with Direct Portal Links & Socials */}
-            <Footer 
-              onOpenAdmin={() => setIsAdminOpen(true)} 
-              onNavigate={navigateTo}
-            />
+            <LazySection minHeight="240px">
+              <Suspense fallback={<div className="min-h-[200px]" />}>
+                <Footer 
+                  onOpenAdmin={() => setIsAdminOpen(true)} 
+                  onNavigate={navigateTo}
+                />
+              </Suspense>
+            </LazySection>
           </div>
         )}
       </Suspense>
 
-      {/* Navratri & Diwali Maha-Utsav Animated Popup & Floating Gift Trigger */}
-      <FestiveOfferPopup 
-        isOpenExternal={isFestiveOfferOpen}
-        onCloseExternal={() => setIsFestiveOfferOpen(false)}
-      />
+      {/* Navratri & Diwali Maha-Utsav Animated Popup & Floating Gift Trigger (Lazy) */}
+      <Suspense fallback={null}>
+        <FestiveOfferPopup 
+          isOpenExternal={isFestiveOfferOpen}
+          onCloseExternal={() => setIsFestiveOfferOpen(false)}
+        />
+      </Suspense>
 
-      {/* Persistent Global Floating Assistants across All Pages */}
-      <AIChatbot />
+      {/* Persistent Global Floating Assistants across All Pages (Chatbot deferred for instant mobile paint) */}
+      {loadChatbot && (
+        <Suspense fallback={null}>
+          <AIChatbot />
+        </Suspense>
+      )}
       <FloatingWhatsApp onOpenFestiveOffer={() => setIsFestiveOfferOpen(true)} />
 
       {/* Lazy-Loaded Modals */}

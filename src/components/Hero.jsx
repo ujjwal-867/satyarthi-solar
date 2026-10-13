@@ -139,6 +139,9 @@ function Hero({ onOpenCalculator }) {
             key={currentSlide}
             src={HERO_SLIDES[currentSlide].image}
             alt={HERO_SLIDES[currentSlide].title}
+            fetchPriority={currentSlide === 0 ? "high" : "auto"}
+            loading={currentSlide === 0 ? "eager" : "lazy"}
+            decoding="async"
             initial={{ opacity: 0, scale: 1.08 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -151,17 +154,23 @@ function Hero({ onOpenCalculator }) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#071526] via-[#071526]/88 sm:via-[#071526]/76 lg:via-[#071526]/62 to-[#071526]/25"></div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-50 via-slate-50/45 to-transparent pointer-events-none"></div>
 
-        {/* Animated Breathing Solar Aurora Orbs */}
-        <motion.div
-          animate={{ scale: [1, 1.18, 1], opacity: [0.14, 0.24, 0.14] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-24 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.22, 1], opacity: [0.12, 0.22, 0.12] }}
-          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-          className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-sky-400/20 rounded-full blur-3xl"
-        />
+        {/* Desktop-Only Animated Breathing Solar Aurora Orbs (Conserves Mobile GPU/Battery) */}
+        <div className="hidden sm:block">
+          <motion.div
+            animate={{ scale: [1, 1.18, 1], opacity: [0.14, 0.24, 0.14] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 -left-24 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{ scale: [1, 1.22, 1], opacity: [0.12, 0.22, 0.12] }}
+            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-sky-400/20 rounded-full blur-3xl"
+          />
+        </div>
+
+        {/* Mobile-Optimized Static Ambient Glow */}
+        <div className="sm:hidden absolute top-1/4 -left-20 w-64 h-64 bg-emerald-400/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="sm:hidden absolute bottom-1/4 right-0 w-64 h-64 bg-sky-400/10 rounded-full blur-2xl pointer-events-none" />
 
         {/* Subtle 3D Isometric Perspective Grid Overlay */}
         <div
@@ -173,26 +182,28 @@ function Hero({ onOpenCalculator }) {
           }}
         />
 
-        {/* Floating Solar Photon Particles */}
-        {SOLAR_PARTICLES.map((p, i) => (
-          <motion.span
-            key={i}
-            style={{ left: p.left, top: p.top, width: p.size, height: p.size }}
-            animate={{
-              y: [0, -28, 0],
-              x: [0, 12, 0],
-              opacity: [0.25, 0.75, 0.25],
-              scale: [0.9, 1.25, 0.9]
-            }}
-            transition={{
-              duration: p.duration,
-              delay: p.delay,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute rounded-full bg-gradient-to-tr from-emerald-300 to-amber-300 blur-[0.5px] shadow-sm shadow-emerald-300/50"
-          />
-        ))}
+        {/* Desktop-Only Floating Solar Photon Particles */}
+        <div className="hidden sm:block">
+          {SOLAR_PARTICLES.map((p, i) => (
+            <motion.span
+              key={i}
+              style={{ left: p.left, top: p.top, width: p.size, height: p.size }}
+              animate={{
+                y: [0, -28, 0],
+                x: [0, 12, 0],
+                opacity: [0.25, 0.75, 0.25],
+                scale: [0.9, 1.25, 0.9]
+              }}
+              transition={{
+                duration: p.duration,
+                delay: p.delay,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute rounded-full bg-gradient-to-tr from-emerald-300 to-amber-300 blur-[0.5px] shadow-sm shadow-emerald-300/50"
+            />
+          ))}
+        </div>
       </div>
 
       {/* =========================================================================
