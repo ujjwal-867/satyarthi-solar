@@ -240,6 +240,36 @@ function Footer({ onOpenAdmin, onNavigate }) {
 
         </div>
 
+        {/* District SEO Link Cloud Across Uttar Pradesh */}
+        <div className="py-6 border-b border-slate-900 text-[11px] text-slate-500 space-y-2">
+          <div className="flex flex-wrap items-center gap-1.5 font-medium">
+            <span className="text-slate-400 font-bold uppercase tracking-wider text-[10px] mr-1">
+              Districts Served Across Uttar Pradesh (सभी 75 जिले):
+            </span>
+            {[
+              "Gorakhpur (गोरखपुर)", "Deoria (देवरिया)", "Kushinagar (कुशीनगर)", "Maharajganj (महराजगंज)",
+              "Basti (बस्ती)", "Sant Kabir Nagar (संत कबीर नगर)", "Siddharthnagar (सिद्धार्थनगर)",
+              "Azamgarh (आजमगढ़)", "Mau (मऊ)", "Ballia (बलिया)", "Varanasi (वाराणसी)", "Prayagraj (प्रयागराज)",
+              "Ayodhya (अयोध्या धाम)", "Lucknow (लखनऊ)", "Kanpur (कानपुर)", "Agra (आगरा)", "Meerut (मेरठ)",
+              "Bareilly (बरेली)", "Jhansi (झाँसी)", "Noida (नोएडा)", "Ghaziabad (गाजियाबाद)"
+            ].map((district, dIdx) => (
+              <span key={dIdx} className="inline-flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => scrollTo("#districts-coverage")}
+                  className="hover:text-emerald-400 transition cursor-pointer"
+                >
+                  {district}
+                </button>
+                {dIdx < 20 && <span className="text-slate-700">•</span>}
+              </span>
+            ))}
+          </div>
+          <p className="text-[10px] text-slate-600">
+            UPNEDA Empanelled Vendor Code: GKP2604066741 • PM Surya Ghar Muft Bijli Yojana Phase-II • UPPCL PuVVNL / MVVNL / DVVNL / PVVNL Net Metering
+          </p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>

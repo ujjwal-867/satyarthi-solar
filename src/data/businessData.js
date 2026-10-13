@@ -147,7 +147,7 @@ export const businessData = {
       date: "06-04-2026",
       officer: "Inderjit Singh (Director, UPNEDA)",
       description: "Official empanelment as an approved vendor for installation of Rooftop Solar projects in residential sector across UP under PM Surya Ghar Yojna Phase-II. Performance Bank Guarantee of ₹2.5 Lakhs verified.",
-      image: "/images/certificates/upneda-empanelment-letter.png",
+      image: "/images/certificates/upneda-empanelment-letter.jpg",
       pdf: "/images/certificates/upneda-empanelment-letter.pdf",
       badge: "Govt of Uttar Pradesh Approved",
       type: "Government Approval"
@@ -160,7 +160,7 @@ export const businessData = {
       date: "2025–2026",
       officer: "Presented to Er. Satya Prakash Satyarthi",
       description: "Official Certificate of Honour presented to Satya Prakash Satyarthi in recognition of exemplary contribution and excellence in fostering the rooftop solar ecosystem under the PM Surya Ghar Muft Bijli Yojana.",
-      image: "/images/certificates/saur-samman-award.png",
+      image: "/images/certificates/saur-samman-award.jpg",
       pdf: "/images/certificates/saur-samman-award.pdf",
       badge: "UPNEDA Saur Samman Award",
       type: "Government Approval"
@@ -173,8 +173,8 @@ export const businessData = {
       date: "13-05-2025",
       officer: "Ashutosh Kumar Goswami (Assistant Commissioner, Gorakhpur Sector-12)",
       description: "Official GST Registration for M/s SATYARTHI SOLAR SOLUTION (Proprietorship: Satya Prakash Satyarthi), Principal Place of Business at Rampur, Near Motiram Chauraha, Gorakhpur - 273202.",
-      image: "/images/certificates/gst-certificate.png?v=2",
-      pdf: "/images/certificates/gst-certificate.pdf?v=2",
+      image: "/images/certificates/gst-certificate.jpg?v=3",
+      pdf: "/images/certificates/gst-certificate.pdf?v=3",
       badge: "Govt of India GST Verified",
       type: "Tax & Legal Registration"
     },
@@ -186,7 +186,7 @@ export const businessData = {
       date: "15-12-2023 (Est. 17-03-2022)",
       officer: "District Industries Centre, Gorakhpur (Uttar Pradesh)",
       description: "Official Government of India MSME Udyam Registration for SATYARTHI SOLAR SOLUTION under NIC 35105 (Electric power generation using solar energy & solar equipment trading), Motiram Adda, Khorabar, Deoria Road, Gorakhpur - 273202.",
-      image: "/images/certificates/udyam-registration-certificate.png",
+      image: "/images/certificates/udyam-registration-certificate.jpg",
       pdf: "/images/certificates/udyam-registration-certificate.pdf",
       badge: "Govt of India MSME Verified",
       type: "Tax & Legal Registration"
@@ -212,7 +212,7 @@ export const businessData = {
       validTill: "30th June, 2028",
       region: "Gorakhpur (Uttar Pradesh)",
       description: "Certified Authorized Dealer of LOOM SOLAR, providing authentic monocrystalline, bifacial solar panels, lithium-battery hybrid systems, and high-efficiency grid inverters.",
-      image: "/images/certificates/loom-dealer-certificate.png",
+      image: "/images/certificates/loom-dealer-certificate.jpg",
       pdf: "/images/certificates/loom-dealer-certificate.pdf",
       badge: "Loom Solar Authorized",
       type: "Dealer Authorization"
@@ -225,8 +225,8 @@ export const businessData = {
       validTill: "December 2026",
       officer: "Rajesh Kalra & Amit Shukla (Sr. Vice President)",
       description: "Official Certificate of Authorisation for Satyarthi Solar Solution, Gorakhpur as Authorised Dealer for Amaze solar inverters, batteries, and backup solutions.",
-      image: "/images/certificates/amaze-certificate.png?v=2",
-      pdf: "/images/certificates/amaze-certificate.pdf?v=2",
+      image: "/images/certificates/amaze-certificate.jpg?v=3",
+      pdf: "/images/certificates/amaze-certificate.pdf?v=3",
       badge: "Amaze Authorized Dealer",
       type: "Dealer Authorization"
     }
@@ -382,7 +382,7 @@ export const businessData = {
       originalPrice: 380000,
       unit: "Complete Setup",
       description: "Heavy-duty Solar VFD drive system capable of running 10 HP to 20 HP commercial flour mills without diesel or costly commercial power lines. Massive daily operational savings for rural entrepreneurs.",
-      image: "/images/products/catalog-page-2.png",
+      image: "/images/products/catalog-page-2.jpg",
       badge: "High ROI for Millers",
       specs: ["10HP - 20HP VFD Drive", "Direct Solar Operation", "Replaces Diesel Engine", "Heavy Duty Solar Mounting"]
     },
@@ -394,7 +394,7 @@ export const businessData = {
       originalPrice: 50000,
       unit: "Complete System",
       description: "High-efficiency evacuated tube solar water heater with insulated stainless steel storage tank. Provides 24/7 boiling water with 0 electricity consumption.",
-      image: "/images/products/catalog-page-1.png",
+      image: "/images/products/catalog-page-1.jpg",
       badge: "Zero Electric Bill",
       specs: ["100L to 500L Capacity", "Stainless Steel Tank", "Works on Cloudy Days", "5 Years Warranty"]
     },
@@ -406,7 +406,7 @@ export const businessData = {
       originalPrice: 18000,
       unit: "Starting from 1kW",
       description: "Certified Grid-Tied Inverter with Dual MPPT, WiFi mobile monitoring, UPPCL net-metering compatibility, and built-in anti-islanding protection.",
-      image: "/images/products/catalog-page-1.png",
+      image: "/images/products/catalog-page-1.jpg",
       badge: "UPPCL Approved",
       specs: ["Dual MPPT Efficiency >98%", "Smart WiFi App Monitoring", "Net Metering Ready", "5-10 Yrs Warranty"]
     },
@@ -418,7 +418,7 @@ export const businessData = {
       originalPrice: 17500,
       unit: "Per Unit",
       description: "Pure Sine Wave Solar Power Conditioning Unit featuring advanced rMPPT technology from UTL & Fujiyama. Seamlessly blends solar, battery, and grid power.",
-      image: "/images/products/catalog-page-1.png",
+      image: "/images/products/catalog-page-1.jpg",
       badge: "Best Seller",
       specs: ["rMPPT Technology", "Pure Sine Wave Output", "High Surge Capability", "Priority Mode Selector"]
     },
@@ -430,7 +430,7 @@ export const businessData = {
       originalPrice: 10000,
       unit: "Combo Kit",
       description: "High efficiency solar panel & inverter kit. Best quality setup for homes and shops seeking instant backup and bill reduction.",
-      image: "/images/products/catalog-page-2.png",
+      image: "/images/products/catalog-page-2.jpg",
       badge: "35% Off Discount",
       specs: ["Mono PERC Cell Tech", "Smart Charge Controller", "Plug & Play Setup", "Weather Resistant"]
     },
@@ -442,7 +442,7 @@ export const businessData = {
       originalPrice: 7000,
       unit: "Roll / Bundle",
       description: "High-conductivity, weather-resistant insulated grounding wire for solar array DC side and AC distribution board grounding.",
-      image: "/images/products/catalog-page-1.png",
+      image: "/images/products/catalog-page-1.jpg",
       badge: "ISI Standard",
       specs: ["Pure Electrolytic Copper/GI", "UV Resistant Insulation", "Low Resistance", "Fire Retardant"]
     },
@@ -454,7 +454,7 @@ export const businessData = {
       originalPrice: 10000,
       unit: "Per Panel / Leg",
       description: "Hot-dip galvanized iron rooftop mounting structure engineered to withstand 150 km/h wind speeds. Rust-free 25-year structural design.",
-      image: "/images/products/catalog-page-2.png",
+      image: "/images/products/catalog-page-2.jpg",
       badge: "75% Clearance Off",
       specs: ["Hot Dip Galvanized", "Wind Rated 150 km/h", "Adjustable Tilt Angle", "Corrosion Free 25 Yrs"]
     },
@@ -466,7 +466,7 @@ export const businessData = {
       originalPrice: 2200,
       unit: "Per Box",
       description: "Complete electrical safety box with Class II Surge Protection Devices (SPD), DC MCBs, and fuses to protect against lightning and electrical surges.",
-      image: "/images/products/catalog-page-1.png",
+      image: "/images/products/catalog-page-1.jpg",
       badge: "Essential Safety",
       specs: ["IP65 Waterproof Enclosure", "Dual SPD Surge Arresters", "Quality DC/AC MCB", "Glass Window Inspection"]
     },
@@ -478,7 +478,7 @@ export const businessData = {
       originalPrice: 2000,
       unit: "Kit with Compound",
       description: "Copper bonded chemical electrode with Bentonite/Carbon conductive backfill compound for maintaining low soil earth resistance below 1 Ohm.",
-      image: "/images/products/catalog-page-1.png",
+      image: "/images/products/catalog-page-1.jpg",
       badge: "Low Resistance",
       specs: ["Copper Bonded Rod", "Moisture Retaining Compound", "Maintenance Free", "Govt Guideline Compliant"]
     },
@@ -490,7 +490,7 @@ export const businessData = {
       originalPrice: 5500,
       unit: "Starting From",
       description: "Genuine solar hybrid UPS systems from India's trusted brands with multi-stage battery charging and deep discharge protection.",
-      image: "/images/products/catalog-page-2.png",
+      image: "/images/products/catalog-page-2.jpg",
       badge: "Authorized Dealer",
       specs: ["Amaze / Luminous / UTL / Exide", "Fast Charging Tech", "Overload & Short Circuit Cut", "Long Battery Life"]
     }

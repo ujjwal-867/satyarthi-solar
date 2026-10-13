@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
-import { Star, Quote, CheckCircle2, MapPin } from "lucide-react";
+import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink, Sparkles } from "lucide-react";
+import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
   ExpressiveKineticText,
   CollaborativeCursorsOverlay,
@@ -13,6 +14,12 @@ function Testimonials() {
     "इंजीनियर सत्यप्रकाश जी व उनकी टीम ने हमारे घर 3 किलोवाट सोलर लगाया। 25 दिनों में यूपीपीसीएल नेट मीटर लग गया और ₹1,08,000 की सरकारी सब्सिडी सीधे बैंक खाते में आ गई। बिजली बिल ₹4,500 से घटकर मात्र ₹180 रह गया!",
     "डीजल पर आटा चक्की चलाने में हर महीने ₹30,000+ का भारी नुकसान हो रहा था। सत्यार्थी सोलर ने 15 HP सोलर VFD ड्राइव लगाई। अब पूरी चक्की दिन भर मुफ्त सोलर पर चलती है। बहुत ही ईमानदार व श्रेष्ठ सेवा!",
     "बहुत ही कुशल और जिम्मेदार इंजीनियर हैं। भारी हॉट-डिप जीआई स्ट्रक्चर और असली लूम सोलर पैनल लगाए। सरकारी पोर्टल का सारा काम खुद संभाला। उत्तर प्रदेश की सबसे विश्वसनीय सोलर कंपनी।"
+  ];
+
+  const socialReels = [
+    { title: "3kW Rooftop Zero-Bill Home Interview", location: "Rail Vihar, Gorakhpur", tag: "Net-Meter Verified" },
+    { title: "15HP Solar Atta Chakki Live Grinding", location: "Gauri Bazar, Deoria", tag: "0 Diesel Cost" },
+    { title: "Elevated Galvanized Pergola Drone Flyover", location: "Rajendra Nagar, GKP", tag: "Heavy GI Structure" }
   ];
 
   return (
@@ -132,6 +139,80 @@ function Testimonials() {
             </motion.div>
           ))}
         </div>
+
+        {/* Live Social Video Proof & Customer Reels Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-12 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
+        >
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
+            {/* Left Col: Info */}
+            <div className="lg:col-span-7 space-y-3">
+              <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+                <Video className="w-3.5 h-3.5 text-rose-400" />
+                <span>Real Site Reels & Video Reviews • लाइव वीडियो प्रमाण</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Watch Real Customer Stories & Drone Flights on <span className="text-rose-400">Instagram</span> & <span className="text-blue-400">Facebook</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-hindi">
+                हमारे 2500+ सोलर प्लांट्स, 15HP सोलर आटा चक्की व ग्राहकों के जीरो-बिल रिव्यू के लाइव रील्स व वीडियो हमारे ऑफिशियल सोशल मीडिया पेजों पर देखें।
+              </p>
+
+              {/* Sample Reel Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
+                {socialReels.map((reel, rIdx) => (
+                  <div key={rIdx} className="bg-slate-900/80 border border-slate-800 p-2.5 rounded-2xl flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
+                      <Play className="w-3.5 h-3.5 fill-rose-400" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[11px] font-bold text-white truncate">{reel.title}</p>
+                      <span className="text-[9px] text-emerald-400 block truncate">{reel.tag} • {reel.location}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Col: Direct Action Buttons */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+              <motion.a
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                href={businessData.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg shadow-rose-600/30 transition hover:opacity-95"
+              >
+                <InstagramIcon className="w-4 h-4 fill-white" />
+                <span>Watch Customer Reels on Instagram (@satyarthi_solar_solution.gkp)</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                href={businessData.facebookUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg shadow-blue-600/30 transition hover:opacity-95"
+              >
+                <FacebookIcon className="w-4 h-4 fill-white" />
+                <span>Watch Video Proofs on Facebook Page</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </motion.a>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Google Reviews Banner */}
         <motion.div 

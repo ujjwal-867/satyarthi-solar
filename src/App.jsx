@@ -7,6 +7,7 @@ import PortalNavigationHub from "./components/PortalNavigationHub";
 import ARVRSolarVisualizer from "./components/ARVRSolarVisualizer";
 import Services from "./components/Services";
 import Certificates from "./components/Certificates";
+import DistrictsCoverage from "./components/DistrictsCoverage";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
@@ -161,6 +162,18 @@ function AppContent() {
 
               {/* Verified Government Empanelment & Brand Dealership Certificates */}
               <Certificates />
+
+              {/* District-Specific SEO Anchors & All 75 Districts of UP Coverage */}
+              <DistrictsCoverage 
+                onSelectDistrict={(district) => {
+                  setPrefilledQuote({
+                    location: district,
+                    customMessage: `I am interested in a free rooftop solar survey and PM Surya Ghar subsidy consultation in ${district}, Uttar Pradesh.`
+                  });
+                  const el = document.querySelector("#contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              />
 
               {/* Google Reviews & Real Purvanchal Client Ratings */}
               <Testimonials />

@@ -16,7 +16,11 @@ import {
   Factory, 
   Wheat,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  Landmark,
+  PiggyBank,
+  Percent,
+  CreditCard
 } from "lucide-react";
 
 function Calculator({ onSelectQuote }) {
@@ -24,6 +28,9 @@ function Calculator({ onSelectQuote }) {
   const [roofArea, setRoofArea] = useState(400);
   const [propertyType, setPropertyType] = useState("residential");
   const [location, setLocation] = useState("Gorakhpur");
+  const [calcMode, setCalcMode] = useState("subsidy"); // "subsidy" | "loan"
+  const [loanTenure, setLoanTenure] = useState(5); // 3, 5, 7, 10 years
+  const [selectedBank, setSelectedBank] = useState("sbi");
 
   // Dynamic calculations based on real UP tariff & solar insolation data
   const calculation = useMemo(() => {
@@ -93,6 +100,44 @@ function Calculator({ onSelectQuote }) {
     };
   }, [bill, roofArea, propertyType]);
 
+  // Dedicated Bank Loan & EMI calculation (7% Fixed Govt Interest via JanSamarth)
+  const loanCalc = useMemo(() => {
+    const annualRate = 0.07; // 7% p.a.
+    const monthlyRate = annualRate / 12;
+    const totalMonths = loanTenure * 12;
+
+    // Minimum borrower down payment: 10% of plant cost
+    const minDownPayment = Math.round(calculation.grossCost * 0.1);
+
+    // In PM Surya Ghar bank financing, the bank finances the project and the government subsidy (e.g. ₹1,08,000)
+    // is credited via DBT to directly curtail the loan principal, leaving an ultra-affordable net financed amount:
+    const effectiveLoanPrincipal = Math.max(10000, calculation.grossCost - calculation.subsidy - minDownPayment);
+
+    // Standard Equated Monthly Installment (EMI) Formula
+    const emi = Math.round(
+      (effectiveLoanPrincipal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) /
+      (Math.pow(1 + monthlyRate, totalMonths) - 1)
+    );
+
+    const isCheaperThanBill = emi < bill;
+    const monthlyNetSaving = Math.round(bill - emi);
+    const totalRepaid = emi * totalMonths;
+    const totalInterest = Math.max(0, totalRepaid - effectiveLoanPrincipal);
+
+    return {
+      annualRate: 7,
+      tenureYears: loanTenure,
+      totalMonths,
+      minDownPayment,
+      effectiveLoanPrincipal,
+      emi,
+      isCheaperThanBill,
+      monthlyNetSaving,
+      totalRepaid,
+      totalInterest
+    };
+  }, [calculation, loanTenure, bill]);
+
   const handleApplyEstimate = () => {
     if (onSelectQuote) {
       onSelectQuote({
@@ -102,6 +147,10 @@ function Calculator({ onSelectQuote }) {
         propertyType,
         recommendedKw: calculation.recommendedKw,
         netCost: calculation.netCost,
+        calcMode,
+        monthlyEmi: calcMode === "loan" ? loanCalc.emi : null,
+        loanTenure: calcMode === "loan" ? loanTenure : null,
+        selectedBank: calcMode === "loan" ? selectedBank : null
       });
     }
     const contactEl = document.querySelector("#contact");
@@ -111,14 +160,23 @@ function Calculator({ onSelectQuote }) {
   };
 
   const shareOnWhatsApp = () => {
-    const text = `Hello Er. Satyaprakash, I used the Solar Calculator on Satyarthi Solar Solution website for my property in ${location}.\n` +
-      `• Monthly Bill: ₹${bill}\n` +
-      `• Roof Area: ${roofArea} sq ft\n` +
-      `• Property Type: ${propertyType}\n` +
-      `• Recommended System: ${calculation.recommendedKw} kW Solar\n` +
-      `• Estimated Net Cost: ₹${calculation.netCost.toLocaleString()} (after subsidy)\n` +
-      `• Expected Monthly Saving: ₹${calculation.monthlySaving.toLocaleString()}/mo\n` +
-      `Please provide me a customized quote and arrange a free roof survey.`;
+    const text = calcMode === "loan"
+      ? `Hello Er. Satyaprakash, I checked the 7% Govt Bank Loan & EMI calculator on Satyarthi Solar Solution website for my property in ${location}.\n` +
+        `• Current Monthly Bijli Bill: ₹${bill.toLocaleString()}/mo\n` +
+        `• Recommended System: ${calculation.recommendedKw} kW Solar Plant\n` +
+        `• Govt Subsidy: ₹${calculation.subsidy.toLocaleString()} (PM Surya Ghar)\n` +
+        `• Down Payment: ₹${loanCalc.minDownPayment.toLocaleString()} (10% Margin)\n` +
+        `• Bank Loan Tenure: ${loanTenure} Years @ 7% Interest (JanSamarth / ${selectedBank.toUpperCase()})\n` +
+        `• Monthly EMI: ₹${loanCalc.emi.toLocaleString()}/mo (${loanCalc.isCheaperThanBill ? `Cheaper than my bill by ₹${loanCalc.monthlyNetSaving}/mo!` : `Clean power!`})\n` +
+        `Please assist me with bank loan paperwork and schedule a free roof survey.`
+      : `Hello Er. Satyaprakash, I used the Solar Calculator on Satyarthi Solar Solution website for my property in ${location}.\n` +
+        `• Monthly Bill: ₹${bill}\n` +
+        `• Roof Area: ${roofArea} sq ft\n` +
+        `• Property Type: ${propertyType}\n` +
+        `• Recommended System: ${calculation.recommendedKw} kW Solar\n` +
+        `• Estimated Net Cost: ₹${calculation.netCost.toLocaleString()} (after subsidy)\n` +
+        `• Expected Monthly Saving: ₹${calculation.monthlySaving.toLocaleString()}/mo\n` +
+        `Please provide me a customized quote and arrange a free roof survey.`;
 
     window.open(`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -340,91 +398,291 @@ function Calculator({ onSelectQuote }) {
               </div>
             </div>
 
-            {/* Financial Overview Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
-                  <Coins className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Monthly Savings • मासिक बचत</span>
-                </span>
-                <p className="text-2xl font-black text-emerald-600 mt-1">
-                  ₹{calculation.monthlySaving.toLocaleString()}
-                </p>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  ₹{calculation.annualSaving.toLocaleString()} / year saved • प्रति वर्ष बचत
-                </p>
-              </div>
+            {/* Mode Switcher: Cash & Subsidy vs 7% Govt Bank Loan & EMI */}
+            <div className="bg-slate-100 p-1.5 rounded-2xl flex gap-1.5 border border-slate-200">
+              <button
+                type="button"
+                onClick={() => setCalcMode("subsidy")}
+                className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+                  calcMode === "subsidy"
+                    ? "bg-white text-slate-900 shadow-sm font-black border border-slate-200"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                <Coins className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Cash & Subsidy • नकदी व सब्सिडी</span>
+              </button>
 
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Payback Period • लागत वापसी</span>
+              <button
+                type="button"
+                onClick={() => setCalcMode("loan")}
+                className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+                  calcMode === "loan"
+                    ? "bg-blue-600 text-white shadow-md font-black shadow-blue-600/20"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                <Landmark className="w-3.5 h-3.5 text-amber-300" />
+                <span>7% Bank Loan & EMI • आसान किस्त</span>
+                <span className="text-[9px] bg-amber-400 text-slate-950 font-black px-1.5 py-0.5 rounded-full uppercase hidden sm:inline">
+                  ₹1,800/mo
                 </span>
-                <p className="text-2xl font-black text-blue-600 mt-1">
-                  {calculation.paybackYears} Years • वर्ष
-                </p>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  Free power for next 21+ yrs • आगे मुफ्त बिजली
-                </p>
-              </div>
+              </button>
             </div>
 
-            {/* Detailed Cost Breakdown Table */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-3 text-sm shadow-xs">
-              <div className="flex justify-between items-center text-slate-700 text-xs sm:text-sm">
-                <span>Estimated Gross Cost • अनुमानित कुल लागत:</span>
-                <span className="font-bold text-slate-900">
-                  ₹{calculation.grossCost.toLocaleString()}
-                </span>
-              </div>
+            {calcMode === "loan" ? (
+              /* DEDICATED 7% GOVT BANK LOAN & EMI MINI-TAB */
+              <div className="space-y-4">
+                {/* Middle-Class Eye-Opener: Monthly Bill vs Solar EMI */}
+                <div className="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white p-5 rounded-3xl shadow-xl border border-blue-800 space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black">
+                        <PiggyBank className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block">
+                          Middle-Class Reality Check • बिजली बिल बनाम ईएमआई
+                        </span>
+                        <span className="text-[11px] text-slate-400">
+                          PM Surya Ghar National Portal • 7% Fixed Rate
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-[11px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded-full font-bold">
+                      7% Fixed Interest
+                    </span>
+                  </div>
 
-              {propertyType === "residential" ? (
-                <div className="flex justify-between items-center text-emerald-700 text-xs sm:text-sm font-semibold">
-                  <span className="flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
-                  </span>
-                  <span className="font-black text-emerald-600">- ₹{calculation.subsidy.toLocaleString()}</span>
-                </div>
-              ) : (
-                <div className="flex justify-between items-center text-blue-700 text-xs sm:text-sm">
-                  <span>Accelerated Depreciation • 40% टैक्स छूट:</span>
-                  <span className="font-bold">40% Tax Write-Off</span>
-                </div>
-              )}
+                  {/* Visual Side-by-Side Comparison */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {/* Current Monthly Bill */}
+                    <div className="bg-slate-900/90 border border-red-500/30 p-3.5 rounded-2xl">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-red-400 block">
+                        Current Bijli Bill • वर्तमान बिल
+                      </span>
+                      <p className="text-2xl font-black text-red-300 mt-1">
+                        ₹{bill.toLocaleString()}
+                        <span className="text-xs font-normal text-slate-400">/mo</span>
+                      </p>
+                      <p className="text-[10px] text-slate-400 mt-1 font-hindi">
+                        हर महीने बिजली विभाग को जेब से
+                      </p>
+                    </div>
 
-              <div className="pt-3 border-t border-slate-200 flex justify-between items-baseline">
-                <div>
-                  <span className="text-slate-900 font-bold text-sm block">
-                    Net Effective Investment • आपकी शुद्ध लागत:
-                  </span>
-                  <span className="text-[10px] text-emerald-700 font-semibold block">
-                    Subsidy directly credited in bank via DBT • सीधे बैंक खाते में सब्सिडी
-                  </span>
-                </div>
-                <span className="text-3xl font-black text-emerald-600">
-                  ₹{calculation.netCost.toLocaleString()}*
-                </span>
-              </div>
-            </div>
+                    {/* New Solar EMI */}
+                    <div className="bg-emerald-950/50 border border-emerald-500/40 p-3.5 rounded-2xl">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block">
+                        New Solar Loan EMI • मासिक किस्त
+                      </span>
+                      <p className="text-2xl font-black text-emerald-400 mt-1">
+                        ₹{loanCalc.emi.toLocaleString()}
+                        <span className="text-xs font-normal text-emerald-200">/mo</span>
+                      </p>
+                      <p className="text-[10px] text-emerald-300/90 mt-1 font-hindi">
+                        {loanCalc.isCheaperThanBill ? "बिल से भी कम किस्त!" : "20+ साल मुफ्त बिजली"}
+                      </p>
+                    </div>
+                  </div>
 
-            {/* Environmental & Lifetime Benefit */}
-            <div className="grid grid-cols-2 gap-3 text-xs bg-emerald-50/80 p-3.5 rounded-2xl border border-emerald-200">
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-emerald-700 shrink-0" />
-                <div>
-                  <span className="text-slate-600 block text-[10px]">25-Year Net Profit • कुल लाभ:</span>
-                  <span className="font-black text-slate-900">₹{(calculation.lifetimeSavings / 100000).toFixed(1)} Lakhs • लाख</span>
+                  {/* Monthly In-Pocket Cash Saving Banner */}
+                  {loanCalc.isCheaperThanBill ? (
+                    <div className="bg-emerald-500/15 border border-emerald-400/40 p-3 rounded-2xl flex items-center justify-between text-xs text-emerald-200">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>
+                          <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{loanCalc.billEmiDiff.toLocaleString()} cheaper</strong> than your current power bill!
+                        </span>
+                      </div>
+                      <span className="text-[10px] bg-emerald-400 text-slate-950 font-black px-2 py-0.5 rounded-full shrink-0">
+                        +₹{loanCalc.billEmiDiff.toLocaleString()}/mo extra
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="bg-blue-500/15 border border-blue-400/30 p-3 rounded-2xl text-xs text-blue-200 flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>
+                        Loan paid off in <strong>{loanTenure} years</strong>, followed by <strong>20+ years of 100% FREE electricity</strong>!
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Tenure Selector */}
+                  <div className="pt-2 border-t border-slate-800">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-2 uppercase tracking-wider">
+                      Select Loan Tenure • ऋण अवधि चुनें:
+                    </label>
+                    <div className="grid grid-cols-4 gap-2">
+                      {[
+                        { years: 3, label: "3 Years", desc: "Fast Payoff" },
+                        { years: 5, label: "5 Years", desc: "Most Popular", highlight: true },
+                        { years: 7, label: "7 Years", desc: "Lowest EMI" },
+                        { years: 10, label: "10 Years", desc: "Max Term" }
+                      ].map((t) => (
+                        <button
+                          key={t.years}
+                          type="button"
+                          onClick={() => setLoanTenure(t.years)}
+                          className={`py-2 px-1 rounded-xl text-center text-xs font-bold transition cursor-pointer ${
+                            loanTenure === t.years
+                              ? "bg-amber-400 text-slate-950 shadow-md font-black"
+                              : "bg-slate-800/80 text-slate-300 hover:bg-slate-800"
+                          }`}
+                        >
+                          <div>{t.label}</div>
+                          <span className="text-[9px] opacity-85 block">{t.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Partner Bank Selector */}
+                  <div className="pt-2">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1.5 uppercase tracking-wider">
+                      Preferred Bank • ऋणदाता बैंक (JanSamarth Portal):
+                    </label>
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      {[
+                        { id: "sbi", label: "SBI Solar Loan" },
+                        { id: "pnb", label: "PNB Rooftop" },
+                        { id: "baroda_up", label: "Baroda UP Bank" }
+                      ].map((b) => (
+                        <button
+                          key={b.id}
+                          type="button"
+                          onClick={() => setSelectedBank(b.id)}
+                          className={`py-1.5 px-2 rounded-xl text-center font-semibold transition cursor-pointer text-[11px] ${
+                            selectedBank === b.id
+                              ? "bg-blue-600 text-white font-bold border border-blue-400"
+                              : "bg-slate-800/60 text-slate-400 hover:text-white"
+                          }`}
+                        >
+                          {b.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Loan Financing Breakdown Table */}
+                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-2.5 text-xs text-slate-700 shadow-xs">
+                  <div className="flex justify-between">
+                    <span>Gross Plant Investment • कुल प्लांट लागत:</span>
+                    <span className="font-bold text-slate-900">₹{calculation.grossCost.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between text-emerald-700 font-semibold">
+                    <span>Govt Subsidy (DBT direct to bank account):</span>
+                    <span className="font-black text-emerald-600">- ₹{calculation.subsidy.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between text-blue-700">
+                    <span>Borrower Margin Money (10% Down Payment):</span>
+                    <span className="font-bold text-blue-700">₹{loanCalc.minDownPayment.toLocaleString()}</span>
+                  </div>
+                  <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline">
+                    <div>
+                      <span className="text-slate-900 font-bold block">
+                        Net Bank Loan Financed • ऋण राशि:
+                      </span>
+                      <span className="text-[10px] text-slate-500">
+                        @ 7% p.a. fixed for {loanTenure} years ({loanCalc.totalMonths} EMIs)
+                      </span>
+                    </div>
+                    <span className="text-xl font-black text-blue-600">
+                      ₹{loanCalc.effectiveLoanPrincipal.toLocaleString()}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Leaf className="w-4 h-4 text-emerald-700 shrink-0" />
-                <div>
-                  <span className="text-slate-600 block text-[10px]">CO2 Emissions Cut • प्रदूषण कमी:</span>
-                  <span className="font-black text-slate-900">{calculation.co2Reduction} Tons • टन</span>
+            ) : (
+              /* STANDARD CASH & SUBSIDY OVERVIEW CARDS */
+              <div className="space-y-6">
+                {/* Financial Overview Cards */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                      <Coins className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Monthly Savings • मासिक बचत</span>
+                    </span>
+                    <p className="text-2xl font-black text-emerald-600 mt-1">
+                      ₹{calculation.monthlySaving.toLocaleString()}
+                    </p>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      ₹{calculation.annualSaving.toLocaleString()} / year saved • प्रति वर्ष बचत
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-blue-600" />
+                      <span>Payback Period • लागत वापसी</span>
+                    </span>
+                    <p className="text-2xl font-black text-blue-600 mt-1">
+                      {calculation.paybackYears} Years • वर्ष
+                    </p>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Free power for next 21+ yrs • आगे मुफ्त बिजली
+                    </p>
+                  </div>
+                </div>
+
+                {/* Detailed Cost Breakdown Table */}
+                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-3 text-sm shadow-xs">
+                  <div className="flex justify-between items-center text-slate-700 text-xs sm:text-sm">
+                    <span>Estimated Gross Cost • अनुमानित कुल लागत:</span>
+                    <span className="font-bold text-slate-900">
+                      ₹{calculation.grossCost.toLocaleString()}
+                    </span>
+                  </div>
+
+                  {propertyType === "residential" ? (
+                    <div className="flex justify-between items-center text-emerald-700 text-xs sm:text-sm font-semibold">
+                      <span className="flex items-center gap-1">
+                        <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
+                      </span>
+                      <span className="font-black text-emerald-600">- ₹{calculation.subsidy.toLocaleString()}</span>
+                    </div>
+                  ) : (
+                    <div className="flex justify-between items-center text-blue-700 text-xs sm:text-sm">
+                      <span>Accelerated Depreciation • 40% टैक्स छूट:</span>
+                      <span className="font-bold">40% Tax Write-Off</span>
+                    </div>
+                  )}
+
+                  <div className="pt-3 border-t border-slate-200 flex justify-between items-baseline">
+                    <div>
+                      <span className="text-slate-900 font-bold text-sm block">
+                        Net Effective Investment • आपकी शुद्ध लागत:
+                      </span>
+                      <span className="text-[10px] text-emerald-700 font-semibold block">
+                        Subsidy directly credited in bank via DBT • सीधे बैंक खाते में सब्सिडी
+                      </span>
+                    </div>
+                    <span className="text-3xl font-black text-emerald-600">
+                      ₹{calculation.netCost.toLocaleString()}*
+                    </span>
+                  </div>
+                </div>
+
+                {/* Environmental & Lifetime Benefit */}
+                <div className="grid grid-cols-2 gap-3 text-xs bg-emerald-50/80 p-3.5 rounded-2xl border border-emerald-200">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4 text-emerald-700 shrink-0" />
+                    <div>
+                      <span className="text-slate-600 block text-[10px]">25-Year Net Profit • कुल लाभ:</span>
+                      <span className="font-black text-slate-900">₹{(calculation.lifetimeSavings / 100000).toFixed(1)} Lakhs • लाख</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Leaf className="w-4 h-4 text-emerald-700 shrink-0" />
+                    <div>
+                      <span className="text-slate-600 block text-[10px]">CO2 Emissions Cut • प्रदूषण कमी:</span>
+                      <span className="font-black text-slate-900">{calculation.co2Reduction} Tons • टन</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -433,8 +691,17 @@ function Calculator({ onSelectQuote }) {
                 onClick={handleApplyEstimate}
                 className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-blue-600/20 transition flex items-center justify-center gap-2 cursor-pointer text-sm"
               >
-                <span>Book Survey for {calculation.recommendedKw} kW • सर्वे बुक करें</span>
-                <ArrowRight className="w-4 h-4" />
+                {calcMode === "loan" ? (
+                  <>
+                    <span>Apply 7% Loan for {calculation.recommendedKw} kW • लोन सर्वे बुक करें</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    <span>Book Survey for {calculation.recommendedKw} kW • सर्वे बुक करें</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
 
               <button
@@ -443,7 +710,7 @@ function Calculator({ onSelectQuote }) {
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer text-sm shadow-md shadow-emerald-600/20"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>WhatsApp Quote • कोटेशन</span>
+                <span>{calcMode === "loan" ? "WhatsApp EMI Plan • ईएमआई प्लान" : "WhatsApp Quote • कोटेशन"}</span>
               </button>
             </div>
 
