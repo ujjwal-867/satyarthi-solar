@@ -1,5 +1,6 @@
 import { X, Sparkles, Calculator as CalcIcon } from "lucide-react";
 import Calculator from "./Calculator";
+import ErrorBoundary from "./ErrorBoundary";
 
 export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
   if (!isOpen) return null;
@@ -43,12 +44,14 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
 
         {/* Modal Scrollable Body */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-50">
-          <Calculator
-            onSelectQuote={(quoteData) => {
-              if (onApplyQuote) onApplyQuote(quoteData);
-              onClose();
-            }}
-          />
+          <ErrorBoundary title="Solar Calculator">
+            <Calculator
+              onSelectQuote={(quoteData) => {
+                if (onApplyQuote) onApplyQuote(quoteData);
+                onClose();
+              }}
+            />
+          </ErrorBoundary>
         </div>
       </div>
     </div>

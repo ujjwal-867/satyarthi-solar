@@ -6,6 +6,7 @@ import Stats from "./components/Stats";
 import PortalNavigationHub from "./components/PortalNavigationHub";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import LazySection from "./components/LazySection";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { LanguageProvider } from "./context/LanguageContext";
 
 // Lazy-loaded Below-the-Fold Sections (Dramatically accelerates initial phone page load)
@@ -273,24 +274,26 @@ function AppContent() {
 
       {/* Lazy-Loaded Modals */}
       <Suspense fallback={null}>
-        {isCalculatorOpen && (
-          <CalculatorModal 
-            isOpen={isCalculatorOpen} 
-            onClose={() => setIsCalculatorOpen(false)}
-            onApplyQuote={(quoteData) => {
-              setPrefilledQuote(quoteData);
-              setIsCalculatorOpen(false);
-              navigateTo("/#contact");
-            }}
-          />
-        )}
+        <ErrorBoundary>
+          {isCalculatorOpen && (
+            <CalculatorModal 
+              isOpen={isCalculatorOpen} 
+              onClose={() => setIsCalculatorOpen(false)}
+              onApplyQuote={(quoteData) => {
+                setPrefilledQuote(quoteData);
+                setIsCalculatorOpen(false);
+                navigateTo("/#contact");
+              }}
+            />
+          )}
 
-        {isAdminOpen && (
-          <AdminModal 
-            isOpen={isAdminOpen} 
-            onClose={() => setIsAdminOpen(false)} 
-          />
-        )}
+          {isAdminOpen && (
+            <AdminModal 
+              isOpen={isAdminOpen} 
+              onClose={() => setIsAdminOpen(false)} 
+            />
+          )}
+        </ErrorBoundary>
       </Suspense>
     </div>
   );
@@ -298,9 +301,11 @@ function AppContent() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ErrorBoundary>
   );
 }
 

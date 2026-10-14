@@ -100,9 +100,9 @@ function Calculator({ onSelectQuote }) {
     };
   }, [bill, roofArea, propertyType]);
 
-  // Dedicated Bank Loan & EMI calculation (7% Fixed Govt Interest via JanSamarth)
+  // Dedicated Bank Loan & EMI calculation (6-7% Govt Interest via JanSamarth)
   const loanCalc = useMemo(() => {
-    const annualRate = 0.07; // 7% p.a.
+    const annualRate = 0.07; // 7% p.a. (Govt JanSamarth benchmark for PM Surya Ghar)
     const monthlyRate = annualRate / 12;
     const totalMonths = loanTenure * 12;
 
@@ -121,11 +121,12 @@ function Calculator({ onSelectQuote }) {
 
     const isCheaperThanBill = emi < bill;
     const monthlyNetSaving = Math.round(bill - emi);
+    const billEmiDiff = Math.abs(monthlyNetSaving);
     const totalRepaid = emi * totalMonths;
     const totalInterest = Math.max(0, totalRepaid - effectiveLoanPrincipal);
 
     return {
-      annualRate: 7,
+      annualRate: "6-7%",
       tenureYears: loanTenure,
       totalMonths,
       minDownPayment,
@@ -133,6 +134,7 @@ function Calculator({ onSelectQuote }) {
       emi,
       isCheaperThanBill,
       monthlyNetSaving,
+      billEmiDiff,
       totalRepaid,
       totalInterest
     };
@@ -161,13 +163,13 @@ function Calculator({ onSelectQuote }) {
 
   const shareOnWhatsApp = () => {
     const text = calcMode === "loan"
-      ? `Hello Er. Satyaprakash, I checked the 7% Govt Bank Loan & EMI calculator on Satyarthi Solar Solution website for my property in ${location}.\n` +
+      ? `Hello Er. Satyaprakash, I checked the 6-7% Govt Bank Loan & EMI calculator on Satyarthi Solar Solution website for my property in ${location}.\n` +
         `• Current Monthly Bijli Bill: ₹${bill.toLocaleString()}/mo\n` +
         `• Recommended System: ${calculation.recommendedKw} kW Solar Plant\n` +
         `• Govt Subsidy: ₹${calculation.subsidy.toLocaleString()} (PM Surya Ghar)\n` +
         `• Down Payment: ₹${loanCalc.minDownPayment.toLocaleString()} (10% Margin)\n` +
-        `• Bank Loan Tenure: ${loanTenure} Years @ 7% Interest (JanSamarth / ${selectedBank.toUpperCase()})\n` +
-        `• Monthly EMI: ₹${loanCalc.emi.toLocaleString()}/mo (${loanCalc.isCheaperThanBill ? `Cheaper than my bill by ₹${loanCalc.monthlyNetSaving}/mo!` : `Clean power!`})\n` +
+        `• Bank Loan Tenure: ${loanTenure} Years @ 6-7% Interest (JanSamarth / ${selectedBank.toUpperCase()})\n` +
+        `• Monthly EMI: ₹${loanCalc.emi.toLocaleString()}/mo (${loanCalc.isCheaperThanBill ? `Cheaper than my bill by ₹${(loanCalc.billEmiDiff || 0).toLocaleString()}/mo!` : `Clean power!`})\n` +
         `Please assist me with bank loan paperwork and schedule a free roof survey.`
       : `Hello Er. Satyaprakash, I used the Solar Calculator on Satyarthi Solar Solution website for my property in ${location}.\n` +
         `• Monthly Bill: ₹${bill}\n` +
@@ -398,7 +400,7 @@ function Calculator({ onSelectQuote }) {
               </div>
             </div>
 
-            {/* Mode Switcher: Cash & Subsidy vs 7% Govt Bank Loan & EMI */}
+            {/* Mode Switcher: Cash & Subsidy vs 6-7% Govt Bank Loan & EMI */}
             <div className="bg-slate-100 p-1.5 rounded-2xl flex gap-1.5 border border-slate-200">
               <button
                 type="button"
@@ -423,7 +425,7 @@ function Calculator({ onSelectQuote }) {
                 }`}
               >
                 <Landmark className="w-3.5 h-3.5 text-amber-300" />
-                <span>7% Bank Loan & EMI • आसान किस्त</span>
+                <span>6-7% Bank Loan & EMI • आसान किस्त</span>
                 <span className="text-[9px] bg-amber-400 text-slate-950 font-black px-1.5 py-0.5 rounded-full uppercase hidden sm:inline">
                   ₹1,800/mo
                 </span>
@@ -431,7 +433,7 @@ function Calculator({ onSelectQuote }) {
             </div>
 
             {calcMode === "loan" ? (
-              /* DEDICATED 7% GOVT BANK LOAN & EMI MINI-TAB */
+              /* DEDICATED 6-7% GOVT BANK LOAN & EMI MINI-TAB */
               <div className="space-y-4">
                 {/* Middle-Class Eye-Opener: Monthly Bill vs Solar EMI */}
                 <div className="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white p-5 rounded-3xl shadow-xl border border-blue-800 space-y-4">
@@ -445,12 +447,12 @@ function Calculator({ onSelectQuote }) {
                           Middle-Class Reality Check • बिजली बिल बनाम ईएमआई
                         </span>
                         <span className="text-[11px] text-slate-400">
-                          PM Surya Ghar National Portal • 7% Fixed Rate
+                          PM Surya Ghar National Portal • 6-7% Fixed Rate
                         </span>
                       </div>
                     </div>
                     <span className="text-[11px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded-full font-bold">
-                      7% Fixed Interest
+                      6-7% Fixed Interest
                     </span>
                   </div>
 
@@ -491,11 +493,11 @@ function Calculator({ onSelectQuote }) {
                       <div className="flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-emerald-400 shrink-0" />
                         <span>
-                          <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{loanCalc.billEmiDiff.toLocaleString()} cheaper</strong> than your current power bill!
+                          <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()} cheaper</strong> than your current power bill!
                         </span>
                       </div>
                       <span className="text-[10px] bg-emerald-400 text-slate-950 font-black px-2 py-0.5 rounded-full shrink-0">
-                        +₹{loanCalc.billEmiDiff.toLocaleString()}/mo extra
+                        +₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()}/mo extra
                       </span>
                     </div>
                   ) : (
@@ -584,7 +586,7 @@ function Calculator({ onSelectQuote }) {
                         Net Bank Loan Financed • ऋण राशि:
                       </span>
                       <span className="text-[10px] text-slate-500">
-                        @ 7% p.a. fixed for {loanTenure} years ({loanCalc.totalMonths} EMIs)
+                        @ 6% - 7% p.a. via JanSamarth for {loanTenure} years ({loanCalc.totalMonths} EMIs)
                       </span>
                     </div>
                     <span className="text-xl font-black text-blue-600">
@@ -693,7 +695,7 @@ function Calculator({ onSelectQuote }) {
               >
                 {calcMode === "loan" ? (
                   <>
-                    <span>Apply 7% Loan for {calculation.recommendedKw} kW • लोन सर्वे बुक करें</span>
+                    <span>Apply 6-7% Loan for {calculation.recommendedKw} kW • लोन सर्वे बुक करें</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 ) : (

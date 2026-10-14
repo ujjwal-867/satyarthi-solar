@@ -408,7 +408,7 @@ export function BentoGallery() {
       badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Complete mega brochure showcasing 12+ Solar Brands (Tata Power, Adani, Waaree, Loom Solar, Havells, Vikram, UTL) and 12+ Appliance Brands.",
-      specs: ["₹1,08,000 Govt Subsidy Guidance", "300 Units Free Power per Month", "Bank Loan at 7% Interest", "25 Yrs Performance Warranty"]
+      specs: ["₹1,08,000 Govt Subsidy Guidance", "300 Units Free Power per Month", "Bank Loan at 6-7% Interest", "25 Yrs Performance Warranty"]
     }
   ], []);
 

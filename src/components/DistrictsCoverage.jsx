@@ -73,8 +73,8 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
       capacity: "200+ kW Built",
       landmarks: ["Harraiya", "Bansi Road", "Company Bagh", "Walterganj", "Rudhauli", "Gauri", "Vikramjot"],
       discom: "PuVVNL Basti Electricity Circle",
-      description: "Active solar engineering team servicing Basti with 7% JanSamarth bank loan assistance and high-efficiency tier-1 panels for homes and business premises.",
-      popularServices: ["7% Bank Loan ₹1,800/mo EMI", "Residential Rooftop Solar", "Hospital & School Solar Plants"]
+      description: "Active solar engineering team servicing Basti with 6-7% JanSamarth bank loan assistance and high-efficiency tier-1 panels for homes and business premises.",
+      popularServices: ["6-7% Bank Loan ₹1,800/mo EMI", "Residential Rooftop Solar", "Hospital & School Solar Plants"]
     },
     {
       id: "sant_kabir_nagar",
@@ -107,7 +107,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
       landmarks: ["Lalganj & Phoolpur (Azamgarh)", "Ghosi & Kopaganj (Mau)", "Rasra & Bairia (Ballia)", "Sikanderpur"],
       discom: "PuVVNL Azamgarh Distribution Zone",
       description: "Dedicated project delivery for eastern UP families and entrepreneurs looking for genuine Loom Solar, Tata Power, and Waaree systems.",
-      popularServices: ["PM Surya Ghar Rooftops", "Solar Aata Chakki Systems", "7% Govt Loan Support"]
+      popularServices: ["PM Surya Ghar Rooftops", "Solar Aata Chakki Systems", "6-7% Govt Loan Support"]
     }
   ];
 

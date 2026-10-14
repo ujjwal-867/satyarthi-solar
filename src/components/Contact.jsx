@@ -46,7 +46,7 @@ function Contact({ prefilledData }) {
         let defaultMsg = prev.message;
         if (prefilledData.recommendedKw) {
           if (prefilledData.calcMode === "loan" && prefilledData.monthlyEmi) {
-            defaultMsg = `Interested in ${prefilledData.recommendedKw} kW Solar Plant with 7% Bank Loan (${prefilledData.loanTenure} Yrs EMI: ₹${Number(prefilledData.monthlyEmi).toLocaleString()}/mo vs current bill ₹${Number(prefilledData.bill || 0).toLocaleString()}). Please assist with loan paperwork and roof survey.`;
+            defaultMsg = `Interested in ${prefilledData.recommendedKw} kW Solar Plant with 6-7% Bank Loan (${prefilledData.loanTenure} Yrs EMI: ₹${Number(prefilledData.monthlyEmi).toLocaleString()}/mo vs current bill ₹${Number(prefilledData.bill || 0).toLocaleString()}). Please assist with loan paperwork and roof survey.`;
           } else {
             defaultMsg = `Interested in ${prefilledData.recommendedKw} kW Solar System (Est. Net Cost: ₹${Number(prefilledData.netCost || 0).toLocaleString()} after subsidy).`;
           }
