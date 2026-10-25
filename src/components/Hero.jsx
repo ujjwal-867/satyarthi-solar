@@ -249,9 +249,9 @@ function Hero({ onOpenCalculator }) {
                   />
                 </span>
                 <motion.span
-                  initial={{ opacity: 0, y: 18, rotateX: -45 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ duration: 0.65, delay: 0.25, type: "spring", stiffness: 160 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
                   whileHover={{ scale: 1.02, y: -2 }}
                   className="inline-block whitespace-nowrap text-[1.38rem] min-[375px]:text-[1.55rem] sm:text-4xl md:text-5xl lg:text-[3.1rem] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-emerald-300 to-sky-300 cursor-default"
                 >
@@ -367,10 +367,10 @@ function Hero({ onOpenCalculator }) {
           {/* RIGHT COLUMN: 3D ANIMATED BENTO ENGINEER PROFILE CARD & LIVE SOLAR TELEMETRY */}
           <div className="lg:col-span-5 space-y-4" style={{ perspective: "1100px" }}>
             <motion.div 
-              initial={{ opacity: 0, y: 20, rotateY: -6 }}
-              animate={{ opacity: 1, y: 0, rotateY: 0 }}
-              transition={{ duration: 0.65, delay: 0.15, type: "spring", stiffness: 140 }}
-              whileHover={{ y: -6, rotateX: 3, rotateY: -3, scale: 1.015 }}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              whileHover={{ y: -4, scale: 1.01 }}
               className="group relative bg-slate-900/80 backdrop-blur-xl border border-white/20 hover:border-teal-400/60 rounded-3xl p-4 sm:p-6 shadow-2xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
@@ -520,7 +520,7 @@ function Hero({ onOpenCalculator }) {
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.6 }}
+        transition={{ duration: 0.3 }}
         className="relative z-10 flex flex-col items-center justify-center pt-6 text-center cursor-pointer"
         onClick={() => scrollTo("#portal-hub")}
       >

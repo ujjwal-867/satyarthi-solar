@@ -240,11 +240,11 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
               return (
                 <motion.div
                   key={hub.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  whileHover={{ y: -6, scale: 1.015 }}
+                  transition={{ duration: 0.22 }}
+                  whileHover={{ y: -4, scale: 1.01 }}
                   onClick={() => setActiveDistrictId(hub.id)}
                   className={`relative p-5 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                     isSelected

@@ -21,30 +21,14 @@ export function ExpressiveKineticText({
           (hw) => hw.toLowerCase() === cleanWord.toLowerCase() || hw.toLowerCase() === word.toLowerCase()
         );
         return (
-          <motion.span
+          <span
             key={i}
-            initial={{ opacity: 0, y: 24, rotateX: -65, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.55,
-              delay: i * 0.055,
-              type: "spring",
-              stiffness: 190,
-              damping: 16
-            }}
-            whileHover={{
-              y: -4,
-              scale: 1.07,
-              rotateZ: i % 2 === 0 ? -1.5 : 1.5,
-              transition: { duration: 0.18 }
-            }}
-            className={`inline-block cursor-default select-none ${
+            className={`inline-block select-none transition-transform duration-200 hover:scale-105 ${
               isHighlighted ? highlightClass : ""
             }`}
           >
             {word}
-          </motion.span>
+          </span>
         );
       })}
     </span>

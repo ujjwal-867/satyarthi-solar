@@ -65,11 +65,11 @@ function Testimonials() {
           {businessData.testimonials.map((t, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
+              transition={{ duration: 0.25 }}
+              whileHover={{ y: -6, scale: 1.015 }}
               className="relative bg-white rounded-3xl p-7 border border-slate-200 shadow-xs hover:shadow-2xl hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Diagonal Shimmer Sweep */}

@@ -132,11 +132,11 @@ export default function Services() {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08 }}
-                whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
+                transition={{ duration: 0.25 }}
+                whileHover={{ y: -6, scale: 1.015 }}
                 className="relative bg-white rounded-3xl p-6 border border-slate-200 hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-600/15 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
               >
                 {/* Animated Diagonal Shimmer Sweep */}

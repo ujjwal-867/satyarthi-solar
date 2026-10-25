@@ -151,11 +151,11 @@ function Certificates() {
             return (
               <motion.div
                 key={cert.id}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.015 }}
+                transition={{ duration: 0.25 }}
+                whileHover={{ y: -6, scale: 1.015 }}
                 className="relative bg-white rounded-3xl border-2 border-slate-200 hover:border-emerald-500 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
               >
                 {/* Diagonal Shimmer Sweep */}

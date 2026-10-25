@@ -47,7 +47,7 @@ export default function LazySection({
         }
       },
       {
-        rootMargin: "450px 0px 450px 0px", // Pre-mount 450px before entering viewport
+        rootMargin: "1000px 0px 1000px 0px", // Pre-mount 1000px before entering viewport for zero-lag scroll
         threshold: 0.01
       }
     );
@@ -60,10 +60,10 @@ export default function LazySection({
     const handleMountAll = () => setShouldMount(true);
     window.addEventListener("mount-all-sections", handleMountAll, { once: true });
 
-    // Idle timer fallback: after 3.5s, mount anyway so everything is ready
+    // Idle timer fallback: after 600ms, pre-mount in background so scrolling is instantaneous
     const idleTimer = setTimeout(() => {
       setShouldMount(true);
-    }, 3500);
+    }, 600);
 
     return () => {
       observer.disconnect();
