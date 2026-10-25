@@ -113,7 +113,7 @@ function SubsidySection() {
           {subsidyData.tiers.map((tier, idx) => (
             <div
               key={idx}
-              className={`relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 ${
+              className={`relative rounded-3xl p-5 flex flex-col justify-between overflow-hidden group desktop-gallery-card-hover ${
                 tier.bestValue
                   ? "bg-gradient-to-b from-blue-900 via-slate-900 to-emerald-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-emerald-400"
                   : tier.popular
@@ -121,6 +121,8 @@ function SubsidySection() {
                   : "bg-white text-slate-900 border border-slate-200 shadow-xs"
               }`}
             >
+              {/* Desktop-Only Gallery Shine Sweep */}
+              <div className="desktop-shine-sweep" />
               {/* Badges */}
               {tier.bestValue && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">

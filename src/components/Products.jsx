@@ -99,7 +99,7 @@ function Products() {
                 key={cat.id}
                 type="button"
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
+                className={`px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap transition cursor-pointer desktop-button-hover ${
                   selectedCategory === cat.id
                     ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
                     : "bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100"
@@ -138,8 +138,11 @@ function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between group"
+                className="relative bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
               >
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
+
                 <div>
                   {/* Image & Badge Container */}
                   <div className="relative bg-slate-900 aspect-4/3 overflow-hidden flex items-center justify-center p-4">
@@ -147,7 +150,7 @@ function Products() {
                       src={product.image}
                       alt={product.name}
                       loading="lazy"
-                      className="w-full h-full object-contain group-hover:scale-105 transition duration-500"
+                      className="w-full h-full object-contain desktop-image-zoom"
                     />
                     
                     {/* Badge */}

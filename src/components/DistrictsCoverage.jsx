@@ -244,14 +244,15 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.22 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
                   onClick={() => setActiveDistrictId(hub.id)}
-                  className={`relative p-5 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                  className={`relative p-5 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden group desktop-gallery-card-hover ${
                     isSelected
                       ? "bg-white border-blue-600 shadow-xl shadow-blue-600/10"
-                      : "bg-white/90 border-slate-200 hover:border-emerald-400 hover:shadow-md"
+                      : "bg-white/90 border-slate-200"
                   }`}
                 >
+                  {/* Desktop-Only Gallery Shine Sweep */}
+                  <div className="desktop-shine-sweep" />
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">

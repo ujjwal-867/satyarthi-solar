@@ -88,8 +88,11 @@ function Quotations() {
           {businessData.quotationFlyers.map((flyer) => (
             <div
               key={flyer.id}
-              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-amber-400 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
+              className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
             >
+              {/* Desktop-Only Gallery Shine Sweep */}
+              <div className="desktop-shine-sweep" />
+
               <div>
                 {/* Image Frame */}
                 <div className="relative aspect-4/3 bg-slate-900 overflow-hidden flex items-center justify-center p-2">
@@ -97,7 +100,7 @@ function Quotations() {
                     src={flyer.image}
                     alt={flyer.title}
                     loading="lazy"
-                    className="w-full h-full object-contain rounded-xl group-hover:scale-102 transition duration-300"
+                    className="w-full h-full object-contain rounded-xl desktop-image-zoom"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-3 backdrop-blur-xs">
                     <button

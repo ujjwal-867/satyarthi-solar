@@ -103,13 +103,11 @@ function Certificates() {
         {/* Filter Tabs */}
         <div className="flex justify-center items-center gap-2 mt-8 overflow-x-auto pb-2 scrollbar-none">
           {filterTabs.map((flt) => (
-            <motion.button
+            <button
               key={flt.id}
               type="button"
-              whileHover={{ y: -2, scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
               onClick={() => setActiveFilter(flt.id)}
-              className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+              className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1.5 desktop-button-hover ${
                 activeFilter === flt.id
                   ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
                   : "bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100"
@@ -117,7 +115,7 @@ function Certificates() {
             >
               <span>{flt.en}</span>
               <span className="text-[10px] opacity-85 font-hindi">({flt.hi})</span>
-            </motion.button>
+            </button>
           ))}
         </div>
 
@@ -131,11 +129,10 @@ function Certificates() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25 }}
-                whileHover={{ y: -6, scale: 1.015 }}
-                className="relative bg-white rounded-3xl border-2 border-slate-200 hover:border-emerald-500 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
+                className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
               >
-                {/* Diagonal Shimmer Sweep */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/80 to-transparent pointer-events-none z-20" />
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
 
                 <div>
                   {/* Header Tag */}
@@ -158,7 +155,7 @@ function Certificates() {
                       alt={cert.title}
                       loading="lazy"
                       decoding="async"
-                      className="max-h-full max-w-full object-contain rounded-lg shadow-xs group-hover:scale-105 transition duration-500"
+                      className="max-h-full max-w-full object-contain rounded-lg shadow-xs desktop-image-zoom"
                     />
                     <div className="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2.5 backdrop-blur-xs z-30">
                       <button

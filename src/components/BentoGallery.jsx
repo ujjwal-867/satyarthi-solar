@@ -559,9 +559,8 @@ export function BentoGallery() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.3 }}
-                    whileHover={{ y: -6, scale: 1.012 }}
                     onClick={() => setLightboxIndex(idx)}
-                    className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200/90 hover:border-emerald-400 transition-all duration-300 shadow-md hover:shadow-2xl hover:shadow-emerald-600/20 ${item.span}`}
+                    className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200/90 desktop-gallery-card-hover shadow-md ${item.span}`}
                   >
                     {/* Background Image - Visible Smoothly while Scrolling */}
                     <img
@@ -569,11 +568,11 @@ export function BentoGallery() {
                       alt={item.title}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover object-center desktop-image-zoom"
                     />
 
-                    {/* Animated Glassmorphic Shine Sweep on Hover */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
+                    {/* Animated Glassmorphic Shine Sweep on Hover (Strictly Desktop) */}
+                    <div className="desktop-shine-sweep" />
 
                     {/* Gradient Scrim for Perfect Typography Contrast */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/55 to-transparent group-hover:via-slate-950/75 transition-colors duration-300"></div>

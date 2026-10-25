@@ -47,7 +47,7 @@ function Projects() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap desktop-button-hover ${
                 activeCategory === cat
                   ? "bg-slate-900 text-amber-400 shadow-md"
                   : "bg-slate-100 text-slate-700 hover:bg-slate-200"
@@ -63,8 +63,11 @@ function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              className="group relative bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between cursor-pointer"
             >
+              {/* Desktop-Only Gallery Shine Sweep */}
+              <div className="desktop-shine-sweep" />
+
               <div>
                 {/* Image Container */}
                 <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
@@ -72,7 +75,7 @@ function Projects() {
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                    className="w-full h-full object-cover desktop-image-zoom"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                   

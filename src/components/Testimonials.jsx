@@ -69,11 +69,10 @@ function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.25 }}
-              whileHover={{ y: -6, scale: 1.015 }}
-              className="relative bg-white rounded-3xl p-7 border border-slate-200 shadow-xs hover:shadow-2xl hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="relative bg-white rounded-3xl p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
             >
-              {/* Diagonal Shimmer Sweep */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/80 to-transparent pointer-events-none" />
+              {/* Desktop-Only Gallery Shine Sweep */}
+              <div className="desktop-shine-sweep" />
 
               <div className="relative z-10">
                 {/* Stars & Interactive ⚡ Burst */}

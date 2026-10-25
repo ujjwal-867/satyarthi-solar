@@ -136,11 +136,10 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25 }}
-                whileHover={{ y: -6, scale: 1.015 }}
-                className="relative bg-white rounded-3xl p-6 border border-slate-200 hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-600/15 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+                className="relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
               >
-                {/* Animated Diagonal Shimmer Sweep */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-emerald-50/90 to-transparent pointer-events-none" />
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-4">

@@ -63,7 +63,7 @@
   background: #94a3b8;
 }
 
-/* Mobile Smooth Touch Scrolling & GPU Compositing Optimizations */
+/* Mobile Smooth Touch Scrolling & GPU Compositing Optimizations (Strictly Mobile) */
 @media (max-width: 768px) {
   html, body {
     -webkit-overflow-scrolling: touch;
@@ -79,5 +79,64 @@
 
   * {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .desktop-shine-sweep {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   STRICTLY DESKTOP OR PC: Gallery-Style 3D Hover & Shimmer Animations
+   (Elevation lift, emerald border aura, diagonal glass shine sweep, 
+   smooth image zoom, and spring button taps)
+   ===================================================================== */
+@media (min-width: 769px) {
+  .desktop-gallery-card-hover {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+    will-change: transform;
+  }
+
+  .desktop-gallery-card-hover:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.2), 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    border-color: #10b981 !important;
+  }
+
+  /* Animated Glassmorphic Light Sweep across Card on Hover */
+  .desktop-shine-sweep {
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.28) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 20;
+    transition: transform 1s ease-in-out;
+  }
+
+  .group:hover .desktop-shine-sweep {
+    transform: translateX(100%);
+  }
+
+  /* Smooth Cinematic Image Zoom */
+  .desktop-image-zoom {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .group:hover .desktop-image-zoom {
+    transform: scale(1.09) !important;
+  }
+
+  /* Desktop Interactive Button / Tab Spring Hover */
+  .desktop-button-hover {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  }
+
+  .desktop-button-hover:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  .desktop-button-hover:active {
+    transform: scale(0.96);
   }
 }
