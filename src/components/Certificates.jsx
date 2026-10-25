@@ -121,33 +121,9 @@ function Certificates() {
           ))}
         </div>
 
-        {/* On-Demand Data-Saver Control Strip */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mt-6 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 sm:px-4 sm:py-2.5 max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-            <span>Data-Saver Mode: Tap any certificate or button below to load official scans.</span>
-            <span className="hidden md:inline text-slate-400">• डेटा सेवर सक्रिय</span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setLoadAllCerts(true)}
-            disabled={loadAllCerts}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-              loadAllCerts
-                ? "bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold"
-                : "bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs hover:scale-102 active:scale-95"
-            }`}
-          >
-            <Zap className="w-3.5 h-3.5 fill-current" />
-            <span>{loadAllCerts ? "✓ All 7 Certificate Images Loaded" : "⚡ Load All 7 Certificate Images (सभी लोड करें)"}</span>
-          </button>
-        </div>
-
         {/* Certificates 3D Bento Showcase Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8 max-w-7xl mx-auto" style={{ perspective: "1100px" }}>
-          {filteredCertificates.map((cert, idx) => {
-            const isLoaded = loadAllCerts || loadedCerts[cert.id];
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 max-w-7xl mx-auto" style={{ perspective: "1100px" }}>
+          {filteredCertificates.map((cert) => {
             return (
               <motion.div
                 key={cert.id}
@@ -175,57 +151,33 @@ function Certificates() {
                     </span>
                   </div>
 
-                  {/* Certificate Image Frame - On-Demand Loaded */}
+                  {/* Certificate Image Frame - Visible Smoothly while Scrolling */}
                   <div className="relative aspect-4/3 max-h-[280px] bg-slate-900/5 p-4 flex items-center justify-center overflow-hidden">
-                    {isLoaded ? (
-                      <>
-                        <img
-                          src={cert.image}
-                          alt={cert.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="max-h-full max-w-full object-contain rounded-lg shadow-xs group-hover:scale-105 transition duration-500 animate-fadeIn"
-                        />
-                        <div className="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2.5 backdrop-blur-xs z-30">
-                          <button
-                            type="button"
-                            onClick={() => setSelectedCert(cert)}
-                            className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-emerald-400 transition"
-                          >
-                            <Eye className="w-4 h-4" />
-                            <span>Inspect • देखें</span>
-                          </button>
-                          <a
-                            href={cert.pdf || cert.image}
-                            download
-                            className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition"
-                          >
-                            <Download className="w-4 h-4" />
-                            <span>Download • डाउनलोड</span>
-                          </a>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center text-center p-3 bg-gradient-to-b from-slate-50 via-slate-100/80 to-slate-200/60 rounded-xl border border-dashed border-slate-300">
-                        <div className="w-11 h-11 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-emerald-600 mb-2">
-                          <ShieldCheck className="w-6 h-6" />
-                        </div>
-                        <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wider mb-1 line-clamp-1">
-                          {cert.authority}
-                        </div>
-                        <div className="text-[10px] font-mono text-emerald-700 bg-emerald-100/90 px-2 py-0.5 rounded font-bold mb-3 truncate max-w-[210px]">
-                          {cert.code}
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => handleLoadSingle(cert.id)}
-                          className="bg-slate-900 hover:bg-emerald-600 text-white font-bold text-[11px] px-3.5 py-1.5 rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>Tap to Load Image • चित्र देखें</span>
-                        </button>
-                      </div>
-                    )}
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-full max-w-full object-contain rounded-lg shadow-xs group-hover:scale-105 transition duration-500"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2.5 backdrop-blur-xs z-30">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedCert(cert)}
+                        className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-emerald-400 transition"
+                      >
+                        <Eye className="w-4 h-4" />
+                        <span>Inspect • देखें</span>
+                      </button>
+                      <a
+                        href={cert.pdf || cert.image}
+                        download
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition"
+                      >
+                        <Download className="w-4 h-4" />
+                        <span>Download • डाउनलोड</span>
+                      </a>
+                    </div>
                   </div>
 
                   {/* Certificate Details */}

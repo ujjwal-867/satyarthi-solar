@@ -22,13 +22,16 @@ import {
   Film,
   Scissors,
   Zap,
-  ExternalLink
+  ExternalLink,
+  Eye,
+  EyeOff
 } from "lucide-react";
 
 function AdminModal({ isOpen, onClose }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authToken, setAuthToken] = useState("");
   const [pin, setPin] = useState("");
+  const [showPin, setShowPin] = useState(false);
   const [pinError, setPinError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [leads, setLeads] = useState([]);
@@ -357,15 +360,25 @@ function AdminModal({ isOpen, onClose }) {
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4">
-              <input
-                type="password"
-                placeholder="Enter PIN (Default: satyarthi2026)"
-                value={pin}
-                onChange={(e) => setPin(e.target.value)}
-                autoFocus
-                disabled={isLoading}
-                className="w-full text-center tracking-widest text-lg font-bold border border-slate-300 rounded-xl py-3 px-4 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20"
-              />
+              <div className="relative">
+                <input
+                  type={showPin ? "text" : "password"}
+                  placeholder="Enter Admin Security PIN"
+                  value={pin}
+                  onChange={(e) => setPin(e.target.value)}
+                  autoFocus
+                  disabled={isLoading}
+                  className="w-full text-center tracking-widest text-lg font-bold border border-slate-300 rounded-xl py-3 px-11 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPin(!showPin)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer transition"
+                  title={showPin ? "Hide PIN" : "Show PIN"}
+                >
+                  {showPin ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
+              </div>
               {pinError && (
                 <p className="text-xs text-rose-600 font-semibold bg-rose-50 p-2.5 rounded-xl border border-rose-200">
                   {pinError}
