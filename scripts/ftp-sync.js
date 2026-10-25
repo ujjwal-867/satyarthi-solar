@@ -54,20 +54,38 @@ async function deploy() {
     const initialPwd = await client.pwd();
     log(`📍 Initial FTP working directory: '${initialPwd}'`);
 
-    const rootList = await client.list();
-    log(`📂 Top-level directory files: ${JSON.stringify(rootList.map((f) => ({ name: f.name, isDir: f.isDirectory, size: f.size })))}`);
+    // Test navigating up to parent directory
+    let rootPath = initialPwd;
+    try {
+      log("Testing if client can navigate up via cd('..')...");
+      await client.cd("..");
+      const parentPwd = await client.pwd();
+      log(`Parent directory pwd: '${parentPwd}'`);
+      const parentList = await client.list();
+      log(`Parent directory files: ${JSON.stringify(parentList.map((f) => f.name))}`);
+      if (parentList.some((f) => f.name === "domains")) {
+        rootPath = parentPwd;
+      }
+    } catch (e) {
+      log(`Cannot navigate up: ${e.message}`);
+    }
 
-    // Check if initial working directory itself has index.html or assets
-    const hasIndexInRoot = rootList.some((f) => f.name === "index.html");
-    const hasPublicHtml = rootList.some((f) => f.name === "public_html" && f.isDirectory);
-    const hasDomains = rootList.some((f) => f.name === "domains" && f.isDirectory);
+    // Return to rootPath
+    await client.cd(rootPath);
+    const currentList = await client.list();
+    log(`📂 Current directory files: ${JSON.stringify(currentList.map((f) => f.name))}`);
 
-    log(`🔎 Initial scan: hasIndexInRoot=${hasIndexInRoot}, hasPublicHtml=${hasPublicHtml}, hasDomains=${hasDomains}`);
+    // Check if current working directory has index.html, public_html, or domains
+    const hasIndexInRoot = currentList.some((f) => f.name === "index.html");
+    const hasPublicHtml = currentList.some((f) => f.name === "public_html");
+    const hasDomains = currentList.some((f) => f.name === "domains");
+
+    log(`🔎 Working scan: hasIndexInRoot=${hasIndexInRoot}, hasPublicHtml=${hasPublicHtml}, hasDomains=${hasDomains}`);
 
     const targets = [];
 
     // If root itself is already the webroot (e.g. contains index.html or is public_html):
-    if (hasIndexInRoot || !hasPublicHtml) {
+    if (hasIndexInRoot) {
       targets.push(".");
     }
 
@@ -97,6 +115,9 @@ async function deploy() {
     }
 
     const uniqueTargets = [...new Set(targets)];
+    if (uniqueTargets.length === 0) {
+      uniqueTargets.push(".");
+    }
     log(`🎯 Target directories selected for upload: ${JSON.stringify(uniqueTargets)}`);
 
     const distPath = path.resolve("dist");
@@ -105,7 +126,7 @@ async function deploy() {
       log(`\n------------------------------------------------------`);
       log(`🚀 Syncing dist/ to target: '${target}'...`);
       try {
-        await client.cd(initialPwd);
+        await client.cd(rootPath);
         if (target !== ".") {
           await client.cd(target);
         }
