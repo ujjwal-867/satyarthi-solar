@@ -364,14 +364,14 @@ function Hero({ onOpenCalculator }) {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT COLUMN: 3D ANIMATED BENTO ENGINEER PROFILE CARD & LIVE SOLAR TELEMETRY */}
-          <div className="lg:col-span-5 space-y-4" style={{ perspective: "1100px" }}>
+          {/* RIGHT COLUMN: ENGINEER PROFILE CARD & LIVE SOLAR TELEMETRY */}
+          <div className="lg:col-span-5 space-y-4">
             <motion.div 
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative bg-slate-900/80 backdrop-blur-xl border border-white/20 hover:border-teal-400/60 rounded-3xl p-4 sm:p-6 shadow-2xl space-y-4 text-white overflow-hidden transition-colors"
+              className="group relative bg-slate-900/95 sm:bg-slate-900/80 sm:backdrop-blur-md border border-white/20 hover:border-teal-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
@@ -384,6 +384,7 @@ function Hero({ onOpenCalculator }) {
                   <img
                     src={businessData.engineerImage}
                     alt="Er. Satyaprakash Satyarthi"
+                    loading="eager"
                     className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-teal-600 text-white text-[8px] text-center font-bold py-0.5 uppercase tracking-wider">
@@ -411,28 +412,17 @@ function Hero({ onOpenCalculator }) {
                 </div>
               </div>
 
-              {/* Animated Live Solar Telemetry Strip inside Engineer Card */}
-              <div className="relative z-10 bg-slate-950/65 rounded-2xl p-3 border border-white/10 space-y-2">
+              {/* Live Solar Telemetry Strip inside Engineer Card */}
+              <div className="relative z-10 bg-slate-950/75 rounded-2xl p-3 border border-white/10 space-y-2">
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="flex items-center gap-1.5 text-amber-300 font-bold">
-                    <motion.span
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                      className="inline-flex"
-                    >
-                      <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    </motion.span>
+                    <Sun className="w-3.5 h-3.5 text-amber-400" />
                     <span>Purvanchal Peak Solar Efficiency</span>
                   </span>
                   <span className="font-mono font-black text-emerald-300">98.4% Yield</span>
                 </div>
                 <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: "0%" }}
-                    animate={{ width: ["78%", "96%", "88%", "98%"] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="h-full bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 rounded-full"
-                  />
+                  <div className="h-full w-[98%] bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 rounded-full" />
                 </div>
               </div>
 
@@ -514,36 +504,6 @@ function Hero({ onOpenCalculator }) {
         </div>
       </div>
 
-      {/* =========================================================================
-          ANIMATED SCROLL-DOWN MOUSE CAPSULE & BOUNCING CHEVRON
-      ========================================================================= */}
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="relative z-10 flex flex-col items-center justify-center pt-6 text-center cursor-pointer"
-        onClick={() => scrollTo("#portal-hub")}
-      >
-        <div className="inline-flex items-center gap-2 bg-slate-900/75 backdrop-blur-md px-4 py-1.5 rounded-full shadow-md border border-white/15 hover:border-emerald-400/50 transition">
-          <span className="text-xs font-semibold text-slate-200 hover:text-emerald-300 transition">
-            Scroll to Explore • नीचे स्क्रॉल करें
-          </span>
-          <motion.div
-            animate={{ y: [0, 4, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-4 h-4 text-emerald-400" />
-          </motion.div>
-        </div>
-
-        <div className="w-5 h-8 rounded-full border-2 border-white/50 bg-white/10 backdrop-blur-xs flex justify-center pt-1 mt-1.5 shadow-sm">
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full bg-emerald-400"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

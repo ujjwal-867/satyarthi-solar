@@ -95,53 +95,60 @@ Official web portal and lead generation platform for **Satyarthi Solar Solution*
 
 ---
 
-## 🚀 Deployment Guide: Safalhost ₹19/mo LearnerWeb Hosting
+## 🚀 Live Hosting Architecture: Hostinger Premium & Automated GitHub CI/CD
 
-Your hosting plan includes:
-- **512 MB NVMe SSD Storage**
-- **1 Website, 10 GB Bandwidth**
-- **cPanel + LiteSpeed Webserver**
-- **1 MySQL Database & PHP Support**
+The production website is actively hosted on **Hostinger Premium Web Hosting** with an **India Edge CDN (Mumbai)** node delivering sub-50ms TTFB across Purvanchal and Uttar Pradesh:
 
-### ⚠️ Why Static Build + PHP is Crucial for 512MB Storage:
-A Node.js server requires `node_modules` which takes 300MB - 500MB and would immediately fill up 100% of your disk quota. 
-
-Instead, this project compiles into a **6.55 MB deployment bundle** (including all high-resolution certificates, brochure flyers, and product images) with a **lightweight PHP API** (`api/lead.php`), consuming **less than 1.3% of your 512MB storage quota**! LiteSpeed will serve your website at blazing-fast sub-50ms speeds with zero CPU overhead.
+- **Live Production URL:** [https://satyarthisolarsolution.in/](https://satyarthisolarsolution.in/)
+- **Hosting Tier:** Hostinger Premium Plan (20 GB NVMe SSD, Unlimited Bandwidth)
+- **Web Server:** LiteSpeed / Hostinger Edge CDN (`hcdn`) with HTTP/2 & HTTP/3 support
+- **SSL Certificate:** Free Unlimited Automated Let's Encrypt Wildcard SSL
+- **Webroot Directory:** `/domains/satyarthisolarsolution.in/public_html`
+- **Backend Runtime:** PHP 8.x with PDO MySQL support & atomic file locking
 
 ---
 
-### Step-by-Step Deployment:
+### ⚡ 100% Automated CI/CD GitHub Deployment
 
-#### Step 1: Generate the Deployment Package
-Run the packaging command locally:
-```bash
-npm run package:cpanel
-```
-This will build the app and generate a single file: `satyarthi-solar-cpanel.zip` (6.57 MB).
+Whenever code or content is pushed to the `main` branch, **GitHub Actions** automatically runs the production pipeline (`.github/workflows/deploy.yml`):
 
-#### Step 2: Upload to cPanel
-1. Log into your **cPanel** dashboard (provided by Safalhost).
-2. Click on **File Manager**.
-3. Navigate to the **`public_html`** directory.
-4. Click **Upload** in the top toolbar and select `satyarthi-solar-cpanel.zip`.
-5. Once uploaded, right-click `satyarthi-solar-cpanel.zip` in File Manager and select **Extract**.
-6. Delete the `.zip` file after extraction to keep your 512MB SSD clean.
+1. **Checkout & Setup:** Checks out repository on Ubuntu runner with Node.js 20.
+2. **Build:** Runs `npm run build` with Vite compiler (generates hashed asset bundles, minified HTML/CSS, and structured JSON-LD).
+3. **Lead Data Protection:** Automatically protects `api/data/leads.json` from ever being overwritten by deployment artifacts.
+4. **FTP Synchronization:** Executes `scripts/ftp-sync.js` via `basic-ftp`, syncing the `dist/` bundle directly to Hostinger's live webroot (`domains/satyarthisolarsolution.in/public_html` and `public_html`).
+5. **Audit Report:** Generates and commits `deploy-report.txt` with verified file sizes and timestamps.
 
-#### Step 3: Verify `.htaccess` & LiteSpeed
-The zip file already includes the optimized `.htaccess` which:
-- Automatically redirects all traffic to **HTTPS (Free SSL)**.
-- Enables **Gzip & Brotli compression**.
-- Sets browser caching for images, CSS, and JS.
-- Configures **SPA routing** so all pages and modals load smoothly.
+> **Deployment Time:** ~30 to 45 seconds from `git push` to live reflection.
 
-#### Step 4: (Optional) Connect to MySQL Database
-If you wish to store leads in your 1 MySQL database in addition to the automated JSON file:
-1. In cPanel, go to **MySQL® Database Wizard** and create a database (e.g. `youruser_solar`).
-2. Create a database user and assign all permissions.
-3. Open **phpMyAdmin**, select your database, and click **Import** -> select `public/schema.sql` (or `dist/schema.sql`).
-4. Edit `api/config.php` in File Manager and add your DB username, password, and database name.
+---
 
-*Note: Even without MySQL configured, the website automatically stores leads in browser memory, sends formatted WhatsApp inquiries, and logs to `api/data/leads.json`!*
+### 📦 Manual Deployment Method (Backup / Offline)
+
+If you ever wish to update files manually without git:
+
+1. **Generate the Package:**
+   ```bash
+   npm run package:cpanel
+   ```
+   *Creates `satyarthi-solar-cpanel.zip` (~7.2 MB) containing all compiled assets, images, certificates, and PHP endpoints.*
+
+2. **Upload to Hostinger hPanel:**
+   - Log into [Hostinger hPanel](https://hpanel.hostinger.com/).
+   - Go to **Websites** ➔ **Manage** ➔ **Files** ➔ **File Manager**.
+   - Open `/domains/satyarthisolarsolution.in/public_html`.
+   - Click **Upload** (⬆️) and select `satyarthi-solar-cpanel.zip`.
+   - Right-click `satyarthi-solar-cpanel.zip` and select **Extract** (extract to `.`).
+   - Delete the `.zip` file after extraction.
+
+---
+
+### 🔍 Google Search Console & UP Local SEO
+
+The production domain is indexed on Google Search:
+- **Search Console Property:** `https://satyarthisolarsolution.in/`
+- **Verification Method:** HTML verification file (`google32b43d0bb8eeb794.html`)
+- **XML Sitemap:** `https://satyarthisolarsolution.in/sitemap.xml` (5 indexed landing pages)
+- **Target Keywords:** `satyarthi solar`, `satyarthi solar solution`, `satyarthi solar gorakhpur`, `upneda solar installer deoria`, `pm surya ghar subsidy maharajganj`.
 
 ---
 

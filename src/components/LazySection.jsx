@@ -39,6 +39,11 @@ export default function LazySection({
       return;
     }
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    // On mobile, use a conservative 350px margin to avoid mounting everything at once.
+    // On desktop, pre-mount 600px ahead for instant scroll.
+    const rootMargin = isMobile ? "350px 0px" : "600px 0px";
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -47,7 +52,7 @@ export default function LazySection({
         }
       },
       {
-        rootMargin: "1000px 0px 1000px 0px", // Pre-mount 1000px before entering viewport for zero-lag scroll
+        rootMargin,
         threshold: 0.01
       }
     );
@@ -60,15 +65,9 @@ export default function LazySection({
     const handleMountAll = () => setShouldMount(true);
     window.addEventListener("mount-all-sections", handleMountAll, { once: true });
 
-    // Idle timer fallback: after 600ms, pre-mount in background so scrolling is instantaneous
-    const idleTimer = setTimeout(() => {
-      setShouldMount(true);
-    }, 600);
-
     return () => {
       observer.disconnect();
       window.removeEventListener("mount-all-sections", handleMountAll);
-      clearTimeout(idleTimer);
     };
   }, [anchorId, shouldMount]);
 

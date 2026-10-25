@@ -60,27 +60,46 @@ const SYSTEM_PRESETS = [
 ];
 
 export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const [selectedPreset, setSelectedPreset] = useState(SYSTEM_PRESETS[0]);
   const [sunHour, setSunHour] = useState(12.5); // 6 AM (6) to 6 PM (18)
-  const [autoSun, setAutoSun] = useState(true);
+  const [autoSun, setAutoSun] = useState(!isMobile);
   const [viewMode, setViewMode] = useState("vr3d"); // "vr3d" | "ar_hud"
   const [tilt, setTilt] = useState({ rotateX: 22, rotateY: -18 });
   const [cameraActive, setCameraActive] = useState(false);
   const [cameraError, setCameraError] = useState("");
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
   const videoRef = useRef(null);
   const streamRef = useRef(null);
 
-  // Auto-animate sun path across the sky when autoSun is enabled
+  // Viewport Observer: Pause all intervals when user is not viewing the visualizer
   useEffect(() => {
-    if (!autoSun) return;
+    if (!sectionRef.current || !("IntersectionObserver" in window)) {
+      setIsInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-animate sun path across the sky ONLY when in viewport (conserves phone battery & CPU)
+  useEffect(() => {
+    if (!autoSun || !isInView) return;
     const interval = setInterval(() => {
       setSunHour((prev) => {
         const next = prev + 0.15;
         return next > 17.5 ? 6.5 : next;
       });
-    }, 120);
+    }, isMobile ? 350 : 180);
     return () => clearInterval(interval);
-  }, [autoSun]);
+  }, [autoSun, isInView, isMobile]);
 
   // Clean up WebRTC camera stream on unmount or mode switch
   useEffect(() => {
@@ -140,6 +159,8 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   };
 
   const handlePointerMove = (e) => {
+    // Skip tilt calculation on touch screen devices to prevent scroll jank
+    if (isMobile || e.pointerType === "touch") return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -154,7 +175,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   };
 
   return (
-    <section id="ar-vr-solar" className="py-12 sm:py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+    <section ref={sectionRef} id="ar-vr-solar" className="py-12 sm:py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
       {/* Ambient Motion Graphics Background Glows */}
       <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
@@ -372,17 +393,19 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                           backgroundSize: "12px 12px"
                         }}
                       />
-                      {/* Animated Photon Shimmer */}
-                      <motion.div
-                        animate={{ x: ["-120%", "220%"] }}
-                        transition={{
-                          duration: 2.4,
-                          repeat: Infinity,
-                          delay: idx * 0.25,
-                          ease: "linear"
-                        }}
-                        className="w-1/2 h-full bg-gradient-to-r from-transparent via-amber-300/35 to-transparent -skew-x-12"
-                      />
+                      {/* Desktop-Only Photon Shimmer (Omitted on mobile to conserve GPU frames) */}
+                      {!isMobile && isInView && (
+                        <motion.div
+                          animate={{ x: ["-120%", "220%"] }}
+                          transition={{
+                            duration: 2.8,
+                            repeat: Infinity,
+                            delay: idx * 0.25,
+                            ease: "linear"
+                          }}
+                          className="w-1/2 h-full bg-gradient-to-r from-transparent via-amber-300/35 to-transparent -skew-x-12"
+                        />
+                      )}
                       <span className="relative z-10 text-[9px] font-mono font-bold text-sky-200">
                         580W
                       </span>
@@ -390,17 +413,21 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   ))}
                 </div>
 
-                {/* Animated Energy Flow Stream Bar (Solar -> Inverter -> Home & Grid) */}
+                {/* Energy Flow Stream Bar (Solar -> Inverter -> Home & Grid) */}
                 <div className="bg-slate-950/90 rounded-xl p-2 border border-white/10 flex items-center justify-between text-[9.5px] sm:text-[10px] font-mono">
                   <span className="text-amber-300 flex items-center gap-1 shrink-0">
                     <Sun className="w-3 h-3" /> PV Array
                   </span>
                   <div className="flex-1 mx-2 h-1.5 rounded-full bg-slate-800 overflow-hidden relative">
-                    <motion.div
-                      animate={{ x: ["-100%", "100%"] }}
-                      transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
-                      className="w-1/2 h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-sky-400 rounded-full"
-                    />
+                    {isInView ? (
+                      <motion.div
+                        animate={{ x: ["-100%", "100%"] }}
+                        transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
+                        className="w-1/2 h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-sky-400 rounded-full"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-emerald-500 rounded-full" />
+                    )}
                   </div>
                   <span className="text-emerald-400 flex items-center gap-1 shrink-0">
                     <Zap className="w-3 h-3" /> Net-Meter
