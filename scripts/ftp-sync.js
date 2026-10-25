@@ -75,61 +75,21 @@ async function deploy() {
     const currentList = await client.list();
     log(`📂 Current directory files: ${JSON.stringify(currentList.map((f) => f.name))}`);
 
-    // Check if current working directory has index.html, public_html, or domains
-    const hasIndexInRoot = currentList.some((f) => f.name === "index.html");
-    const hasPublicHtml = currentList.some((f) => f.name === "public_html");
-    const hasDomains = currentList.some((f) => f.name === "domains");
-
-    log(`🔎 Working scan: hasIndexInRoot=${hasIndexInRoot}, hasPublicHtml=${hasPublicHtml}, hasDomains=${hasDomains}`);
-
-    const targets = [];
-
-    // If root itself is already the webroot (e.g. contains index.html or is public_html):
-    if (hasIndexInRoot) {
-      targets.push(".");
-    }
-
-    if (hasPublicHtml) {
-      targets.push("public_html");
-      try {
-        const pubList = await client.list("public_html");
-        log(`📂 Files inside 'public_html': ${JSON.stringify(pubList.map((f) => f.name))}`);
-      } catch (e) {
-        log(`Notice listing public_html: ${e.message}`);
-      }
-    }
-
-    if (hasDomains) {
-      try {
-        const domList = await client.list("domains");
-        log(`📂 Subdirectories inside 'domains': ${JSON.stringify(domList.map((f) => f.name))}`);
-        for (const d of domList) {
-          if (d.isDirectory && !d.name.startsWith(".")) {
-            targets.push(`domains/${d.name}/public_html`);
-            targets.push(`domains/${d.name}`);
-          }
-        }
-      } catch (e) {
-        log(`Notice listing domains: ${e.message}`);
-      }
-    }
-
-    const uniqueTargets = [...new Set(targets)];
-    if (uniqueTargets.length === 0) {
-      uniqueTargets.push(".");
-    }
-    log(`🎯 Target directories selected for upload: ${JSON.stringify(uniqueTargets)}`);
+    // Hostinger Document Root:
+    // satyarthisolarsolution.in is served directly from /domains/satyarthisolarsolution.in/public_html
+    const targets = [
+      "domains/satyarthisolarsolution.in/public_html",
+      "public_html"
+    ];
 
     const distPath = path.resolve("dist");
 
-    for (const target of uniqueTargets) {
+    for (const target of targets) {
       log(`\n------------------------------------------------------`);
       log(`🚀 Syncing dist/ to target: '${target}'...`);
       try {
         await client.cd(rootPath);
-        if (target !== ".") {
-          await client.cd(target);
-        }
+        await client.cd(target);
         const currentWorkingDir = await client.pwd();
         log(`📂 Confirmed working directory: '${currentWorkingDir}'`);
 
