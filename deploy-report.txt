@@ -1,0 +1,15 @@
+=== Hostinger FTP Deploy Report - 2026-10-25T11:52:10.685Z ===
+Connecting to Hostinger FTP host: 82.112.232.135 (user: u373122834)...
+✅ Connected successfully to Hostinger FTP!
+📍 Initial FTP working directory: '/public_html'
+📂 Top-level directory files: [{"name":"index.html","isDir":false,"size":6512},{"name":"google32b43d0bb8eeb794.html","isDir":false,"size":54},{"name":"sitemap.xml","isDir":false,"size":802},{"name":"assets","isDir":true,"size":0},{"name":"images","isDir":true,"size":0},{"name":"robots.txt","isDir":false,"size":95},{"name":"icons.svg","isDir":false,"size":5031},{"name":".htaccess","isDir":false,"size":3250},{"name":"api","isDir":true,"size":0},{"name":"favicon.svg","isDir":false,"size":9522},{"name":".ftp-deploy-sync-state.json","isDir":false,"size":19120},{"name":"deploy-status.txt","isDir":false,"size":184}]
+🔎 Initial scan: hasIndexInRoot=true, hasPublicHtml=false, hasDomains=false
+🎯 Target directories selected for upload: ["."]
+
+------------------------------------------------------
+🚀 Syncing dist/ to target: '.'...
+📂 Confirmed working directory: '/public_html'
+✅ Successfully uploaded dist/ into '/public_html'!
+📄 Verified index.html: size=6512 bytes, date=2026-10-25T11:53:56.000Z
+
+🎉 Deployment completed across all targets!
