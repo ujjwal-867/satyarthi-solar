@@ -123,7 +123,7 @@ function Certificates() {
 
         {/* Certificates 3D Bento Showcase Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 max-w-7xl mx-auto" style={{ perspective: "1100px" }}>
-          {filteredCertificates.map((cert) => {
+          {filteredCertificates.map((cert, idx) => {
             return (
               <motion.div
                 key={cert.id}
