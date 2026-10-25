@@ -27,14 +27,9 @@ jobs:
       - name: 🏗️ Build Production Bundle
         run: npm run build
 
-      - name: 🚀 Deploy to Hostinger public_html
-        run: |
-          echo "Syncing build to Hostinger public_html..."
-          lftp -c "
-          set ssl:check-hostname no;
-          set ftp:ssl-allow no;
-          open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' '${{ secrets.FTP_SERVER }}';
-          mirror -R --verbose --exclude-glob api/data/leads.json dist/ public_html/;
-          bye;
-          "
-          echo "Deployment sync completed successfully!"
+      - name: 🚀 Sync to Hostinger Live Server
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: node scripts/ftp-sync.js
