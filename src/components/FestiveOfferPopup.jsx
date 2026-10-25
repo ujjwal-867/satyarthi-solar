@@ -44,9 +44,31 @@ const FESTIVE_TIERS = [
   }
 ];
 
+const SPARKLE_PARTICLES = [
+  { id: 1, top: "8%", left: "12%", delay: 0, size: "w-2 h-2", color: "bg-amber-300" },
+  { id: 2, top: "16%", left: "86%", delay: 0.4, size: "w-2.5 h-2.5", color: "bg-yellow-200" },
+  { id: 3, top: "38%", left: "6%", delay: 0.8, size: "w-1.5 h-1.5", color: "bg-orange-400" },
+  { id: 4, top: "52%", left: "92%", delay: 0.2, size: "w-2 h-2", color: "bg-emerald-300" },
+  { id: 5, top: "78%", left: "10%", delay: 0.6, size: "w-2 h-2", color: "bg-amber-400" },
+  { id: 6, top: "84%", left: "88%", delay: 1.0, size: "w-1.5 h-1.5", color: "bg-yellow-300" },
+];
+
 export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [bonusRevealed, setBonusRevealed] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 768;
+  });
+
+  // Track viewport changes for responsive animations
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Auto-trigger once per session after 9s (gives user time to smoothly browse hero without interruption)
   useEffect(() => {
@@ -90,15 +112,23 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.06, y: -2 }}
+            whileTap={{ scale: 0.94 }}
             onClick={() => setIsOpen(true)}
-            className="hidden sm:flex fixed bottom-26 right-6 z-30 items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white font-black px-3.5 py-2.5 rounded-2xl shadow-xl shadow-orange-600/30 border-2 border-amber-300/80 cursor-pointer group overflow-hidden"
+            className="hidden sm:flex fixed bottom-26 right-6 z-30 items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white font-black px-3.5 py-2.5 rounded-2xl shadow-xl shadow-orange-600/40 border-2 border-amber-300/80 cursor-pointer group overflow-hidden"
             aria-label="Open Navratri and Diwali Special Offer"
           >
-            <span className="w-6 h-6 rounded-lg bg-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-xs">
+            {/* Shimmer sweep on desktop */}
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
+
+            {/* Playful Animated Icon on Desktop */}
+            <motion.span
+              animate={{ rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.15, 1] }}
+              transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 1 }}
+              className="w-6 h-6 rounded-lg bg-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-xs"
+            >
               <Gift className="w-4 h-4 text-rose-700" />
-            </span>
+            </motion.span>
 
             <div className="text-left leading-tight">
               <span className="block text-[10px] font-extrabold text-amber-200 uppercase tracking-wider">
@@ -112,34 +142,79 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
         )}
       </AnimatePresence>
 
-      {/* Main Lightweight Mobile-Optimized Festive Offer Modal */}
+      {/* Main Adaptive Festive Offer Modal */}
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center p-2.5 sm:p-4">
-            {/* Backdrop: Solid on mobile to prevent GPU blur stutter; subtle blur on desktop */}
+            {/* Backdrop: Solid on mobile to prevent GPU stutter; rich blur on desktop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.18 }}
+              transition={{ duration: isMobile ? 0.18 : 0.25 }}
               onClick={handleClose}
-              className="fixed inset-0 bg-slate-950/85 sm:bg-slate-950/80 sm:backdrop-blur-sm"
+              className={`fixed inset-0 ${isMobile ? "bg-slate-950/85" : "bg-slate-950/80 backdrop-blur-md"}`}
             />
 
-            {/* Hardware-Accelerated 2D Card (zero 3D perspective to keep 60 FPS on mobile) */}
+            {/* Adaptive Animated Card: 
+                - Desktop: Full 3D spring tilt with golden particle aura
+                - Mobile: Hardware-accelerated 2D slide-up at 60 FPS
+            */}
             <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 16, scale: 0.96 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="relative z-10 w-full max-w-md bg-gradient-to-b from-[#1c0c07] via-[#120d1c] to-[#071318] text-white rounded-3xl border-2 border-amber-400/60 shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col"
+              initial={
+                isMobile 
+                  ? { opacity: 0, y: 24, scale: 0.96 } 
+                  : { opacity: 0, scale: 0.82, y: 70, rotateX: 14 }
+              }
+              animate={
+                isMobile 
+                  ? { opacity: 1, y: 0, scale: 1 } 
+                  : { opacity: 1, scale: 1, y: 0, rotateX: 0 }
+              }
+              exit={
+                isMobile 
+                  ? { opacity: 0, y: 16, scale: 0.96 } 
+                  : { opacity: 0, scale: 0.85, y: 50 }
+              }
+              transition={
+                isMobile 
+                  ? { duration: 0.2, ease: "easeOut" } 
+                  : { type: "spring", stiffness: 280, damping: 24 }
+              }
+              className={`relative z-10 w-full max-w-md bg-gradient-to-b from-[#1c0c07] via-[#120d1c] to-[#071318] text-white rounded-3xl border-2 border-amber-400/60 overflow-hidden my-auto max-h-[90vh] flex flex-col ${
+                isMobile ? "shadow-2xl" : "shadow-[0_0_60px_rgba(245,158,11,0.35)]"
+              }`}
               style={{ transform: "translateZ(0)" }}
             >
               {/* Top Festive Garland Ribbon */}
               <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-orange-500 via-rose-500 to-emerald-400 shrink-0" />
 
-              {/* Subtle Ambient Glow Header */}
-              <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-64 h-32 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
+              {/* Floating Sparkle Particles (Active on Desktop, Disabled on Mobile for Max Battery & FPS) */}
+              {!isMobile ? (
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  {SPARKLE_PARTICLES.map((p) => (
+                    <motion.span
+                      key={p.id}
+                      style={{ top: p.top, left: p.left }}
+                      animate={{
+                        opacity: [0.2, 0.95, 0.2],
+                        scale: [0.7, 1.35, 0.7],
+                        y: [0, -10, 0]
+                      }}
+                      transition={{
+                        duration: 2.6,
+                        delay: p.delay,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className={`absolute ${p.size} ${p.color} rounded-full blur-[0.5px] shadow-[0_0_8px_#fbbf24]`}
+                    />
+                  ))}
+                  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-44 bg-amber-500/25 rounded-full blur-3xl" />
+                </div>
+              ) : (
+                <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-64 h-32 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
+              )}
 
               {/* Close Button */}
               <button
@@ -151,7 +226,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                 <X className="w-4 h-4" />
               </button>
 
-              {/* High-Performance Smooth Touch Scrollable Container */}
+              {/* High-Performance Touch Scrollable Container */}
               <div 
                 className="p-4 sm:p-6 overflow-y-auto space-y-4 relative z-10"
                 style={{
@@ -177,7 +252,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                   </p>
                 </div>
 
-                {/* Tiered Purchase Slabs (Opaque backgrounds = zero scroll lag) */}
+                {/* Tiered Purchase Slabs */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-[11px] font-bold text-amber-300/90 px-1">
                     <span className="flex items-center gap-1">
@@ -190,7 +265,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                   {FESTIVE_TIERS.map((tier, idx) => (
                     <div
                       key={idx}
-                      className={`p-3 rounded-2xl bg-gradient-to-r ${tier.accent} bg-slate-900/90 border space-y-1 transition`}
+                      className={`p-3 rounded-2xl bg-gradient-to-r ${tier.accent} bg-slate-900/90 border space-y-1 transition hover:scale-[1.01]`}
                     >
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-1.5">
@@ -220,7 +295,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                 {/* Snappy Tap-to-Reveal Coupon Box */}
                 <div
                   onClick={() => setBonusRevealed(true)}
-                  className="rounded-2xl bg-white/10 active:bg-white/20 border border-dashed border-amber-300/60 p-3 text-center cursor-pointer transition select-none"
+                  className="rounded-2xl bg-white/10 active:bg-white/20 border border-dashed border-amber-300/60 p-3 text-center cursor-pointer transition select-none hover:bg-white/15"
                 >
                   {!bonusRevealed ? (
                     <div className="flex items-center justify-center gap-2 text-xs font-black text-amber-300">
@@ -243,12 +318,12 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                   )}
                 </div>
 
-                {/* Action Buttons */}
+                {/* Primary Actions */}
                 <div className="space-y-2 pt-1">
                   <button
                     type="button"
                     onClick={handleClaimWhatsApp}
-                    className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 active:scale-[0.98] text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 cursor-pointer border border-yellow-200 transition"
+                    className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 hover:from-amber-300 hover:to-rose-400 active:scale-[0.98] text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 cursor-pointer border border-yellow-200 transition"
                   >
                     <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950 shrink-0" />
                     <span>Claim Festive Gift on WhatsApp • ऑफर बुक करें</span>
