@@ -193,7 +193,7 @@ if (defined('NOTIFICATION_EMAIL') && !empty(NOTIFICATION_EMAIL)) {
           . "Call Client: tel:" . $lead['phone'] . "\n"
           . "Chat WhatsApp: https://wa.me/91" . $lead['phone'];
 
-    $safeFromHost = preg_replace('/[^a-zA-Z0-9.-]/', '', $_SERVER['SERVER_NAME'] ?? 'satyarthisolar.com');
+    $safeFromHost = preg_replace('/[^a-zA-Z0-9.-]/', '', $_SERVER['SERVER_NAME'] ?? 'satyarthisolarsolution.in');
     $headers = "From: noreply@" . $safeFromHost . "\r\n"
              . "Reply-To: " . ($lead['email'] ?: NOTIFICATION_EMAIL) . "\r\n"
              . "X-Mailer: PHP/" . phpversion();

@@ -46,7 +46,7 @@ export const businessData = {
   officeHours: "Monday - Saturday: 9:00 AM - 7:30 PM | Sunday: 10:00 AM - 4:00 PM (Surveys by appointment)",
   officeNumber: "8112991914",
   email: "satyarthisolarsolution@gmail.com",
-  websiteUrl: "https://www.satyarthisolarsolution.com",
+  websiteUrl: "https://satyarthisolarsolution.in",
   
   // Physical location (from GST Certificate & Official Hoarding)
   address: "Motiram Adda, Deoria Road, Gorakhpur, Uttar Pradesh 273202",
