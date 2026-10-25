@@ -27,22 +27,14 @@ jobs:
       - name: 🏗️ Build Production Bundle
         run: npm run build
 
-      - name: 🔍 Check Hostinger FTP Directory Structure
+      - name: 🚀 Deploy to Hostinger public_html
         run: |
-          echo "=== Root FTP Directory ==="
-          curl -s --list-only -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/" || true
-
-      - name: 🚀 Sync Files to Hostinger public_html
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ./
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            api/data/leads.json
-            api/data/config.php
+          echo "Syncing build to Hostinger public_html..."
+          lftp -c "
+          set ssl:check-hostname no;
+          set ftp:ssl-allow no;
+          open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' '${{ secrets.FTP_SERVER }}';
+          mirror -R --verbose --exclude-glob api/data/leads.json dist/ public_html/;
+          bye;
+          "
+          echo "Deployment sync completed successfully!"
