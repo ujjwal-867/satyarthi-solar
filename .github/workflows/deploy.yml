@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     name: Build & Deploy to Hostinger
@@ -14,6 +17,8 @@ jobs:
     steps:
       - name: 🚚 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ⚡ Set up Node.js 20
         uses: actions/setup-node@v4
@@ -33,3 +38,13 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: node scripts/ftp-sync.js | tee -a $GITHUB_STEP_SUMMARY
+
+      - name: 📝 Commit Deploy Report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
+          git add deploy-report.txt || true
+          git commit -m "Auto: Update Hostinger deploy report [skip ci]" || true
+          git push origin main || true
