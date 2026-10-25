@@ -56,6 +56,14 @@ function Navbar({
 
   const handleNavClick = (link) => {
     setMobileMenuOpen(false);
+    if (typeof window !== "undefined") {
+      if (link.href === "#certificates") {
+        window.dispatchEvent(new CustomEvent("load-section-images", { detail: { section: "certificates" } }));
+      }
+      if (link.route === "/gallery") {
+        window.dispatchEvent(new CustomEvent("load-section-images", { detail: { section: "gallery" } }));
+      }
+    }
     if (link.route) {
       if (onNavigate) {
         onNavigate(link.route);

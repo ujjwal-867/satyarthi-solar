@@ -92,6 +92,12 @@ function AppContent() {
     // Notify all lazy sections to mount immediately if navigation occurred
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("mount-all-sections"));
+      if (route.includes("certificates")) {
+        window.dispatchEvent(new CustomEvent("load-section-images", { detail: { section: "certificates" } }));
+      }
+      if (route.includes("gallery")) {
+        window.dispatchEvent(new CustomEvent("load-section-images", { detail: { section: "gallery" } }));
+      }
     }
 
     if (route.startsWith("/#") || route.startsWith("#")) {

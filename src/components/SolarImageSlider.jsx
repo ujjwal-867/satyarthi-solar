@@ -14,6 +14,7 @@ export function SolarImageSlider() {
   const { lang, t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [loadedSlideIndices, setLoadedSlideIndices] = useState(() => new Set([0]));
   const timerRef = useRef(null);
 
   const slides = [
@@ -86,6 +87,16 @@ export function SolarImageSlider() {
     };
   }, [isPaused, slides.length]);
 
+  // Load next slide image on demand as the user navigates or slides advance
+  useEffect(() => {
+    setLoadedSlideIndices((prev) => {
+      if (prev.has(currentSlide)) return prev;
+      const next = new Set(prev);
+      next.add(currentSlide);
+      return next;
+    });
+  }, [currentSlide]);
+
   const goToNext = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
@@ -107,6 +118,7 @@ export function SolarImageSlider() {
       <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
         {slides.map((slide, idx) => {
           const isActive = idx === currentSlide;
+          const isLoaded = loadedSlideIndices.has(idx);
           return (
             <div
               key={idx}
@@ -114,12 +126,19 @@ export function SolarImageSlider() {
                 isActive ? "opacity-100 z-10 scale-100" : "opacity-0 z-0 scale-105 pointer-events-none"
               }`}
             >
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover object-center transform transition-transform duration-3000 ease-out"
-                loading={idx === 0 ? "eager" : "lazy"}
-              />
+              {isLoaded ? (
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover object-center transform transition-transform duration-3000 ease-out"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              ) : (
+                <div className="w-full h-full bg-slate-950 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full border-2 border-emerald-400/30 border-t-emerald-400 animate-spin" />
+                </div>
+              )}
 
               {/* Gradient Darkening for Text Readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>

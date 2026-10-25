@@ -19,7 +19,8 @@ import {
   Award,
   Users,
   MousePointer,
-  Radio
+  Radio,
+  Camera
 } from "lucide-react";
 
 const GALLERY_COLLAB_FEED = [
@@ -95,6 +96,28 @@ export function BentoGallery() {
   const [collabFeedIdx, setCollabFeedIdx] = useState(0);
   const [likesMap, setLikesMap] = useState({});
   const [burstMap, setBurstMap] = useState({});
+  const [loadedPhotos, setLoadedPhotos] = useState(() => new Set());
+  const [loadAllPhotos, setLoadAllPhotos] = useState(false);
+
+  // Automatically load all photos if the user navigated to or clicked Gallery section
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.detail?.section === "gallery" || e.detail?.section === "all") {
+        setLoadAllPhotos(true);
+      }
+    };
+    window.addEventListener("load-section-images", handler);
+    return () => window.removeEventListener("load-section-images", handler);
+  }, []);
+
+  const handleLoadSinglePhoto = (itemId, e) => {
+    if (e) e.stopPropagation();
+    setLoadedPhotos((prev) => {
+      const next = new Set(prev);
+      next.add(itemId);
+      return next;
+    });
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -517,8 +540,42 @@ export function BentoGallery() {
           ))}
         </div>
 
+        {/* On-Demand Data Saver Action Strip */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mt-6 mb-2 bg-slate-900 text-white rounded-2xl p-3.5 sm:px-4 sm:py-3 shadow-xl border border-white/10">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0">
+              <Camera className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-white flex items-center gap-2">
+                <span>Verified Work Gallery • 20 Real Site Photos</span>
+                <span className="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full border border-emerald-400/30">
+                  Data Saver Active
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-400">
+                Tap any photo card to load individually, or click the button to load all 20 site photos.
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setLoadAllPhotos(true)}
+            disabled={loadAllPhotos}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition flex items-center gap-1.5 cursor-pointer shadow-md ${
+              loadAllPhotos
+                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-bold"
+                : "bg-emerald-500 hover:bg-emerald-400 text-slate-950 hover:scale-102 active:scale-95"
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5 fill-current" />
+            <span>{loadAllPhotos ? "✓ All 20 Site Photos Loaded" : "⚡ Load All 20 Photos (सभी फ़ोटो लोड करें)"}</span>
+          </button>
+        </div>
+
         {/* Bento Grid Container with 3D Hover Effects */}
-        <div className="relative mt-8">
+        <div className="relative mt-4">
 
           <motion.div 
             layout
@@ -528,6 +585,7 @@ export function BentoGallery() {
               {filteredItems.map((item, idx) => {
                 const count = likesMap[item.id] || (118 + (idx * 17) % 90);
                 const burstKey = burstMap[item.id];
+                const isLoaded = loadAllPhotos || loadedPhotos.has(item.id);
                 return (
                   <motion.div
                     key={item.id}
@@ -537,16 +595,48 @@ export function BentoGallery() {
                     exit={{ opacity: 0, scale: 0.92 }}
                     transition={{ duration: 0.45, delay: idx * 0.03 }}
                     whileHover={{ y: -8, scale: 1.015 }}
-                    onClick={() => setLightboxIndex(idx)}
+                    onClick={() => {
+                      handleLoadSinglePhoto(item.id);
+                      setLightboxIndex(idx);
+                    }}
                     className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200/90 hover:border-emerald-400 transition-all duration-300 shadow-md hover:shadow-2xl hover:shadow-emerald-600/20 ${item.span}`}
                   >
-                    {/* Background Image with Smooth Zoom */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                    />
+                    {/* Background Image - On-Demand Loaded */}
+                    {isLoaded ? (
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 animate-fadeIn"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex flex-col items-center justify-center p-4 text-center relative z-0">
+                        <div 
+                          className="absolute inset-0 opacity-15 pointer-events-none"
+                          style={{
+                            backgroundImage: "linear-gradient(to right, #10b981 1px, transparent 1px), linear-gradient(to bottom, #10b981 1px, transparent 1px)",
+                            backgroundSize: "24px 24px"
+                          }}
+                        />
+                        <div className="relative z-10 space-y-2">
+                          <div className="w-11 h-11 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 flex items-center justify-center mx-auto shadow-md">
+                            <Camera className="w-5 h-5" />
+                          </div>
+                          <div className="text-[11px] font-bold text-emerald-400 font-mono tracking-tight line-clamp-1">
+                            {item.categoryLabel}
+                          </div>
+                          <button
+                            type="button"
+                            onClick={(e) => handleLoadSinglePhoto(item.id, e)}
+                            className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-[11px] px-3.5 py-1.5 rounded-xl shadow-lg transition flex items-center gap-1.5 mx-auto cursor-pointer hover:scale-105 active:scale-95"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                            <span>Tap to Load Photo • फ़ोटो देखें</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Animated Glassmorphic Shine Sweep on Hover */}
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
