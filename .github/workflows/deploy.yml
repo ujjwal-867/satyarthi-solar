@@ -27,6 +27,11 @@ jobs:
       - name: 🏗️ Build Production Bundle
         run: npm run build
 
+      - name: 🔍 Check Hostinger FTP Directory Structure
+        run: |
+          echo "=== Root FTP Directory ==="
+          curl -s --list-only -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/" || true
+
       - name: 🚀 Sync Files to Hostinger public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
