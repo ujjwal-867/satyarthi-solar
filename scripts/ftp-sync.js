@@ -2,6 +2,48 @@ import * as ftp from "basic-ftp";
 import path from "path";
 import fs from "fs";
 
+/**
+ * Recursively scans remote FTP directory tree to find all webroots
+ * that currently host (or are intended to host) the web application.
+ */
+async function findWebroots(client, currentPath = "", depth = 0) {
+  if (depth > 4) return [];
+  let found = [];
+  try {
+    const list = await client.list(currentPath || undefined);
+    const hasIndex = list.some((f) => f.name === "index.html");
+    const hasPublicHtml = list.some((f) => f.name === "public_html" && f.isDirectory);
+
+    if (hasIndex) {
+      found.push(currentPath || ".");
+    }
+
+    for (const item of list) {
+      if (item.isDirectory && !item.name.startsWith(".")) {
+        // Skip common non-web directories
+        if (["node_modules", ".git", ".well-known", "ssl", "logs", "mail"].includes(item.name)) continue;
+
+        const subPath = currentPath ? `${currentPath}/${item.name}` : item.name;
+        
+        // If it's a public_html directory, it's definitely a target
+        if (item.name === "public_html") {
+          found.push(subPath);
+        }
+
+        try {
+          const nested = await findWebroots(client, subPath, depth + 1);
+          found = found.concat(nested);
+        } catch (e) {
+          // Ignore directory access restrictions
+        }
+      }
+    }
+  } catch (err) {
+    // Ignore listing errors for restricted folders
+  }
+  return found;
+}
+
 async function deploy() {
   const server = process.env.FTP_SERVER;
   const user = process.env.FTP_USERNAME;
@@ -12,9 +54,9 @@ async function deploy() {
     process.exit(1);
   }
 
-  // 1. Lead data preservation guard:
+  // 1. Production Lead Protection:
   // Ensure dist/api/data/leads.json is NOT in dist before uploading,
-  // so existing customer inquiries in production are NEVER overwritten.
+  // so live customer inquiries in production are NEVER overwritten.
   const distLeadsJson = path.resolve("dist", "api", "data", "leads.json");
   if (fs.existsSync(distLeadsJson)) {
     console.log("🛡️ Removing dist/api/data/leads.json from build output to protect live customer leads.");
@@ -40,67 +82,75 @@ async function deploy() {
     });
     console.log("✅ Connected successfully to Hostinger FTP!");
 
+    const initialPwd = await client.pwd();
+    console.log(`📍 Initial FTP working directory: '${initialPwd}'`);
+
     const rootList = await client.list();
-    console.log("📂 Root directory contents:", rootList.map((f) => f.name));
+    console.log("📂 Top-level directory contents:", rootList.map((f) => f.name));
 
-    // Find all target webroot directories
-    const targetDirs = [];
+    // Discover all webroots automatically
+    console.log("🔍 Scanning for webroot directories across Hostinger server...");
+    const discovered = await findWebroots(client);
+    
+    // Always include explicit standard Hostinger paths if they exist
+    const candidates = [
+      "public_html",
+      "domains/satyarthisolarsolution.in/public_html",
+      ...discovered
+    ];
 
-    // Check for 'domains' directory (Hostinger multi-domain architecture)
-    const hasDomains = rootList.some((f) => f.name === "domains" && f.isDirectory);
-    if (hasDomains) {
-      console.log("🔍 Scanning 'domains/' directory...");
-      const domainsList = await client.list("domains");
-      console.log("📂 Domains found:", domainsList.map((f) => f.name));
-      for (const d of domainsList) {
-        if (d.isDirectory && !d.name.startsWith(".")) {
-          const subPath = `domains/${d.name}`;
-          const subList = await client.list(subPath);
-          const hasPubHtml = subList.some((f) => f.name === "public_html");
-          if (hasPubHtml) {
-            targetDirs.push(`domains/${d.name}/public_html`);
-          } else {
-            targetDirs.push(`domains/${d.name}`);
-          }
-        }
+    // Verify which candidates are valid directories on the remote server
+    const validTargets = [];
+    for (const c of [...new Set(candidates)]) {
+      try {
+        await client.cd(initialPwd);
+        await client.cd(c);
+        validTargets.push(c);
+      } catch (e) {
+        // Not a valid directory or not accessible
       }
     }
 
-    // Check for 'public_html' in root
-    const hasPublicHtml = rootList.some((f) => f.name === "public_html");
-    if (hasPublicHtml) {
-      targetDirs.push("public_html");
+    if (validTargets.length === 0) {
+      validTargets.push(".");
     }
 
-    // Fallback if neither found
-    if (targetDirs.length === 0) {
-      targetDirs.push(".");
-    }
-
-    // Deduplicate targets
-    const uniqueTargets = [...new Set(targetDirs)];
-    console.log("🎯 Target deployment webroot directories:", uniqueTargets);
+    console.log("🎯 Confirmed target deployment webroot directories:", validTargets);
 
     const distPath = path.resolve("dist");
 
-    for (const targetDir of uniqueTargets) {
-      console.log(`\n🚀 Uploading dist/ to target: '${targetDir}'...`);
-      await client.uploadFromDir(distPath, targetDir);
-      console.log(`✅ Successfully uploaded dist/ to '${targetDir}'.`);
+    for (const targetDir of validTargets) {
+      console.log(`\n======================================================`);
+      console.log(`🚀 Deploying to target: '${targetDir}'`);
+      console.log(`======================================================`);
 
-      // Verify index.html in targetDir
+      // 1. Reset to initial working dir and navigate to target
+      await client.cd(initialPwd);
+      await client.cd(targetDir);
+      const activePwd = await client.pwd();
+      console.log(`📂 Active directory for sync: '${activePwd}'`);
+
+      // 2. Upload dist contents directly into the current directory
+      await client.uploadFromDir(distPath);
+      console.log(`✅ Successfully uploaded dist/ files to '${targetDir}'!`);
+
+      // 3. Verify index.html in the target directory
       try {
-        const files = await client.list(targetDir);
+        const files = await client.list();
         const indexFile = files.find((f) => f.name === "index.html");
         if (indexFile) {
-          console.log(`📄 Verified index.html in '${targetDir}' (size: ${indexFile.size} bytes)`);
+          console.log(`📄 Verified index.html: size=${indexFile.size} bytes, modified=${indexFile.rawModifiedAt || indexFile.date}`);
         }
-      } catch (err) {
-        console.log(`Notice during verification of ${targetDir}:`, err.message);
+        const hasAssets = files.some((f) => f.name === "assets");
+        console.log(`📁 Assets directory present: ${hasAssets}`);
+      } catch (verifyErr) {
+        console.warn(`Notice during verification of ${targetDir}:`, verifyErr.message);
       }
     }
 
-    console.log("\n🎉 Deployment completed successfully to all target webroots!");
+    // Reset back to initial
+    await client.cd(initialPwd);
+    console.log("\n🎉 Full deployment completed successfully across all webroots!");
   } catch (err) {
     console.error("❌ FTP Deployment Error:", err);
     process.exit(1);
