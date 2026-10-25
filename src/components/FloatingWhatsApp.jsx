@@ -78,7 +78,8 @@ function FloatingWhatsApp({ onOpenFestiveOffer }) {
       ===================================================================== */}
       <nav
         aria-label="Mobile quick actions"
-        className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-slate-800 px-2 py-1.5 flex items-center justify-around shadow-[0_-8px_25px_rgba(0,0,0,0.65)]"
+        className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-slate-950/95 border-t border-slate-800 px-2 py-1.5 flex items-center justify-around shadow-[0_-8px_25px_rgba(0,0,0,0.65)]"
+        style={{ transform: "translateZ(0)" }}
       >
         <a
           href={`tel:${businessData.phone[0]}`}
