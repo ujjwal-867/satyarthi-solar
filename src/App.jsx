@@ -67,6 +67,7 @@ function AppContent() {
     if (path.includes("off-grid") || hash === "#off-grid") return "/off-grid";
     if (path.includes("appliance") || path.includes("electronic") || hash === "#appliances" || hash === "#electronics") return "/appliances";
     if (path.includes("gallery") || hash === "#gallery") return "/gallery";
+    if (path.includes("certificate") || hash === "#certificates" || hash === "#certificate") return "/certificates";
     return "/";
   };
 
@@ -85,6 +86,21 @@ function AppContent() {
       window.removeEventListener("hashchange", handlePopState);
     };
   }, []);
+
+  // Update browser tab document.title dynamically for each dedicated route
+  useEffect(() => {
+    const titles = {
+      "/": "Satyarthi Solar Solution | Official Website | UPNEDA Empanelled Solar Vendor",
+      "/on-grid": "PM Surya Ghar On-Grid Solar Subsidy & Rates | Satyarthi Solar Solution",
+      "/off-grid": "Off-Grid Solar Inverter & Battery Bank Price List | Satyarthi Solar Solution",
+      "/appliances": "Solar Inverter AC & Home Electronics Showroom | Satyarthi Solar Solution",
+      "/gallery": "Real Project Installation Photo Gallery | Satyarthi Solar Solution",
+      "/certificates": "Official UPNEDA Empanelment & Brand Certificates | Satyarthi Solar Solution",
+    };
+    if (typeof document !== "undefined") {
+      document.title = titles[currentRoute] || titles["/"];
+    }
+  }, [currentRoute]);
 
   const navigateTo = (route) => {
     // Notify all lazy sections to mount immediately if navigation occurred
