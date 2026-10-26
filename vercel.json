@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://satyarthisolarsolution.in",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://satyarthisolarsolution.in/:path*",
       "permanent": true
