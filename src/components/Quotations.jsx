@@ -38,25 +38,25 @@ function Quotations() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Satyarthi Solar Solution <span className="text-emerald-700">Official Rate Cards</span>
+            Satyarthi Solar Solution <span className="text-amber-500">Official Rate Cards</span>
           </h2>
 
-          <h3 className="text-xl sm:text-2xl font-extrabold text-blue-800 tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1e3b] tracking-tight">
             सत्यार्थी सोलर सॉल्यूशन • आधिकारिक सोलर कोटेशन एवं सब्सिडी रेट चार्ट
           </h3>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Transparent pricing as per UPNEDA and MNRE guidelines. Inspect our officially published rate flyers, PM Surya Ghar subsidy matrices, and bank loan EMI offers.
           </p>
-          <p className="text-emerald-800 font-semibold text-xs sm:text-sm bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
+          <p className="text-blue-900 font-semibold text-xs sm:text-sm bg-blue-50/80 p-2.5 rounded-xl border border-blue-200">
             🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी। 6% से 7% ब्याज दर पर आसान बैंक ऋण।
           </p>
         </div>
 
         {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
-        <div className="mt-10 max-w-4xl mx-auto bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+        <div className="mt-10 max-w-4xl mx-auto bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 bg-emerald-500 text-slate-950 rounded-2xl font-black shrink-0">
+            <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
               <Calendar className="w-5 h-5 text-slate-950" />
             </div>
             <div className="space-y-0.5">
@@ -66,7 +66,7 @@ function Quotations() {
               <p className="text-slate-200 mt-0.5">
                 PM Surya Ghar subsidy valid till <strong>31st March 2027</strong>. 3 kW system at only <strong>₹1,800/month</strong> bank EMI.
               </p>
-              <p className="text-emerald-300 font-medium text-[11px]">
+              <p className="text-sky-200 font-medium text-[11px]">
                 3 किलोवाट सोलर प्लांट मात्र ₹1,800 प्रति माह बैंक ईएमआई पर स्थापित कराएं!
               </p>
             </div>
@@ -77,7 +77,7 @@ function Quotations() {
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
           >
             Request Rate PDF | पीडीएफ मंगवाएं
           </a>
@@ -114,7 +114,7 @@ function Quotations() {
                     <a
                       href={flyer.image}
                       download={`satyarthi-solar-${flyer.id}.jpg`}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition"
+                      className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition"
                     >
                       <Download className="w-4 h-4" />
                       <span>Save Image</span>
@@ -130,14 +130,14 @@ function Quotations() {
                   <h3 className="text-xl font-black text-slate-900 leading-snug">
                     {flyer.title}
                   </h3>
-                  <p className="text-xs font-semibold text-emerald-700">
+                  <p className="text-xs font-semibold text-blue-900">
                     {flyer.subtitle}
                   </p>
 
                   <div className="pt-2 space-y-2 border-t border-slate-100">
                     {flyer.highlights.map((h, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -158,9 +158,9 @@ function Quotations() {
                 <button
                   type="button"
                   onClick={() => handleWhatsAppQuote(flyer.title)}
-                  className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  className="flex-1 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                  <MessageCircle className="w-3.5 h-3.5 fill-slate-950" />
                   <span>Get This Rate</span>
                 </button>
               </div>
@@ -171,7 +171,7 @@ function Quotations() {
         {/* Partner Brands Grid Banner */}
         <div className="mt-16 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
               Direct Manufacturer Associations
             </span>
             <h3 className="text-2xl font-black text-slate-900">
@@ -188,11 +188,11 @@ function Quotations() {
             </p>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.solar.map((b, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-emerald-500 transition group">
+                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-blue-500 transition group">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-slate-900 group-hover:text-emerald-700 transition">{b.name}</span>
+                    <span className="text-slate-900 group-hover:text-blue-900 transition">{b.name}</span>
                     {b.role && (
-                      <span className="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-black uppercase tracking-wide">
+                      <span className="text-[9px] bg-blue-50 text-blue-900 px-1.5 py-0.5 rounded font-black uppercase tracking-wide">
                         {b.role}
                       </span>
                     )}
@@ -239,14 +239,14 @@ function Quotations() {
                 <a
                   href={selectedFlyer.image}
                   download={`satyarthi-solar-${selectedFlyer.id}.jpg`}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1"
+                  className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download</span>
                 </a>
                 <button
                   onClick={() => setSelectedFlyer(null)}
-                  className="text-slate-400 hover:text-white p-1"
+                  className="text-slate-400 hover:text-white p-1 cursor-pointer"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -262,11 +262,11 @@ function Quotations() {
             </div>
 
             <div className="p-4 bg-white border-t border-slate-200 text-xs text-slate-600 flex justify-between items-center">
-              <span className="text-emerald-700 font-semibold">Satyarthi Solar Solution • Gorakhpur (273202)</span>
+              <span className="text-blue-900 font-semibold">Satyarthi Solar Solution • Gorakhpur (273202)</span>
               <button
                 type="button"
                 onClick={() => handleWhatsAppQuote(selectedFlyer.title)}
-                className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-xl transition"
+                className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-xl transition cursor-pointer"
               >
                 Inquire for This Offer
               </button>

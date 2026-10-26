@@ -35,7 +35,7 @@ function Testimonials() {
           className="text-center max-w-3xl mx-auto space-y-3"
         >
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               <span>4.9 / 5 Google Rating • 2500+ Happy Clients Across UP</span>
             </div>
@@ -85,7 +85,7 @@ function Testimonials() {
                   </div>
                   <div className="flex items-center gap-2">
                     <InteractiveZapBurstButton initialCount={92 + idx * 19} label="Helpful" />
-                    <Quote className="w-5 h-5 text-slate-200 group-hover:text-emerald-300 transition" />
+                    <Quote className="w-5 h-5 text-slate-200 group-hover:text-amber-400 transition" />
                   </div>
                 </div>
 
@@ -108,8 +108,8 @@ function Testimonials() {
                   <h4 className="font-bold text-sm text-slate-900">{t.name}</h4>
                   <p className="text-xs text-slate-500">{t.role}</p>
                 </div>
-                <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <div className="flex items-center gap-1 text-[11px] font-semibold text-blue-900 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                   <span>Verified • सत्यापित</span>
                 </div>
               </div>
@@ -153,7 +153,7 @@ function Testimonials() {
                     </div>
                     <div className="min-w-0">
                       <p className="text-[11px] font-bold text-white truncate">{reel.title}</p>
-                      <span className="text-[9px] text-emerald-400 block truncate">{reel.tag} • {reel.location}</span>
+                      <span className="text-[9px] text-amber-400 block truncate">{reel.tag} • {reel.location}</span>
                     </div>
                   </div>
                 ))}
@@ -207,7 +207,7 @@ function Testimonials() {
             rel="noreferrer"
             className="inline-flex items-center gap-2 text-xs font-bold text-slate-800 bg-white border border-slate-300 px-6 py-3 rounded-full hover:bg-slate-50 hover:border-blue-500 shadow-sm transition"
           >
-            <MapPin className="w-4 h-4 text-emerald-600" />
+            <MapPin className="w-4 h-4 text-blue-700" />
             <span>View Verified Location & Reviews on Google Maps • गूगल मैप समीक्षाएं</span>
             <span className="text-amber-500 font-black">★ 4.9 Rating (2500+ Clients)</span>
           </motion.a>

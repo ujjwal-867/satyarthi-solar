@@ -102,7 +102,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               {
                 name: "15HP Chakki VFD",
                 badge: "Zero Diesel • Kushinagar",
-                color: "bg-emerald-500 text-slate-950",
+                color: "bg-blue-600 text-white",
                 pathX: ["83%", "68%", "77%", "83%"],
                 pathY: ["22%", "52%", "32%", "22%"],
                 duration: 18
@@ -155,6 +155,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
                 highlightWords={["Off-Grid", "Aata", "Chakki"]}
+                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
               />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
@@ -203,7 +204,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   <h4 className={`text-xl font-black mt-2 ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
                     {tier.capacity}
                   </h4>
-                  <p className={`text-xs font-bold font-hindi mt-0.5 ${tier.bestValue ? "text-amber-300" : "text-emerald-700"}`}>
+                  <p className={`text-xs font-bold font-hindi mt-0.5 ${tier.bestValue ? "text-amber-300" : "text-blue-800"}`}>
                     {tier.capacityHi}
                   </p>
 
@@ -220,7 +221,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Solar Panels:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-emerald-300" : "text-emerald-700"}`}>{tier.panelSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-blue-900"}`}>{tier.panelSpec}</strong>
                     </div>
                   </div>
 
@@ -228,7 +229,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     <p className={`font-semibold ${tier.bestValue ? "text-slate-200" : "text-slate-700"}`}>
                       💡 <strong>Ideal For:</strong> {tier.idealFor}
                     </p>
-                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-emerald-800 font-hindi"}`}>
+                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-blue-900 font-hindi"}`}>
                       ⚡ <strong>Backup Benefit:</strong> {tier.backup}
                     </p>
                   </div>
@@ -248,7 +249,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl transition flex items-center justify-center shrink-0"
                     title="Call Engineer"
                   >
-                    <Phone className="w-4 h-4 text-emerald-600" />
+                    <Phone className="w-4 h-4 text-blue-700" />
                   </a>
                 </div>
               </motion.div>
@@ -258,7 +259,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Agro Mill Direct Consultation Banner */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-14 bg-gradient-to-r from-amber-900 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6"
+            className="mt-14 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">

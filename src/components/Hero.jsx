@@ -371,7 +371,7 @@ function Hero({ onOpenCalculator }) {
 
             {/* Showroom Location Line */}
             <motion.div variants={itemVariants} className="flex items-center gap-2 text-xs text-slate-300/90 pt-1">
-              <MapPin className="w-4 h-4 text-teal-300 shrink-0" />
+              <MapPin className="w-4 h-4 text-amber-300 shrink-0" />
               <span>Motiram Adda, Deoria Road, Gorakhpur (273202) • मोतीराम अड्डा, देवरिया रोड गोरखपुर</span>
             </motion.div>
           </motion.div>
@@ -465,9 +465,9 @@ function Hero({ onOpenCalculator }) {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
+                  className="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950" />
                   <span>WhatsApp Engineer • सीधे बात करें</span>
                 </motion.a>
 
@@ -478,7 +478,7 @@ function Hero({ onOpenCalculator }) {
                   className="bg-white/15 hover:bg-white/25 text-white font-bold p-2.5 rounded-xl text-xs flex items-center justify-center transition border border-white/15"
                   title="Call Engineer Directly (24x7)"
                 >
-                  <Phone className="w-4 h-4 text-emerald-300" />
+                  <Phone className="w-4 h-4 text-sky-300" />
                 </motion.a>
               </div>
 
@@ -491,7 +491,7 @@ function Hero({ onOpenCalculator }) {
                   transition={{ duration: 0.35 }}
                   className="inline-flex items-center gap-1.5 text-left min-w-0"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span className="font-semibold text-slate-200 text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
                 </motion.div>
 
@@ -502,7 +502,7 @@ function Hero({ onOpenCalculator }) {
                       onClick={() => setCurrentSlide(idx)}
                       className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                         currentSlide === idx 
-                          ? "w-5 bg-emerald-400" 
+                          ? "w-5 bg-amber-400" 
                           : "w-1.5 bg-white/35 hover:bg-white/60"
                       }`}
                       aria-label={`Switch to slide ${idx + 1}`}

@@ -18,11 +18,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "On-Grid Solar",
       titleHi: "ऑन-ग्रिड सोलर",
       badge: "Subsidy 2026",
-      badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
+      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
       info: "1 kW – 10 kW • Up to ₹1.08L Direct Subsidy",
       icon: Sun,
-      iconColor: "bg-emerald-600 text-white",
-      cardStyle: "bg-slate-50/70 hover:bg-emerald-50/40 border-slate-200/90 hover:border-emerald-400",
+      iconColor: "bg-[#0a1e3b] text-amber-400",
+      cardStyle: "bg-slate-50/70 hover:bg-blue-50/50 border-slate-200/90 hover:border-blue-400",
       actionText: "View Rates",
       onClick: () => onNavigate("/on-grid")
     },
@@ -31,11 +31,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "Off-Grid & Chakki",
       titleHi: "ऑफ-ग्रिड दर सूची",
       badge: "24×7 Backup",
-      badgeColor: "bg-amber-50 text-amber-800 border-amber-200",
+      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
       info: "1 kW – 5 kW Battery + 15 HP Flour Mills",
       icon: BatteryCharging,
       iconColor: "bg-amber-500 text-slate-950",
-      cardStyle: "bg-slate-50/70 hover:bg-amber-50/40 border-slate-200/90 hover:border-amber-400",
+      cardStyle: "bg-slate-50/70 hover:bg-amber-50/50 border-slate-200/90 hover:border-amber-400",
       actionText: "True Rate List",
       onClick: () => onNavigate("/off-grid")
     },
@@ -44,11 +44,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "Solar Calculator",
       titleHi: "सोलर कैलकुलेटर",
       badge: "Instant Tool",
-      badgeColor: "bg-teal-50 text-teal-800 border-teal-200",
+      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
       info: "Estimate Bill, Subsidy & ROI in 30 Secs",
       icon: Calculator,
-      iconColor: "bg-teal-600 text-white",
-      cardStyle: "bg-slate-50/70 hover:bg-teal-50/40 border-slate-200/90 hover:border-teal-400",
+      iconColor: "bg-blue-600 text-white",
+      cardStyle: "bg-slate-50/70 hover:bg-blue-50/50 border-slate-200/90 hover:border-blue-400",
       actionText: "Calculate Now",
       onClick: () => {
         if (onOpenCalculator) onOpenCalculator();
@@ -59,11 +59,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "Electronics Store",
       titleHi: "इलेक्ट्रॉनिक्स शोरूम",
       badge: "5-Star Store",
-      badgeColor: "bg-sky-50 text-sky-800 border-sky-200",
+      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
       info: "Solar Inverter ACs, Fridges & Coolers",
       icon: Tv,
-      iconColor: "bg-sky-600 text-white",
-      cardStyle: "bg-slate-50/70 hover:bg-sky-50/40 border-slate-200/90 hover:border-sky-400",
+      iconColor: "bg-[#0a1e3b] text-amber-400",
+      cardStyle: "bg-slate-50/70 hover:bg-amber-50/50 border-slate-200/90 hover:border-amber-400",
       actionText: "Visit Showroom",
       onClick: () => onNavigate("/appliances")
     },
@@ -72,11 +72,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "Real Works & Sites",
       titleHi: "साइट फोटो गैलरी",
       badge: "2500+ Sites",
-      badgeColor: "bg-indigo-50 text-indigo-800 border-indigo-200",
+      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
       info: "Pergolas & High-Rise GI Structures in UP",
       icon: Camera,
-      iconColor: "bg-indigo-600 text-white",
-      cardStyle: "bg-slate-50/70 hover:bg-indigo-50/40 border-slate-200/90 hover:border-indigo-400",
+      iconColor: "bg-blue-700 text-white",
+      cardStyle: "bg-slate-50/70 hover:bg-blue-50/50 border-slate-200/90 hover:border-blue-400",
       actionText: "View Photos",
       onClick: () => onNavigate("/gallery")
     },
@@ -85,11 +85,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "Book Site Survey",
       titleHi: "निःशुल्क साइट सर्वे",
       badge: "Free Visit",
-      badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
+      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
       info: "Free Roof Survey & Shadow Analysis in UP",
       icon: PhoneCall,
-      iconColor: "bg-slate-800 text-white",
-      cardStyle: "bg-slate-50/70 hover:bg-emerald-50/40 border-slate-200/90 hover:border-emerald-400",
+      iconColor: "bg-amber-500 text-slate-950",
+      cardStyle: "bg-slate-50/70 hover:bg-amber-50/50 border-slate-200/90 hover:border-amber-400",
       actionText: "Book Now",
       onClick: () => onNavigate("/#contact")
     }
@@ -101,14 +101,15 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
         
         {/* Clean Header */}
         <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-50/80 px-3 py-1 rounded-full border border-teal-200/80">
-            <Sparkles className="w-3.5 h-3.5 text-teal-600" />
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
             <span>Quick Access Portals • मुख्य विभाग</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             <ExpressiveKineticText
               text="Explore Our Divisions & Rate Lists"
               highlightWords={["Divisions", "Rate", "Lists"]}
+              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
             />
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 font-hindi">
@@ -147,7 +148,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                     </span>
                   </div>
 
-                  <h3 className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-teal-700 transition leading-snug">
+                  <h3 className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-blue-900 transition leading-snug">
                     {btn.title}
                   </h3>
                   <p className="text-[11px] font-semibold text-slate-500 font-hindi mt-0.5">
@@ -159,9 +160,9 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                   </p>
                 </div>
 
-                <div className="relative z-10 mt-3.5 pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-bold text-teal-700 group-hover:text-teal-800">
+                <div className="relative z-10 mt-3.5 pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-bold text-blue-700 group-hover:text-blue-900">
                   <span>{btn.actionText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-teal-600" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-blue-600" />
                 </div>
               </motion.button>
             );

@@ -309,7 +309,7 @@ function AdminModal({ isOpen, onClose }) {
               <h3 className="font-black text-lg text-white flex items-center gap-2">
                 <span>Satyarthi Solar • Management Portal</span>
                 {isAuthenticated && (
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-2 py-0.5 rounded font-mono font-bold">
+                  <span className="text-[10px] bg-blue-500/20 text-sky-300 border border-blue-400/30 px-2 py-0.5 rounded font-mono font-bold">
                     Authenticated Session
                   </span>
                 )}
@@ -347,8 +347,8 @@ function AdminModal({ isOpen, onClose }) {
         {!isAuthenticated ? (
           /* Authentication Screen */
           <div className="p-8 sm:p-12 text-center max-w-md mx-auto space-y-6">
-            <div className="w-16 h-16 bg-emerald-50 text-emerald-700 rounded-2xl flex items-center justify-center mx-auto border border-emerald-200 shadow-sm">
-              <ShieldCheck className="w-8 h-8 text-emerald-600" />
+            <div className="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mx-auto border border-blue-200 shadow-sm">
+              <ShieldCheck className="w-8 h-8 text-blue-600" />
             </div>
             <div>
               <h4 className="text-xl font-bold text-slate-900">
@@ -368,7 +368,7 @@ function AdminModal({ isOpen, onClose }) {
                   onChange={(e) => setPin(e.target.value)}
                   autoFocus
                   disabled={isLoading}
-                  className="w-full text-center tracking-widest text-lg font-bold border border-slate-300 rounded-xl py-3 px-11 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20"
+                  className="w-full text-center tracking-widest text-lg font-bold border border-slate-300 rounded-xl py-3 px-11 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20"
                 />
                 <button
                   type="button"
@@ -431,7 +431,7 @@ function AdminModal({ isOpen, onClose }) {
                 onClick={() => setActiveTab("tools")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
                   activeTab === "tools"
-                    ? "bg-emerald-600 text-white shadow-sm"
+                    ? "bg-[#0a1e3b] text-amber-300 shadow-sm"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
@@ -444,8 +444,8 @@ function AdminModal({ isOpen, onClose }) {
               /* Visual Tools & Performance Suite View */
               <div className="space-y-6 animate-fadeIn">
                 <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
-                  <div className="flex items-center gap-2 text-emerald-700 font-black text-xs uppercase tracking-wider">
-                    <Sparkles className="w-4 h-4 text-emerald-600" />
+                  <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-amber-500" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
                   </div>
                   <h3 className="text-xl font-black text-slate-900">
@@ -545,28 +545,28 @@ function AdminModal({ isOpen, onClose }) {
                   <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-blue-100 text-blue-900 font-bold px-2.5 py-1 rounded-full uppercase">
                           Performance Acceleration
                         </span>
-                        <Zap className="w-5 h-5 text-emerald-600" />
+                        <Zap className="w-5 h-5 text-blue-600" />
                       </div>
                       <h4 className="text-lg font-black text-slate-900">AirLift (Performance)</h4>
                       <p className="text-xs text-slate-600">
                         Edge caching, resource preconnects, responsive images, and sub-second page views for users across UP.
                       </p>
-                      <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-[11px] text-emerald-900 space-y-1">
+                      <div className="p-3 bg-blue-50 rounded-xl border border-blue-200 text-[11px] text-blue-950 space-y-1">
                         <div className="font-bold flex items-center gap-1">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                           <span>Status: AirLift Optimizations Active</span>
                         </div>
-                        <p className="text-[10px] text-emerald-800">DNS prefetching, asset preconnects, and Vite chunk splitting implemented.</p>
+                        <p className="text-[10px] text-blue-800">DNS prefetching, asset preconnects, and Vite chunk splitting implemented.</p>
                       </div>
                     </div>
                     <a
                       href="https://airlift.net/"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Explore AirLift</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -592,8 +592,8 @@ function AdminModal({ isOpen, onClose }) {
                     <p className="text-2xl font-black text-blue-600 mt-1">{leadCounts.siteVisit}</p>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                    <span className="text-xs text-emerald-600 font-semibold">Converted Installations</span>
-                    <p className="text-2xl font-black text-emerald-600 mt-1">{leadCounts.converted}</p>
+                    <span className="text-xs text-blue-600 font-semibold">Converted Installations</span>
+                    <p className="text-2xl font-black text-blue-900 mt-1">{leadCounts.converted}</p>
                   </div>
                 </div>
 
@@ -631,9 +631,9 @@ function AdminModal({ isOpen, onClose }) {
 
                 <button
                   onClick={() => setShowAddLead(!showAddLead)}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
+                  className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
                 >
-                  <Plus className="w-3.5 h-3.5" />
+                  <Plus className="w-3.5 h-3.5 text-amber-400" />
                   <span>Add Lead</span>
                 </button>
 
@@ -650,9 +650,9 @@ function AdminModal({ isOpen, onClose }) {
 
             {/* Manual Add Lead Form */}
             {showAddLead && (
-              <form onSubmit={handleAddManualLead} className="bg-white p-5 rounded-2xl border border-emerald-200 shadow-sm space-y-4">
+              <form onSubmit={handleAddManualLead} className="bg-white p-5 rounded-2xl border border-blue-200 shadow-sm space-y-4">
                 <h4 className="font-bold text-sm text-slate-900 flex items-center gap-2">
-                  <Plus className="w-4 h-4 text-emerald-600" />
+                  <Plus className="w-4 h-4 text-blue-600" />
                   Add Walk-In / Phone Lead Manually
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
@@ -662,7 +662,7 @@ function AdminModal({ isOpen, onClose }) {
                     required
                     value={newLeadForm.name}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, name: e.target.value })}
-                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-emerald-600"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <input
                     type="tel"
@@ -670,19 +670,19 @@ function AdminModal({ isOpen, onClose }) {
                     required
                     value={newLeadForm.phone}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, phone: e.target.value })}
-                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-emerald-600"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <input
                     type="text"
                     placeholder="Location / Village"
                     value={newLeadForm.location}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, location: e.target.value })}
-                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-emerald-600"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <select
                     value={newLeadForm.service}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, service: e.target.value })}
-                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-emerald-600 bg-white"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600 bg-white"
                   >
                     <option>Residential Rooftop Solar (PM Surya Ghar)</option>
                     <option>Commercial Solar Power</option>
@@ -695,14 +695,14 @@ function AdminModal({ isOpen, onClose }) {
                     placeholder="Monthly Bill (₹)"
                     value={newLeadForm.bill}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, bill: e.target.value })}
-                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-emerald-600"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <input
                     type="text"
                     placeholder="Notes / Message"
                     value={newLeadForm.message}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, message: e.target.value })}
-                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-emerald-600"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                 </div>
                 <div className="flex justify-end gap-2">
@@ -715,7 +715,7 @@ function AdminModal({ isOpen, onClose }) {
                   </button>
                   <button
                     type="submit"
-                    className="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl"
+                    className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-4 py-2 rounded-xl transition"
                   >
                     Save Customer Record
                   </button>
@@ -752,7 +752,7 @@ function AdminModal({ isOpen, onClose }) {
                             <div className="flex items-center gap-2 mt-1">
                               <a
                                 href={`tel:${lead.phone}`}
-                                className="text-emerald-700 hover:underline inline-flex items-center gap-1 font-mono font-semibold"
+                                className="text-blue-700 hover:underline inline-flex items-center gap-1 font-mono font-semibold"
                               >
                                 <Phone className="w-3 h-3" />
                                 {lead.phone}
@@ -763,7 +763,7 @@ function AdminModal({ isOpen, onClose }) {
                                 )}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-emerald-600 hover:text-emerald-700 p-0.5"
+                                className="text-amber-600 hover:text-amber-700 p-0.5"
                                 title="Chat on WhatsApp"
                               >
                                 <MessageCircle className="w-3.5 h-3.5" />
@@ -793,7 +793,7 @@ function AdminModal({ isOpen, onClose }) {
                               onChange={(e) => handleStatusChange(lead.id, e.target.value)}
                               className={`text-[11px] font-bold py-1 px-2.5 rounded-lg border cursor-pointer focus:outline-none ${
                                 lead.status === "Converted"
-                                  ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+                                  ? "bg-blue-50 text-blue-900 border-blue-300"
                                   : lead.status === "Site Visit"
                                   ? "bg-blue-50 text-blue-800 border-blue-300"
                                   : lead.status === "Contacted"

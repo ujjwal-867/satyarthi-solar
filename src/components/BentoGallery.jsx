@@ -35,8 +35,8 @@ const GALLERY_COLLAB_CURSORS = [
     id: "cursor-er",
     label: "Er. Satyaprakash • Structural Audit",
     tag: "150 km/h Wind-Load GI Frame",
-    color: "bg-emerald-500 text-slate-950 border-emerald-300",
-    hex: "#10b981",
+    color: "bg-blue-600 text-white border-blue-400",
+    hex: "#2563eb",
     x: ["8%", "42%", "24%", "8%"],
     y: ["16%", "28%", "56%", "16%"]
   },
@@ -77,7 +77,7 @@ function ExpressiveKineticTitle({ text, highlightWords = [] }) {
             }}
             className={`inline-block cursor-default select-none ${
               isHighlight
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600"
+                ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
                 : "text-slate-900"
             }`}
           >
@@ -147,7 +147,7 @@ export function BentoGallery() {
       location: "Saketpuri Colony, Rajendra Nagar, Gorakhpur (273015)",
       image: "/images/projects/team-saketpuri-pergola.jpg",
       badge: "📍 GPS Verified • 10/09/2025",
-      badgeColor: "bg-emerald-600 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
       span: "col-span-1 md:col-span-2 row-span-2",
       description: "Complete elevated rooftop gazebo pergola plant engineered by Satyarthi Solar Solution. Allows full terrace walking and recreational usage below the solar array.",
       specs: ["GPS: 26.787222° N, 83.349473° E", "Er. Satyaprakash with Engineering Team", "Heavy-Duty Galvanized Columns", "Full Usable Roof Clearance"],
@@ -179,7 +179,7 @@ export function BentoGallery() {
       location: "Fertilizer Rd, Fertilizer Colony, Gorakhpur (273013)",
       image: "/images/projects/fertilizer-colony-completed-array.jpg",
       badge: "📍 GPS Verified • 03/06/2026",
-      badgeColor: "bg-teal-700 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "High-durability elevated residential plant with reinforced concrete pedestal footings anchored for zero-vibration storm resistance in Gorakhpur.",
       specs: ["GPS: 26.822992° N, 83.38256° E", "Concrete Grouting Ballast Base", "Heavy Rain & Storm Proof", "Direct UPPCL Net Metering"],
@@ -209,7 +209,7 @@ export function BentoGallery() {
       location: "Agricultural Farms, Purvanchal (Eastern UP)",
       image: "/images/projects/solar-water-pump-agriculture.jpg",
       badge: "🌾 PM Kusum Scheme • जीरो डीजल",
-      badgeColor: "bg-emerald-700 text-white font-bold",
+      badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-2",
       description: "High-discharge solar submersible pumping station pumping continuous clean irrigation water for agricultural farms with zero electric or diesel bills.",
       specs: ["Dual Outflow High-Discharge Delivery", "Direct Solar Drive (No Grid Required)", "PM Kusum Subsidy Compatible", "Payback in 1 Crop Season"],
@@ -224,7 +224,7 @@ export function BentoGallery() {
       location: "Rapti Nagar Phase-4, Khorabar, Gorakhpur (273010)",
       image: "/images/projects/okaya-pcu-khorabar.jpg",
       badge: "🔋 Okaya MPPT • 08/06/2026",
-      badgeColor: "bg-emerald-600 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
       span: "col-span-1 row-span-1",
       description: "High-capacity Okaya MPPT Solar PCU with digital telemetry display and UTL solar backup battery bank powering heavy domestic and commercial loads.",
       specs: ["GPS: 26.710498° N, 83.45127° E", "5.4 kVA / 48V MPPT Solar PCU", "Full Digital Diagnostics Screen", "Seamless Heavy Load Running"],
@@ -269,7 +269,7 @@ export function BentoGallery() {
       location: "Deoria Rd, Jangl Ramgarh Urf Chawri, Gorakhpur (273202)",
       image: "/images/projects/happy-client-jangl-ramgarh.jpg",
       badge: "😊 Happy Client • 28/07/2026",
-      badgeColor: "bg-emerald-600 text-white font-bold",
+      badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Homeowner standing with his newly energized elevated rooftop solar plant equipped with copper lightning arrester protection on Deoria Road.",
       specs: ["GPS: 26.69477° N, 83.480671° E", "Lightning Arrester Installed", "Zero Power Cut Household", "₹1,08,000 DBT Subsidy Credited"],
@@ -284,7 +284,7 @@ export function BentoGallery() {
       location: "Gauri Bazar, Uttar Pradesh (274202)",
       image: "/images/projects/happy-client-gauribazar.jpg",
       badge: "😊 Happy Client • 01/08/2026",
-      badgeColor: "bg-teal-600 text-white font-bold",
+      badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Client proudly standing beside his newly installed high-performance rooftop solar array overlooking the neighborhood in Gauri Bazar.",
       specs: ["GPS: 26.599325° N, 83.669379° E", "Elevated Galvanized Iron Frame", "High Energy Yield Mono PERC", "Net Metering Synchronized"],
@@ -371,7 +371,7 @@ export function BentoGallery() {
       location: "Gorakhpur Installation Site",
       image: "/images/projects/technicians-mounting-structure.jpg",
       badge: "🔧 Certified Installation • कुशल टीम",
-      badgeColor: "bg-emerald-600 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Specialized solar technicians carefully securing high-efficiency modules onto heavy-gauge galvanized framing.",
       specs: ["High-Tensile Fasteners", "Precision Azimuth Angle Alignment", "Safety Harness Compliant", "Zero Roof Leakage Mounting"]
@@ -413,7 +413,7 @@ export function BentoGallery() {
       location: "Motiram Adda, Deoria Road, Gorakhpur (273202)",
       image: "/images/brand/main-hoarding-banner.jpg",
       badge: "📍 Main Showroom • मोतीराम अड्डा",
-      badgeColor: "bg-emerald-600 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Official technical center and showroom displaying high-efficiency solar modules, hybrid PCUs, and energy-efficient home appliances on Deoria Road highway.",
       specs: ["UPNEDA Approved Vendor GKP2604066741", "Loom Solar & Fujiyama Display Hub", "Deoria Road Highway Access", "Free Technical Consultation"],
@@ -471,7 +471,7 @@ export function BentoGallery() {
     <section id="gallery" className="py-16 sm:py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -483,8 +483,8 @@ export function BentoGallery() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto space-y-4"
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-300 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <Sparkles className="w-4 h-4 text-emerald-600 animate-spin" style={{ animationDuration: "6s" }} />
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <Sparkles className="w-4 h-4 text-amber-500 animate-spin" style={{ animationDuration: "6s" }} />
             <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur & UP</span>
           </div>
 
@@ -499,7 +499,7 @@ export function BentoGallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.35, duration: 0.5 }}
-              className="block text-xl sm:text-2xl font-extrabold text-emerald-700 mt-3 font-hindi"
+              className="block text-xl sm:text-2xl font-extrabold text-blue-900 mt-3 font-hindi"
             >
               2500+ संतुष्ट परिवार • वास्तविक कार्य, जीपीएस प्रमाणित साइट्स व फोटो गैलरी
             </motion.span>
@@ -530,7 +530,7 @@ export function BentoGallery() {
               }}
               className={`px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === tab.id
-                  ? "bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600 text-white shadow-lg shadow-emerald-700/20 font-black"
+                  ? "bg-[#0a1e3b] text-white shadow-lg shadow-blue-950/20 font-black border border-blue-900"
                   : "bg-white text-slate-700 hover:bg-slate-100 hover:text-blue-700 border border-slate-200 shadow-xs"
               }`}
             >
@@ -591,7 +591,7 @@ export function BentoGallery() {
                           whileTap={{ scale: 0.9 }}
                           onClick={(e) => handleCollabVerify(e, item.id, idx)}
                           title="Real-Time Verify / Appreciate Installation"
-                          className="relative px-2.5 py-1 rounded-full bg-slate-900/85 hover:bg-emerald-600 backdrop-blur-md text-white text-[11px] font-black flex items-center gap-1 border border-white/20 shadow-md transition cursor-pointer"
+                          className="relative px-2.5 py-1 rounded-full bg-slate-900/85 hover:bg-amber-500 hover:text-slate-950 backdrop-blur-md text-white text-[11px] font-black flex items-center gap-1 border border-white/20 shadow-md transition cursor-pointer"
                         >
                           <span>⚡</span>
                           <span>{count}</span>
@@ -616,7 +616,7 @@ export function BentoGallery() {
                         <button
                           type="button"
                           aria-label="View Full Photo"
-                          className="w-8 h-8 rounded-full bg-slate-900/85 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-200 shadow-md"
+                          className="w-8 h-8 rounded-full bg-slate-900/85 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-200 shadow-md"
                         >
                           <Maximize2 className="w-4 h-4" />
                         </button>
@@ -625,12 +625,12 @@ export function BentoGallery() {
 
                     {/* Bottom Content Card with Expressive Slide-Up Typography */}
                     <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 flex flex-col justify-end space-y-1 transition-transform duration-300 group-hover:-translate-y-1">
-                      <div className="flex items-center gap-1.5 text-emerald-300 text-xs font-semibold truncate">
-                        <MapPin className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
+                      <div className="flex items-center gap-1.5 text-amber-300 text-xs font-semibold truncate">
+                        <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-400" />
                         <span className="truncate">{item.location}</span>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-black text-white group-hover:text-emerald-300 transition-colors line-clamp-1 tracking-tight">
+                      <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors line-clamp-1 tracking-tight">
                         {item.title}
                       </h3>
                       <p className="text-xs text-amber-300 font-semibold font-hindi line-clamp-1">
@@ -644,7 +644,7 @@ export function BentoGallery() {
                       {/* Google Map quick action indicator */}
                       {item.googleMapLink && (
                         <div className="pt-1 flex items-center gap-2">
-                          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
+                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-400 font-semibold">
                             <Navigation className="w-3 h-3" />
                             GPS Coordinates Verified • क्लिक कर देखें
                           </span>
@@ -667,7 +667,7 @@ export function BentoGallery() {
           className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
         >
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-700">2500+ Clients</div>
+            <div className="text-2xl sm:text-3xl font-black text-blue-900">2500+ Clients</div>
             <div className="text-xs text-slate-800 font-bold">Happy Clients • संतुष्ट परिवार</div>
             <p className="text-[11px] text-slate-500">Residential & Commercial Plants</p>
           </motion.div>
@@ -677,12 +677,12 @@ export function BentoGallery() {
             <p className="text-[11px] text-slate-500">Across Gorakhpur & Eastern UP</p>
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-blue-700">₹1,08,000</div>
+            <div className="text-2xl sm:text-3xl font-black text-amber-500">₹1,08,000</div>
             <div className="text-xs text-slate-800 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
             <p className="text-[11px] text-slate-500">Direct Bank DBT Credit</p>
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-700">25 Years</div>
+            <div className="text-2xl sm:text-3xl font-black text-blue-900">25 Years</div>
             <div className="text-xs text-slate-800 font-bold">Panel Warranty • वारंटी</div>
             <p className="text-[11px] text-slate-500">Tier-1 Mono PERC Reliability</p>
           </motion.div>
@@ -736,7 +736,7 @@ export function BentoGallery() {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-emerald-600 text-white flex items-center justify-center transition shadow-lg cursor-pointer"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-amber-400 hover:text-slate-950 text-white flex items-center justify-center transition shadow-lg cursor-pointer"
                   aria-label="Previous photo"
                 >
                   <ChevronLeft className="w-6 h-6" />
@@ -744,7 +744,7 @@ export function BentoGallery() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-emerald-600 text-white flex items-center justify-center transition shadow-lg cursor-pointer"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-amber-400 hover:text-slate-950 text-white flex items-center justify-center transition shadow-lg cursor-pointer"
                   aria-label="Next photo"
                 >
                   <ChevronRight className="w-6 h-6" />
@@ -758,7 +758,7 @@ export function BentoGallery() {
                     <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                       {currentLightboxItem.title}
                     </h3>
-                    <p className="text-sm text-emerald-700 font-bold font-hindi mt-0.5">
+                    <p className="text-sm text-blue-900 font-bold font-hindi mt-0.5">
                       {currentLightboxItem.hindiTitle}
                     </p>
                   </div>
@@ -777,7 +777,7 @@ export function BentoGallery() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                     {currentLightboxItem.specs.map((spec, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
                         <span>{spec}</span>
                       </div>
                     ))}
@@ -803,7 +803,7 @@ export function BentoGallery() {
                     rel="noreferrer"
                     className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs py-2.5 px-4 rounded-xl transition border border-slate-300 shadow-xs"
                   >
-                    <Navigation className="w-4 h-4 text-emerald-600" />
+                    <Navigation className="w-4 h-4 text-blue-700" />
                     <span>View Map Location</span>
                   </a>
                 )}
@@ -814,9 +814,9 @@ export function BentoGallery() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs py-2.5 px-5 rounded-xl shadow-lg shadow-emerald-600/20 transition"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs py-2.5 px-5 rounded-xl shadow-lg shadow-amber-500/20 transition"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <MessageCircle className="w-4 h-4 fill-slate-950" />
                   <span>Inquire on WhatsApp • पूछताछ करें</span>
                 </a>
               </div>

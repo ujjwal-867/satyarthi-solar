@@ -6,19 +6,19 @@ export default function ElectronicsTeaser({ onNavigateElectronics }) {
   return (
     <section className="py-12 bg-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-emerald-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6">
           
           <div className="space-y-3 text-center lg:text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Solar & Electronics Division • मोतीराम अड्डा गोरखपुर</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              Pair Solar Rooftop with <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">5-Star Home Electronics</span>
+              Pair Solar Rooftop with <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-200 to-amber-300">5-Star Home Electronics</span>
             </h3>
 
-            <p className="text-sm font-semibold text-emerald-300 font-hindi">
+            <p className="text-sm font-semibold text-sky-300 font-hindi">
               शून्य बिजली बिल के लिए 5-स्टार इनवर्टर एसी, फ्रिज एवं हैवी कूलर शोरूम
             </p>
 
@@ -31,7 +31,7 @@ export default function ElectronicsTeaser({ onNavigateElectronics }) {
             <button
               type="button"
               onClick={onNavigateElectronics}
-              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3.5 rounded-2xl text-xs sm:text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 cursor-pointer"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-2xl text-xs sm:text-sm transition shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Explore Electronics Store ↗</span>
               <ArrowRight className="w-4 h-4" />

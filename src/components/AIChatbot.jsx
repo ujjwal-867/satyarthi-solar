@@ -265,8 +265,8 @@ export function AIChatbot() {
             <>
               <Bot className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
               <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5 sm:h-4 sm:w-4">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-emerald-500 border-2 border-white"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-sky-500 border-2 border-white"></span>
               </span>
             </>
           )}
@@ -278,11 +278,11 @@ export function AIChatbot() {
         <div className="fixed bottom-28 right-2.5 sm:bottom-24 sm:right-6 z-50 w-[95vw] sm:w-[410px] max-h-[75vh] sm:max-h-[80vh] h-[540px] sm:h-[580px] bg-white rounded-3xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
           
           {/* Header */}
-          <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
+          <div className="bg-gradient-to-r from-[#0a1e3b] via-blue-950 to-slate-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
             <div className="flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 to-amber-500 flex items-center justify-center shadow-md">
                 <Sun className="w-6 h-6 text-slate-950 animate-[spin_12s_linear_infinite]" />
-                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-900"></span>
+                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-sky-400 rounded-full border-2 border-slate-900"></span>
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -293,7 +293,7 @@ export function AIChatbot() {
                     सूर्य साथी
                   </span>
                 </div>
-                <p className="text-[11px] text-emerald-300 flex items-center gap-1">
+                <p className="text-[11px] text-sky-300 flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3" />
                   UPNEDA Approved EPC Assistant
                 </p>
@@ -419,7 +419,7 @@ export function AIChatbot() {
                 href={`https://wa.me/91${businessData.whatsapp[0]}`}
                 target="_blank"
                 rel="noreferrer"
-                className="text-emerald-600 hover:underline inline-flex items-center gap-1 font-bold"
+                className="text-amber-600 hover:underline inline-flex items-center gap-1 font-bold"
               >
                 <MessageCircle className="w-3 h-3" />
                 Live WhatsApp

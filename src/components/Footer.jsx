@@ -76,7 +76,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/") : scrollTo("#hero")} 
-                  className="hover:text-emerald-400 transition cursor-pointer"
+                  className="hover:text-amber-400 transition cursor-pointer"
                 >
                   Home | होम
                 </button>
@@ -84,7 +84,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/on-grid") : scrollTo("#portal-hub")} 
-                  className="hover:text-emerald-400 transition cursor-pointer text-emerald-300 font-semibold"
+                  className="hover:text-amber-400 transition cursor-pointer text-sky-300 font-semibold"
                 >
                   On-Grid (PM Surya Ghar) | सब्सिडी दरें
                 </button>
@@ -92,7 +92,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/off-grid") : scrollTo("#portal-hub")} 
-                  className="hover:text-emerald-400 transition cursor-pointer text-amber-300 font-semibold"
+                  className="hover:text-amber-400 transition cursor-pointer text-amber-300 font-semibold"
                 >
                   Off-Grid True Rate List | वास्तविक दर सूची
                 </button>
@@ -100,7 +100,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/appliances") : scrollTo("#portal-hub")} 
-                  className="hover:text-emerald-400 transition cursor-pointer text-blue-300"
+                  className="hover:text-amber-400 transition cursor-pointer text-blue-300"
                 >
                   Electronics Store | होम उपकरण
                 </button>
@@ -108,7 +108,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/gallery") : scrollTo("#portal-hub")} 
-                  className="hover:text-emerald-400 transition cursor-pointer text-purple-300"
+                  className="hover:text-amber-400 transition cursor-pointer text-purple-300"
                 >
                   Site Gallery | रियल प्रोजेक्ट्स
                 </button>
@@ -119,7 +119,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                     if (onNavigate) onNavigate("/certificates");
                     else scrollTo("#certificates");
                   }} 
-                  className="hover:text-emerald-400 transition cursor-pointer"
+                  className="hover:text-amber-400 transition cursor-pointer"
                 >
                   Certificates | सरकारी मान्यता
                 </button>
@@ -130,7 +130,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                     if (onNavigate) onNavigate("/#contact");
                     else scrollTo("#contact");
                   }} 
-                  className="hover:text-emerald-400 transition cursor-pointer text-emerald-300 font-bold"
+                  className="hover:text-amber-400 transition cursor-pointer text-amber-400 font-bold"
                 >
                   Book Site Survey | संपर्क
                 </button>
@@ -170,7 +170,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                     href={businessData.googleMapLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-emerald-400 hover:underline mt-1 inline-flex items-center gap-1 font-semibold"
+                    className="text-amber-400 hover:underline mt-1 inline-flex items-center gap-1 font-semibold"
                   >
                     <Navigation className="w-3 h-3" />
                     <span>Google Maps Verified Link ↗</span>
@@ -179,9 +179,9 @@ function Footer({ onOpenAdmin, onNavigate }) {
               </div>
 
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Phone className="w-4 h-4 text-sky-400 shrink-0" />
                 <div>
-                  <span className="text-[10px] text-emerald-300 font-bold block">24×7 Business Helpline:</span>
+                  <span className="text-[10px] text-sky-300 font-bold block">24×7 Business Helpline:</span>
                   <a href={`tel:${businessData.phone[0]}`} className="hover:text-white transition font-mono font-bold text-white">
                     +91 {businessData.phone[0]} / {businessData.phone[1]}
                   </a>
@@ -196,12 +196,12 @@ function Footer({ onOpenAdmin, onNavigate }) {
               </div>
 
               <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <MessageCircle className="w-4 h-4 text-amber-400 shrink-0" />
                 <a 
-                  href={`https://wa.me/91${businessData.whatsapp[0]}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-emerald-300 text-emerald-400 font-semibold transition"
+                    href={`https://wa.me/91${businessData.whatsapp[0]}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-amber-300 text-amber-400 font-semibold transition"
                 >
                   WhatsApp: +91 {businessData.whatsapp[0]}
                 </a>
@@ -332,7 +332,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 <button
                   type="button"
                   onClick={() => scrollTo("#contact")}
-                  className="hover:text-emerald-400 transition cursor-pointer"
+                  className="hover:text-amber-400 transition cursor-pointer"
                 >
                   {district}
                 </button>
@@ -357,7 +357,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
             <span>•</span>
             <button
               onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1 text-slate-400 hover:text-emerald-400 transition cursor-pointer"
+              className="inline-flex items-center gap-1 text-slate-400 hover:text-amber-400 transition cursor-pointer"
             >
               <Lock className="w-3 h-3" />
               <span>Admin Login • एडमिन</span>

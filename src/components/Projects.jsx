@@ -28,12 +28,12 @@ function Projects() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+            <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
             2,200+ Successful Installations Across UP
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Completed Projects & <span className="text-emerald-700">Real Site Gallery</span>
+            Completed Projects & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Real Site Gallery</span>
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
             Take a look at actual solar rooftop installations, commercial setups, and solar flour mills engineered by Er. Satya Prakash Satyarthi across Gorakhpur, Deoria, Kushinagar, and Uttar Pradesh.
@@ -49,7 +49,7 @@ function Projects() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap desktop-button-hover ${
                 activeCategory === cat
-                  ? "bg-slate-900 text-amber-400 shadow-md"
+                  ? "bg-[#0a1e3b] text-amber-400 shadow-md"
                   : "bg-slate-100 text-slate-700 hover:bg-slate-200"
               }`}
             >
@@ -95,7 +95,7 @@ function Projects() {
                       <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                       {project.location}
                     </span>
-                    <span className="text-[11px] text-emerald-300 font-semibold">
+                    <span className="text-[11px] text-sky-300 font-semibold">
                       {project.client}
                     </span>
                   </div>
@@ -103,7 +103,7 @@ function Projects() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition">
                     {project.title}
                   </h3>
 
@@ -112,15 +112,15 @@ function Projects() {
                   </p>
 
                   {/* Savings & Specs Pill */}
-                  <div className="mt-5 p-3.5 bg-emerald-50/70 rounded-2xl border border-emerald-100 space-y-2">
+                  <div className="mt-5 p-3.5 bg-blue-50/70 rounded-2xl border border-blue-100 space-y-2">
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-600 flex items-center gap-1">
-                        <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                        <TrendingUp className="w-3.5 h-3.5 text-blue-700" />
                         Monthly Savings:
                       </span>
-                      <strong className="text-emerald-700 font-bold">{project.monthlySavings}</strong>
+                      <strong className="text-blue-950 font-bold">{project.monthlySavings}</strong>
                     </div>
-                    <div className="flex justify-between items-center text-xs pt-1 border-t border-emerald-100">
+                    <div className="flex justify-between items-center text-xs pt-1 border-t border-blue-100">
                       <span className="text-slate-600">Annual Return:</span>
                       <strong className="text-slate-900 font-semibold">{project.annualSavings}</strong>
                     </div>
@@ -129,7 +129,7 @@ function Projects() {
                   <div className="mt-4 space-y-1.5 text-xs text-slate-500">
                     <p><strong>Panels:</strong> {project.panels}</p>
                     <p><strong>Inverter:</strong> {project.inverter}</p>
-                    <p><strong>Subsidy:</strong> <span className="text-emerald-700 font-semibold">{project.subsidyReceived}</span></p>
+                    <p><strong>Subsidy:</strong> <span className="text-blue-950 font-semibold">{project.subsidyReceived}</span></p>
                   </div>
                 </div>
               </div>
@@ -139,7 +139,7 @@ function Projects() {
                 <button
                   type="button"
                   onClick={() => setSelectedProject(project)}
-                  className="w-full py-2.5 bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2.5 bg-slate-100 hover:bg-[#0a1e3b] hover:text-white text-slate-800 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>View Project Details</span>
@@ -180,7 +180,7 @@ function Projects() {
 
             <div className="p-6 space-y-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-700">
                   {selectedProject.category} • {selectedProject.location}
                 </span>
                 <h3 className="text-2xl font-black text-slate-900 mt-1">
@@ -198,7 +198,7 @@ function Projects() {
               <div className="grid grid-cols-2 gap-3 text-xs bg-slate-50 p-4 rounded-2xl border border-slate-100">
                 <div>
                   <span className="text-slate-400 block text-[10px]">Monthly Electricity Saved:</span>
-                  <strong className="text-emerald-700 text-sm">{selectedProject.monthlySavings}</strong>
+                  <strong className="text-blue-950 text-sm">{selectedProject.monthlySavings}</strong>
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[10px]">Annual Financial Benefit:</span>
@@ -222,7 +222,7 @@ function Projects() {
                     }
                     setSelectedProject(null);
                   }}
-                  className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5"
+                  className="flex-1 bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5"
                 >
                   <span>Request Similar Installation</span>
                   <ArrowRight className="w-3.5 h-3.5" />

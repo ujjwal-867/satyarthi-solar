@@ -185,7 +185,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
     <section id="districts-coverage" className="py-20 bg-slate-50 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Soft Ambient Background */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -197,8 +197,8 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto space-y-3"
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <MapPin className="w-4 h-4 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <MapPin className="w-4 h-4 text-blue-700" />
             <span>All Uttar Pradesh Coverage • सम्पूर्ण उत्तर प्रदेश में सेवाएं</span>
           </div>
 
@@ -224,7 +224,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
         <div className="mt-12">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-emerald-600" />
+              <Sparkles className="w-5 h-5 text-amber-500" />
               <h3 className="text-lg sm:text-xl font-bold text-slate-900">
                 Primary Purvanchal Installation Hubs • प्रमुख क्षेत्रीय केंद्र
               </h3>
@@ -247,7 +247,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                   onClick={() => setActiveDistrictId(hub.id)}
                   className={`relative p-5 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden group desktop-gallery-card-hover ${
                     isSelected
-                      ? "bg-white border-blue-600 shadow-xl shadow-blue-600/10"
+                      ? "bg-white border-[#0a1e3b] shadow-xl shadow-blue-950/10"
                       : "bg-white/90 border-slate-200"
                   }`}
                 >
@@ -255,7 +255,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                   <div className="desktop-shine-sweep" />
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
                         {hub.installs}
                       </span>
                       <InteractiveZapBurstButton initialCount={140 + idx * 23} label="Verified" />
@@ -298,7 +298,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                         e.stopPropagation();
                         handleDistrictAction(hub.name.split(" ")[0]);
                       }}
-                      className="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1 cursor-pointer shadow-xs"
+                      className="flex-1 py-2 bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1 cursor-pointer shadow-xs"
                     >
                       <span>Book Survey</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -309,10 +309,10 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                         e.stopPropagation();
                         handleWhatsAppDistrict(hub.name.split(" ")[0]);
                       }}
-                      className="p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition cursor-pointer shadow-xs"
+                      className="p-2 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl transition cursor-pointer shadow-xs"
                       aria-label="WhatsApp Inquiry"
                     >
-                      <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                      <MessageCircle className="w-3.5 h-3.5 fill-slate-950" />
                     </button>
                   </div>
                 </motion.div>
@@ -339,7 +339,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                   <div className="grid lg:grid-cols-12 gap-6 items-center">
                     <div className="lg:col-span-8 space-y-3">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-3 py-1 rounded-full font-bold">
+                        <span className="text-xs bg-blue-500/20 text-sky-300 border border-blue-500/40 px-3 py-1 rounded-full font-bold">
                           ⚡ {currentHub.installs} • {currentHub.capacity}
                         </span>
                         <span className="text-xs bg-blue-500/20 text-blue-300 border border-blue-500/40 px-3 py-1 rounded-full font-bold">
@@ -390,9 +390,9 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                         <button
                           type="button"
                           onClick={() => handleWhatsAppDistrict(currentHub.name.split(" ")[0])}
-                          className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-emerald-600/20"
+                          className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-amber-500/20"
                         >
-                          <MessageCircle className="w-4 h-4 fill-white" />
+                          <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950" />
                           <span>WhatsApp Quote for {currentHub.name.split(" ")[0]}</span>
                         </button>
                       </div>
@@ -467,10 +467,10 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5 cursor-pointer ${
                   d.hub
                     ? "bg-blue-50 text-blue-900 border-blue-200 hover:bg-blue-100"
-                    : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-900"
+                    : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-900"
                 }`}
               >
-                <MapPin className={`w-3 h-3 ${d.hub ? "text-blue-600" : "text-emerald-600"}`} />
+                <MapPin className={`w-3 h-3 ${d.hub ? "text-blue-600" : "text-amber-500"}`} />
                 <span>{d.name}</span>
                 <span className="text-[10px] opacity-75 font-hindi">({d.hi})</span>
                 {d.hub && (
@@ -485,7 +485,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
           {/* Bottom Trust Guarantee Strip */}
           <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs text-slate-600 gap-3">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <ShieldCheck className="w-4 h-4 text-blue-700" />
               <span><strong>Government Empanelled Vendor:</strong> Vendor Code GKP2604066741 active across all UP Discoms.</span>
             </div>
             <div className="flex items-center gap-3">

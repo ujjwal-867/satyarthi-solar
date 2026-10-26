@@ -177,7 +177,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   return (
     <section ref={sectionRef} id="ar-vr-solar" className="py-12 sm:py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
       {/* Ambient Motion Graphics Background Glows */}
-      <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -185,12 +185,12 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
         {/* Top Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 sm:pb-8 border-b border-slate-800/90">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-1.5 bg-blue-500/15 border border-blue-400/40 text-sky-300 px-3 py-1 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin shrink-0" style={{ animationDuration: "6s" }} />
               <span className="truncate">Interactive 3D AR / VR • लाइव 3D विजुअलाइज़र</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-              Experience Your Rooftop in <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">3D VR & Augmented Reality</span>
+              Experience Your Rooftop in <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-200 to-amber-300">3D VR & Augmented Reality</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 font-hindi">
               अपनी छत पर सूरज की दिशा (6 AM – 6 PM), 3D एलिवेटेड परगोला स्ट्रक्चर और लाइव बिजली उत्पादन का इंटरैक्टिव अनुभव करें
@@ -204,7 +204,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
               onClick={() => setViewMode("vr3d")}
               className={`inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-black transition cursor-pointer border ${
                 viewMode === "vr3d"
-                  ? "bg-emerald-500 text-slate-950 border-emerald-400 shadow-lg shadow-emerald-500/25"
+                  ? "bg-amber-400 text-slate-950 border-amber-300 shadow-lg shadow-amber-500/25"
                   : "bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500"
               }`}
             >
@@ -319,13 +319,13 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             {/* Top HUD Bar: Always Single-Line on Mobile & Desktop */}
             <div className="relative z-30 flex items-center justify-between gap-1.5">
               <div className="flex items-center gap-1.5 bg-slate-950/85 backdrop-blur-md border border-white/15 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[10px] sm:text-xs min-w-0">
-                <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 animate-pulse shrink-0" />
+                <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 animate-pulse shrink-0" />
                 <span className="font-mono text-[10px] sm:text-[11px] text-slate-200 truncate">
                   <span className="sm:hidden">
-                    <strong className="text-emerald-300">26.76°N (GKP)</strong> • <strong className="text-amber-300">26°S TILT</strong>
+                    <strong className="text-sky-300">26.76°N (GKP)</strong> • <strong className="text-amber-300">26°S TILT</strong>
                   </span>
                   <span className="hidden sm:inline">
-                    LAT: <strong className="text-emerald-300">26.76°N (GKP)</strong> • TILT: <strong className="text-amber-300">26° SOUTH</strong>
+                    LAT: <strong className="text-sky-300">26.76°N (GKP)</strong> • TILT: <strong className="text-amber-300">26° SOUTH</strong>
                   </span>
                 </span>
               </div>
@@ -342,7 +342,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   </button>
                 )}
 
-                <span className="bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[10px] sm:text-[11px] font-black px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl font-mono whitespace-nowrap">
+                <span className="bg-amber-400/20 border border-amber-400/40 text-amber-300 text-[10px] sm:text-[11px] font-black px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl font-mono whitespace-nowrap">
                   ⚡ {liveKw} kW LIVE
                 </span>
               </div>
@@ -359,7 +359,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                 }}
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
                 style={{ transformStyle: "preserve-3d" }}
-                className="relative w-full max-w-[305px] sm:max-w-[390px] h-48 sm:h-60 rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/95 shadow-[0_25px_60px_rgba(0,0,0,0.75)] p-3 sm:p-4 flex flex-col justify-between"
+                className="relative w-full max-w-[305px] sm:max-w-[390px] h-48 sm:h-60 rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-[#0a1e3b]/90 via-slate-900/95 to-[#0a1e3b]/90 shadow-[0_25px_60px_rgba(0,0,0,0.75)] p-3 sm:p-4 flex flex-col justify-between"
               >
                 {/* Elevated Hot-Dip GI Pergola Pillars */}
                 <div className="absolute -bottom-5 left-4 w-2.5 h-6 sm:h-8 bg-gradient-to-b from-slate-300 to-slate-500 rounded-b border border-white/30" />
@@ -368,7 +368,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                 {/* Top Structure Label (Single-line on Mobile & Desktop) */}
                 <div className="flex items-center justify-between gap-2 text-[9.5px] sm:text-[10px] font-mono text-sky-300 border-b border-white/10 pb-1.5 whitespace-nowrap">
                   <span className="truncate">{selectedPreset.structure}</span>
-                  <span className="text-emerald-400 font-bold shrink-0">{selectedPreset.panels}× TOPCon Bifacial</span>
+                  <span className="text-amber-400 font-bold shrink-0">{selectedPreset.panels}× TOPCon Bifacial</span>
                 </div>
 
                 {/* 3D Solar PV Cell Matrix Grid */}
@@ -423,13 +423,13 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                       <motion.div
                         animate={{ x: ["-100%", "100%"] }}
                         transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
-                        className="w-1/2 h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-sky-400 rounded-full"
+                        className="w-1/2 h-full bg-gradient-to-r from-amber-400 via-sky-400 to-blue-500 rounded-full"
                       />
                     ) : (
-                      <div className="w-full h-full bg-emerald-500 rounded-full" />
+                      <div className="w-full h-full bg-blue-500 rounded-full" />
                     )}
                   </div>
-                  <span className="text-emerald-400 flex items-center gap-1 shrink-0">
+                  <span className="text-amber-400 flex items-center gap-1 shrink-0">
                     <Zap className="w-3 h-3" /> Net-Meter
                   </span>
                 </div>
@@ -452,7 +452,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   <span>{autoSun ? "Auto Sun Orbit" : "Manual Sun"}</span>
                 </button>
 
-                <span className="sm:hidden text-[11px] text-emerald-300 font-mono font-bold bg-emerald-500/15 border border-emerald-400/30 px-2.5 py-1 rounded-lg">
+                <span className="sm:hidden text-[11px] text-amber-300 font-mono font-bold bg-amber-500/15 border border-amber-400/30 px-2.5 py-1 rounded-lg">
                   Irradiance: {efficiencyPct}%
                 </span>
               </div>
@@ -475,7 +475,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                 <span className="text-[10px] sm:text-[11px] font-mono text-slate-300 shrink-0">6 PM</span>
               </div>
 
-              <span className="hidden sm:inline-block text-[11px] text-emerald-300 font-mono font-bold shrink-0">
+              <span className="hidden sm:inline-block text-[11px] text-amber-300 font-mono font-bold shrink-0">
                 Irradiance: {efficiencyPct}%
               </span>
             </div>
@@ -495,7 +495,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             {/* System Capacity Selector */}
             <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black uppercase tracking-wider text-emerald-400">
+                <span className="text-xs font-black uppercase tracking-wider text-amber-400">
                   1. Select 3D Plant Size • क्षमता चुनें
                 </span>
                 <Sliders className="w-4 h-4 text-slate-400" />
@@ -511,13 +511,13 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                     onClick={() => setSelectedPreset(preset)}
                     className={`w-full text-left p-3 rounded-2xl border transition cursor-pointer flex items-center justify-between ${
                       selectedPreset.id === preset.id
-                        ? "bg-gradient-to-r from-emerald-500/20 to-teal-500/10 border-emerald-400 text-white shadow-lg"
+                        ? "bg-gradient-to-r from-blue-600/30 to-[#0a1e3b]/80 border-blue-400 text-white shadow-lg"
                         : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700"
                     }`}
                   >
                     <div>
                       <div className="text-xs sm:text-sm font-black">{preset.name}</div>
-                      <div className="text-[11px] text-emerald-400 font-hindi">{preset.hi}</div>
+                      <div className="text-[11px] text-sky-300 font-hindi">{preset.hi}</div>
                     </div>
                     <span className="text-xs font-mono font-black bg-white/10 px-2.5 py-1 rounded-lg text-amber-300">
                       {preset.panels} Panels
@@ -528,13 +528,13 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             </div>
 
             {/* Live Telemetry Output Bento Card */}
-            <div className="bg-gradient-to-br from-slate-900 via-blue-950/60 to-emerald-950/50 border border-emerald-500/30 rounded-3xl p-5 space-y-4 flex-1 flex flex-col justify-between">
+            <div className="bg-gradient-to-br from-[#0a1e3b] via-blue-950/90 to-slate-900 border border-blue-500/30 rounded-3xl p-5 space-y-4 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <span className="text-xs font-black uppercase tracking-wider text-sky-300">
                     2. Live Simulation Telemetry
                   </span>
-                  <span className="text-[10px] bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded-full">
                     2500+ Clients Verified
                   </span>
                 </div>
@@ -548,7 +548,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   </div>
                   <div className="bg-slate-950/70 p-3 rounded-2xl border border-white/10">
                     <span className="text-[10px] text-slate-400 block">Daily Generation</span>
-                    <strong className="text-lg sm:text-xl font-black text-emerald-400 font-mono">
+                    <strong className="text-lg sm:text-xl font-black text-amber-400 font-mono">
                       ~{selectedPreset.dailyUnits} Units
                     </strong>
                   </div>
@@ -560,7 +560,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   </div>
                   <div className="bg-slate-950/70 p-3 rounded-2xl border border-white/10">
                     <span className="text-[10px] text-slate-400 block">Monthly Bill Saved</span>
-                    <strong className="text-base sm:text-lg font-black text-emerald-300 font-mono">
+                    <strong className="text-base sm:text-lg font-black text-sky-300 font-mono">
                       {selectedPreset.monthlySavings}
                     </strong>
                   </div>
@@ -588,7 +588,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
                   onClick={() => {
                     if (onNavigate) onNavigate("/#contact");
                   }}
-                  className="w-full py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm transition cursor-pointer shadow-lg flex items-center justify-center gap-2"
+                  className="w-full py-3 px-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs sm:text-sm transition cursor-pointer shadow-lg flex items-center justify-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Book Free 3D Roof Survey • सर्वे बुक करें</span>

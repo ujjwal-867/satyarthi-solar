@@ -57,7 +57,7 @@ export function LocationMap() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Visit Our Store & <span className="text-emerald-600">Live Map Location</span>
+            Visit Our Store & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Live Map Location</span>
             <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
               मोतीराम अड्डा गोरखपुर शोरूम एवं लाइव गूगल मैप लोकेशन
             </span>
@@ -85,8 +85,8 @@ export function LocationMap() {
             {/* Map Top Status Bar */}
             <div className="bg-slate-900 text-white px-5 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <strong className="text-emerald-300 font-bold">Store Open Today • खुला है:</strong>
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                <strong className="text-amber-300 font-bold">Store Open Today • खुला है:</strong>
                 <span className="text-slate-200">9:00 AM – 7:30 PM (7 Days)</span>
               </div>
               <a
@@ -124,7 +124,7 @@ export function LocationMap() {
                   सत्यार्थी सोलर सॉल्यूशन — मोतीराम अड्डा, देवरिया रोड
                 </p>
                 <div className="pt-1 flex items-center justify-between">
-                  <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                  <span className="text-[10px] text-blue-900 font-bold bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200">
                     UPNEDA Approved Vendor
                   </span>
                   <a
@@ -172,7 +172,7 @@ export function LocationMap() {
             {/* Primary Address & Verification Card */}
             <div className="bg-slate-50/70 rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-100 px-3 py-1 rounded-full">
                   Verified Headquarters • मुख्य केंद्र
                 </span>
                 <span className="text-xs text-slate-500 font-mono">
@@ -184,7 +184,7 @@ export function LocationMap() {
                 <h3 className="text-xl font-black text-slate-900">
                   Satyarthi Solar Solution
                 </h3>
-                <p className="text-xs text-emerald-700 font-bold font-hindi mt-0.5">
+                <p className="text-xs text-blue-800 font-bold font-hindi mt-0.5">
                   सत्यार्थी सोलर सॉल्यूशन (सौर ऊर्जा एवं आधुनिक इलेक्ट्रॉनिक्स)
                 </p>
                 <p className="text-sm text-slate-700 font-medium mt-2 leading-relaxed">
@@ -206,20 +206,20 @@ export function LocationMap() {
 
               {/* Direct Calling Buttons */}
               <div className="space-y-2 pt-1">
-                <div className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 flex items-center justify-between">
+                <div className="text-[11px] font-bold text-blue-900 bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-200 flex items-center justify-between">
                   <span>📞 Dedicated Business Lines • समर्पित संपर्क:</span>
-                  <span className="font-black text-emerald-900 bg-emerald-200/60 px-2 py-0.5 rounded">24×7 Available</span>
+                  <span className="font-black text-amber-950 bg-amber-300 px-2 py-0.5 rounded">24×7 Available</span>
                 </div>
 
                 <a
                   href={`tel:${businessData.phone[0]}`}
-                  className="w-full bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-between transition shadow-md"
+                  className="w-full bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-between transition shadow-md"
                 >
                   <span className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-emerald-400" />
+                    <Phone className="w-4 h-4 text-sky-400" />
                     <span>Call Er. Satya Prakash (24×7):</span>
                   </span>
-                  <span className="font-mono text-emerald-300 font-bold">+91 {businessData.phone[0]}</span>
+                  <span className="font-mono text-amber-300 font-bold">+91 {businessData.phone[0]}</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-2">
@@ -266,13 +266,13 @@ export function LocationMap() {
             </div>
 
             {/* District Service Coverage */}
-            <div className="bg-gradient-to-br from-blue-900 to-emerald-950 text-white rounded-3xl p-6 shadow-md space-y-3">
+            <div className="bg-gradient-to-br from-[#0a1e3b] via-blue-950 to-slate-900 text-white rounded-3xl p-6 shadow-md space-y-3">
               <div className="flex items-center justify-between">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-amber-400" />
                   <span>Free Site Survey Coverage • निःशुल्क रूफ सर्वे क्षेत्र</span>
                 </h4>
-                <span className="text-[11px] bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full font-bold">
+                <span className="text-[11px] bg-amber-400/20 text-amber-300 px-2.5 py-0.5 rounded-full font-bold">
                   100 km Radius
                 </span>
               </div>
@@ -294,7 +294,7 @@ export function LocationMap() {
                 <span className="text-xs text-slate-300">Need an engineer visit? • इंजीनियर विजिट चाहिए?</span>
                 <a
                   href="#contact"
-                  className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black py-2 px-3.5 rounded-xl transition inline-flex items-center gap-1 shadow-sm"
+                  className="bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-black py-2 px-3.5 rounded-xl transition inline-flex items-center gap-1 shadow-sm"
                 >
                   <span>Book Free Survey • सर्वे बुक करें</span>
                 </a>

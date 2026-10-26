@@ -22,11 +22,11 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
                 <span className="text-sm sm:text-base font-black text-white">
                   Solar Savings & Subsidy Calculator
                 </span>
-                <span className="text-[10px] bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded-full uppercase">
+                <span className="text-[10px] bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded-full uppercase">
                   UPNEDA 2026
                 </span>
               </div>
-              <p className="text-[11px] text-emerald-300 font-hindi font-medium">
+              <p className="text-[11px] text-amber-300 font-hindi font-medium">
                 सोलर क्षमता, पीएम सूर्य घर सब्सिडी व मासिक बचत की तुरंत गणना करें
               </p>
             </div>

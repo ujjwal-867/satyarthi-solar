@@ -62,8 +62,8 @@ function Stats() {
       desc: "Purvanchal & Gorakhpur",
       icon: Users,
       likes: 312,
-      accent: "bg-emerald-50/60 border-emerald-200/80 hover:border-emerald-400",
-      iconStyle: "bg-emerald-600 text-white"
+      accent: "bg-blue-50/70 border-blue-200/80 hover:border-blue-400",
+      iconStyle: "bg-[#0a1e3b] text-amber-400"
     },
     { 
       value: "2,200+", 
@@ -73,7 +73,7 @@ function Stats() {
       desc: "Rooftops Across UP",
       icon: Sun,
       likes: 184,
-      accent: "bg-amber-50/60 border-amber-200/80 hover:border-amber-400",
+      accent: "bg-amber-50/70 border-amber-200/80 hover:border-amber-400",
       iconStyle: "bg-amber-500 text-slate-950"
     },
     { 
@@ -84,8 +84,8 @@ function Stats() {
       desc: "Trusted Solar Engineering",
       icon: Award,
       likes: 146,
-      accent: "bg-sky-50/60 border-sky-200/80 hover:border-sky-400",
-      iconStyle: "bg-sky-600 text-white"
+      accent: "bg-sky-50/70 border-sky-200/80 hover:border-sky-400",
+      iconStyle: "bg-blue-600 text-white"
     },
     { 
       value: "100%", 
@@ -95,8 +95,8 @@ function Stats() {
       desc: "Code: GKP2604066741",
       icon: ShieldCheck,
       likes: 215,
-      accent: "bg-teal-50/60 border-teal-200/80 hover:border-teal-400",
-      iconStyle: "bg-teal-600 text-white"
+      accent: "bg-blue-50/70 border-blue-200/80 hover:border-blue-400",
+      iconStyle: "bg-[#0a1e3b] text-white"
     },
     { 
       value: "25", 
@@ -106,8 +106,8 @@ function Stats() {
       desc: "Tier-1 Performance",
       icon: Star,
       likes: 198,
-      accent: "bg-indigo-50/60 border-indigo-200/80 hover:border-indigo-400",
-      iconStyle: "bg-indigo-600 text-white"
+      accent: "bg-amber-50/70 border-amber-200/80 hover:border-amber-400",
+      iconStyle: "bg-amber-500 text-slate-950"
     },
     { 
       value: "₹1.08L", 
@@ -117,8 +117,8 @@ function Stats() {
       desc: "Direct Bank DBT",
       icon: Zap,
       likes: 276,
-      accent: "bg-emerald-50/60 border-emerald-200/80 hover:border-emerald-400",
-      iconStyle: "bg-slate-800 text-amber-400"
+      accent: "bg-blue-50/70 border-blue-200/80 hover:border-blue-400",
+      iconStyle: "bg-[#0a1e3b] text-amber-400"
     },
   ];
 
@@ -151,10 +151,10 @@ function Stats() {
 
                 <div className="space-y-0.5 relative z-10">
                   <div className="flex items-baseline gap-1 flex-wrap">
-                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
+                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-blue-900 transition-colors">
                       <AnimatedNumber targetText={stat.value} />
                     </span>
-                    <span className="text-[10px] font-extrabold text-teal-700">
+                    <span className="text-[10px] font-extrabold text-blue-700">
                       {stat.suffix}
                     </span>
                   </div>
@@ -163,7 +163,7 @@ function Stats() {
                     <h4 className="text-xs font-bold text-slate-800 leading-tight">
                       {stat.en}
                     </h4>
-                    <p className="text-[11px] font-semibold text-emerald-700 leading-tight font-hindi">
+                    <p className="text-[11px] font-semibold text-blue-800 leading-tight font-hindi">
                       {stat.hi}
                     </p>
                   </div>

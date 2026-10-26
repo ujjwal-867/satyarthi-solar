@@ -31,7 +31,7 @@ const FESTIVE_TIERS = [
     reward: "Special Appliance Gift + Free Earthing Kit + Govt Subsidy",
     rewardHi: "होम अप्लायंस गिफ्ट + मुफ्त अर्थिंग किट + सरकारी सब्सिडी",
     badge: "Popular Family Slab",
-    accent: "from-emerald-500/20 to-teal-500/10 border-emerald-400/50 text-emerald-300"
+    accent: "from-blue-500/20 to-sky-500/10 border-blue-400/50 text-sky-200"
   },
   {
     amount: "₹1,90,000+ Purchase",
@@ -48,7 +48,7 @@ const SPARKLE_PARTICLES = [
   { id: 1, top: "8%", left: "12%", delay: 0, size: "w-2 h-2", color: "bg-amber-300" },
   { id: 2, top: "16%", left: "86%", delay: 0.4, size: "w-2.5 h-2.5", color: "bg-yellow-200" },
   { id: 3, top: "38%", left: "6%", delay: 0.8, size: "w-1.5 h-1.5", color: "bg-orange-400" },
-  { id: 4, top: "52%", left: "92%", delay: 0.2, size: "w-2 h-2", color: "bg-emerald-300" },
+  { id: 4, top: "52%", left: "92%", delay: 0.2, size: "w-2 h-2", color: "bg-sky-300" },
   { id: 5, top: "78%", left: "10%", delay: 0.6, size: "w-2 h-2", color: "bg-amber-400" },
   { id: 6, top: "84%", left: "88%", delay: 1.0, size: "w-1.5 h-1.5", color: "bg-yellow-300" },
 ];
@@ -154,7 +154,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
               style={{ transform: "translateZ(0)" }}
             >
               {/* Top Festive Garland Ribbon */}
-              <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-orange-500 via-rose-500 to-emerald-400 shrink-0" />
+              <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-blue-500 to-amber-400 shrink-0" />
 
               {/* Floating Sparkle Particles & Ambient Aura (Both Mobile & PC) */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -222,7 +222,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                       <Tag className="w-3 h-3 text-amber-400" />
                       <span>Purchase Amount Slabs • खरीद राशि स्लैब</span>
                     </span>
-                    <span className="text-emerald-300">100% Guaranteed</span>
+                    <span className="text-amber-300">100% Guaranteed</span>
                   </div>
 
                   {FESTIVE_TIERS.map((tier, idx) => (
@@ -248,7 +248,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                         <Gift className="w-3.5 h-3.5 text-amber-300 shrink-0 mt-0.5" />
                         <span>{tier.reward}</span>
                       </p>
-                      <p className="text-[11px] font-bold text-emerald-200 pl-5 font-hindi leading-tight">
+                      <p className="text-[11px] font-bold text-sky-200 pl-5 font-hindi leading-tight">
                         ✨ {tier.rewardHi}
                       </p>
                     </div>
@@ -267,8 +267,8 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                     </div>
                   ) : (
                     <div className="space-y-0.5">
-                      <div className="inline-flex items-center gap-1.5 text-xs font-black text-emerald-300">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <div className="inline-flex items-center gap-1.5 text-xs font-black text-amber-300">
+                        <CheckCircle2 className="w-4 h-4 text-amber-400" />
                         <span>FESTIVE CODE UNLOCKED:</span>
                         <span className="bg-amber-400 text-slate-950 px-2 py-0.5 rounded font-mono font-black">
                           UTSAV2026
@@ -295,9 +295,9 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                   <div className="grid grid-cols-2 gap-2">
                     <a
                       href={`tel:${businessData.phone[0]}`}
-                      className="py-2.5 px-3 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/40 active:scale-[0.98] border border-emerald-400/40 text-emerald-200 font-bold text-xs flex items-center justify-center gap-1.5 transition text-center"
+                      className="py-2.5 px-3 rounded-xl bg-blue-600/30 hover:bg-blue-600/40 active:scale-[0.98] border border-blue-400/40 text-sky-200 font-bold text-xs flex items-center justify-center gap-1.5 transition text-center"
                     >
-                      <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <PhoneCall className="w-3.5 h-3.5 text-sky-300 shrink-0" />
                       <span className="truncate">Call: {businessData.phone[0]}</span>
                     </a>
 

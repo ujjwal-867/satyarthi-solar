@@ -107,12 +107,12 @@ export function SolarImageSlider() {
 
   return (
     <div 
-      className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/30 bg-slate-900 group select-none"
+      className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-blue-500/30 bg-slate-900 group select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Ambient Lighting Glow Behind Image */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-emerald-500/20 to-teal-500/20 rounded-3xl blur-xl pointer-events-none"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-blue-600/20 to-sky-500/20 rounded-3xl blur-xl pointer-events-none"></div>
 
       {/* Main Image Slides with Cross-Fade Transition */}
       <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
@@ -136,7 +136,7 @@ export function SolarImageSlider() {
                 />
               ) : (
                 <div className="w-full h-full bg-slate-950 flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-full border-2 border-emerald-400/30 border-t-emerald-400 animate-spin" />
+                  <div className="w-8 h-8 rounded-full border-2 border-blue-400/30 border-t-blue-400 animate-spin" />
                 </div>
               )}
 
@@ -150,11 +150,11 @@ export function SolarImageSlider() {
         {/* Top Floating Badges */}
         <div className="absolute top-3.5 left-3.5 right-3.5 z-20 flex items-center justify-between pointer-events-none">
           <div className="flex items-center gap-2 bg-slate-950/80 backdrop-blur-md border border-amber-400/40 px-3 py-1 rounded-full text-xs font-bold text-amber-300 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
             <span>{slides[currentSlide].capacity}</span>
           </div>
 
-          <div className="flex items-center gap-1.5 bg-emerald-950/80 backdrop-blur-md border border-emerald-500/40 px-3 py-1 rounded-full text-xs font-semibold text-emerald-300 shadow-lg">
+          <div className="flex items-center gap-1.5 bg-[#0a1e3b]/90 backdrop-blur-md border border-blue-400/40 px-3 py-1 rounded-full text-xs font-semibold text-sky-300 shadow-lg">
             <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
             <span>{slides[currentSlide].subsidy}</span>
           </div>
@@ -177,7 +177,7 @@ export function SolarImageSlider() {
             </p>
 
             <div className="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px] text-slate-400">
-              <span className="flex items-center gap-1 text-emerald-400 font-medium">
+              <span className="flex items-center gap-1 text-sky-300 font-medium">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 {slides[currentSlide].location}
               </span>
@@ -192,7 +192,7 @@ export function SolarImageSlider() {
         <button
           onClick={goToPrev}
           aria-label="Previous Solar Slide"
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-slate-950/70 hover:bg-emerald-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 border border-white/20 shadow-lg cursor-pointer"
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-slate-950/70 hover:bg-[#0a1e3b] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 border border-white/20 shadow-lg cursor-pointer"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -200,7 +200,7 @@ export function SolarImageSlider() {
         <button
           onClick={goToNext}
           aria-label="Next Solar Slide"
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-slate-950/70 hover:bg-emerald-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 border border-white/20 shadow-lg cursor-pointer"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-slate-950/70 hover:bg-[#0a1e3b] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 border border-white/20 shadow-lg cursor-pointer"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -215,7 +215,7 @@ export function SolarImageSlider() {
               onClick={() => setCurrentSlide(idx)}
               className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                 idx === currentSlide 
-                  ? "w-8 bg-gradient-to-r from-amber-400 to-emerald-400" 
+                  ? "w-8 bg-gradient-to-r from-blue-600 to-amber-400" 
                   : "w-2 bg-slate-700 hover:bg-slate-500"
               }`}
               title={`Slide ${idx + 1}`}

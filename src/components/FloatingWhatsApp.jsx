@@ -31,12 +31,12 @@ function FloatingWhatsApp({ onOpenFestiveOffer }) {
           href={whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="group relative flex items-center justify-center w-13 h-13 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
+          className="group relative flex items-center justify-center w-13 h-13 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
           aria-label="Chat on WhatsApp"
           title="WhatsApp 24×7"
         >
           <MessageCircle className="w-7 h-7 fill-white" />
-          <span className="absolute left-15 bg-emerald-950 text-emerald-200 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
+          <span className="absolute left-15 bg-[#0a1e3b] text-amber-300 border border-amber-400/40 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
             WhatsApp 24×7 Live
           </span>
         </a>
@@ -96,10 +96,10 @@ function FloatingWhatsApp({ onOpenFestiveOffer }) {
           href={whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-emerald-300 active:scale-95 transition"
+          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 hover:text-amber-300 active:scale-95 transition"
           aria-label="WhatsApp 24x7"
         >
-          <span className="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-xs">
+          <span className="w-7 h-7 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs">
             <MessageCircle className="w-4 h-4 fill-white" />
           </span>
           <span className="text-[9.5px] font-black tracking-tight">WhatsApp</span>

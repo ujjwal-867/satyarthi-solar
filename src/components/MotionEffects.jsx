@@ -9,7 +9,7 @@ import { Zap, Users } from "lucide-react";
 export function ExpressiveKineticText({ 
   text, 
   highlightWords = [], 
-  highlightClass = "text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600",
+  highlightClass = "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500",
   className = ""
 }) {
   const words = text.split(" ");

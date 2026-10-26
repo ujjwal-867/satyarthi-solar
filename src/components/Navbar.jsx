@@ -146,10 +146,10 @@ function Navbar({
 
             <a 
               href={`tel:${businessData.phone[0]}`}
-              className="inline-flex items-center gap-1 hover:text-emerald-300 transition font-bold text-[11px] sm:text-xs"
+              className="inline-flex items-center gap-1 hover:text-amber-300 transition font-bold text-[11px] sm:text-xs"
               title="24x7 Helpline"
             >
-              <Phone className="w-3 h-3 text-emerald-400" />
+              <Phone className="w-3 h-3 text-sky-400" />
               <span>+91 {businessData.phone[0]}</span>
             </a>
 
@@ -168,7 +168,7 @@ function Navbar({
             <button
               onClick={onOpenAdmin}
               title="Admin CRM Login"
-              className="inline-flex items-center gap-1 text-teal-200 hover:text-white transition text-[11px] ml-0.5 cursor-pointer"
+              className="inline-flex items-center gap-1 text-sky-200 hover:text-white transition text-[11px] ml-0.5 cursor-pointer"
             >
               <Lock className="w-3 h-3" />
               <span className="hidden lg:inline">Admin</span>
@@ -273,7 +273,7 @@ function Navbar({
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 px-2.5 py-2 rounded-xl transition shadow-md shadow-emerald-700/20 cursor-pointer border border-emerald-500/30 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500 hover:from-blue-600 hover:to-amber-400 px-2.5 py-2 rounded-xl transition shadow-md shadow-blue-950/20 cursor-pointer border border-blue-400/40 whitespace-nowrap"
             >
               <FileText className="w-3.5 h-3.5 text-white shrink-0" />
               <span>Get Quote</span>
@@ -332,11 +332,11 @@ function Navbar({
                 onClick={() => handleNavClick({ route: item.route })}
                 className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-[11px] font-black transition cursor-pointer whitespace-nowrap ${
                   active
-                    ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-sm"
+                    ? "bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-sm"
                     : "bg-slate-800/90 text-slate-200 hover:bg-slate-700 border border-slate-700/80"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 shrink-0 ${active ? "text-slate-950" : "text-emerald-400"}`} />
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${active ? "text-slate-950" : "text-sky-400"}`} />
                 <span>{item.label}</span>
                 <span className={`text-[9.5px] font-hindi ${active ? "text-slate-900 font-extrabold" : "text-amber-300"}`}>
                   • {item.hi}
@@ -369,12 +369,12 @@ function Navbar({
                   onClick={() => handleNavClick(link)}
                   className={`text-left px-3 py-2.5 rounded-xl text-sm font-bold transition flex items-center justify-between ${
                     active
-                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                      : "text-slate-800 hover:bg-emerald-50 hover:text-emerald-700"
+                      ? "bg-blue-50 text-blue-900 border border-blue-200"
+                      : "text-slate-800 hover:bg-blue-50 hover:text-blue-900"
                   }`}
                 >
                   <span>{link.en}</span>
-                  <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+                  <span className="text-xs font-semibold text-blue-900 bg-blue-100/70 px-2 py-0.5 rounded-md">
                     {link.hi}
                   </span>
                 </button>
@@ -419,26 +419,26 @@ function Navbar({
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="w-full inline-flex justify-center items-center gap-2 bg-gradient-to-r from-emerald-600 to-blue-700 text-white font-black py-3 rounded-xl shadow-xs"
+              className="w-full inline-flex justify-center items-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-black py-3 rounded-xl shadow-xs transition"
             >
-              <FileText className="w-5 h-5" />
+              <FileText className="w-5 h-5 text-amber-400" />
               <span>Get Quote | मुफ्त कोटेशन प्राप्त करें</span>
             </button>
 
             <div className="grid grid-cols-2 gap-2">
               <a
                 href={`tel:${businessData.phone[0]}`}
-                className="w-full inline-flex justify-center items-center gap-1.5 border border-slate-300 text-slate-800 font-bold py-2.5 px-2 rounded-xl text-xs"
+                className="w-full inline-flex justify-center items-center gap-1.5 border border-slate-300 text-slate-800 font-bold py-2.5 px-2 rounded-xl text-xs hover:border-blue-500 transition"
               >
-                <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
+                <Phone className="w-4 h-4 text-blue-700 shrink-0" />
                 <span>24×7: {businessData.phone[0]}</span>
               </a>
 
               <a
                 href={`tel:${businessData.officeNumber}`}
-                className="w-full inline-flex justify-center items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold py-2.5 px-2 rounded-xl text-xs"
+                className="w-full inline-flex justify-center items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-900 font-bold py-2.5 px-2 rounded-xl text-xs hover:bg-blue-100 transition"
               >
-                <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
+                <Phone className="w-4 h-4 text-blue-700 shrink-0" />
                 <span>Office: {businessData.officeNumber}</span>
               </a>
             </div>

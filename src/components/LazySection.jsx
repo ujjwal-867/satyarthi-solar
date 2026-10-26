@@ -86,8 +86,8 @@ export default function LazySection({
           className="w-full flex flex-col items-center justify-center p-8 bg-slate-50/50"
           aria-hidden="true"
         >
-          <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 flex items-center justify-center animate-pulse">
-            <div className="w-4 h-4 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+          <div className="w-10 h-10 rounded-2xl bg-blue-600/10 flex items-center justify-center animate-pulse">
+            <div className="w-4 h-4 rounded-full border-2 border-blue-600 border-t-transparent animate-spin" />
           </div>
           <span className="text-xs font-semibold text-slate-400 mt-2.5">
             Loading section...

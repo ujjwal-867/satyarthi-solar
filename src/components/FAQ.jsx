@@ -61,7 +61,7 @@ function FAQ() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Frequently Asked <span className="text-emerald-600">Questions</span>
+            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Questions</span>
             <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
               सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
             </span>
@@ -99,7 +99,7 @@ function FAQ() {
                     <span className="font-bold text-sm sm:text-base text-slate-900 block">
                       {item.qEn}
                     </span>
-                    <span className="font-semibold text-xs sm:text-sm text-emerald-700 font-hindi block">
+                    <span className="font-semibold text-xs sm:text-sm text-blue-900 font-hindi block">
                       {item.qHi}
                     </span>
                   </div>
@@ -129,31 +129,31 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-emerald-50 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
+          className="mt-12 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/60 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
         >
           <div>
             <h4 className="font-bold text-base text-slate-900">
               Have a specific question about your roof or meter?
             </h4>
-            <p className="text-xs sm:text-sm text-emerald-800 font-semibold font-hindi mt-0.5">
+            <p className="text-xs sm:text-sm text-blue-900 font-semibold font-hindi mt-0.5">
               अपनी छत, बिजली बिल या सब्सिडी के बारे में इंजीनियर सत्यप्रकाश से सीधे बात करें।
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-2 shrink-0">
             <a
               href={`tel:${businessData.phone[0]}`}
-              className="bg-slate-900 hover:bg-blue-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition"
+              className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+              <PhoneCall className="w-3.5 h-3.5 text-sky-400" />
               <span>Call 24×7: +91 {businessData.phone[0]}</span>
             </a>
             <a
               href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I have a few questions regarding solar installation for my property in UP.")}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-xs"
+              className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-xs"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-white" />
+              <MessageCircle className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
               <span>Ask on WhatsApp</span>
             </a>
           </div>

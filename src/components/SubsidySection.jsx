@@ -66,41 +66,41 @@ function SubsidySection() {
         
         {/* Section Header (Simultaneous English + Hindi) */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 border border-emerald-300 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
             <span>Official Govt Subsidy Scheme 2026 • आधिकारिक सरकारी सब्सिडी योजना</span>
           </div>
           
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            PM Surya Ghar: <span className="text-emerald-700">Muft Bijli Yojana</span>
+            PM Surya Ghar: <span className="text-amber-500">Muft Bijli Yojana</span>
           </h2>
 
-          <h3 className="text-xl sm:text-2xl font-extrabold text-blue-800 tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1e3b] tracking-tight">
             पीएम सूर्य घर: मुफ्त बिजली योजना • सत्यार्थी सोलर सॉल्यूशन
           </h3>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Get up to <strong className="text-slate-900 font-bold">₹1,08,000 Total Subsidy</strong> (₹78,000 Central + ₹30,000 UP State) directly in your bank account. As an official UPNEDA empanelled vendor (Code: <strong className="text-emerald-700">{businessData.vendorCode}</strong>), <strong>Satyarthi Solar Solution</strong> handles 100% of the government paperwork for you.
+            Get up to <strong className="text-slate-900 font-bold">₹1,08,000 Total Subsidy</strong> (₹78,000 Central + ₹30,000 UP State) directly in your bank account. As an official UPNEDA empanelled vendor (Code: <strong className="text-blue-900">{businessData.vendorCode}</strong>), <strong>Satyarthi Solar Solution</strong> handles 100% of the government paperwork for you.
           </p>
 
           {/* Official Bank Loan & Transparent Net Payable Feature Box */}
-          <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 border-2 border-emerald-300 text-slate-800 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/50 border-2 border-blue-200 text-slate-800 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                <Banknote className="w-6 h-6 text-white" />
+              <div className="w-11 h-11 rounded-2xl bg-[#0a1e3b] text-amber-400 flex items-center justify-center shrink-0 shadow-xs">
+                <Banknote className="w-6 h-6 text-amber-400" />
               </div>
               <div className="space-y-0.5">
                 <p className="font-black text-sm sm:text-base text-slate-900 leading-snug">
                   🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी।
                 </p>
-                <p className="text-xs sm:text-sm font-extrabold text-emerald-800">
+                <p className="text-xs sm:text-sm font-extrabold text-blue-900">
                   ⚡ 6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Easy Solar Bank Loan)।
                 </p>
               </div>
             </div>
             <button
               onClick={() => scrollToContact("Loan & Subsidy Assistance")}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs px-5 py-2.5 rounded-xl transition shadow-xs shrink-0 cursor-pointer whitespace-nowrap flex items-center gap-1.5"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-5 py-2.5 rounded-xl transition shadow-xs shrink-0 cursor-pointer whitespace-nowrap flex items-center gap-1.5"
             >
               <span>लोन सहायता लें</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -115,9 +115,9 @@ function SubsidySection() {
               key={idx}
               className={`relative rounded-3xl p-5 flex flex-col justify-between overflow-hidden group desktop-gallery-card-hover ${
                 tier.bestValue
-                  ? "bg-gradient-to-b from-blue-900 via-slate-900 to-emerald-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-emerald-400"
+                  ? "bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-amber-400"
                   : tier.popular
-                  ? "bg-white text-slate-900 border-2 border-emerald-600 shadow-lg"
+                  ? "bg-white text-slate-900 border-2 border-blue-600 shadow-lg"
                   : "bg-white text-slate-900 border border-slate-200 shadow-xs"
               }`}
             >
@@ -125,7 +125,7 @@ function SubsidySection() {
               <div className="desktop-shine-sweep" />
               {/* Badges */}
               {tier.bestValue && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
                   ★ Best Value | सबसे लोकप्रिय
                 </div>
               )}
@@ -140,7 +140,7 @@ function SubsidySection() {
                 </div>
               )}
               {tier.commercialGrade && !tier.bestValue && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#0a1e3b] text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
                   Commercial | उच्च क्षमता
                 </div>
               )}
@@ -150,7 +150,7 @@ function SubsidySection() {
                   <h3 className={`text-xl font-black ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
                     {tier.capacity}
                   </h3>
-                  <span className={`text-[11px] font-bold ${tier.bestValue ? "text-emerald-300" : "text-emerald-700"}`}>
+                  <span className={`text-[11px] font-bold ${tier.bestValue ? "text-sky-300" : "text-blue-700"}`}>
                     {tier.capacityHi || "सोलर प्लांट"}
                   </span>
                 </div>
@@ -162,7 +162,7 @@ function SubsidySection() {
                       ? "bg-amber-400 text-slate-950 ring-1 ring-amber-300"
                       : tier.specialOffer || tier.commercialGrade
                       ? "bg-amber-50 text-amber-900 border border-amber-300"
-                      : "bg-emerald-50 text-emerald-800 border border-emerald-200"
+                      : "bg-blue-50 text-blue-900 border border-blue-200"
                   }`}>
                     <Zap className="w-3.5 h-3.5 shrink-0 text-amber-500" />
                     <span>{tier.rateBadge}</span>
@@ -177,7 +177,7 @@ function SubsidySection() {
                 <div className={`mt-4 p-2.5 rounded-2xl ${tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"}`}>
                   <div className="flex justify-between items-center text-xs">
                     <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Output | उत्पादन:</span>
-                    <strong className={tier.bestValue ? "text-emerald-300" : "text-emerald-700"}>{tier.monthlyUnits}</strong>
+                    <strong className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>{tier.monthlyUnits}</strong>
                   </div>
                   <div className="flex justify-between items-center text-xs mt-1">
                     <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Savings | बचत:</span>
@@ -194,19 +194,19 @@ function SubsidySection() {
                     </span>
                   </div>
                   <div className="flex justify-between items-center font-medium">
-                    <span className={tier.bestValue ? "text-emerald-300" : "text-emerald-600"}>Central | केंद्र सब्सिडी:</span>
-                    <span className={tier.bestValue ? "text-emerald-300" : "text-emerald-600"}>
+                    <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>Central | केंद्र सब्सिडी:</span>
+                    <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
                       - ₹{tier.centralSubsidy.toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between items-center font-medium">
-                    <span className={tier.bestValue ? "text-emerald-300" : "text-emerald-600"}>UP State | राज्य सब्सिडी:</span>
-                    <span className={tier.bestValue ? "text-emerald-300" : "text-emerald-600"}>
+                    <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>UP State | राज्य सब्सिडी:</span>
+                    <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
                       - ₹{tier.upStateSubsidy.toLocaleString()}
                     </span>
                   </div>
                   <div className={`pt-2 border-t flex justify-between items-center font-bold text-xs ${
-                    tier.bestValue ? "border-slate-700 text-emerald-300" : "border-slate-100 text-emerald-700"
+                    tier.bestValue ? "border-slate-700 text-amber-300" : "border-slate-100 text-blue-900"
                   }`}>
                     <span>Total Subsidy | कुल सब्सिडी:</span>
                     <span>₹{tier.totalSubsidy.toLocaleString()}</span>
@@ -218,7 +218,7 @@ function SubsidySection() {
                   <p className={`text-[11px] uppercase tracking-wider font-semibold ${tier.bestValue ? "text-slate-400" : "text-slate-500"}`}>
                     Net Cost | आपकी देय राशि
                   </p>
-                  <p className={`text-2xl font-black mt-0.5 ${tier.bestValue ? "text-emerald-400" : "text-slate-900"}`}>
+                  <p className={`text-2xl font-black mt-0.5 ${tier.bestValue ? "text-amber-400" : "text-slate-900"}`}>
                     ₹{tier.netPayable.toLocaleString()}*
                   </p>
                   {tier.emi && (
@@ -234,8 +234,8 @@ function SubsidySection() {
                 onClick={() => scrollToContact(tier.capacity)}
                 className={`w-full mt-6 py-2.5 rounded-xl font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer ${
                   tier.bestValue
-                    ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-md"
-                    : "bg-emerald-600 text-white hover:bg-emerald-700"
+                    ? "bg-amber-400 text-slate-950 hover:bg-amber-300 shadow-md"
+                    : "bg-[#0a1e3b] text-white hover:bg-blue-900"
                 }`}
               >
                 <span>Apply | आवेदन करें</span>
@@ -246,12 +246,12 @@ function SubsidySection() {
         </div>
 
         {/* 5-Step Subsidy Process Banner (Simultaneous English + Hindi) */}
-        <div className="mt-14 bg-gradient-to-r from-blue-900 via-teal-900 to-emerald-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl">
+        <div className="mt-14 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
           <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-white">
               How Er. Satyaprakash Gets Your Subsidy Credited in 5 Simple Steps
             </h3>
-            <h4 className="text-base sm:text-lg font-bold text-emerald-300">
+            <h4 className="text-base sm:text-lg font-bold text-amber-300">
               इंजीनियर सत्यप्रकाश द्वारा 5 आसान चरणों में सब्सिडी प्रक्रिया
             </h4>
             <p className="text-xs sm:text-sm text-slate-200">
@@ -264,16 +264,16 @@ function SubsidySection() {
               <div key={i} className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 relative space-y-1">
                 <span className="text-2xl font-black text-amber-400 opacity-90">{st.step}</span>
                 <h4 className="font-bold text-sm text-white">{st.title}</h4>
-                <p className="text-xs text-emerald-300 font-bold">{st.titleHi}</p>
+                <p className="text-xs text-amber-300 font-bold">{st.titleHi}</p>
                 <p className="text-xs text-slate-200 leading-snug pt-1">{st.desc}</p>
-                <p className="text-[11px] text-emerald-100 font-medium leading-snug">{st.descHi}</p>
+                <p className="text-[11px] text-sky-100 font-medium leading-snug">{st.descHi}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-emerald-100 text-center sm:text-left">
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-sky-100 text-center sm:text-left">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0" />
               <span>Satyarthi Solar Solution • Performance Bank Guarantee verified with UPNEDA (₹2.5 Lakhs).</span>
             </div>
             <a
@@ -282,7 +282,7 @@ function SubsidySection() {
               )}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 shadow-md"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 shadow-md"
             >
               Ask on WhatsApp | व्हाट्सएप पर पूछें
             </a>
