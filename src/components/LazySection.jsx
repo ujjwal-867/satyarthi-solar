@@ -40,9 +40,8 @@ export default function LazySection({
     }
 
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    // On mobile, use a conservative 350px margin to avoid mounting everything at once.
-    // On desktop, pre-mount 600px ahead for instant scroll.
-    const rootMargin = isMobile ? "350px 0px" : "600px 0px";
+    // Pre-mount ahead of the viewport to ensure 100% fluid, zero-lag scrolling
+    const rootMargin = isMobile ? "800px 0px" : "1200px 0px";
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -61,11 +60,17 @@ export default function LazySection({
       observer.observe(containerRef.current);
     }
 
+    // Idle fallback: pre-mount remaining sections in background after 3.5s
+    const idleTimer = setTimeout(() => {
+      setShouldMount(true);
+    }, 3500);
+
     // Trigger on global mount event (dispatched when clicking nav anchors)
     const handleMountAll = () => setShouldMount(true);
     window.addEventListener("mount-all-sections", handleMountAll, { once: true });
 
     return () => {
+      clearTimeout(idleTimer);
       observer.disconnect();
       window.removeEventListener("mount-all-sections", handleMountAll);
     };

@@ -184,8 +184,8 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
   return (
     <section id="districts-coverage" className="py-20 bg-slate-50 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Soft Ambient Background */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="gpu-layer absolute top-1/4 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="gpu-layer absolute bottom-1/4 left-0 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

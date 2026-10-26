@@ -25,7 +25,7 @@ export function ExpressiveKineticText({
             key={i}
             initial={{ opacity: 0, y: 24, rotateX: -60, scale: 0.92 }}
             whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
             transition={{
               type: "spring",
               stiffness: 160,
@@ -33,6 +33,7 @@ export function ExpressiveKineticText({
               delay: (i % 8) * 0.04
             }}
             whileHover={{ y: -4, scale: 1.08, rotate: i % 2 === 0 ? -1.5 : 1.5 }}
+            style={{ willChange: "transform, opacity", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             className={`inline-block select-none ${
               isHighlighted ? highlightClass : ""
             }`}

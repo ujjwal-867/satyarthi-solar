@@ -176,7 +176,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
                     className={`absolute ${p.size} ${p.color} rounded-full blur-[0.5px] shadow-[0_0_8px_#fbbf24]`}
                   />
                 ))}
-                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-44 bg-amber-500/25 rounded-full blur-3xl" />
+                <div className="gpu-layer absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-44 bg-amber-500/25 rounded-full blur-3xl pointer-events-none" />
               </div>
 
               {/* Close Button */}

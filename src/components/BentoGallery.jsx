@@ -62,12 +62,12 @@ function ExpressiveKineticTitle({ text, highlightWords = [] }) {
             key={wIdx}
             initial={{ opacity: 0, y: 28, rotateX: -65, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
             transition={{
               type: "spring",
               stiffness: 150,
               damping: 14,
-              delay: wIdx * 0.08
+              delay: (wIdx % 8) * 0.04
             }}
             whileHover={{
               y: -6,
@@ -75,6 +75,7 @@ function ExpressiveKineticTitle({ text, highlightWords = [] }) {
               rotate: wIdx % 2 === 0 ? -2 : 2,
               transition: { type: "spring", stiffness: 300, damping: 12 }
             }}
+            style={{ willChange: "transform, opacity", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             className={`inline-block cursor-default select-none ${
               isHighlight
                 ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
@@ -470,8 +471,8 @@ export function BentoGallery() {
   return (
     <section id="gallery" className="py-16 sm:py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="gpu-layer absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="gpu-layer absolute -bottom-40 -left-40 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -543,8 +544,7 @@ export function BentoGallery() {
         {/* Bento Grid Container with 3D Hover Effects */}
         <div className="relative mt-8">
 
-          <motion.div 
-            layout
+          <div 
             className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[270px] md:auto-rows-[295px]"
           >
             <AnimatePresence>
@@ -554,11 +554,10 @@ export function BentoGallery() {
                 return (
                   <motion.div
                     key={item.id}
-                    layout
                     initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.25 }}
                     onClick={() => setLightboxIndex(idx)}
                     className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200/90 desktop-gallery-card-hover shadow-md ${item.span}`}
                   >
@@ -655,7 +654,7 @@ export function BentoGallery() {
                 );
               })}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bento Trust Metrics Ribbon (Updated to 2500+ Happy Clients) */}

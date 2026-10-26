@@ -146,7 +146,8 @@ function Hero({ onOpenCalculator }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover object-center filter brightness-95 contrast-105"
+            style={{ transform: "translate3d(0,0,0)", willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+            className="gpu-layer absolute inset-0 w-full h-full object-cover object-center filter brightness-95 contrast-105"
           />
         </AnimatePresence>
 
@@ -159,18 +160,20 @@ function Hero({ onOpenCalculator }) {
           <motion.div
             animate={{ scale: [1, 1.18, 1], opacity: [0.15, 0.25, 0.15] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 -left-24 w-96 h-96 bg-blue-500/22 rounded-full blur-3xl"
+            style={{ transform: "translate3d(0,0,0)", willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+            className="gpu-layer absolute top-1/4 -left-24 w-96 h-96 bg-blue-500/22 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.22, 1], opacity: [0.12, 0.22, 0.12] }}
             transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-amber-400/18 rounded-full blur-3xl"
+            style={{ transform: "translate3d(0,0,0)", willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+            className="gpu-layer absolute bottom-1/4 left-1/3 w-96 h-96 bg-amber-400/18 rounded-full blur-3xl"
           />
         </div>
 
         {/* Mobile-Optimized Static Ambient Glow */}
-        <div className="sm:hidden absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
-        <div className="sm:hidden absolute bottom-1/4 right-0 w-64 h-64 bg-amber-400/12 rounded-full blur-2xl pointer-events-none" />
+        <div className="gpu-layer sm:hidden absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
+        <div className="gpu-layer sm:hidden absolute bottom-1/4 right-0 w-64 h-64 bg-amber-400/12 rounded-full blur-2xl pointer-events-none" />
 
         {/* Subtle 3D Perspective Grid Overlay */}
         <div
@@ -187,7 +190,7 @@ function Hero({ onOpenCalculator }) {
           {SOLAR_PARTICLES.map((p, i) => (
             <motion.span
               key={i}
-              style={{ left: p.left, top: p.top, width: p.size, height: p.size }}
+              style={{ left: p.left, top: p.top, width: p.size, height: p.size, willChange: "transform, opacity" }}
               animate={{
                 y: [0, -28, 0],
                 x: [0, 12, 0],
@@ -200,7 +203,7 @@ function Hero({ onOpenCalculator }) {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute rounded-full bg-gradient-to-tr from-sky-300 to-amber-300 blur-[0.5px] shadow-sm shadow-sky-300/50"
+              className="gpu-layer absolute rounded-full bg-gradient-to-tr from-sky-300 to-amber-300 blur-[0.5px] shadow-sm shadow-sky-300/50"
             />
           ))}
         </div>
