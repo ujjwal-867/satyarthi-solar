@@ -20,23 +20,23 @@ function Footer({ onOpenAdmin, onNavigate }) {
   };
 
   return (
-    <footer className="bg-[#061617] text-white pt-16 pb-24 sm:pb-12 border-t border-[#0c2a27]">
+    <footer className="bg-[#0a1e3b] text-white pt-16 pb-24 sm:pb-12 border-t border-[#16325c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#0f3230]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#16325c]">
           
           {/* Col 1: Brand Info & Govt Code (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 bg-gradient-to-br from-emerald-600 via-teal-600 to-amber-500 rounded-2xl flex items-center justify-center text-white font-bold shadow-md shadow-emerald-950/40">
-                <Sun className="w-6 h-6" />
+              <div className="w-11 h-11 bg-gradient-to-br from-blue-600 via-sky-500 to-amber-500 rounded-2xl flex items-center justify-center text-white font-bold shadow-md shadow-blue-950/40">
+                <Sun className="w-6 h-6 text-white" />
               </div>
               <div className="min-w-0">
                 <span className="text-base sm:text-xl font-black tracking-tight text-white block whitespace-nowrap">
-                  SATYARTHI <span className="text-emerald-400">SOLAR SOLUTION</span>
+                  SATYARTHI <span className="text-amber-400">SOLAR SOLUTION</span>
                 </span>
-                <p className="text-[11px] text-emerald-300 font-hindi font-medium whitespace-nowrap">
+                <p className="text-[11px] text-sky-300 font-hindi font-medium whitespace-nowrap">
                   सत्यार्थी सोलर सॉल्यूशन • 2500+ संतुष्ट परिवार
                 </p>
               </div>
@@ -47,19 +47,19 @@ function Footer({ onOpenAdmin, onNavigate }) {
             </p>
 
             {/* Govt Credentials Box */}
-            <div className="bg-[#092220] border border-emerald-500/25 p-4 rounded-2xl space-y-2 text-xs">
-              <div className="flex items-center gap-2 text-emerald-300 font-semibold">
-                <ShieldCheck className="w-4 h-4 shrink-0 text-emerald-400" />
+            <div className="bg-[#0d284f] border border-blue-500/30 p-4 rounded-2xl space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-amber-300 font-semibold">
+                <ShieldCheck className="w-4 h-4 shrink-0 text-amber-400" />
                 <span>UPNEDA & MNRE Approved Vendor • Saur Samman Awardee</span>
               </div>
               <p className="text-slate-200 font-mono text-[11px]">
-                Vendor Code: <strong className="text-emerald-300">{businessData.vendorCode}</strong>
+                Vendor Code: <strong className="text-amber-300">{businessData.vendorCode}</strong>
               </p>
               <p className="text-slate-200 font-mono text-[11px]">
-                GSTIN: <strong className="text-amber-300">{businessData.gstin}</strong>
+                GSTIN: <strong className="text-sky-300">{businessData.gstin}</strong>
               </p>
               <p className="text-slate-200 font-mono text-[11px]">
-                MSME Udyam: <strong className="text-teal-300">{businessData.udyamNo}</strong>
+                MSME Udyam: <strong className="text-amber-300">{businessData.udyamNo}</strong>
               </p>
               <p className="text-[11px] text-amber-300 font-semibold">
                 Authorized Primary Dealer & Channel Partner of Leading Solar Brands
@@ -241,10 +241,10 @@ function Footer({ onOpenAdmin, onNavigate }) {
         </div>
 
         {/* Local Gorakhpur Doorstep Coverage & Neighborhood Matrix for #1 Local Rank & AI Overview */}
-        <div className="py-8 border-b border-[#0f3230] space-y-4">
+        <div className="py-8 border-b border-[#16325c] space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1.5">
+              <div className="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/35 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1.5">
                 <MapPin className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
                 <span>Local Service Coverage • प्रत्येक कोने में ऑन-साइट सोलर सेवा</span>
               </div>
@@ -257,17 +257,17 @@ function Footer({ onOpenAdmin, onNavigate }) {
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="bg-[#092220] border border-emerald-500/30 text-emerald-300 text-[11px] font-bold px-3 py-1 rounded-xl">
+              <span className="bg-[#0d284f] border border-blue-500/30 text-sky-300 text-[11px] font-bold px-3 py-1 rounded-xl">
                 ⚡ 2500+ Real Gorakhpur Sites
               </span>
-              <span className="bg-[#092220] border border-amber-500/30 text-amber-300 text-[11px] font-bold px-3 py-1 rounded-xl">
+              <span className="bg-[#0d284f] border border-amber-500/30 text-amber-300 text-[11px] font-bold px-3 py-1 rounded-xl">
                 🏛️ UPNEDA Code: {businessData.vendorCode}
               </span>
             </div>
           </div>
 
           {/* Gorakhpur Local Area Tags */}
-          <div className="bg-[#081e1d] border border-emerald-950/60 rounded-2xl p-4 space-y-2.5">
+          <div className="bg-[#071933] border border-blue-900/60 rounded-2xl p-4 space-y-2.5">
             <p className="text-[11px] font-bold uppercase tracking-wider text-amber-400">
               Gorakhpur Neighborhoods & Purvanchal Corridors (त्वरित सोलर इंस्टॉलेशन एवं नेट मीटरिंग):
             </p>
@@ -298,17 +298,17 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   key={lIdx}
                   type="button"
                   onClick={() => scrollTo("#contact")}
-                  className="inline-flex items-center gap-1.5 bg-[#0d2927] hover:bg-emerald-600/40 text-slate-200 hover:text-white px-2.5 py-1 rounded-lg border border-emerald-500/20 hover:border-emerald-400 transition cursor-pointer text-[11px]"
+                  className="inline-flex items-center gap-1.5 bg-[#0d284f] hover:bg-blue-600/40 text-slate-200 hover:text-white px-2.5 py-1 rounded-lg border border-blue-500/25 hover:border-amber-400 transition cursor-pointer text-[11px]"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                   <span className="font-medium">{loc.name}</span>
-                  <span className="text-[10px] text-emerald-300 font-hindi">({loc.hi})</span>
+                  <span className="text-[10px] text-amber-300 font-hindi">({loc.hi})</span>
                 </button>
               ))}
             </div>
-            <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 border-t border-emerald-950/80">
+            <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 border-t border-blue-900/60">
               <span>📍 <strong>Physical Landmark:</strong> Motiram Adda Chauraha, Near State Bank of India (SBI) & Police Chowki, Gorakhpur (273202)</span>
-              <a href={`tel:${businessData.phone[0]}`} className="text-emerald-300 font-bold hover:underline">
+              <a href={`tel:${businessData.phone[0]}`} className="text-amber-300 font-bold hover:underline">
                 Direct Engineer Helpline: +91 {businessData.phone[0]}
               </a>
             </div>
@@ -316,7 +316,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
         </div>
 
         {/* District SEO Link Cloud Across Uttar Pradesh */}
-        <div className="py-6 border-b border-[#0f3230] text-[11px] text-slate-400 space-y-2">
+        <div className="py-6 border-b border-[#16325c] text-[11px] text-slate-400 space-y-2">
           <div className="flex flex-wrap items-center gap-1.5 font-medium">
             <span className="text-amber-400 font-bold uppercase tracking-wider text-[10px] mr-1">
               Districts Served Across Uttar Pradesh (सभी 75 जिले):

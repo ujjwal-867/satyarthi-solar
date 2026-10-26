@@ -87,20 +87,20 @@ function Navbar({
   return (
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
       {/* Top Govt & Contact Strip with Direct Social Links & Festive Offer Trigger */}
-      <div className="bg-[#061617] text-slate-100 text-xs py-1.5 px-3 sm:px-6 lg:px-8 border-b border-[#0c2a27]">
+      <div className="bg-[#0a1e3b] text-slate-100 text-xs py-1.5 px-3 sm:px-6 lg:px-8 border-b border-[#132c52]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
           
           {/* Left: Govt Approvals & Vendor Code */}
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center sm:justify-start">
-            <span className="inline-flex items-center gap-1 bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px]">
+            <span className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px] shadow-xs">
               <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-950" />
               UPNEDA APPROVED
             </span>
-            <span className="text-emerald-900">|</span>
+            <span className="text-blue-900">|</span>
             <span className="text-slate-200 font-medium text-[10px] sm:text-[11px]">
-              Code: <strong className="text-emerald-300 font-mono">{businessData.vendorCode}</strong>
+              Code: <strong className="text-amber-300 font-mono">{businessData.vendorCode}</strong>
             </span>
-            <span className="hidden md:inline text-emerald-900">|</span>
+            <span className="hidden md:inline text-blue-900">|</span>
             <span className="hidden md:inline text-slate-300 text-[11px]">
               GST: <strong className="text-white font-mono">{businessData.gstin}</strong>
             </span>
@@ -120,23 +120,23 @@ function Navbar({
             )}
 
             {/* Direct Instagram & Facebook Icons */}
-            <div className="flex items-center gap-2 pr-2 sm:border-r border-emerald-800/50">
+            <div className="flex items-center gap-2 pr-2 sm:border-r border-blue-800/50">
               <a 
                 href={businessData.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-emerald-200 hover:text-emerald-100 transition flex items-center gap-1"
+                className="text-blue-200 hover:text-white transition flex items-center gap-1"
                 title="Follow on Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
                 <span className="hidden xl:inline text-[10px]">Instagram</span>
               </a>
-              <span className="text-emerald-700">|</span>
+              <span className="text-blue-700">|</span>
               <a 
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-emerald-200 hover:text-emerald-100 transition flex items-center gap-1"
+                className="text-blue-200 hover:text-white transition flex items-center gap-1"
                 title="Connect on Facebook"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
@@ -195,7 +195,7 @@ function Navbar({
             }}
             className="flex items-center gap-2 group text-left cursor-pointer min-w-0 shrink-0"
           >
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-xs group-hover:scale-105 transition duration-300 border-2 border-emerald-600 bg-white p-0.5 shrink-0">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-xs group-hover:scale-105 transition duration-300 border-2 border-blue-600 bg-white p-0.5 shrink-0">
               <img
                 src={businessData.logoImage}
                 alt="Satyarthi Solar Solution Logo"
@@ -203,13 +203,13 @@ function Navbar({
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-[15px] lg:text-base font-black tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-emerald-700 transition-colors">
+              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-[15px] lg:text-base font-black tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-blue-700 transition-colors">
                 SATYARTHI SOLAR SOLUTION
               </span>
-              <p className="text-[9px] sm:text-[9.5px] font-bold tracking-wider text-emerald-700 uppercase flex items-center gap-1 whitespace-nowrap">
+              <p className="text-[9px] sm:text-[9.5px] font-bold tracking-wider text-blue-800 uppercase flex items-center gap-1 whitespace-nowrap">
                 <span>सत्यार्थी सोलर सॉल्यूशन</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-blue-800">{businessData.vendorCode}</span>
+                <span className="text-amber-600">{businessData.vendorCode}</span>
               </p>
             </div>
           </button>
@@ -226,21 +226,21 @@ function Navbar({
                   onClick={() => handleNavClick(link)}
                   className={`relative px-2 2xl:px-2.5 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight group overflow-hidden whitespace-nowrap ${
                     active
-                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs"
-                      : "hover:text-emerald-700 hover:bg-emerald-50/70"
+                      ? "bg-blue-50 text-blue-700 border border-blue-200/80 shadow-2xs"
+                      : "hover:text-blue-700 hover:bg-blue-50/70"
                   }`}
                 >
                   <span className={`text-[11px] 2xl:text-xs font-black transition ${
-                    active ? "text-emerald-700" : "text-slate-800 group-hover:text-emerald-700"
+                    active ? "text-blue-700" : "text-slate-800 group-hover:text-blue-700"
                   }`}>
                     {link.en}
                   </span>
                   <span className={`text-[9px] font-bold transition ${
-                    active ? "text-emerald-800" : "text-slate-500 group-hover:text-emerald-800"
+                    active ? "text-amber-600" : "text-slate-500 group-hover:text-amber-600"
                   }`}>
                     {link.hi}
                   </span>
-                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-gradient-to-r from-emerald-500 to-blue-600 transition-transform duration-300 origin-center rounded-full ${
+                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-gradient-to-r from-blue-600 to-amber-500 transition-transform duration-300 origin-center rounded-full ${
                     active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   }`} />
                 </motion.button>

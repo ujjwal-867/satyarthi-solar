@@ -127,10 +127,10 @@ function Hero({ onOpenCalculator }) {
   return (
     <section 
       id="hero" 
-      className="relative w-full min-h-[84vh] lg:min-h-[88vh] flex flex-col justify-between overflow-hidden bg-[#061617] text-white pt-10 pb-8 lg:pt-14 lg:pb-10"
+      className="relative w-full min-h-[84vh] lg:min-h-[88vh] flex flex-col justify-between overflow-hidden bg-[#0a1e3b] text-white pt-10 pb-8 lg:pt-14 lg:pb-10"
     >
       {/* =========================================================================
-          HERO BACKGROUND: SMOOTH KEN-BURNS CROSSFADE + EYE-SOOTHING EMERALD PINE
+          HERO BACKGROUND: SMOOTH KEN-BURNS CROSSFADE + ROYAL SOLAR BLUE & SUN GOLD
           AURORA & FLOATING SOLAR PHOTON PARTICLES
       ========================================================================= */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -150,34 +150,34 @@ function Hero({ onOpenCalculator }) {
           />
         </AnimatePresence>
 
-        {/* Eye-Soothing Deep Pine Obsidian Directional Blend */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061617] via-[#082220]/90 sm:via-[#082220]/80 lg:via-[#082220]/65 to-[#061617]/30"></div>
+        {/* Royal Navy Blue Directional Blend */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1e3b] via-[#0d284f]/90 sm:via-[#0d284f]/80 lg:via-[#0d284f]/65 to-[#0a1e3b]/30"></div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-50 via-slate-50/45 to-transparent pointer-events-none"></div>
 
         {/* Desktop-Only Animated Breathing Solar Aurora Orbs (Conserves Mobile GPU/Battery) */}
         <div className="hidden sm:block">
           <motion.div
-            animate={{ scale: [1, 1.18, 1], opacity: [0.14, 0.22, 0.14] }}
+            animate={{ scale: [1, 1.18, 1], opacity: [0.15, 0.25, 0.15] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 -left-24 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"
+            className="absolute top-1/4 -left-24 w-96 h-96 bg-blue-500/22 rounded-full blur-3xl"
           />
           <motion.div
-            animate={{ scale: [1, 1.22, 1], opacity: [0.10, 0.18, 0.10] }}
+            animate={{ scale: [1, 1.22, 1], opacity: [0.12, 0.22, 0.12] }}
             transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-amber-400/15 rounded-full blur-3xl"
+            className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-amber-400/18 rounded-full blur-3xl"
           />
         </div>
 
         {/* Mobile-Optimized Static Ambient Glow */}
-        <div className="sm:hidden absolute top-1/4 -left-20 w-64 h-64 bg-emerald-400/12 rounded-full blur-2xl pointer-events-none" />
-        <div className="sm:hidden absolute bottom-1/4 right-0 w-64 h-64 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="sm:hidden absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
+        <div className="sm:hidden absolute bottom-1/4 right-0 w-64 h-64 bg-amber-400/12 rounded-full blur-2xl pointer-events-none" />
 
         {/* Subtle 3D Perspective Grid Overlay */}
         <div
-          className="absolute inset-0 opacity-12"
+          className="absolute inset-0 opacity-14"
           style={{
             backgroundImage:
-              "linear-gradient(to right, rgba(52, 211, 153, 0.14) 1px, transparent 1px), linear-gradient(to bottom, rgba(245, 158, 11, 0.10) 1px, transparent 1px)",
+              "linear-gradient(to right, rgba(56, 189, 248, 0.14) 1px, transparent 1px), linear-gradient(to bottom, rgba(245, 158, 11, 0.12) 1px, transparent 1px)",
             backgroundSize: "56px 56px"
           }}
         />
@@ -200,7 +200,7 @@ function Hero({ onOpenCalculator }) {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute rounded-full bg-gradient-to-tr from-emerald-300 to-amber-300 blur-[0.5px] shadow-sm shadow-emerald-300/50"
+              className="absolute rounded-full bg-gradient-to-tr from-sky-300 to-amber-300 blur-[0.5px] shadow-sm shadow-sky-300/50"
             />
           ))}
         </div>
@@ -226,18 +226,18 @@ function Hero({ onOpenCalculator }) {
             >
               <motion.div
                 whileHover={{ scale: 1.03, y: -2 }}
-                className="inline-flex items-center gap-1.5 bg-emerald-500/20 backdrop-blur-md border border-emerald-400/40 text-emerald-200 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-blue-600/30 backdrop-blur-md border border-blue-400/40 text-blue-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm"
               >
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-blue-300 shrink-0" />
                 <span>UPNEDA Approved Vendor</span>
-                <span className="bg-emerald-400 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
+                <span className="bg-amber-400 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
                   {businessData.vendorCode}
                 </span>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.03, y: -2 }}
-                className="inline-flex items-center gap-1.5 bg-amber-400/15 backdrop-blur-md border border-amber-400/35 text-amber-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-amber-400/20 backdrop-blur-md border border-amber-400/40 text-amber-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm"
               >
                 <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span>Motiram Adda, Gorakhpur Hub</span>
@@ -249,14 +249,14 @@ function Hero({ onOpenCalculator }) {
             {/* Expressive Kinetic Headline with Targeted Local Keywords */}
             <motion.div variants={itemVariants} className="space-y-2">
               <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-black tracking-tight leading-[1.15] text-white">
-                <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-emerald-400/90 mb-1">
+                <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-400 mb-1">
                   #1 Solar Service in Gorakhpur & Motiram Adda
                 </span>
                 <span className="block">
                   <ExpressiveKineticText
                     text="Top Rated Rooftop Solar in"
                     highlightWords={["Rooftop", "Solar"]}
-                    highlightClass="text-emerald-300"
+                    highlightClass="text-sky-300"
                     className="!justify-start"
                   />
                 </span>
@@ -265,7 +265,7 @@ function Hero({ onOpenCalculator }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.25 }}
                   whileHover={{ scale: 1.02, y: -2 }}
-                  className="inline-block whitespace-nowrap text-[1.38rem] min-[375px]:text-[1.55rem] sm:text-4xl md:text-5xl lg:text-[3.1rem] text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-300 to-amber-300 cursor-default"
+                  className="inline-block whitespace-nowrap text-[1.38rem] min-[375px]:text-[1.55rem] sm:text-4xl md:text-5xl lg:text-[3.1rem] text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-amber-300 cursor-default"
                 >
                   Satyarthi Solar Solution
                 </motion.span>
@@ -273,7 +273,7 @@ function Hero({ onOpenCalculator }) {
               
               <motion.h2
                 whileHover={{ x: 4 }}
-                className="text-base sm:text-xl lg:text-2xl font-bold text-emerald-300/95 tracking-tight font-hindi"
+                className="text-base sm:text-xl lg:text-2xl font-bold text-sky-200 tracking-tight font-hindi"
               >
                 सत्यार्थी सोलर सॉल्यूशन • <span className="text-amber-300 font-extrabold">गोरखपुर व पूर्वांचल में 2500+ रूफटॉप सोलर प्लांट्स</span>
               </motion.h2>
@@ -297,27 +297,27 @@ function Hero({ onOpenCalculator }) {
                     backgroundColor: "rgba(255, 255, 255, 0.13)"
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-emerald-300/60 rounded-2xl p-3.5 space-y-1 transition overflow-hidden shadow-md"
+                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-amber-400/60 rounded-2xl p-3.5 space-y-1 transition overflow-hidden shadow-md"
                 >
                   {/* Animated Diagonal Light-Sweep Shimmer */}
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                   
                   <div className="flex items-start gap-2 relative z-10">
                     <motion.div whileHover={{ rotate: 15, scale: 1.15 }} className="mt-0.5 shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-400" />
                     </motion.div>
                     <span className="text-xs font-bold text-white leading-tight">
                       {pt.en}
                     </span>
                   </div>
-                  <p className="text-[11px] text-emerald-200/90 font-medium pl-6 leading-tight font-hindi relative z-10">
+                  <p className="text-[11px] text-sky-200/90 font-medium pl-6 leading-tight font-hindi relative z-10">
                     {pt.hi}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Primary Action Buttons with Shimmer & 3D AR/VR Quick-Launch (Crisp 2-Col Grid on Mobile, Inline on Desktop) */}
+            {/* Primary Action Buttons with Shimmer & 3D Quick-Launch (Crisp 2-Col Grid on Mobile, Inline on Desktop) */}
             <motion.div 
               variants={itemVariants}
               className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
@@ -326,7 +326,7 @@ function Hero({ onOpenCalculator }) {
                 whileHover={{ scale: 1.04, y: -3 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo("#contact")}
-                className="col-span-2 sm:w-auto group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-emerald-950/40 transition cursor-pointer text-sm border border-emerald-400/40"
+                className="col-span-2 sm:w-auto group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
                 <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
@@ -352,9 +352,9 @@ function Hero({ onOpenCalculator }) {
                 whileHover={{ scale: 1.04, y: -3 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo("#contact")}
-                className="inline-flex items-center justify-center gap-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 backdrop-blur-md text-emerald-200 font-bold px-3 sm:px-4 py-3 rounded-2xl border border-emerald-400/35 transition text-xs sm:text-sm cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 bg-blue-500/20 hover:bg-blue-500/30 backdrop-blur-md text-blue-200 font-bold px-3 sm:px-4 py-3 rounded-2xl border border-blue-400/35 transition text-xs sm:text-sm cursor-pointer"
               >
-                <Sparkles className="w-4 h-4 text-emerald-300 shrink-0" />
+                <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
                 <span>Free Site Survey • सर्वे</span>
               </motion.button>
 
@@ -364,7 +364,7 @@ function Hero({ onOpenCalculator }) {
                 href={`tel:${businessData.phone[0]}`}
                 className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-3 sm:px-4 py-3 rounded-2xl border border-white/20 transition text-xs sm:text-sm cursor-pointer"
               >
-                <Phone className="w-4 h-4 text-emerald-300 shrink-0" />
+                <Phone className="w-4 h-4 text-amber-300 shrink-0" />
                 <span>+91 {businessData.phone[0]}</span>
               </motion.a>
             </motion.div>
@@ -383,7 +383,7 @@ function Hero({ onOpenCalculator }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative bg-[#092220]/95 sm:bg-[#092220]/85 sm:backdrop-blur-md border border-emerald-500/30 hover:border-emerald-400/70 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
+              className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-amber-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
@@ -391,7 +391,7 @@ function Hero({ onOpenCalculator }) {
               <div className="relative z-10 flex items-center gap-3.5 sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.06, rotate: -2 }}
-                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-emerald-400/80 shadow-md shrink-0"
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-md shrink-0"
                 >
                   <img
                     src={businessData.engineerImage}
@@ -399,14 +399,14 @@ function Hero({ onOpenCalculator }) {
                     loading="eager"
                     className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute bottom-0 inset-x-0 bg-emerald-600 text-white text-[8px] text-center font-bold py-0.5 uppercase tracking-wider">
+                  <div className="absolute bottom-0 inset-x-0 bg-blue-600 text-white text-[8px] text-center font-bold py-0.5 uppercase tracking-wider">
                     VERIFIED
                   </div>
                 </motion.div>
 
                 <div className="min-w-0 flex-1 space-y-1">
-                  <div className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 px-2 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-bold max-w-full">
-                    <UserCheck className="w-3 h-3 text-emerald-300 shrink-0" />
+                  <div className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-200 border border-blue-400/30 px-2 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-bold max-w-full">
+                    <UserCheck className="w-3 h-3 text-amber-300 shrink-0" />
                     <span className="truncate">Lead Solar Engineer • मुख्य इंजीनियर</span>
                   </div>
 
@@ -414,7 +414,7 @@ function Hero({ onOpenCalculator }) {
                     Er. Satyaprakash Satyarthi
                   </h3>
 
-                  <p className="text-xs text-emerald-300 font-bold font-hindi">
+                  <p className="text-xs text-amber-300 font-bold font-hindi">
                     इंजीनियर सत्यप्रकाश सत्यार्थी (UPNEDA Empanelled)
                   </p>
 
@@ -425,16 +425,16 @@ function Hero({ onOpenCalculator }) {
               </div>
 
               {/* Live Solar Telemetry Strip inside Engineer Card */}
-              <div className="relative z-10 bg-[#051616]/90 rounded-2xl p-3 border border-emerald-500/20 space-y-2">
+              <div className="relative z-10 bg-[#071933]/90 rounded-2xl p-3 border border-blue-500/20 space-y-2">
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="flex items-center gap-1.5 text-amber-300 font-bold">
                     <Sun className="w-3.5 h-3.5 text-amber-400" />
                     <span>Gorakhpur Solar Yield Performance</span>
                   </span>
-                  <span className="font-mono font-black text-emerald-300">98.4% Efficiency</span>
+                  <span className="font-mono font-black text-sky-300">98.4% Efficiency</span>
                 </div>
-                <div className="w-full h-1.5 bg-emerald-950/80 rounded-full overflow-hidden">
-                  <div className="h-full w-[98%] bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 rounded-full" />
+                <div className="w-full h-1.5 bg-blue-950/80 rounded-full overflow-hidden">
+                  <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 via-sky-400 to-amber-400 rounded-full" />
                 </div>
               </div>
 
@@ -442,17 +442,17 @@ function Hero({ onOpenCalculator }) {
               <div className="relative z-10 grid grid-cols-2 gap-2.5 text-center text-xs">
                 <motion.div
                   whileHover={{ y: -3 }}
-                  className="bg-white/6 hover:bg-emerald-500/10 transition p-2.5 rounded-2xl border border-white/10"
+                  className="bg-white/6 hover:bg-blue-500/10 transition p-2.5 rounded-2xl border border-white/10"
                 >
                   <p className="text-[10px] text-slate-300 font-medium">Installed Capacity</p>
                   <p className="text-base font-black text-amber-300">2,200+ kW</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ y: -3 }}
-                  className="bg-white/6 hover:bg-emerald-500/10 transition p-2.5 rounded-2xl border border-white/10"
+                  className="bg-white/6 hover:bg-blue-500/10 transition p-2.5 rounded-2xl border border-white/10"
                 >
                   <p className="text-[10px] text-slate-300 font-medium">Verified Families</p>
-                  <p className="text-base font-black text-emerald-300">2500+ Clients</p>
+                  <p className="text-base font-black text-sky-300">2500+ Clients</p>
                 </motion.div>
               </div>
 
