@@ -116,7 +116,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => {
-                    if (onNavigate) onNavigate("/#certificates");
+                    if (onNavigate) onNavigate("/certificates");
                     else scrollTo("#certificates");
                   }} 
                   className="hover:text-emerald-400 transition cursor-pointer"

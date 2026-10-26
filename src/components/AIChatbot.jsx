@@ -144,7 +144,7 @@ export function AIChatbot() {
         text: `🏛️ **Official Government & Brand Credentials:**\n\n• **UPNEDA Empanelled Vendor:** Govt of Uttar Pradesh Vendor Code **${businessData.vendorCode}**\n• **GST Registered:** **${businessData.gstin}** (Proprietorship: Er. Satya Prakash Satyarthi)\n• **LOOM SOLAR Authorized Dealer:** Certificate No. **${businessData.loomCertificateNo}** (Valid till 2028)\n• **FUJIYAMA SOLAR:** Authorized Dealer for Gorakhpur & UP East-2\n• **AMAZE:** Authorized Channel Partner\n\nAll installations receive official UPPCL net metering and government DBT subsidy assurance!`,
         action: {
           label: "View Official Certificates",
-          url: "#certificates"
+          url: "/certificates"
         }
       };
     }

@@ -14,7 +14,8 @@ import {
   Sun,
   BatteryCharging,
   Tv,
-  Camera
+  Camera,
+  Award
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
@@ -34,7 +35,7 @@ function Navbar({
     { en: "Off-Grid", hi: "ऑफ-ग्रिड सूची", route: "/off-grid", icon: BatteryCharging },
     { en: "Electronics", hi: "इलेक्ट्रॉनिक्स", route: "/appliances", icon: Tv },
     { en: "Gallery", hi: "गैलरी", route: "/gallery", icon: Camera },
-    { en: "Certificates", hi: "प्रमाणपत्र", href: "#certificates" },
+    { en: "Certificates", hi: "प्रमाणपत्र", route: "/certificates", icon: Award },
     { en: "Contact", hi: "संपर्क", href: "#contact" },
   ];
 
@@ -45,6 +46,7 @@ function Navbar({
     { label: "Off-Grid", hi: "रेट लिस्ट", route: "/off-grid", icon: BatteryCharging },
     { label: "Electronics", hi: "अप्लायंस", route: "/appliances", icon: Tv },
     { label: "Gallery", hi: "गैलरी", route: "/gallery", icon: Camera },
+    { label: "Certs", hi: "प्रमाणपत्र", route: "/certificates", icon: Award },
   ];
 
   const isRouteActive = (route) => {
@@ -57,7 +59,7 @@ function Navbar({
   const handleNavClick = (link) => {
     setMobileMenuOpen(false);
     if (typeof window !== "undefined") {
-      if (link.href === "#certificates") {
+      if (link.route === "/certificates" || link.href === "#certificates") {
         window.dispatchEvent(new CustomEvent("load-section-images", { detail: { section: "certificates" } }));
       }
       if (link.route === "/gallery") {

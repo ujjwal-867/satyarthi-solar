@@ -12,7 +12,6 @@ import { LanguageProvider } from "./context/LanguageContext";
 // Lazy-loaded Below-the-Fold Sections (Dramatically accelerates initial phone page load)
 const ARVRSolarVisualizer = lazy(() => import("./components/ARVRSolarVisualizer"));
 const Services = lazy(() => import("./components/Services"));
-const Certificates = lazy(() => import("./components/Certificates"));
 const DistrictsCoverage = lazy(() => import("./components/DistrictsCoverage"));
 const Testimonials = lazy(() => import("./components/Testimonials"));
 const Contact = lazy(() => import("./components/Contact"));
@@ -29,6 +28,7 @@ const OnGridPage = lazy(() => import("./pages/OnGridPage"));
 const OffGridPage = lazy(() => import("./pages/OffGridPage"));
 const ElectronicsPage = lazy(() => import("./pages/ElectronicsPage"));
 const GalleryPage = lazy(() => import("./pages/GalleryPage"));
+const CertificatesPage = lazy(() => import("./pages/CertificatesPage"));
 
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
@@ -167,6 +167,13 @@ function AppContent() {
             onOpenAdmin={() => setIsAdminOpen(true)}
             onOpenCalculator={() => setIsCalculatorOpen(true)}
           />
+        ) : currentRoute === "/certificates" ? (
+          <CertificatesPage 
+            onNavigateHome={() => navigateTo("/")}
+            onNavigate={navigateTo}
+            onOpenAdmin={() => setIsAdminOpen(true)}
+            onOpenCalculator={() => setIsCalculatorOpen(true)}
+          />
         ) : (
           /* Main Spacious Homepage: Only Highlighted Points, 6 Navigation Portals, 3D AR/VR & Contact */
           <div className="flex-1 flex flex-col justify-between">
@@ -204,13 +211,6 @@ function AppContent() {
               <LazySection anchorId="services" minHeight="420px">
                 <Suspense fallback={<div className="min-h-[380px]" />}>
                   <Services onNavigate={navigateTo} />
-                </Suspense>
-              </LazySection>
-
-              {/* Verified Government Empanelment & Brand Dealership Certificates */}
-              <LazySection anchorId="certificates" minHeight="500px">
-                <Suspense fallback={<div className="min-h-[450px]" />}>
-                  <Certificates />
                 </Suspense>
               </LazySection>
 

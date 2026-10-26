@@ -16,11 +16,11 @@ import {
   InteractiveZapBurstButton
 } from "./MotionEffects";
 
-function Certificates() {
+function Certificates({ isStandalonePage = false }) {
   const [selectedCert, setSelectedCert] = useState(null);
   const [activeFilter, setActiveFilter] = useState("All");
   const [loadedCerts, setLoadedCerts] = useState({});
-  const [loadAllCerts, setLoadAllCerts] = useState(false);
+  const [loadAllCerts, setLoadAllCerts] = useState(() => Boolean(isStandalonePage));
 
   // Automatically load all certificates when the user navigates into or clicks this section
   useEffect(() => {
