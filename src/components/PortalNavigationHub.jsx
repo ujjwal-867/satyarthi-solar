@@ -128,12 +128,12 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={btn.onClick}
-                className={`group relative text-left p-4 rounded-2xl border ${btn.cardStyle} transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-lg overflow-hidden`}
+                className={`group relative text-left p-4 rounded-2xl border ${btn.cardStyle} transition-all duration-300 flex flex-col justify-between cursor-pointer desktop-gallery-card-hover overflow-hidden`}
               >
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/75 to-transparent pointer-events-none" />
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
                 <div className="relative z-10">
                   <div className="flex items-center justify-between gap-1.5 mb-3">
                     <motion.div

@@ -173,8 +173,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
-                whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
-                className={`group relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 overflow-hidden ${
+                className={`group relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
                     ? "bg-gradient-to-b from-blue-900 via-slate-900 to-emerald-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-emerald-400"
                     : tier.popular
@@ -182,8 +181,8 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     : "bg-white text-slate-900 border border-slate-200 hover:border-emerald-400 shadow-xs hover:shadow-2xl"
                 }`}
               >
-                {/* Animated Shimmer Sweep */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
 
                 {/* Badges */}
                 {tier.bestValue && (

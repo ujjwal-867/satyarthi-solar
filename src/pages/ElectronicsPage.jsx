@@ -182,11 +182,10 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: (idx % 4) * 0.06 }}
-                  whileHover={{ y: -8, rotateX: 4, rotateY: -3, scale: 1.02 }}
-                  className="group relative bg-white rounded-3xl p-6 border border-slate-200 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                  className="group relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
                 >
-                  {/* Animated Diagonal Shimmer Sweep */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-blue-50/80 to-transparent pointer-events-none" />
+                  {/* Desktop-Only Gallery Shine Sweep */}
+                  <div className="desktop-shine-sweep" />
 
                   <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
