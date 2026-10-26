@@ -50,6 +50,9 @@ Options -Indexes
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Redirect legacy Vite favicon requests directly to official favicon
+  RewriteRule ^vite\.svg$ /favicon.ico [R=301,L]
+
   # Allow direct access to valid files, directories, and API endpoints
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
