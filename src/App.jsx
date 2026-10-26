@@ -11,7 +11,6 @@ import { LanguageProvider } from "./context/LanguageContext";
 
 // Lazy-loaded Below-the-Fold Sections (Dramatically accelerates initial phone page load)
 const Services = lazy(() => import("./components/Services"));
-const DistrictsCoverage = lazy(() => import("./components/DistrictsCoverage"));
 const Testimonials = lazy(() => import("./components/Testimonials"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -200,25 +199,6 @@ function AppContent() {
               <LazySection anchorId="services" minHeight="420px">
                 <Suspense fallback={<div className="min-h-[380px]" />}>
                   <Services onNavigate={navigateTo} />
-                </Suspense>
-              </LazySection>
-
-              {/* District-Specific SEO Anchors & All 75 Districts of UP Coverage */}
-              <LazySection anchorId="districts-coverage" minHeight="460px">
-                <Suspense fallback={<div className="min-h-[420px]" />}>
-                  <DistrictsCoverage 
-                    onSelectDistrict={(district) => {
-                      if (typeof window !== "undefined") {
-                        window.dispatchEvent(new CustomEvent("mount-all-sections"));
-                      }
-                      setPrefilledQuote({
-                        location: district,
-                        customMessage: `I am interested in a free rooftop solar survey and PM Surya Ghar subsidy consultation in ${district}, Uttar Pradesh.`
-                      });
-                      const el = document.querySelector("#contact");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  />
                 </Suspense>
               </LazySection>
 

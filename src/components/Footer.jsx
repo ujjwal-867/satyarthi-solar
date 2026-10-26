@@ -256,7 +256,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <span key={dIdx} className="inline-flex items-center gap-1">
                 <button
                   type="button"
-                  onClick={() => scrollTo("#districts-coverage")}
+                  onClick={() => scrollTo("#contact")}
                   className="hover:text-emerald-400 transition cursor-pointer"
                 >
                   {district}
