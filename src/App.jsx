@@ -73,15 +73,15 @@ function AppContent() {
 
   const [currentRoute, setCurrentRoute] = useState(getInitialRoute);
 
-  // Dynamic SEO Page Title per Route
+  // Dynamic SEO Page Title per Route: Local Gorakhpur & Motiram Adda Optimization
   useEffect(() => {
     const titles = {
-      "/": "Satyarthi Solar Solution | UPNEDA Empanelled Solar Vendor | Gorakhpur & UP",
-      "/on-grid": "On-Grid Rooftop Solar & PM Surya Ghar Subsidy (Up to ₹1,08,000) | Satyarthi Solar",
-      "/off-grid": "Off-Grid Solar Systems & Heavy PCU Battery Price List | Satyarthi Solar",
-      "/appliances": "Solar Smart Appliances & Electronics Showroom | Satyarthi Solar",
-      "/gallery": "Real Solar Installation Site Gallery & Verified Pergolas | Satyarthi Solar",
-      "/certificates": "Official Government Empanelment & Brand Dealership Certificates | Satyarthi Solar"
+      "/": "Solar Service in Gorakhpur & Motiram Adda | Satyarthi Solar Solution (UPNEDA Empanelled)",
+      "/on-grid": "PM Surya Ghar On-Grid Solar in Gorakhpur (Up to ₹1,08,000 Subsidy) | Satyarthi Solar",
+      "/off-grid": "Off-Grid Solar & Aata Chakki Price List in Gorakhpur & UP | Satyarthi Solar",
+      "/appliances": "Solar Smart Appliances & Electronics Showroom in Motiram Adda Gorakhpur | Satyarthi Solar",
+      "/gallery": "2500+ Real Solar Installation Sites in Gorakhpur & Purvanchal | Satyarthi Solar",
+      "/certificates": "UPNEDA Empanelled Solar Vendor Certificates (Code: GKP2604066741) | Satyarthi Solar"
     };
 
     if (titles[currentRoute]) {

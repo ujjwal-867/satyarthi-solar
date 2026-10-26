@@ -87,20 +87,20 @@ function Navbar({
   return (
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
       {/* Top Govt & Contact Strip with Direct Social Links & Festive Offer Trigger */}
-      <div className="bg-slate-900 text-slate-100 text-xs py-1.5 px-3 sm:px-6 lg:px-8 border-b border-slate-800">
+      <div className="bg-[#061617] text-slate-100 text-xs py-1.5 px-3 sm:px-6 lg:px-8 border-b border-[#0c2a27]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
           
           {/* Left: Govt Approvals & Vendor Code */}
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center sm:justify-start">
-            <span className="inline-flex items-center gap-1 bg-emerald-500/90 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px]">
+            <span className="inline-flex items-center gap-1 bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px]">
               <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-950" />
               UPNEDA APPROVED
             </span>
-            <span className="text-slate-600">|</span>
+            <span className="text-emerald-900">|</span>
             <span className="text-slate-200 font-medium text-[10px] sm:text-[11px]">
               Code: <strong className="text-emerald-300 font-mono">{businessData.vendorCode}</strong>
             </span>
-            <span className="hidden md:inline text-slate-600">|</span>
+            <span className="hidden md:inline text-emerald-900">|</span>
             <span className="hidden md:inline text-slate-300 text-[11px]">
               GST: <strong className="text-white font-mono">{businessData.gstin}</strong>
             </span>
@@ -112,7 +112,7 @@ function Navbar({
               <button
                 type="button"
                 onClick={onOpenFestiveOffer}
-                className="inline-flex items-center gap-1 bg-amber-400/95 hover:bg-amber-300 text-slate-950 font-extrabold px-2.5 py-0.5 rounded-full text-[10px] transition cursor-pointer"
+                className="inline-flex items-center gap-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-2.5 py-0.5 rounded-full text-[10px] transition cursor-pointer shadow-xs"
               >
                 <Gift className="w-3 h-3 text-rose-800" />
                 <span>🪔 Navratri & Diwali Offer</span>
@@ -120,23 +120,23 @@ function Navbar({
             )}
 
             {/* Direct Instagram & Facebook Icons */}
-            <div className="flex items-center gap-2 pr-2 sm:border-r border-teal-700/60">
+            <div className="flex items-center gap-2 pr-2 sm:border-r border-emerald-800/50">
               <a 
                 href={businessData.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-teal-200 hover:text-pink-300 transition flex items-center gap-1"
+                className="text-emerald-200 hover:text-emerald-100 transition flex items-center gap-1"
                 title="Follow on Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
                 <span className="hidden xl:inline text-[10px]">Instagram</span>
               </a>
-              <span className="text-teal-500">|</span>
+              <span className="text-emerald-700">|</span>
               <a 
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-teal-200 hover:text-sky-300 transition flex items-center gap-1"
+                className="text-emerald-200 hover:text-emerald-100 transition flex items-center gap-1"
                 title="Connect on Facebook"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />

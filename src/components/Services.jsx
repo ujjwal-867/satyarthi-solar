@@ -115,13 +115,13 @@ export default function Services() {
 
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
             <ExpressiveKineticText
-              text="Specialized Solar Engineering"
-              highlightWords={["Solar", "Engineering"]}
+              text="Solar Service & Engineering in Gorakhpur"
+              highlightWords={["Solar", "Service", "Engineering"]}
             />
           </h2>
 
-          <p className="text-slate-600 text-xs sm:text-sm max-w-lg mx-auto">
-            Direct turnkey EPC engineering for homes, commercial establishments, and diesel-free flour mills across Purvanchal.
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
+            Direct turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep solar installation in each and every corner of Gorakhpur, Motiram Adda & Purvanchal.
           </p>
         </div>
 
