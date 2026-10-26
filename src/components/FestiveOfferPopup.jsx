@@ -70,18 +70,6 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Auto-trigger once per session after 9s (gives user time to smoothly browse hero without interruption)
-  useEffect(() => {
-    const hasSeenOffer = sessionStorage.getItem("satyarthi_festive_popup_seen_v1");
-    if (!hasSeenOffer) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem("satyarthi_festive_popup_seen_v1", "true");
-      }, 9000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
   // Sync when triggered externally from Navbar or Floating Pill
   useEffect(() => {
     if (isOpenExternal) {
@@ -104,7 +92,7 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
 
   return (
     <>
-      {/* Persistent Floating Festive Gift Pill (Shown on Tablet/Desktop) */}
+      {/* Persistent Floating Festive Gift Pill (Shown on Both Mobile & Desktop) */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
@@ -115,26 +103,26 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
             whileHover={{ scale: 1.06, y: -2 }}
             whileTap={{ scale: 0.94 }}
             onClick={() => setIsOpen(true)}
-            className="hidden sm:flex fixed bottom-26 right-6 z-30 items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white font-black px-3.5 py-2.5 rounded-2xl shadow-xl shadow-orange-600/40 border-2 border-amber-300/80 cursor-pointer group overflow-hidden"
+            className="fixed bottom-[122px] right-3 sm:bottom-[92px] sm:right-6 z-30 flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white font-black px-2.5 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl shadow-xl shadow-orange-600/40 border-2 border-amber-300/80 cursor-pointer group overflow-hidden"
             aria-label="Open Navratri and Diwali Special Offer"
           >
-            {/* Shimmer sweep on desktop */}
+            {/* Shimmer sweep */}
             <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
 
-            {/* Playful Animated Icon on Desktop */}
+            {/* Playful Animated Icon */}
             <motion.span
               animate={{ rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.15, 1] }}
               transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 1 }}
-              className="w-6 h-6 rounded-lg bg-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-xs"
+              className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-xs"
             >
-              <Gift className="w-4 h-4 text-rose-700" />
+              <Gift className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-700" />
             </motion.span>
 
             <div className="text-left leading-tight">
-              <span className="block text-[10px] font-extrabold text-amber-200 uppercase tracking-wider">
+              <span className="block text-[9px] sm:text-[10px] font-extrabold text-amber-200 uppercase tracking-wider">
                 🪔 Navratri & Diwali
               </span>
-              <span className="block text-xs font-black text-white whitespace-nowrap">
+              <span className="block text-[11px] sm:text-xs font-black text-white whitespace-nowrap">
                 Special Gift Offer 🎁
               </span>
             </div>

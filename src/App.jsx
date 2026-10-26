@@ -128,7 +128,6 @@ function AppContent() {
         onOpenAdmin={() => setIsAdminOpen(true)} 
         onNavigate={navigateTo}
         onOpenCalculator={() => setIsCalculatorOpen(true)}
-        onOpenFestiveOffer={() => setIsFestiveOfferOpen(true)}
         currentRoute={currentRoute}
       />
 
@@ -276,7 +275,7 @@ function AppContent() {
           <AIChatbot />
         </Suspense>
       )}
-      <FloatingWhatsApp onOpenFestiveOffer={() => setIsFestiveOfferOpen(true)} />
+      <FloatingWhatsApp />
 
       {/* Lazy-Loaded Modals */}
       <Suspense fallback={null}>
