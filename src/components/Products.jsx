@@ -124,8 +124,8 @@ function Products() {
           </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
+        {/* Products 3D Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10" style={{ perspective: "1100px" }}>
           {filteredProducts.map((product, idx) => {
             const discountPercent = product.originalPrice
               ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)

@@ -58,8 +58,8 @@ function Projects() {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {/* Projects 3D Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12" style={{ perspective: "1100px" }}>
           {filteredProjects.map((project) => (
             <div
               key={project.id}

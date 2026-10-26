@@ -14,21 +14,31 @@ export function ExpressiveKineticText({
 }) {
   const words = text.split(" ");
   return (
-    <span className={`inline-flex flex-wrap justify-center gap-x-2 gap-y-1 ${className}`}>
+    <span className={`inline-flex flex-wrap justify-center gap-x-2.5 gap-y-1 ${className}`} style={{ perspective: "800px" }}>
       {words.map((word, i) => {
         const cleanWord = word.replace(/[^a-zA-Z0-9₹+-]/g, "");
         const isHighlighted = highlightWords.some(
           (hw) => hw.toLowerCase() === cleanWord.toLowerCase() || hw.toLowerCase() === word.toLowerCase()
         );
         return (
-          <span
+          <motion.span
             key={i}
-            className={`inline-block select-none transition-transform duration-200 hover:scale-105 ${
+            initial={{ opacity: 0, y: 24, rotateX: -60, scale: 0.92 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 160,
+              damping: 15,
+              delay: (i % 8) * 0.04
+            }}
+            whileHover={{ y: -4, scale: 1.08, rotate: i % 2 === 0 ? -1.5 : 1.5 }}
+            className={`inline-block select-none ${
               isHighlighted ? highlightClass : ""
             }`}
           >
             {word}
-          </span>
+          </motion.span>
         );
       })}
     </span>

@@ -142,79 +142,54 @@ export default function FestiveOfferPopup({ isOpenExternal, onCloseExternal }) {
         )}
       </AnimatePresence>
 
-      {/* Main Adaptive Festive Offer Modal */}
+      {/* Main 3D Animated Festive Offer Modal (Both Mobile & PC) */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center p-2.5 sm:p-4">
-            {/* Backdrop: Solid on mobile to prevent GPU stutter; rich blur on desktop */}
+          <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center p-2.5 sm:p-4" style={{ perspective: "1100px" }}>
+            {/* Backdrop with Rich Golden Atmosphere */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: isMobile ? 0.18 : 0.25 }}
+              transition={{ duration: 0.25 }}
               onClick={handleClose}
-              className={`fixed inset-0 ${isMobile ? "bg-slate-950/85" : "bg-slate-950/80 backdrop-blur-md"}`}
+              className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
             />
 
-            {/* Adaptive Animated Card: 
-                - Desktop: Full 3D spring tilt with golden particle aura
-                - Mobile: Hardware-accelerated 2D slide-up at 60 FPS
-            */}
+            {/* 3D Spring Tilt Card (Both Mobile & PC) */}
             <motion.div
-              initial={
-                isMobile 
-                  ? { opacity: 0, y: 24, scale: 0.96 } 
-                  : { opacity: 0, scale: 0.82, y: 70, rotateX: 14 }
-              }
-              animate={
-                isMobile 
-                  ? { opacity: 1, y: 0, scale: 1 } 
-                  : { opacity: 1, scale: 1, y: 0, rotateX: 0 }
-              }
-              exit={
-                isMobile 
-                  ? { opacity: 0, y: 16, scale: 0.96 } 
-                  : { opacity: 0, scale: 0.85, y: 50 }
-              }
-              transition={
-                isMobile 
-                  ? { duration: 0.2, ease: "easeOut" } 
-                  : { type: "spring", stiffness: 280, damping: 24 }
-              }
-              className={`relative z-10 w-full max-w-md bg-gradient-to-b from-[#1c0c07] via-[#120d1c] to-[#071318] text-white rounded-3xl border-2 border-amber-400/60 overflow-hidden my-auto max-h-[90vh] flex flex-col ${
-                isMobile ? "shadow-2xl" : "shadow-[0_0_60px_rgba(245,158,11,0.35)]"
-              }`}
+              initial={{ opacity: 0, scale: 0.85, y: 50, rotateX: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 40 }}
+              transition={{ type: "spring", stiffness: 280, damping: 22 }}
+              className="relative z-10 w-full max-w-md bg-gradient-to-b from-[#1c0c07] via-[#120d1c] to-[#071318] text-white rounded-3xl border-2 border-amber-400/60 shadow-[0_0_60px_rgba(245,158,11,0.35)] overflow-hidden my-auto max-h-[92vh] flex flex-col"
               style={{ transform: "translateZ(0)" }}
             >
               {/* Top Festive Garland Ribbon */}
               <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-orange-500 via-rose-500 to-emerald-400 shrink-0" />
 
-              {/* Floating Sparkle Particles (Active on Desktop, Disabled on Mobile for Max Battery & FPS) */}
-              {!isMobile ? (
-                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                  {SPARKLE_PARTICLES.map((p) => (
-                    <motion.span
-                      key={p.id}
-                      style={{ top: p.top, left: p.left }}
-                      animate={{
-                        opacity: [0.2, 0.95, 0.2],
-                        scale: [0.7, 1.35, 0.7],
-                        y: [0, -10, 0]
-                      }}
-                      transition={{
-                        duration: 2.6,
-                        delay: p.delay,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className={`absolute ${p.size} ${p.color} rounded-full blur-[0.5px] shadow-[0_0_8px_#fbbf24]`}
-                    />
-                  ))}
-                  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-44 bg-amber-500/25 rounded-full blur-3xl" />
-                </div>
-              ) : (
-                <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-64 h-32 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
-              )}
+              {/* Floating Sparkle Particles & Ambient Aura (Both Mobile & PC) */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {SPARKLE_PARTICLES.map((p) => (
+                  <motion.span
+                    key={p.id}
+                    style={{ top: p.top, left: p.left }}
+                    animate={{
+                      opacity: [0.2, 0.95, 0.2],
+                      scale: [0.7, 1.35, 0.7],
+                      y: [0, -10, 0]
+                    }}
+                    transition={{
+                      duration: 2.6,
+                      delay: p.delay,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className={`absolute ${p.size} ${p.color} rounded-full blur-[0.5px] shadow-[0_0_8px_#fbbf24]`}
+                  />
+                ))}
+                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-44 bg-amber-500/25 rounded-full blur-3xl" />
+              </div>
 
               {/* Close Button */}
               <button

@@ -108,8 +108,8 @@ function SubsidySection() {
           </div>
         </div>
 
-        {/* Subsidy Cards Grid */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-12">
+        {/* Subsidy Cards 3D Grid */}
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-12" style={{ perspective: "1100px" }}>
           {subsidyData.tiers.map((tier, idx) => (
             <div
               key={idx}

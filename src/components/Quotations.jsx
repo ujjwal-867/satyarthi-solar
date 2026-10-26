@@ -83,8 +83,8 @@ function Quotations() {
           </a>
         </div>
 
-        {/* Quotation Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        {/* Quotation Cards 3D Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mt-12" style={{ perspective: "1100px" }}>
           {businessData.quotationFlyers.map((flyer) => (
             <div
               key={flyer.id}
