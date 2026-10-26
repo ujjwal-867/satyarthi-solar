@@ -67,11 +67,27 @@ function AppContent() {
     if (path.includes("off-grid") || hash === "#off-grid") return "/off-grid";
     if (path.includes("appliance") || path.includes("electronic") || hash === "#appliances" || hash === "#electronics") return "/appliances";
     if (path.includes("gallery") || hash === "#gallery") return "/gallery";
-    if (path.includes("certificate") || hash === "#certificates" || hash === "#certificate") return "/certificates";
+    if (path.includes("certificate") || hash === "#certificates") return "/certificates";
     return "/";
   };
 
   const [currentRoute, setCurrentRoute] = useState(getInitialRoute);
+
+  // Dynamic SEO Page Title per Route
+  useEffect(() => {
+    const titles = {
+      "/": "Satyarthi Solar Solution | UPNEDA Empanelled Solar Vendor | Gorakhpur & UP",
+      "/on-grid": "On-Grid Rooftop Solar & PM Surya Ghar Subsidy (Up to ₹1,08,000) | Satyarthi Solar",
+      "/off-grid": "Off-Grid Solar Systems & Heavy PCU Battery Price List | Satyarthi Solar",
+      "/appliances": "Solar Smart Appliances & Electronics Showroom | Satyarthi Solar",
+      "/gallery": "Real Solar Installation Site Gallery & Verified Pergolas | Satyarthi Solar",
+      "/certificates": "Official Government Empanelment & Brand Dealership Certificates | Satyarthi Solar"
+    };
+
+    if (titles[currentRoute]) {
+      document.title = titles[currentRoute];
+    }
+  }, [currentRoute]);
 
   // Sync route on browser back/forward buttons
   useEffect(() => {
@@ -86,21 +102,6 @@ function AppContent() {
       window.removeEventListener("hashchange", handlePopState);
     };
   }, []);
-
-  // Update browser tab document.title dynamically for each dedicated route
-  useEffect(() => {
-    const titles = {
-      "/": "Satyarthi Solar Solution | Official Website | UPNEDA Empanelled Solar Vendor",
-      "/on-grid": "PM Surya Ghar On-Grid Solar Subsidy & Rates | Satyarthi Solar Solution",
-      "/off-grid": "Off-Grid Solar Inverter & Battery Bank Price List | Satyarthi Solar Solution",
-      "/appliances": "Solar Inverter AC & Home Electronics Showroom | Satyarthi Solar Solution",
-      "/gallery": "Real Project Installation Photo Gallery | Satyarthi Solar Solution",
-      "/certificates": "Official UPNEDA Empanelment & Brand Certificates | Satyarthi Solar Solution",
-    };
-    if (typeof document !== "undefined") {
-      document.title = titles[currentRoute] || titles["/"];
-    }
-  }, [currentRoute]);
 
   const navigateTo = (route) => {
     // Notify all lazy sections to mount immediately if navigation occurred
