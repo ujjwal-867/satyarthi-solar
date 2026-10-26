@@ -38,18 +38,34 @@ async function deploy() {
 
   const client = new ftp.Client();
   client.ftp.verbose = true;
+  client.ftp.timeout = 60000;
 
   try {
     const cleanHost = server.replace(/^ftp:\/\//, "").trim();
-    log(`Connecting to Hostinger FTP host: ${cleanHost} (user: ${user.trim()})...`);
-    await client.access({
-      host: cleanHost,
-      user: user.trim(),
-      password: password.trim(),
-      port: 21,
-      secure: false
-    });
-    log("✅ Connected successfully to Hostinger FTP!");
+    let connected = false;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        log(`Connecting to Hostinger FTP host: ${cleanHost} (user: ${user.trim()}) [Attempt ${attempt}/3]...`);
+        await client.access({
+          host: cleanHost,
+          user: user.trim(),
+          password: password.trim(),
+          port: 21,
+          secure: false
+        });
+        connected = true;
+        log("✅ Connected successfully to Hostinger FTP!");
+        break;
+      } catch (connErr) {
+        log(`⚠️ Connection attempt ${attempt} failed: ${connErr.message}`);
+        if (attempt < 3) {
+          log("Waiting 5s before reconnecting...");
+          await new Promise((res) => setTimeout(res, 5000));
+        } else {
+          throw connErr;
+        }
+      }
+    }
 
     const initialPwd = await client.pwd();
     log(`📍 Initial FTP working directory: '${initialPwd}'`);
