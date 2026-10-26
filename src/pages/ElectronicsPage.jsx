@@ -15,7 +15,6 @@ import {
   PhoneCall
 } from "lucide-react";
 import PortalNavigationHub from "../components/PortalNavigationHub";
-import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
 import Footer from "../components/Footer";
 import {
   ExpressiveKineticText,

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { BatteryCharging, MessageCircle, Phone, Wheat } from "lucide-react";
 import { businessData } from "../data/businessData";
 import PortalNavigationHub from "../components/PortalNavigationHub";
-import ARVRSolarVisualizer from "../components/ARVRSolarVisualizer";
 import Footer from "../components/Footer";
 import {
   ExpressiveKineticText,

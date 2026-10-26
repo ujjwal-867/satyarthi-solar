@@ -10,7 +10,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { LanguageProvider } from "./context/LanguageContext";
 
 // Lazy-loaded Below-the-Fold Sections (Dramatically accelerates initial phone page load)
-const ARVRSolarVisualizer = lazy(() => import("./components/ARVRSolarVisualizer"));
 const Services = lazy(() => import("./components/Services"));
 const DistrictsCoverage = lazy(() => import("./components/DistrictsCoverage"));
 const Testimonials = lazy(() => import("./components/Testimonials"));
@@ -196,16 +195,6 @@ function AppContent() {
                 onNavigate={navigateTo} 
                 onOpenCalculator={() => setIsCalculatorOpen(true)}
               />
-
-              {/* Interactive 3D AR / VR Solar Roof & Sun-Path Motion Graphics Visualizer (Lazy Loaded) */}
-              <LazySection anchorId="ar-vr-solar" minHeight="520px">
-                <Suspense fallback={<div className="min-h-[420px]" />}>
-                  <ARVRSolarVisualizer 
-                    onNavigate={navigateTo}
-                    onOpenCalculator={() => setIsCalculatorOpen(true)}
-                  />
-                </Suspense>
-              </LazySection>
 
               {/* Condensed Core Solar EPC Pillars (Residential, Commercial, Solar Aata Chakki) */}
               <LazySection anchorId="services" minHeight="420px">

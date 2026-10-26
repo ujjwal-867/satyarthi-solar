@@ -339,11 +339,11 @@ function Hero({ onOpenCalculator }) {
                 type="button"
                 whileHover={{ scale: 1.04, y: -3 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => scrollTo("#ar-vr-solar")}
-                className="inline-flex items-center justify-center gap-1.5 bg-sky-500/20 hover:bg-sky-500/30 backdrop-blur-md text-sky-200 font-bold px-3 sm:px-4 py-3 rounded-2xl border border-sky-400/35 transition text-xs sm:text-sm cursor-pointer"
+                onClick={() => scrollTo("#contact")}
+                className="inline-flex items-center justify-center gap-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 backdrop-blur-md text-emerald-200 font-bold px-3 sm:px-4 py-3 rounded-2xl border border-emerald-400/35 transition text-xs sm:text-sm cursor-pointer"
               >
-                <Box className="w-4 h-4 text-sky-300 shrink-0" />
-                <span>3D AR/VR View</span>
+                <Sparkles className="w-4 h-4 text-emerald-300 shrink-0" />
+                <span>Free Site Survey • सर्वे</span>
               </motion.button>
 
               <motion.a
