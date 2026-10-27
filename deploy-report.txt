@@ -1,22 +1,10 @@
-=== Hostinger FTP Deploy Report - 2026-10-27T11:44:50.139Z ===
+=== Hostinger FTP Deploy Report - 2026-10-27T12:01:49.010Z ===
 Connecting to Hostinger FTP host: 82.112.232.135 (user: u373122834) [Attempt 1/3]...
-✅ Connected successfully to Hostinger FTP!
-📍 Initial FTP working directory: '/public_html'
-Testing if client can navigate up via cd('..')...
-Parent directory pwd: '/'
-Parent directory files: [".api_token","public_html",".profile",".filebrowser",".logs","domains"]
-📂 Current directory files: [".api_token","public_html",".profile",".filebrowser",".logs","domains"]
-
-------------------------------------------------------
-🚀 Syncing dist/ to target: 'domains/satyarthisolarsolution.in/public_html'...
-📂 Confirmed working directory: '/domains/satyarthisolarsolution.in/public_html'
-✅ Successfully uploaded dist/ into '/domains/satyarthisolarsolution.in/public_html'!
-📄 Verified index.html: size=13883 bytes, date=2026-10-27T11:47:08.000Z
-
-------------------------------------------------------
-🚀 Syncing dist/ to target: 'public_html'...
-📂 Confirmed working directory: '/public_html'
-✅ Successfully uploaded dist/ into '/public_html'!
-📄 Verified index.html: size=13883 bytes, date=2026-10-27T11:49:28.000Z
-
-🎉 Deployment completed across all targets!
+⚠️ Connection attempt 1 failed: Timeout (control socket)
+Waiting 5s before reconnecting...
+Connecting to Hostinger FTP host: 82.112.232.135 (user: u373122834) [Attempt 2/3]...
+⚠️ Connection attempt 2 failed: Timeout (control socket)
+Waiting 5s before reconnecting...
+Connecting to Hostinger FTP host: 82.112.232.135 (user: u373122834) [Attempt 3/3]...
+⚠️ Connection attempt 3 failed: Timeout (control socket)
+❌ FTP Deployment Critical Error: Timeout (control socket)
