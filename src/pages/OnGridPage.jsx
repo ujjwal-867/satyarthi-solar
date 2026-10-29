@@ -18,37 +18,27 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
     { 
       step: "01", 
       title: "Free Roof Survey", 
-      titleHi: "निःशुल्क छत का निरीक्षण", 
-      desc: "Our engineers visit your site in Gorakhpur/UP and verify shadow-free area.",
-      descHi: "हमारे इंजीनियर्स आपकी छत का छाया-मुक्त क्षेत्र व लोड जांचते हैं।" 
+      desc: "Our engineers inspect your rooftop and verify shadow-free area & structural load." 
     },
     { 
       step: "02", 
       title: "Portal Registration", 
-      titleHi: "राष्ट्रीय पोर्टल पंजीकरण", 
-      desc: "We register your application on the PM Surya Ghar National Portal under code GKP2604066741.",
-      descHi: "वेंडर कोड GKP2604066741 के तहत नेशनल पोर्टल पर ऑनलाइन आवेदन।" 
+      desc: "We register your application on PM Surya Ghar portal under code GKP2604066741." 
     },
     { 
       step: "03", 
-      title: "Fast EPC Installation", 
-      titleHi: "3-5 दिनों में सोलर स्थापना", 
-      desc: "Installation of Tier-1 Loom Solar panels, heavy GI structure & dual earthing.",
-      descHi: "लूम सोलर पैनल्स, हैवी जीआई स्ट्रक्चर व केमिकल अर्थिंग के साथ त्वरित स्थापना।" 
+      title: "Fast Installation", 
+      desc: "Turnkey installation of Tier-1 solar panels, heavy GI structure & chemical earthing." 
     },
     { 
       step: "04", 
       title: "UPPCL Net Metering", 
-      titleHi: "स्मार्ट नेट मीटरिंग", 
-      desc: "UPPCL Purvanchal Vidyut inspects the plant and installs bidirectional meter.",
-      descHi: "पूर्वांचल विद्युत वितरण निगम द्वारा निरीक्षण व स्मार्ट नेट मीटर स्थापना।" 
+      desc: "UPPCL Purvanchal Vidyut inspects the plant and installs the bi-directional meter." 
     },
     { 
       step: "05", 
       title: "Direct Bank Subsidy", 
-      titleHi: "सीधे बैंक खाते में सब्सिडी", 
-      desc: "Subsidy amount (up to ₹1,08,000) deposited directly into your bank via DBT!",
-      descHi: "₹1,08,000 तक की सब्सिडी सीधे आपके बैंक खाते में डीबीटी द्वारा प्राप्त!" 
+      desc: "Subsidy of up to ₹1,08,000 deposited directly into your bank account via DBT." 
     },
   ];
 
@@ -330,9 +320,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
                   <span className="text-2xl font-black text-amber-400 block">{st.step}</span>
                   <h4 className="font-bold text-sm text-white">{st.title}</h4>
-                  <p className="text-xs text-amber-300 font-bold">{st.titleHi}</p>
-                  <p className="text-xs text-slate-200 pt-1">{st.desc}</p>
-                  <p className="text-[11px] text-sky-100 font-medium">{st.descHi}</p>
+                  <p className="text-xs text-slate-200 pt-1 leading-relaxed">{st.desc}</p>
                 </motion.div>
               ))}
             </div>

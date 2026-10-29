@@ -214,31 +214,26 @@ function Navbar({
             </div>
           </button>
 
-          {/* Streamlined Desktop Navigation Links (Compact padding so 1280px screens never overflow) */}
-          <nav className="hidden xl:flex items-center gap-0.5 text-sm font-semibold text-slate-700 min-w-0">
+          {/* Streamlined Desktop Navigation Links */}
+          <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700 min-w-0">
             {navLinks.map((link, idx) => {
               const active = isRouteActive(link.route);
               return (
                 <motion.button
                   key={idx}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleNavClick(link)}
-                  className={`relative px-2 2xl:px-2.5 py-1.5 rounded-xl transition cursor-pointer flex flex-col items-center leading-tight group overflow-hidden whitespace-nowrap ${
+                  className={`relative px-3 py-2 rounded-xl transition cursor-pointer flex items-center leading-tight group overflow-hidden whitespace-nowrap ${
                     active
-                      ? "bg-blue-50 text-blue-700 border border-blue-200/80 shadow-2xs"
-                      : "hover:text-blue-700 hover:bg-blue-50/70"
+                      ? "bg-blue-50 text-blue-700 font-bold border border-blue-200/80 shadow-2xs"
+                      : "hover:text-blue-700 hover:bg-slate-50 font-semibold"
                   }`}
                 >
-                  <span className={`text-[11px] 2xl:text-xs font-black transition ${
+                  <span className={`text-xs 2xl:text-sm transition ${
                     active ? "text-blue-700" : "text-slate-800 group-hover:text-blue-700"
                   }`}>
                     {link.en}
-                  </span>
-                  <span className={`text-[9px] font-bold transition ${
-                    active ? "text-amber-600" : "text-slate-500 group-hover:text-amber-600"
-                  }`}>
-                    {link.hi}
                   </span>
                   <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-gradient-to-r from-blue-600 to-amber-500 transition-transform duration-300 origin-center rounded-full ${
                     active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -248,18 +243,17 @@ function Navbar({
             })}
           </nav>
 
-          {/* Action CTAs: Solar Calculator & Get Quote (Responsive labels so they never clip on the right) */}
-          <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+          {/* Action CTAs: Solar Calculator & Get Quote */}
+          <div className="hidden sm:flex items-center gap-2 shrink-0">
             <motion.button
               type="button"
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.97 }}
               onClick={onOpenCalculator}
-              className="inline-flex items-center gap-1.5 text-[11px] font-black text-slate-900 bg-amber-400 hover:bg-amber-300 px-2.5 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-xs font-black text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
             >
               <Calculator className="w-3.5 h-3.5 text-slate-950 shrink-0" />
               <span>Calculator</span>
-              <span className="hidden 2xl:inline">• कैलकुलेटर</span>
             </motion.button>
 
             <motion.button
@@ -273,11 +267,10 @@ function Navbar({
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500 hover:from-blue-600 hover:to-amber-400 px-2.5 py-2 rounded-xl transition shadow-md shadow-blue-950/20 cursor-pointer border border-blue-400/40 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500 hover:from-blue-600 hover:to-amber-400 px-3 py-2 rounded-xl transition shadow-md shadow-blue-950/20 cursor-pointer border border-blue-400/40 whitespace-nowrap"
             >
               <FileText className="w-3.5 h-3.5 text-white shrink-0" />
               <span>Get Quote</span>
-              <span className="hidden 2xl:inline">| कोटेशन</span>
             </motion.button>
           </div>
 
@@ -330,17 +323,14 @@ function Navbar({
                 key={item.route}
                 type="button"
                 onClick={() => handleNavClick({ route: item.route })}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-[11px] font-black transition cursor-pointer whitespace-nowrap ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                   active
-                    ? "bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-sm"
+                    ? "bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-sm font-extrabold"
                     : "bg-slate-800/90 text-slate-200 hover:bg-slate-700 border border-slate-700/80"
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 shrink-0 ${active ? "text-slate-950" : "text-sky-400"}`} />
                 <span>{item.label}</span>
-                <span className={`text-[9.5px] font-hindi ${active ? "text-slate-900 font-extrabold" : "text-amber-300"}`}>
-                  • {item.hi}
-                </span>
               </button>
             );
           })}
@@ -349,7 +339,7 @@ function Navbar({
           <button
             type="button"
             onClick={onOpenCalculator}
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-[11px] font-black bg-amber-400/20 text-amber-300 border border-amber-400/40 hover:bg-amber-400/30 transition cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 hover:bg-amber-400/30 transition cursor-pointer whitespace-nowrap"
           >
             <Calculator className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>Calculator</span>
@@ -374,9 +364,6 @@ function Navbar({
                   }`}
                 >
                   <span>{link.en}</span>
-                  <span className="text-xs font-semibold text-blue-900 bg-blue-100/70 px-2 py-0.5 rounded-md">
-                    {link.hi}
-                  </span>
                 </button>
               );
             })}
@@ -393,7 +380,7 @@ function Navbar({
                 className="w-full inline-flex justify-center items-center gap-2 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-slate-950 font-black py-3 rounded-xl shadow-xs border border-amber-300"
               >
                 <Gift className="w-5 h-5 text-slate-950" />
-                <span>🪔 Navratri & Diwali Special Gift Offer</span>
+                <span>🪔 Festive Offers</span>
               </button>
             )}
 
@@ -406,7 +393,7 @@ function Navbar({
               className="w-full inline-flex justify-center items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-3 rounded-xl shadow-xs border border-amber-300"
             >
               <Calculator className="w-5 h-5 text-slate-950" />
-              <span>Solar Calculator | सोलर कैलकुलेटर</span>
+              <span>Solar Calculator</span>
             </button>
 
             <button
@@ -422,7 +409,7 @@ function Navbar({
               className="w-full inline-flex justify-center items-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-black py-3 rounded-xl shadow-xs transition"
             >
               <FileText className="w-5 h-5 text-amber-400" />
-              <span>Get Quote | मुफ्त कोटेशन प्राप्त करें</span>
+              <span>Get Free Quote</span>
             </button>
 
             <div className="grid grid-cols-2 gap-2">

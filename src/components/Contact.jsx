@@ -231,36 +231,30 @@ function Contact({ prefilledData }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
+          className="text-center max-w-3xl mx-auto space-y-2.5"
         >
           <div className="flex flex-wrap items-center justify-center gap-2">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
               <ShieldCheck className="w-4 h-4 text-amber-500" />
-              <span>Empanelled Solar Contractor • UPNEDA अधिकृत वेंडर</span>
+              <span>UPNEDA Empanelled Contractor • Code: {businessData.vendorCode}</span>
             </div>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             <ExpressiveKineticText
-              text="Get Your Free Site Survey & Customized Quote"
+              text="Get Your Free Site Survey & Solar Quote"
               highlightWords={["Free", "Site", "Survey", "Quote"]}
               highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
             />
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
-              निःशुल्क रूफ सर्वे एवं आधिकारिक कोटेशन प्राप्त करें
-            </span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Fill the form below or contact Er. Satya Prakash Satyarthi directly. Your inquiry is automatically sent to our official Email & WhatsApp desk for instant response.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              फॉर्म भरें या सीधे कॉल करें — आपका विवरण तुरंत हमारे आधिकारिक ईमेल व व्हाट्सएप डेस्क पर पहुंच जाएगा।
-            </span>
+            Fill out the form below or contact Er. Satya Prakash directly for quick quotation & subsidy assistance.
           </p>
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="mt-10 sm:mt-14 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start" style={{ perspective: "1100px" }}>
+        <div className="mt-10 sm:mt-12 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start" style={{ perspective: "1100px" }}>
           
           {/* Left Column: Office Details & Map (5 cols) */}
           <motion.div 
@@ -274,77 +268,66 @@ function Contact({ prefilledData }) {
             {/* Quick Contact 3D Bento Card */}
             <motion.div
               whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
-              className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-3xl p-5 sm:p-8 backdrop-blur-md space-y-5 shadow-xl transition-all duration-300 group overflow-hidden"
+              className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-3xl p-5 sm:p-7 backdrop-blur-md space-y-4 shadow-xl transition-all duration-300 group overflow-hidden"
             >
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-blue-50/70 to-transparent pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Company Information</h3>
-                  <span className="text-xs text-blue-900 font-bold font-hindi">कंपनी विवरण • 2500+ संतुष्ट परिवार</span>
+                  <h3 className="text-lg font-bold text-slate-900">Company Information</h3>
+                  <span className="text-xs text-blue-900 font-semibold">2500+ Happy Families in Purvanchal</span>
                 </div>
                 <InteractiveZapBurstButton initialCount={264} label="24×7" />
               </div>
 
-              <div className="space-y-4 text-sm relative z-10">
-                {/* Phone & Office Number 8112991914 */}
-                <div className="flex items-start gap-3.5">
+              <div className="space-y-3.5 text-sm relative z-10">
+                {/* Phone & Office Number */}
+                <div className="flex items-start gap-3">
                   <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl shrink-0">
-                    <Phone className="w-5 h-5" />
+                    <Phone className="w-4 h-4" />
                   </div>
                   <div className="space-y-1 flex-1">
-                    <span className="text-xs text-slate-600 font-bold flex items-center gap-1.5 flex-wrap">
-                      <span>24×7 Calling & Office Lines • संपर्क सूत्र:</span>
+                    <span className="text-xs text-slate-500 font-bold flex items-center gap-1.5 flex-wrap">
+                      <span>Calling Lines:</span>
                       <span className="bg-blue-50 text-blue-900 text-[10px] px-2 py-0.5 rounded-full font-black border border-blue-200">Active</span>
                     </span>
                     <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-600 transition block text-sm">
                       +91 {businessData.phone[0]} <span className="text-xs text-slate-500 font-normal">(Er. Satya Prakash • 24×7)</span>
                     </a>
-                    <a href={`tel:${businessData.officeNumber}`} className="font-black text-blue-900 hover:text-blue-950 transition flex items-center gap-1.5 text-sm bg-blue-50/90 border border-blue-200/80 px-2.5 py-1 rounded-xl w-fit">
+                    <a href={`tel:${businessData.officeNumber}`} className="font-semibold text-blue-900 hover:text-blue-950 transition flex items-center gap-1.5 text-xs bg-blue-50/90 border border-blue-200/80 px-2.5 py-1 rounded-xl w-fit">
                       <PhoneCall className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                      <span>Office Number: +91 {businessData.officeNumber}</span>
-                    </a>
-                    <a href={`tel:${businessData.phone[1]}`} className="font-semibold text-slate-700 hover:text-blue-600 transition block text-xs">
-                      +91 {businessData.phone[1]} <span className="text-slate-500 font-normal">(24×7 Business Helpline)</span>
+                      <span>Office: +91 {businessData.officeNumber}</span>
                     </a>
                   </div>
                 </div>
 
                 {/* WhatsApp */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3">
                   <div className="p-2.5 bg-amber-50 text-amber-600 rounded-xl shrink-0">
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-4 h-4" />
                   </div>
                   <div className="space-y-0.5">
-                    <span className="text-xs text-slate-500 block">WhatsApp Desk • व्हाट्सएप सहायता:</span>
+                    <span className="text-xs text-slate-500 block">WhatsApp Support:</span>
                     <a 
                       href={`https://wa.me/91${businessData.whatsapp[0]}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-bold text-blue-900 hover:text-blue-950 transition block"
+                      className="font-bold text-blue-900 hover:text-blue-950 transition block text-xs"
                     >
                       +91 {businessData.whatsapp[0]} (Primary WhatsApp)
-                    </a>
-                    <a 
-                      href={`https://wa.me/91${businessData.officeNumber}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-semibold text-blue-800 hover:text-blue-900 transition block text-xs"
-                    >
-                      +91 {businessData.officeNumber} (Office Desk WhatsApp)
                     </a>
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3">
                   <div className="p-2.5 bg-slate-100 text-slate-700 rounded-xl shrink-0">
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Official Email • आधिकारिक ईमेल:</span>
+                    <span className="text-xs text-slate-500 block">Official Email:</span>
                     <a 
                       href={`mailto:${businessData.email}`}
-                      className="font-bold text-slate-800 hover:text-blue-600 transition break-all"
+                      className="font-semibold text-slate-800 hover:text-blue-600 transition break-all text-xs"
                     >
                       {businessData.email}
                     </a>
@@ -352,13 +335,13 @@ function Contact({ prefilledData }) {
                 </div>
 
                 {/* Address */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3">
                   <div className="p-2.5 bg-rose-50 text-rose-600 rounded-xl shrink-0">
-                    <MapPin className="w-5 h-5" />
+                    <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Head Office Address • मुख्य पता:</span>
-                    <p className="font-medium text-slate-800 leading-snug">
+                    <span className="text-xs text-slate-500 block">Showroom Address:</span>
+                    <p className="font-medium text-slate-800 text-xs leading-snug">
                       {businessData.address}
                     </p>
                     <a
@@ -367,20 +350,20 @@ function Contact({ prefilledData }) {
                       rel="noreferrer"
                       className="inline-flex items-center gap-1 text-xs text-blue-600 font-bold hover:underline mt-1"
                     >
-                      <span>Open in Google Maps App • गूगल मैप पर देखें</span>
+                      <span>Open in Google Maps ↗</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Working Hours */}
-                <div className="flex items-start gap-3.5 pt-2 border-t border-slate-100">
+                <div className="flex items-start gap-3 pt-2 border-t border-slate-100">
                   <div className="p-2.5 bg-slate-100 text-slate-600 rounded-xl shrink-0">
-                    <Clock className="w-5 h-5" />
+                    <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Showroom Timings • समय:</span>
+                    <span className="text-xs text-slate-500 block">Hours:</span>
                     <p className="font-medium text-slate-800 text-xs">
-                      Monday – Saturday: 9:00 AM – 7:30 PM (Sunday by Appointment)
+                      Mon – Sat: 9:00 AM – 7:30 PM (Sunday by Appointment)
                     </p>
                   </div>
                 </div>
@@ -556,14 +539,11 @@ function Contact({ prefilledData }) {
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-black text-slate-900">
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                     Request Free Solar Site Survey
                   </h3>
-                  <p className="text-sm font-semibold text-blue-900 font-hindi mt-0.5">
-                    निःशुल्क साइट सर्वे एवं कोटेशन के लिए विवरण भरें
-                  </p>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Fill in your details for custom engineering calculation & subsidy assistance.
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                    Enter your details to calculate subsidy and receive a custom engineering quotation.
                   </p>
                 </div>
 
@@ -571,7 +551,7 @@ function Contact({ prefilledData }) {
                   {/* Name */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      Full Name • पूरा नाम *
+                      Full Name *
                     </label>
                     <input
                       type="text"
@@ -587,7 +567,7 @@ function Contact({ prefilledData }) {
                   {/* Mobile Number */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      Mobile / WhatsApp • मोबाइल नंबर *
+                      Mobile / WhatsApp *
                     </label>
                     <input
                       type="tel"
@@ -595,7 +575,7 @@ function Contact({ prefilledData }) {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="e.g. 8112991941"
+                      placeholder="10-digit mobile number"
                       className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                     />
                   </div>
@@ -605,7 +585,7 @@ function Contact({ prefilledData }) {
                   {/* Email */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      Email Address • ईमेल (Optional)
+                      Email Address (Optional)
                     </label>
                     <input
                       type="email"
@@ -620,7 +600,7 @@ function Contact({ prefilledData }) {
                   {/* Location */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      District • जिला (Uttar Pradesh) *
+                      District (Uttar Pradesh) *
                     </label>
                     <select
                       name="location"
@@ -628,19 +608,19 @@ function Contact({ prefilledData }) {
                       onChange={handleChange}
                       className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 cursor-pointer"
                     >
-                      <option value="Gorakhpur">Gorakhpur • गोरखपुर</option>
-                      <option value="Deoria">Deoria • देवरिया</option>
-                      <option value="Kushinagar">Kushinagar • कुशीनगर</option>
-                      <option value="Maharajganj">Maharajganj • महराजगंज</option>
-                      <option value="Basti">Basti • बस्ती</option>
-                      <option value="Sant Kabir Nagar">Sant Kabir Nagar • संत कबीर नगर</option>
-                      <option value="Siddharthnagar">Siddharthnagar • सिद्धार्थनगर</option>
-                      <option value="Azamgarh">Azamgarh • आजमगढ़</option>
-                      <option value="Mau">Mau • मऊ</option>
-                      <option value="Ballia">Ballia • बलिया</option>
-                      <option value="Varanasi">Varanasi • वाराणसी</option>
-                      <option value="Lucknow">Lucknow • लखनऊ</option>
-                      <option value="Other UP">Other District in UP • अन्य जिला</option>
+                      <option value="Gorakhpur">Gorakhpur</option>
+                      <option value="Deoria">Deoria</option>
+                      <option value="Kushinagar">Kushinagar</option>
+                      <option value="Maharajganj">Maharajganj</option>
+                      <option value="Basti">Basti</option>
+                      <option value="Sant Kabir Nagar">Sant Kabir Nagar</option>
+                      <option value="Siddharthnagar">Siddharthnagar</option>
+                      <option value="Azamgarh">Azamgarh</option>
+                      <option value="Mau">Mau</option>
+                      <option value="Ballia">Ballia</option>
+                      <option value="Varanasi">Varanasi</option>
+                      <option value="Lucknow">Lucknow</option>
+                      <option value="Other UP">Other UP District</option>
                     </select>
                   </div>
                 </div>
@@ -648,7 +628,7 @@ function Contact({ prefilledData }) {
                 {/* Service Selection */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Interested Service • सेवा का प्रकार *
+                    Interested Service *
                   </label>
                   <select
                     id="service-select"
@@ -658,28 +638,25 @@ function Contact({ prefilledData }) {
                     className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 cursor-pointer"
                   >
                     <option value="Residential Rooftop Solar (PM Surya Ghar)">
-                      Residential Rooftop Solar • घरेलू रूफटॉप सोलर (₹1,08,000 Subsidy)
+                      Residential Rooftop Solar (Up to ₹1,08,000 Subsidy)
                     </option>
                     <option value="Commercial Solar (School, Hospital, Office)">
-                      Commercial Solar • कमर्शियल सोलर (स्कूल, अस्पताल, पेट्रोल पंप)
+                      Commercial & Institutional Solar (80% Bill Cut)
                     </option>
                     <option value="Solar Aata Chakki / Flour Mill Drive">
-                      Solar Aata Chakki • सोलर आटा चक्की / ट्यूबवेल VFD ड्राइव
+                      Solar Aata Chakki & VFD Heavy Drives (Zero Diesel)
                     </option>
                     <option value="Industrial Solar Plant (20kW - 500kW+)">
-                      Industrial Solar Plant • औद्योगिक सोलर प्लांट (20kW - 500kW+ HT/LT)
+                      Industrial Solar Plant (20kW – 500kW+ HT/LT)
                     </option>
                     <option value="Solar + Inverter AC / Home Appliances Combo">
-                      Solar + 5-Star Inverter AC / Fridge Combo Deal • सोलर + एसी कॉम्बो
+                      Solar + Inverter AC / Appliances Combo
                     </option>
-                    <option value="Home Appliances Only (AC, Fridge, Cooler, Washing Machine)">
-                      Home Appliances Only • इलेक्ट्रॉनिक्स (एसी, फ्रिज, कूलर, वाशिंग मशीन)
+                    <option value="Home Appliances Only (AC, Fridge, Cooler)">
+                      5-Star Solar Appliances (AC, Fridge, Deep Freezer)
                     </option>
-                    <option value="Solar Water Heater">Solar Water Heater • सोलर वाटर हीटर</option>
-                    <option value="Solar Maintenance & AMC">Solar Maintenance & AMC • मेंटेनेंस व सर्विस</option>
-                    <option value="Wholesale Solar Panels & Hardware Supply">
-                      Wholesale Solar Panels & Structures Supply • थोक सोलर उपकरण
-                    </option>
+                    <option value="Solar Water Heater">Solar Water Heater</option>
+                    <option value="Solar Maintenance & AMC">Solar Maintenance & AMC</option>
                   </select>
                 </div>
 
@@ -687,7 +664,7 @@ function Contact({ prefilledData }) {
                   {/* Monthly Electricity Bill */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      Monthly Electricity Bill • मासिक बिल (₹)
+                      Monthly Electricity Bill (₹)
                     </label>
                     <input
                       type="number"
@@ -702,7 +679,7 @@ function Contact({ prefilledData }) {
                   {/* Roof Area */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      Rooftop Area • छत क्षेत्रफल (Sq. Ft.)
+                      Rooftop Area (Sq. Ft.)
                     </label>
                     <input
                       type="number"
@@ -718,15 +695,15 @@ function Contact({ prefilledData }) {
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Your Requirements • अतिरिक्त विवरण (Optional)
+                    Your Requirements (Optional)
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
-                    rows="3"
+                    rows="2"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="छत की स्थिति, इन्वर्टर या एसी की आवश्यकता के बारे में बताएं..."
+                    placeholder="Tell us about your rooftop or specific requirements..."
                     className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                   ></textarea>
                 </div>
@@ -735,21 +712,18 @@ function Contact({ prefilledData }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-4 rounded-xl text-sm transition shadow-lg shadow-blue-950/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-950/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>
                     {isSubmitting 
                       ? "Submitting Inquiry..." 
-                      : "Submit Quote Request • निःशुल्क कोटेशन अनुरोध भेजें"}
+                      : "Submit Quote Request"}
                   </span>
                 </button>
 
                 <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-                  🔒 We respect your privacy. Your information is only used by Er. Satyaprakash for the solar site survey and subsidy application.
-                  <span className="block font-hindi text-[10px] text-slate-400 mt-0.5">
-                    आपकी जानकारी पूर्णतः सुरक्षित है और केवल साइट सर्वे एवं सब्सिडी हेतु उपयोग की जाएगी।
-                  </span>
+                  🔒 We respect your privacy. Your information is strictly used for the solar site survey and subsidy application.
                 </p>
               </form>
             )}

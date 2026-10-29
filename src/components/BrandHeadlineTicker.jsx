@@ -18,13 +18,10 @@ export default function BrandHeadlineTicker() {
             {[...brands, ...brands].map((brand, idx) => (
               <div
                 key={idx}
-                className="inline-flex items-center gap-1.5 bg-white/90 border border-blue-200/80 rounded-full px-3 py-1 whitespace-nowrap text-xs shadow-2xs"
+                className="inline-flex items-center gap-1.5 bg-white/95 border border-blue-200/80 rounded-full px-3 py-1 whitespace-nowrap text-xs shadow-2xs font-bold text-slate-800 hover:text-blue-900 transition-colors"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                <span className="font-bold text-slate-900">{brand.name}</span>
-                <span className="text-[10px] text-blue-900 font-hindi font-medium">
-                  ({brand.hi})
-                </span>
+                <span>{brand.name}</span>
               </div>
             ))}
           </div>

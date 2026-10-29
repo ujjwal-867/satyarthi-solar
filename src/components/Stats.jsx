@@ -149,8 +149,8 @@ function Stats() {
                   <InteractiveZapBurstButton initialCount={stat.likes} label="" />
                 </div>
 
-                <div className="space-y-0.5 relative z-10">
-                  <div className="flex items-baseline gap-1 flex-wrap">
+                <div className="space-y-1 relative z-10">
+                  <div className="flex items-baseline gap-1">
                     <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-blue-900 transition-colors">
                       <AnimatedNumber targetText={stat.value} />
                     </span>
@@ -159,16 +159,11 @@ function Stats() {
                     </span>
                   </div>
                   
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-800 leading-tight">
-                      {stat.en}
-                    </h4>
-                    <p className="text-[11px] font-semibold text-blue-800 leading-tight font-hindi">
-                      {stat.hi}
-                    </p>
-                  </div>
+                  <h4 className="text-xs font-bold text-slate-800 leading-tight">
+                    {stat.en}
+                  </h4>
 
-                  <p className="text-[10px] text-slate-500 leading-tight pt-0.5">
+                  <p className="text-[10px] text-slate-500 leading-tight">
                     {stat.desc}
                   </p>
                 </div>

@@ -36,21 +36,21 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 <span className="text-base sm:text-xl font-black tracking-tight text-white block whitespace-nowrap">
                   SATYARTHI <span className="text-amber-400">SOLAR SOLUTION</span>
                 </span>
-                <p className="text-[11px] text-sky-300 font-hindi font-medium whitespace-nowrap">
-                  सत्यार्थी सोलर सॉल्यूशन • 2500+ संतुष्ट परिवार
+                <p className="text-[11px] text-sky-300 font-medium whitespace-nowrap">
+                  2500+ Installed Sites in Purvanchal
                 </p>
               </div>
             </div>
 
             <p className="text-xs text-slate-300/90 leading-relaxed">
-              {businessData.tagline}. Leading UPNEDA empanelled solar installer and Primary Authorized Dealer for Tier-1 solar systems, inverters, and heavy-duty batteries. We deliver turnkey residential, commercial, industrial and solar aata chakki projects across every corner of Gorakhpur and Uttar Pradesh.
+              UPNEDA empanelled solar contractor and authorized dealer for Tata Power Solar, Adani Solar, Waaree, and Loom Solar. Turnkey residential, commercial, and agricultural solar EPC across Uttar Pradesh.
             </p>
 
             {/* Govt Credentials Box */}
-            <div className="bg-[#0d284f] border border-blue-500/30 p-4 rounded-2xl space-y-2 text-xs">
+            <div className="bg-[#0d284f] border border-blue-500/30 p-3.5 rounded-2xl space-y-1.5 text-xs">
               <div className="flex items-center gap-2 text-amber-300 font-semibold">
                 <ShieldCheck className="w-4 h-4 shrink-0 text-amber-400" />
-                <span>UPNEDA & MNRE Approved Vendor • Saur Samman Awardee</span>
+                <span>UPNEDA & MNRE Approved Vendor</span>
               </div>
               <p className="text-slate-200 font-mono text-[11px]">
                 Vendor Code: <strong className="text-amber-300">{businessData.vendorCode}</strong>
@@ -61,16 +61,13 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <p className="text-slate-200 font-mono text-[11px]">
                 MSME Udyam: <strong className="text-amber-300">{businessData.udyamNo}</strong>
               </p>
-              <p className="text-[11px] text-amber-300 font-semibold">
-                Authorized Primary Dealer & Channel Partner of Leading Solar Brands
-              </p>
             </div>
           </div>
 
           {/* Col 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-              Quick Navigation • नेविगेशन
+              Navigation
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
@@ -78,7 +75,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   onClick={() => onNavigate ? onNavigate("/") : scrollTo("#hero")} 
                   className="hover:text-amber-400 transition cursor-pointer"
                 >
-                  Home | होम
+                  Home
                 </button>
               </li>
               <li>
@@ -86,7 +83,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   onClick={() => onNavigate ? onNavigate("/on-grid") : scrollTo("#portal-hub")} 
                   className="hover:text-amber-400 transition cursor-pointer text-sky-300 font-semibold"
                 >
-                  On-Grid (PM Surya Ghar) | सब्सिडी दरें
+                  On-Grid (PM Surya Ghar)
                 </button>
               </li>
               <li>
@@ -94,7 +91,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   onClick={() => onNavigate ? onNavigate("/off-grid") : scrollTo("#portal-hub")} 
                   className="hover:text-amber-400 transition cursor-pointer text-amber-300 font-semibold"
                 >
-                  Off-Grid True Rate List | वास्तविक दर सूची
+                  Off-Grid Rate List
                 </button>
               </li>
               <li>
@@ -102,7 +99,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   onClick={() => onNavigate ? onNavigate("/appliances") : scrollTo("#portal-hub")} 
                   className="hover:text-amber-400 transition cursor-pointer text-blue-300"
                 >
-                  Electronics Store | होम उपकरण
+                  Electronics Store
                 </button>
               </li>
               <li>
@@ -110,7 +107,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   onClick={() => onNavigate ? onNavigate("/gallery") : scrollTo("#portal-hub")} 
                   className="hover:text-amber-400 transition cursor-pointer text-purple-300"
                 >
-                  Site Gallery | रियल प्रोजेक्ट्स
+                  Site Gallery
                 </button>
               </li>
               <li>
@@ -121,7 +118,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   }} 
                   className="hover:text-amber-400 transition cursor-pointer"
                 >
-                  Certificates | सरकारी मान्यता
+                  Certificates & Approvals
                 </button>
               </li>
               <li>
@@ -132,7 +129,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                   }} 
                   className="hover:text-amber-400 transition cursor-pointer text-amber-400 font-bold"
                 >
-                  Book Site Survey | संपर्क
+                  Book Free Survey
                 </button>
               </li>
             </ul>
@@ -141,27 +138,26 @@ function Footer({ onOpenAdmin, onNavigate }) {
           {/* Col 3: Services (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-              Solar Offerings • प्रमुख सेवाएं
+              Solar Offerings
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li>Residential Rooftop Solar (1kW - 10kW) • आवासीय सोलर</li>
-              <li>PM Surya Ghar Net Metering • UPPCL नेट मीटरिंग</li>
-              <li>Commercial Solar Plants • स्कूल व अस्पताल प्लांट</li>
-              <li>Industrial Plants (GIDA Gorakhpur) • गीडा औद्योगिक प्लांट</li>
-              <li>Solar Aata Chakki (10HP - 25HP VFD) • सोलर आटा चक्की</li>
-              <li>Solar Inverter AC & Appliances • सोलर इन्वर्टर एसी</li>
-              <li>Solar Water Heaters (ETC/Pressurized) • वाटर हीटर</li>
-              <li>Hot-Dip G.I. Heavy Mounting • आंधी-रोधी स्ट्रक्चर</li>
-              <li>Chemical Earthing Kits • केमिकल अर्थिंग किट</li>
+              <li>Residential Rooftop Solar (1kW – 10kW)</li>
+              <li>PM Surya Ghar Net Metering (UPPCL)</li>
+              <li>Commercial Solar Plants (Schools & Hospitals)</li>
+              <li>Industrial Plants (GIDA Gorakhpur)</li>
+              <li>Solar Aata Chakki (10HP – 25HP VFD)</li>
+              <li>5-Star Solar Appliances & Inverter ACs</li>
+              <li>Hot-Dip Heavy Galvanized Structures</li>
+              <li>Solar Maintenance & AMC</li>
             </ul>
           </div>
 
           {/* Col 4: Contact & Location (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-              Contact & Store • संपर्क व पता
+              Contact & Store
             </h4>
-            <div className="space-y-3 text-xs text-slate-400">
+            <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
                 <div>
@@ -170,10 +166,10 @@ function Footer({ onOpenAdmin, onNavigate }) {
                     href={businessData.googleMapLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-amber-400 hover:underline mt-1 inline-flex items-center gap-1 font-semibold"
+                    className="text-amber-400 hover:underline mt-0.5 inline-flex items-center gap-1 font-semibold"
                   >
                     <Navigation className="w-3 h-3" />
-                    <span>Google Maps Verified Link ↗</span>
+                    <span>View on Google Maps ↗</span>
                   </a>
                 </div>
               </div>
@@ -181,7 +177,6 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-sky-400 shrink-0" />
                 <div>
-                  <span className="text-[10px] text-sky-300 font-bold block">24×7 Business Helpline:</span>
                   <a href={`tel:${businessData.phone[0]}`} className="hover:text-white transition font-mono font-bold text-white">
                     +91 {businessData.phone[0]} / {businessData.phone[1]}
                   </a>
@@ -191,7 +186,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <div className="flex items-center gap-2">
                 <PhoneCall className="w-4 h-4 text-blue-400 shrink-0" />
                 <a href={`tel:${businessData.officeNumber}`} className="hover:text-blue-300 transition text-blue-300 font-medium">
-                  Office Desk: {businessData.officeNumber}
+                  Office: +91 {businessData.officeNumber}
                 </a>
               </div>
 

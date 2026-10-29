@@ -61,22 +61,22 @@ const HERO_SLIDES = [
   }
 ];
 
-const DUAL_POINTS = [
+const KEY_HIGHLIGHTS = [
   {
-    en: "Up to ₹1,08,000 Direct Bank Subsidy (DBT)",
-    hi: "बैंक खाते में ₹1,08,000 तक सीधी सरकारी सब्सिडी"
+    title: "₹1,08,000 Direct Subsidy",
+    subtitle: "PM Surya Ghar DBT in bank"
   },
   {
-    en: "Up to 300 Units Free Electricity Monthly",
-    hi: "हर महीने 300 यूनिट तक मुफ्त बिजली का लाभ"
+    title: "300 Units Free Power",
+    subtitle: "Zero monthly electricity bill"
   },
   {
-    en: "TATA, Adani, Waaree & Loom Authorized",
-    hi: "टाटा, अदानी, वारी व लूम के अधिकृत मुख्य डीलर"
+    title: "Tier-1 Brands Dealer",
+    subtitle: "Tata, Adani, Waaree & Loom"
   },
   {
-    en: "UPPCL Net Metering & 25-Year Warranty",
-    hi: "यूपीपीसीएल नेट मीटरिंग व 25 साल की वारंटी"
+    title: "25-Year Warranty",
+    subtitle: "Full UPPCL net metering"
   }
 ];
 
@@ -250,10 +250,10 @@ function Hero({ onOpenCalculator }) {
             </motion.div>
 
             {/* Expressive Kinetic Headline with Targeted Local Keywords */}
-            <motion.div variants={itemVariants} className="space-y-2">
+            <motion.div variants={itemVariants} className="space-y-2.5">
               <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-black tracking-tight leading-[1.15] text-white">
                 <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-400 mb-1">
-                  #1 Solar Service in Gorakhpur & Motiram Adda
+                  #1 Solar EPC in Gorakhpur & Purvanchal
                 </span>
                 <span className="block">
                   <ExpressiveKineticText
@@ -274,98 +274,74 @@ function Hero({ onOpenCalculator }) {
                 </motion.span>
               </h1>
               
-              <motion.h2
-                whileHover={{ x: 4 }}
-                className="text-base sm:text-xl lg:text-2xl font-bold text-sky-200 tracking-tight font-hindi"
-              >
-                सत्यार्थी सोलर सॉल्यूशन • <span className="text-amber-300 font-extrabold">गोरखपुर व पूर्वांचल में 2500+ रूफटॉप सोलर प्लांट्स</span>
-              </motion.h2>
+              <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed max-w-xl">
+                UPNEDA-empanelled rooftop solar installations across Gorakhpur & Purvanchal. Claim up to ₹1,08,000 PM Surya Ghar subsidy with 25-year panel warranty and 6% bank loan.
+              </p>
             </motion.div>
 
-            {/* Concise Single-Paragraph Summary */}
-            <motion.p variants={itemVariants} className="text-slate-200/95 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Turnkey residential on-grid solar (PM Surya Ghar subsidy up to ₹1,08,000), commercial systems, and diesel-free solar flour mills across every corner of Gorakhpur, Motiram Adda & Purvanchal.
-            </motion.p>
-
-            {/* 4 Key Highlights with Full 3D Bento Tilt & Diagonal Light-Sweep Shimmer */}
-            <motion.div variants={itemVariants} className="grid sm:grid-cols-2 gap-3 pt-1" style={{ perspective: "1000px" }}>
-              {DUAL_POINTS.map((pt, idx) => (
+            {/* 4 Crisp Key Highlights with 3D Bento Hover */}
+            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-2.5 pt-1" style={{ perspective: "1000px" }}>
+              {KEY_HIGHLIGHTS.map((pt, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{
-                    y: -6,
-                    rotateX: 4,
-                    rotateY: -3,
+                    y: -4,
                     scale: 1.02,
-                    backgroundColor: "rgba(255, 255, 255, 0.13)"
+                    backgroundColor: "rgba(255, 255, 255, 0.12)"
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-amber-400/60 rounded-2xl p-3.5 space-y-1 transition overflow-hidden shadow-md"
+                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-amber-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
                 >
-                  {/* Animated Diagonal Light-Sweep Shimmer */}
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                   
-                  <div className="flex items-start gap-2 relative z-10">
-                    <motion.div whileHover={{ rotate: 15, scale: 1.15 }} className="mt-0.5 shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                    </motion.div>
-                    <span className="text-xs font-bold text-white leading-tight">
-                      {pt.en}
+                  <div className="flex items-center gap-1.5 relative z-10">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <span className="text-xs font-bold text-white leading-tight truncate">
+                      {pt.title}
                     </span>
                   </div>
-                  <p className="text-[11px] text-sky-200/90 font-medium pl-6 leading-tight font-hindi relative z-10">
-                    {pt.hi}
+                  <p className="text-[11px] text-sky-200/80 font-medium pl-5 leading-tight truncate relative z-10">
+                    {pt.subtitle}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Primary Action Buttons with Shimmer & 3D Quick-Launch (Crisp 2-Col Grid on Mobile, Inline on Desktop) */}
+            {/* Primary Action Buttons */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
+              className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
             >
               <motion.button
-                whileHover={{ scale: 1.04, y: -3 }}
+                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo("#contact")}
-                className="col-span-2 sm:w-auto group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
                 <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
-                <span className="relative z-10">Book Free Survey • मुफ्त सर्वे</span>
+                <span className="relative z-10">Book Free Survey</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10 shrink-0" />
               </motion.button>
 
               <motion.button
-                whileHover={{ scale: 1.04, y: -3 }}
+                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => {
                   if (onOpenCalculator) onOpenCalculator();
                 }}
-                className="col-span-2 sm:w-auto group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
                 <Calculator className="w-4 h-4 text-slate-950 relative z-10 shrink-0" />
-                <span className="relative z-10">Solar Calculator • कैलकुलेटर</span>
-              </motion.button>
-
-              <motion.button
-                type="button"
-                whileHover={{ scale: 1.04, y: -3 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => scrollTo("#contact")}
-                className="inline-flex items-center justify-center gap-1.5 bg-blue-500/20 hover:bg-blue-500/30 backdrop-blur-md text-blue-200 font-bold px-3 sm:px-4 py-3 rounded-2xl border border-blue-400/35 transition text-xs sm:text-sm cursor-pointer"
-              >
-                <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
-                <span>Free Site Survey • सर्वे</span>
+                <span className="relative z-10">Solar Calculator</span>
               </motion.button>
 
               <motion.a
-                whileHover={{ scale: 1.04, y: -3 }}
+                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 href={`tel:${businessData.phone[0]}`}
-                className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-3 sm:px-4 py-3 rounded-2xl border border-white/20 transition text-xs sm:text-sm cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-4 py-3 rounded-2xl border border-white/20 transition text-sm cursor-pointer"
               >
                 <Phone className="w-4 h-4 text-amber-300 shrink-0" />
                 <span>+91 {businessData.phone[0]}</span>
@@ -375,7 +351,7 @@ function Hero({ onOpenCalculator }) {
             {/* Showroom Location Line */}
             <motion.div variants={itemVariants} className="flex items-center gap-2 text-xs text-slate-300/90 pt-1">
               <MapPin className="w-4 h-4 text-amber-300 shrink-0" />
-              <span>Motiram Adda, Deoria Road, Gorakhpur (273202) • मोतीराम अड्डा, देवरिया रोड गोरखपुर</span>
+              <span>Motiram Adda, Deoria Road, Gorakhpur (273202)</span>
             </motion.div>
           </motion.div>
 
@@ -410,19 +386,19 @@ function Hero({ onOpenCalculator }) {
                 <div className="min-w-0 flex-1 space-y-1">
                   <div className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-200 border border-blue-400/30 px-2 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-bold max-w-full">
                     <UserCheck className="w-3 h-3 text-amber-300 shrink-0" />
-                    <span className="truncate">Lead Solar Engineer • मुख्य इंजीनियर</span>
+                    <span className="truncate">Chief Solar EPC Engineer</span>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-black text-white leading-tight">
                     Er. Satyaprakash Satyarthi
                   </h3>
 
-                  <p className="text-xs text-amber-300 font-bold font-hindi">
-                    इंजीनियर सत्यप्रकाश सत्यार्थी (UPNEDA Empanelled)
+                  <p className="text-xs text-amber-300 font-bold">
+                    UPNEDA Empanelled (Code: {businessData.vendorCode})
                   </p>
 
                   <p className="text-[11px] text-slate-300 leading-tight">
-                    Direct On-Site Supervision • Motiram Adda Office
+                    2500+ Sites • Direct Engineering Supervision
                   </p>
                 </div>
               </div>
@@ -471,7 +447,7 @@ function Hero({ onOpenCalculator }) {
                   className="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
                 >
                   <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950" />
-                  <span>WhatsApp Engineer • सीधे बात करें</span>
+                  <span>WhatsApp Engineer</span>
                 </motion.a>
 
                 <motion.a

@@ -127,12 +127,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               />
             </h1>
 
-            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
-              ऑफ-ग्रिड, हाइब्रिड बैटरी सोलर एवं 15 HP सोलर आटा चक्की की पारदर्शी दर सूची
-            </h2>
-
             <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
-              Ideal for areas with frequent power cuts, rural homes, hospitals, and commercial flour mills. Genuine C10 solar tubular & LiFePO4 lithium battery banks.
+              24×7 independent solar power systems with genuine C10 solar tubular and LiFePO4 lithium battery banks for homes, hospitals, and rural flour mills.
             </p>
           </div>
         </section>
@@ -158,8 +154,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
               />
             </h3>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              हम सस्ता नहीं, क्वालिटी लगाते हैं • 100% ओरिजिनल ब्रांडेड उपकरण
+            <p className="text-slate-500 text-xs sm:text-sm mt-1">
+              Transparent rate card with Tier-1 solar panels, pure sine wave PCUs, and heavy battery banks.
             </p>
           </div>
 
@@ -204,9 +200,6 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   <h4 className={`text-xl font-black mt-2 ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
                     {tier.capacity}
                   </h4>
-                  <p className={`text-xs font-bold font-hindi mt-0.5 ${tier.bestValue ? "text-amber-300" : "text-blue-800"}`}>
-                    {tier.capacityHi}
-                  </p>
 
                   <div className={`mt-4 p-3 rounded-2xl space-y-1.5 text-xs ${
                     tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"

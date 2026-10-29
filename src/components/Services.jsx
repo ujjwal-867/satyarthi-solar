@@ -33,15 +33,13 @@ export default function Services() {
       number: "01",
       likes: 184,
       title: "Residential Rooftop Solar",
-      titleHi: "आवासीय रूफटॉप सोलर प्लांट",
-      tagline: "PM Surya Ghar • Get up to ₹1,08,000 Direct Bank Subsidy",
-      taglineHi: "पीएम सूर्य घर योजना — 300 यूनिट तक हर महीने मुफ्त बिजली",
+      tagline: "PM Surya Ghar • Up to ₹1,08,000 Direct Subsidy",
       bullets: [
-        "1 kW से 10 kW पूर्ण ऑन-ग्रिड रूफटॉप इंस्टॉलेशन",
-        "25 वर्ष परफॉर्मेंस वारंटी + UPPCL नेट मीटरिंग",
-        "6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Loan)"
+        "1 kW to 10 kW On-Grid Rooftop Systems",
+        "25-Year Warranty + UPPCL Net Metering",
+        "6% Bank Loan via PM Surya Ghar Portal"
       ],
-      ideal: "Homes, Villas & Residential Apartments"
+      ideal: "Homes, Villas & Apartments"
     },
     {
       id: "commercial",
@@ -49,13 +47,11 @@ export default function Services() {
       number: "02",
       likes: 142,
       title: "Commercial & Institutional Solar",
-      titleHi: "कमर्शियल सोलर पावर प्लांट्स",
       tagline: "Cut Commercial Electricity Bills by up to 80%",
-      taglineHi: "दुकान, स्कूल, अस्पताल व शोरूम के लिए भारी बचत",
       bullets: [
-        "40% त्वरित टैक्स डिप्रिसिएशन (Accelerated Depreciation)",
-        "10 kW से 100 kW+ कस्टमाइज्ड हेवी सोलर प्लांट्स",
-        "मात्र 3 से 3.5 वर्षों में निवेश की पूर्ण वापसी (Payback)"
+        "10 kW to 100 kW+ Custom Heavy Plants",
+        "40% Accelerated Tax Depreciation",
+        "3 to 3.5 Years Fast Payback Period"
       ],
       ideal: "Schools, Hospitals, Petrol Pumps & Showrooms"
     },
@@ -65,15 +61,13 @@ export default function Services() {
       number: "03",
       likes: 169,
       title: "Solar Aata Chakki & Heavy Drives",
-      titleHi: "सोलर आटा चक्की एवं कृषि ड्राइव्स",
-      tagline: "Zero Diesel • Run 10 HP to 25 HP Motor Directly on Sun",
-      taglineHi: "महंगे डीजल से पाएं मुक्ति — हर महीने भारी बचत",
+      tagline: "Zero Diesel • Run 10 HP to 25 HP on Sun",
       bullets: [
-        "₹25,000 से ₹45,000 प्रति माह डीजल खर्च की सीधी बचत",
-        "हाई-टॉर्क सोलर VFD ड्राइव (बिना महंगी बैटरी के)",
-        "कुशीनगर, देवरिया व गोरखपुर में 50+ सफल प्लांट संचालित"
+        "Save ₹25,000 – ₹45,000/mo on Diesel",
+        "High-Torque Solar VFD (No Batteries Needed)",
+        "50+ Running Plants Across Purvanchal"
       ],
-      ideal: "Flour Mills, Oil Expellers & Tube Well Pumps"
+      ideal: "Flour Mills, Oil Expellers & Tube Wells"
     }
   ];
 
@@ -108,7 +102,7 @@ export default function Services() {
           <div className="flex flex-wrap items-center justify-center gap-2">
             <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
               <Zap className="w-3.5 h-3.5 text-amber-500" />
-              <span>Core Solar Pillars • प्रमुख सेवाएं</span>
+              <span>Core Solar Pillars</span>
             </div>
             <LiveActivityStreamBadge />
           </div>
@@ -122,7 +116,7 @@ export default function Services() {
           </h2>
 
           <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
-            Direct turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep solar installation in each and every corner of Gorakhpur, Motiram Adda & Purvanchal.
+            Turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep installation across Purvanchal.
           </p>
         </div>
 
@@ -162,11 +156,8 @@ export default function Services() {
                   <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-xs font-bold text-blue-800 font-hindi mt-0.5">
-                    {service.titleHi}
-                  </p>
 
-                  <p className="text-xs text-slate-500 font-medium mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
                     {service.tagline}
                   </p>
 
@@ -187,7 +178,7 @@ export default function Services() {
                     onClick={() => handleBookService(service.title)}
                     className="w-full py-2.5 bg-slate-100 group-hover:bg-[#0a1e3b] group-hover:text-white text-slate-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
-                    <span>Inquire Now • परामर्श लें</span>
+                    <span>Inquire Now</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

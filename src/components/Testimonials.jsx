@@ -32,36 +32,30 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
+          className="text-center max-w-3xl mx-auto space-y-2.5"
         >
           <div className="flex flex-wrap items-center justify-center gap-2">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>4.9 / 5 Google Rating • 2500+ Happy Clients Across UP</span>
+              <span>4.9 / 5 Google Rating • 2500+ Clients Across UP</span>
             </div>
             <LiveActivityStreamBadge />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             <ExpressiveKineticText
-              text="What Our 2500+ Customers Say in Uttar Pradesh"
-              highlightWords={["2500+", "Customers", "Uttar", "Pradesh"]}
+              text="What Our Customers Say Across Uttar Pradesh"
+              highlightWords={["Customers", "Uttar", "Pradesh"]}
             />
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
-              2500+ संतुष्ट ग्राहकों की राय एवं अनुभव
-            </span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Real stories from homeowners, doctors, and mill operators who eliminated electricity bills with Satyarthi Solar Solution.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              गोरखपुर, देवरिया, कुशीनगर व बस्ती के सम्मानित ग्राहकों का अटूट विश्वास।
-            </span>
+            Real stories from homeowners, doctors, and business owners who eliminated their electricity bills with Satyarthi Solar.
           </p>
         </motion.div>
 
         {/* Testimonials 3D Bento Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-3 gap-6 mt-10" style={{ perspective: "1100px" }}>
           {businessData.testimonials.map((t, idx) => (
             <motion.div
               key={idx}
@@ -69,14 +63,14 @@ function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.25 }}
-              className="relative bg-white rounded-3xl p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
+              className="relative bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
             >
               {/* Desktop-Only Gallery Shine Sweep */}
               <div className="desktop-shine-sweep" />
 
               <div className="relative z-10">
                 {/* Stars & Interactive ⚡ Burst */}
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-3.5">
                   <div className="flex items-center gap-1">
                     {[...Array(t.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
@@ -89,17 +83,10 @@ function Testimonials() {
                   </div>
                 </div>
 
-                {/* Comment (English) */}
+                {/* Comment */}
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
                   &ldquo;{t.comment}&rdquo;
                 </p>
-
-                {/* Comment (Hindi) */}
-                {hindiComments[idx] && (
-                  <p className="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-hindi leading-relaxed">
-                    &ldquo;{hindiComments[idx]}&rdquo;
-                  </p>
-                )}
               </div>
 
               {/* Author */}
@@ -110,7 +97,7 @@ function Testimonials() {
                 </div>
                 <div className="flex items-center gap-1 text-[11px] font-semibold text-blue-900 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Verified • सत्यापित</span>
+                  <span>Verified Client</span>
                 </div>
               </div>
             </motion.div>
@@ -134,14 +121,14 @@ function Testimonials() {
             <div className="lg:col-span-7 space-y-3">
               <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
                 <Video className="w-3.5 h-3.5 text-rose-400" />
-                <span>Real Site Reels & Video Reviews • लाइव वीडियो प्रमाण</span>
+                <span>Customer Video Proofs & Reels</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                Watch Real Customer Stories & Drone Flights on <span className="text-rose-400">Instagram</span> & <span className="text-blue-400">Facebook</span>
+                Watch Real Installations on <span className="text-rose-400">Instagram</span> & <span className="text-blue-400">Facebook</span>
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-hindi">
-                हमारे 2500+ सोलर प्लांट्स, 15HP सोलर आटा चक्की व ग्राहकों के जीरो-बिल रिव्यू के लाइव रील्स व वीडियो हमारे ऑफिशियल सोशल मीडिया पेजों पर देखें।
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Explore rooftop installations, 15 HP solar flour mills, and customer interviews on our official channels.
               </p>
 
               {/* Sample Reel Badges */}
@@ -168,10 +155,10 @@ function Testimonials() {
                 href={businessData.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg shadow-rose-600/30 transition hover:opacity-95"
+                className="py-3 px-4 rounded-2xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-rose-600/30 transition hover:opacity-95"
               >
                 <InstagramIcon className="w-4 h-4 fill-white" />
-                <span>Watch Customer Reels on Instagram (@satyarthi_solar_solution.gkp)</span>
+                <span>Watch Customer Reels on Instagram</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </motion.a>
 
@@ -181,10 +168,10 @@ function Testimonials() {
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg shadow-blue-600/30 transition hover:opacity-95"
+                className="py-3 px-4 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition hover:opacity-95"
               >
                 <FacebookIcon className="w-4 h-4 fill-white" />
-                <span>Watch Video Proofs on Facebook Page</span>
+                <span>Watch Video Proofs on Facebook</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </motion.a>
             </div>
@@ -197,7 +184,7 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 text-center"
+          className="mt-10 text-center"
         >
           <motion.a
             whileHover={{ scale: 1.03, y: -2 }}
@@ -205,10 +192,10 @@ function Testimonials() {
             href={businessData.mapsUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-800 bg-white border border-slate-300 px-6 py-3 rounded-full hover:bg-slate-50 hover:border-blue-500 shadow-sm transition"
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-800 bg-white border border-slate-300 px-6 py-3 rounded-full hover:bg-slate-50 hover:border-blue-500 shadow-xs transition"
           >
             <MapPin className="w-4 h-4 text-blue-700" />
-            <span>View Verified Location & Reviews on Google Maps • गूगल मैप समीक्षाएं</span>
+            <span>Verified Google Reviews</span>
             <span className="text-amber-500 font-black">★ 4.9 Rating (2500+ Clients)</span>
           </motion.a>
         </motion.div>

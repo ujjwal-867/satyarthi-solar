@@ -103,7 +103,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
         <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span>Quick Access Portals • मुख्य विभाग</span>
+            <span>Quick Access Portals</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             <ExpressiveKineticText
@@ -112,8 +112,8 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
               highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
             />
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 font-hindi">
-            अपनी आवश्यकता के अनुसार सब्सिडी दरें, ऑफ-ग्रिड सूची, कैलकुलेटर या शोरूम चुनें
+          <p className="text-xs sm:text-sm text-slate-500">
+            Instant access to subsidy rate charts, off-grid systems, and solar calculators.
           </p>
         </div>
 
@@ -151,9 +151,6 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                   <h3 className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-blue-900 transition leading-snug">
                     {btn.title}
                   </h3>
-                  <p className="text-[11px] font-semibold text-slate-500 font-hindi mt-0.5">
-                    {btn.titleHi}
-                  </p>
 
                   <p className="text-[11px] text-slate-600 leading-snug mt-2 line-clamp-2">
                     {btn.info}
