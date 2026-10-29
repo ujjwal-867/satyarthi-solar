@@ -163,8 +163,8 @@ function Stats() {
                     {stat.en}
                   </h4>
 
-                  <p className="text-[10px] text-slate-500 leading-tight">
-                    {stat.desc}
+                  <p className="text-[10px] text-blue-900 font-hindi font-semibold leading-tight">
+                    {stat.hi}
                   </p>
                 </div>
               </motion.div>

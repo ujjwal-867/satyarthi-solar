@@ -718,7 +718,7 @@ function Contact({ prefilledData }) {
                   <span>
                     {isSubmitting 
                       ? "Submitting Inquiry..." 
-                      : "Submit Quote Request"}
+                      : "Submit Quote Request • निःशुल्क कोटेशन"}
                   </span>
                 </button>
 

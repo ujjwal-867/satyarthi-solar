@@ -33,6 +33,7 @@ export default function Services() {
       number: "01",
       likes: 184,
       title: "Residential Rooftop Solar",
+      titleHi: "आवासीय रूफटॉप सोलर",
       tagline: "PM Surya Ghar • Up to ₹1,08,000 Direct Subsidy",
       bullets: [
         "1 kW to 10 kW On-Grid Rooftop Systems",
@@ -47,6 +48,7 @@ export default function Services() {
       number: "02",
       likes: 142,
       title: "Commercial & Institutional Solar",
+      titleHi: "कमर्शियल सोलर प्लांट्स",
       tagline: "Cut Commercial Electricity Bills by up to 80%",
       bullets: [
         "10 kW to 100 kW+ Custom Heavy Plants",
@@ -61,6 +63,7 @@ export default function Services() {
       number: "03",
       likes: 169,
       title: "Solar Aata Chakki & Heavy Drives",
+      titleHi: "सोलर आटा चक्की ड्राइव्स",
       tagline: "Zero Diesel • Run 10 HP to 25 HP on Sun",
       bullets: [
         "Save ₹25,000 – ₹45,000/mo on Diesel",
@@ -102,7 +105,7 @@ export default function Services() {
           <div className="flex flex-wrap items-center justify-center gap-2">
             <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
               <Zap className="w-3.5 h-3.5 text-amber-500" />
-              <span>Core Solar Pillars</span>
+              <span>Core Solar Pillars • प्रमुख सेवाएं</span>
             </div>
             <LiveActivityStreamBadge />
           </div>
@@ -156,6 +159,9 @@ export default function Services() {
                   <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
                     {service.title}
                   </h3>
+                  <p className="text-xs font-bold text-blue-800 font-hindi mt-0.5">
+                    {service.titleHi}
+                  </p>
 
                   <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
                     {service.tagline}
@@ -178,7 +184,7 @@ export default function Services() {
                     onClick={() => handleBookService(service.title)}
                     className="w-full py-2.5 bg-slate-100 group-hover:bg-[#0a1e3b] group-hover:text-white text-slate-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
-                    <span>Inquire Now</span>
+                    <span>Inquire Now • परामर्श लें</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

@@ -64,19 +64,19 @@ const HERO_SLIDES = [
 const KEY_HIGHLIGHTS = [
   {
     title: "₹1,08,000 Direct Subsidy",
-    subtitle: "PM Surya Ghar DBT in bank"
+    subtitle: "सीधी सरकारी सब्सिडी (DBT)"
   },
   {
     title: "300 Units Free Power",
-    subtitle: "Zero monthly electricity bill"
+    subtitle: "हर महीने 300 यूनिट मुफ्त बिजली"
   },
   {
     title: "Tier-1 Brands Dealer",
-    subtitle: "Tata, Adani, Waaree & Loom"
+    subtitle: "टाटा, अदानी, वारी व लूम अधिकृत"
   },
   {
     title: "25-Year Warranty",
-    subtitle: "Full UPPCL net metering"
+    subtitle: "25 साल वारंटी व नेट मीटरिंग"
   }
 ];
 
@@ -277,6 +277,9 @@ function Hero({ onOpenCalculator }) {
               <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed max-w-xl">
                 UPNEDA-empanelled rooftop solar installations across Gorakhpur & Purvanchal. Claim up to ₹1,08,000 PM Surya Ghar subsidy with 25-year panel warranty and 6% bank loan.
               </p>
+              <p className="text-amber-300 font-hindi text-xs sm:text-sm font-semibold">
+                सत्यार्थी सोलर सॉल्यूशन • 2500+ खुशहाल परिवार
+              </p>
             </motion.div>
 
             {/* 4 Crisp Key Highlights with 3D Bento Hover */}
@@ -300,7 +303,7 @@ function Hero({ onOpenCalculator }) {
                       {pt.title}
                     </span>
                   </div>
-                  <p className="text-[11px] text-sky-200/80 font-medium pl-5 leading-tight truncate relative z-10">
+                  <p className="text-[11px] text-sky-200/90 font-hindi pl-5 leading-tight truncate relative z-10">
                     {pt.subtitle}
                   </p>
                 </motion.div>
@@ -320,7 +323,7 @@ function Hero({ onOpenCalculator }) {
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
                 <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
-                <span className="relative z-10">Book Free Survey</span>
+                <span className="relative z-10">Book Free Survey • मुफ्त सर्वे</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10 shrink-0" />
               </motion.button>
 
@@ -447,7 +450,7 @@ function Hero({ onOpenCalculator }) {
                   className="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
                 >
                   <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950" />
-                  <span>WhatsApp Engineer</span>
+                  <span>WhatsApp • सीधे बात करें</span>
                 </motion.a>
 
                 <motion.a

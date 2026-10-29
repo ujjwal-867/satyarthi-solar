@@ -103,7 +103,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
         <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span>Quick Access Portals</span>
+            <span>Quick Access Portals • मुख्य विभाग</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             <ExpressiveKineticText
@@ -151,8 +151,11 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                   <h3 className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-blue-900 transition leading-snug">
                     {btn.title}
                   </h3>
+                  <span className="text-[10.5px] font-semibold text-blue-900 font-hindi block mt-0.5">
+                    {btn.titleHi}
+                  </span>
 
-                  <p className="text-[11px] text-slate-600 leading-snug mt-2 line-clamp-2">
+                  <p className="text-[11px] text-slate-600 leading-snug mt-1.5 line-clamp-2">
                     {btn.info}
                   </p>
                 </div>
