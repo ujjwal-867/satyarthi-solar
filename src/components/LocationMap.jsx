@@ -58,16 +58,13 @@ export function LocationMap() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Visit Our Store & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Live Map Location</span>
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               मोतीराम अड्डा गोरखपुर शोरूम एवं लाइव गूगल मैप लोकेशन
             </span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Located right on the main Gorakhpur - Deoria Road Highway at Motiram Adda. Walk in to explore live rooftop solar panels, on-grid inverters, lithium batteries, and 5-star inverter appliances.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              गोरखपुर-देवरिया राजमार्ग, मोतीराम अड्डा पर हमारा भव्य शोरूम। लाइव सोलर डेमो और इंजीनियरिंग परामर्श उपलब्ध।
-            </span>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Located on the Gorakhpur - Deoria Highway at Motiram Adda. Walk in for live rooftop solar demos, hybrid inverter testing, and engineering consultation.
           </p>
         </motion.div>
 

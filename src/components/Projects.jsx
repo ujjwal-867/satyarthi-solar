@@ -30,12 +30,15 @@ function Projects() {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
             <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
-            2,200+ Successful Installations Across UP
+            2500+ Happy Clients Across Uttar Pradesh
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Completed Projects & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Real Site Gallery</span>
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
+              2500+ संतुष्ट परिवार • वास्तविक सोलर साइट्स व प्रोजेक्ट्स
+            </span>
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Take a look at actual solar rooftop installations, commercial setups, and solar flour mills engineered by Er. Satya Prakash Satyarthi across Gorakhpur, Deoria, Kushinagar, and Uttar Pradesh.
           </p>
         </div>

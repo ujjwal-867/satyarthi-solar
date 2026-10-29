@@ -500,25 +500,25 @@ export function BentoGallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.35, duration: 0.5 }}
-              className="block text-xl sm:text-2xl font-extrabold text-blue-900 mt-3 font-hindi"
+              className="block text-lg sm:text-xl font-extrabold text-blue-900 mt-2 font-hindi"
             >
-              2500+ संतुष्ट परिवार • वास्तविक कार्य, जीपीएस प्रमाणित साइट्स व फोटो गैलरी
+              2500+ संतुष्ट परिवार • वास्तविक साइट्स व कार्य गैलरी
             </motion.span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-            Explore authentic installation photos from customer rooftops across Gorakhpur (Rajendra Nagar, Purdilpur, Railvihar, Fertilizer Colony, Jangl Ramgarh, Gauri Bazar). Every system is engineered under the direct supervision of <strong className="text-slate-900">Er. Satya Prakash Satyarthi</strong>.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Authentic installation photos from customer rooftops across Gorakhpur and Eastern UP, engineered under the direct supervision of <strong className="text-slate-900">Er. Satya Prakash Satyarthi</strong>.
           </p>
         </motion.div>
 
         {/* Filter Navigation Tabs with Spring Animation */}
         <div className="flex justify-center items-center gap-2 mt-8 overflow-x-auto pb-2 scrollbar-none">
           {[
-            { id: "all", label: "All Works", hindi: "सभी कार्य (20)" },
-            { id: "elevated", label: "Elevated Rooftops", hindi: "एलिवेटेड स्ट्रक्चर" },
-            { id: "inverters", label: "Inverters & PCUs", hindi: "इन्वर्टर व बैटरी" },
-            { id: "industrial", label: "Agro & Chakki", hindi: "कृषि पंप व आटा चक्की" },
-            { id: "store", label: "Store & Expo", hindi: "शोरूम व एक्सपो" }
+            { id: "all", label: "All Works", hindi: "सभी" },
+            { id: "elevated", label: "Elevated Rooftops", hindi: "एलिवेटेड" },
+            { id: "inverters", label: "Inverters & PCUs", hindi: "इन्वर्टर" },
+            { id: "industrial", label: "Agro & Chakki", hindi: "आटा चक्की" },
+            { id: "store", label: "Store & Expo", hindi: "शोरूम" }
           ].map((tab) => (
             <motion.button
               key={tab.id}
@@ -536,7 +536,7 @@ export function BentoGallery() {
               }`}
             >
               <span>{tab.label}</span>
-              <span className="text-[11px] opacity-90 font-hindi">({tab.hindi})</span>
+              <span className="text-[11px] opacity-90 font-hindi">• {tab.hindi}</span>
             </motion.button>
           ))}
         </div>

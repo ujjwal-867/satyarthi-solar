@@ -207,16 +207,13 @@ function Calculator({ onSelectQuote }) {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Calculate Solar Capacity & <span className="text-amber-500">Govt Subsidy</span>
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सोलर क्षमता एवं सरकारी सब्सिडी की तुरंत गणना करें
             </span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Enter your monthly electricity bill and roof space to see recommended system capacity, investment cost, UPNEDA subsidy, and payback period.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              अपने मासिक बिजली बिल और छत के क्षेत्रफल से जानें सही सोलर प्लांट, सब्सिडी और 25 वर्षों की शुद्ध बचत।
-            </span>
           </p>
         </motion.div>
 

@@ -38,10 +38,10 @@ function Certificates({ isStandalonePage = false }) {
   };
 
   const filterTabs = [
-    { id: "All", en: "All Certificates (7)", hi: "सभी प्रमाणपत्र" },
-    { id: "Government Approval", en: "Govt Approvals & Awards", hi: "सरकारी मान्यता व सम्मान" },
-    { id: "Tax & Legal Registration", en: "GST & MSME Udyam", hi: "जीएसटी एवं उद्यम पंजीकरण" },
-    { id: "Dealer Authorization", en: "Dealer Authorizations", hi: "कंपनी डीलरशिप प्रमाण" }
+    { id: "All", en: "All", hi: "सभी" },
+    { id: "Government Approval", en: "Govt & Awards", hi: "सरकारी" },
+    { id: "Tax & Legal Registration", en: "GST & MSME", hi: "पंजीकरण" },
+    { id: "Dealer Authorization", en: "Brand Dealers", hi: "डीलरशिप" }
   ];
 
   const filteredCertificates = useMemo(() => {
@@ -88,16 +88,13 @@ function Certificates({ isStandalonePage = false }) {
               highlightWords={["Government", "Brand", "Authorizations"]}
               highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
             />
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
-              यूपीनेडा सूचीबद्धता, सौर सम्मान, उद्यम एवं अधिकृत डीलर प्रमाणपत्र
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
+              यूपीनेडा सूचीबद्धता, सौर सम्मान एवं अधिकृत डीलरशिप प्रमाणपत्र
             </span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Verify our official credentials. Satyarthi Solar Solution is an empanelled vendor with UPNEDA (Govt of UP), Honoree at the UPNEDA-supported Saur Samman Awards, GST Registered (09JCNPS2666N1ZE), MSME Udyam Registered (UDYAM-UP-32-0049022), and Authorized Dealer for LOOM SOLAR, FUJIYAMA SOLAR, and AMAZE.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              सत्यार्थी सोलर सॉल्यूशन उत्तर प्रदेश सरकार (UPNEDA) से अधिकृत वेंडर, सौर सम्मान विजेता, भारत सरकार (MSME Udyam एवं GST) से पंजीकृत तथा प्रमुख सोलर ब्रांड्स का मान्यता प्राप्त डीलर है।
-            </span>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Official government empanelment (UPNEDA: <strong>GKP2604066741</strong>), state awards, GST/MSME registrations, and tier-1 brand dealerships backing every solar installation.
           </p>
         </motion.div>
 
@@ -115,7 +112,7 @@ function Certificates({ isStandalonePage = false }) {
               }`}
             >
               <span>{flt.en}</span>
-              <span className="text-[10px] opacity-85 font-hindi">({flt.hi})</span>
+              <span className="text-[10px] opacity-85 font-hindi">• {flt.hi}</span>
             </button>
           ))}
         </div>

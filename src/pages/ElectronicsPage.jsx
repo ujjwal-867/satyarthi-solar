@@ -28,14 +28,14 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = [
-    { id: "All", en: "All Products", hi: "सभी उपकरण" },
-    { id: "Air Conditioners (AC)", en: "Inverter ACs", hi: "इन्वर्टर एसी (AC)" },
-    { id: "Refrigerators (Fridge)", en: "Refrigerators", hi: "फ्रिज (Fridge)" },
-    { id: "Air Coolers", en: "Desert Coolers", hi: "कूलर (Cooler)" },
+    { id: "All", en: "All Products", hi: "सभी" },
+    { id: "Air Conditioners (AC)", en: "Inverter ACs", hi: "एसी" },
+    { id: "Refrigerators (Fridge)", en: "Refrigerators", hi: "फ्रिज" },
+    { id: "Air Coolers", en: "Desert Coolers", hi: "कूलर" },
     { id: "Washing Machines", en: "Washing Machines", hi: "वॉशिंग मशीन" },
-    { id: "RO Water Purifiers", en: "RO Purifiers", hi: "आरओ वाटर प्यूरीफायर" },
-    { id: "Geysers & Water Heaters", en: "Geysers", hi: "गीजर व हीटर" },
-    { id: "Smart LED TVs", en: "Smart TVs", hi: "स्मार्ट एलईडी टीवी" },
+    { id: "RO Water Purifiers", en: "RO Purifiers", hi: "आरओ" },
+    { id: "Geysers & Water Heaters", en: "Geysers", hi: "गीजर" },
+    { id: "Smart LED TVs", en: "Smart TVs", hi: "स्मार्ट टीवी" },
     { id: "Fans & Kitchen Appliances", en: "Fans & Kitchen", hi: "पंखे व किचन" }
   ];
 
@@ -164,7 +164,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{cat.en}</span>
-                  <span className="text-[10px] opacity-80 font-hindi">({cat.hi})</span>
+                  <span className="text-[10px] opacity-80 font-hindi">• {cat.hi}</span>
                 </motion.button>
               );
             })}
@@ -244,7 +244,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                       className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Order on WhatsApp</span>
+                      <span>Order on WhatsApp • ऑर्डर करें</span>
                     </button>
                     <a
                       href={`tel:${businessData.phone[0]}`}
@@ -282,14 +282,14 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                 rel="noreferrer"
                 className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md"
               >
-                Open Google Maps Location ↗
+                Google Maps • लोकेशन ↗
               </a>
               <button
                 type="button"
                 onClick={onNavigateHome}
                 className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl text-xs text-center transition cursor-pointer"
               >
-                Back to Solar Rooftop
+                Solar Rooftop • मुख्य पृष्ठ
               </button>
             </div>
           </motion.div>

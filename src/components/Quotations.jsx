@@ -38,15 +38,14 @@ function Quotations() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Satyarthi Solar Solution <span className="text-amber-500">Official Rate Cards</span>
+            Official Solar <span className="text-amber-500">Rate Cards</span>
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
+              सत्यार्थी सोलर सॉल्यूशन • आधिकारिक कोटेशन एवं रेट चार्ट
+            </span>
           </h2>
 
-          <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1e3b] tracking-tight">
-            सत्यार्थी सोलर सॉल्यूशन • आधिकारिक सोलर कोटेशन एवं सब्सिडी रेट चार्ट
-          </h3>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Transparent pricing as per UPNEDA and MNRE guidelines. Inspect our officially published rate flyers, PM Surya Ghar subsidy matrices, and bank loan EMI offers.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Transparent pricing as per UPNEDA and MNRE guidelines with PM Surya Ghar subsidy matrices and bank loan EMI offers.
           </p>
           <p className="text-blue-900 font-semibold text-xs sm:text-sm bg-blue-50/80 p-2.5 rounded-xl border border-blue-200">
             🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी। 6% से 7% ब्याज दर पर आसान बैंक ऋण।
@@ -79,7 +78,7 @@ function Quotations() {
             rel="noreferrer"
             className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
           >
-            Request Rate PDF | पीडीएफ मंगवाएं
+            Request Rate PDF • पीडीएफ मंगवाएं
           </a>
         </div>
 

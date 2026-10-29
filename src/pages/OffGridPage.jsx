@@ -127,6 +127,10 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               />
             </h1>
 
+            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
+              24×7 पावर बैकअप • इन्वर्टर, बैटरी व सोलर आटा चक्की रेट लिस्ट
+            </h2>
+
             <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
               24×7 independent solar power systems with genuine C10 solar tubular and LiFePO4 lithium battery banks for homes, hospitals, and rural flour mills.
             </p>
@@ -235,7 +239,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
-                    <span>WhatsApp Quote</span>
+                    <span>WhatsApp Quote • कोटेशन लें</span>
                   </button>
                   <a
                     href={`tel:${businessData.phone[0]}`}

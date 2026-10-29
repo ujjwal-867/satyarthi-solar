@@ -77,16 +77,13 @@ function Products() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Solar Equipment & <span className="text-amber-500">Products Catalog</span>
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सोलर उपकरण, इन्वर्टर, पैनल एवं स्ट्रक्चर कैटलॉग
             </span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Direct authorized supply of certified inverters, solar flour mill systems, water heaters, heavy GI mounting structures, and ISI electrical protection gear.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              टाटा पावर सोलर, अदानी, वारी, लूम, यूटीएल, ल्युमिनस, एक्साइड, पहल, विक्रम, सर्वोटेक, प्राइम व अमेज़ सहित सभी शीर्ष ब्रांड्स के प्रामाणिक उपकरण सीधे शोरूम से सर्वोत्तम दरों पर।
-            </span>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Authorized supply of Tier-1 solar panels, smart hybrid inverters, solar flour mill drives, and heavy GI mounting hardware at wholesale prices.
           </p>
         </motion.div>
 
@@ -106,7 +103,7 @@ function Products() {
                 }`}
               >
                 <span>{cat.en}</span>
-                <span className="text-[10px] opacity-80 font-hindi ml-1">({cat.hi})</span>
+                <span className="text-[10px] opacity-80 font-hindi ml-1">• {cat.hi}</span>
               </button>
             ))}
           </div>

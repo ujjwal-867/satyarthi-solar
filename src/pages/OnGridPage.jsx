@@ -177,22 +177,22 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 {/* Badges */}
                 {tier.bestValue && (
                   <div className="bg-amber-400 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
-                    ★ Best Value | सबसे लोकप्रिय
+                    ★ Best Value • सबसे लोकप्रिय
                   </div>
                 )}
                 {tier.popular && !tier.bestValue && (
                   <div className="bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
-                    Most Popular | अनुशंसित
+                    Most Popular • अनुशंसित
                   </div>
                 )}
                 {tier.specialOffer && !tier.bestValue && (
                   <div className="bg-amber-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
-                    ★ Special Offer | विशेष दर
+                    ★ Special Offer • विशेष दर
                   </div>
                 )}
                 {tier.commercialGrade && !tier.bestValue && (
                   <div className="bg-[#0a1e3b] text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
-                    Commercial | उच्च क्षमता
+                    Commercial • उच्च क्षमता
                   </div>
                 )}
 
@@ -233,30 +233,30 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
 
                   <div className={`mt-4 p-2.5 rounded-2xl ${tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"}`}>
                     <div className="flex justify-between items-center text-xs">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Output | उत्पादन:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Output • उत्पादन:</span>
                       <strong className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>{tier.monthlyUnits}</strong>
                     </div>
                     <div className="flex justify-between items-center text-xs mt-1">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Savings | बचत:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Savings • बचत:</span>
                       <strong className="text-amber-400 font-bold">~₹{tier.monthlySaving.toLocaleString()}/mo</strong>
                     </div>
                   </div>
 
                   <div className="mt-5 space-y-2 text-xs">
                     <div className="flex justify-between items-center">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>System Cost | कुल लागत:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>System Cost • कुल लागत:</span>
                       <span className={tier.bestValue ? "text-slate-300 line-through" : "text-slate-400 line-through"}>
                         ₹{tier.approxSystemCost.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between items-center font-medium">
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>Central | केंद्र सब्सिडी:</span>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>Central • केंद्र सब्सिडी:</span>
                       <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
                         - ₹{tier.centralSubsidy.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between items-center font-medium">
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>UP State | राज्य सब्सिडी:</span>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>UP State • राज्य सब्सिडी:</span>
                       <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
                         - ₹{tier.upStateSubsidy.toLocaleString()}
                       </span>
@@ -264,14 +264,14 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     <div className={`pt-2 border-t flex justify-between items-center font-bold text-xs ${
                       tier.bestValue ? "border-slate-700 text-amber-300" : "border-slate-100 text-blue-900"
                     }`}>
-                      <span>Total Subsidy | कुल सब्सिडी:</span>
+                      <span>Total Subsidy • कुल सब्सिडी:</span>
                       <span>₹{tier.totalSubsidy.toLocaleString()}</span>
                     </div>
                   </div>
 
                   <div className={`mt-5 pt-3 border-t ${tier.bestValue ? "border-slate-700" : "border-slate-100"}`}>
                     <p className={`text-[11px] uppercase tracking-wider font-semibold ${tier.bestValue ? "text-slate-400" : "text-slate-500"}`}>
-                      Net Cost | आपकी देय राशि
+                      Net Cost • शुद्ध देय राशि
                     </p>
                     <p className={`text-2xl font-black mt-0.5 ${tier.bestValue ? "text-amber-400" : "text-slate-900"}`}>
                       ₹{tier.netPayable.toLocaleString()}*
@@ -292,7 +292,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                       : "bg-[#0a1e3b] text-white hover:bg-blue-900"
                   }`}
                 >
-                  <span>Apply | आवेदन करें</span>
+                  <span>Apply • आवेदन करें</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </motion.div>

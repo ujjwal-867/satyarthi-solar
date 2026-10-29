@@ -47,6 +47,9 @@ function Testimonials() {
               text="What Our Customers Say Across Uttar Pradesh"
               highlightWords={["Customers", "Uttar", "Pradesh"]}
             />
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
+              2500+ संतुष्ट परिवार • वास्तविक ग्राहक अनुभव
+            </span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">

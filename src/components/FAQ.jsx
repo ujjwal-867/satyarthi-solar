@@ -62,16 +62,13 @@ function FAQ() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Questions</span>
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
             </span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Everything you need to know about rooftop solar, PM Surya Ghar subsidy rules, net metering, and installation in UP.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              रूफटॉप सोलर, सब्सिडी, लोन ईएमआई और नेट मीटरिंग के बारे में पूरी स्पष्ट जानकारी।
-            </span>
           </p>
         </motion.div>
 
@@ -100,7 +97,7 @@ function FAQ() {
                       {item.qEn}
                     </span>
                     <span className="font-semibold text-xs sm:text-sm text-blue-900 font-hindi block">
-                      {item.qHi}
+                      • {item.qHi}
                     </span>
                   </div>
                   <ChevronDown
@@ -113,8 +110,8 @@ function FAQ() {
                 {isOpen && (
                   <div className="p-5 bg-white text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 space-y-2.5">
                     <p>{item.aEn}</p>
-                    <p className="font-hindi text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      {item.aHi}
+                    <p className="font-hindi text-blue-950 font-semibold bg-blue-50/70 p-3 rounded-xl border border-blue-100">
+                      • {item.aHi}
                     </p>
                   </div>
                 )}

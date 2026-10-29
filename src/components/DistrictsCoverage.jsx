@@ -207,16 +207,13 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
               text="Authorized Solar Installations Across All 75 Districts of Uttar Pradesh"
               highlightWords={["Solar", "75", "Districts", "Uttar", "Pradesh"]}
             />
-            <span className="block text-xl sm:text-2xl font-bold text-slate-600 mt-2 font-hindi">
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               गोरखपुर, पूर्वांचल एवं समस्त उत्तर प्रदेश में अधिकृत सोलर सेवाएं
             </span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            As an empanelled vendor with UPNEDA and licensed dealer for top solar brands, Satyarthi Solar Solution delivers complete turnkey rooftop solar, net-metering, and subsidy processing across all 75 districts of Uttar Pradesh.
-            <span className="block text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              गोरखपुर, देवरिया, कुशीनगर, महराजगंज, बस्ती, संतकबीरनगर सहित पूरे उत्तर प्रदेश में 24 घंटे में फ्री रूफटॉप सर्वे।
-            </span>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Complete turnkey rooftop solar, net-metering, and PM Surya Ghar subsidy processing across all 75 districts of Uttar Pradesh with 24-hour free site survey.
           </p>
         </motion.div>
 
