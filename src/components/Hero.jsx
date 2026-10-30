@@ -351,10 +351,18 @@ function Hero({ onOpenCalculator }) {
               </motion.a>
             </motion.div>
 
-            {/* Showroom Location Line */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2 text-xs text-slate-300/90 pt-1">
-              <MapPin className="w-4 h-4 text-amber-300 shrink-0" />
-              <span>Motiram Adda, Deoria Road, Gorakhpur (273202)</span>
+            {/* Showroom Location with Direct Google Maps Link */}
+            <motion.div variants={itemVariants} className="pt-1">
+              <a
+                href={businessData.googleMapLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-xs text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 px-3.5 py-1.5 rounded-full transition cursor-pointer shadow-xs"
+              >
+                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span><strong>Showroom:</strong> Motiram Adda, Deoria Road, Gorakhpur (273202)</span>
+                <span className="text-amber-300 font-bold ml-1">Google Maps ↗</span>
+              </a>
             </motion.div>
           </motion.div>
 

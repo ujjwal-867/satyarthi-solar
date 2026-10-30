@@ -7,8 +7,9 @@ import {
   Download, 
   Eye, 
   X, 
-  CheckCircle2,
-  Zap
+  CheckCircle2, 
+  Zap,
+  MapPin
 } from "lucide-react";
 import {
   ExpressiveKineticText,
@@ -237,6 +238,30 @@ function Certificates({ isStandalonePage = false }) {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Official Registered Legal Details & Address Banner */}
+        <div className="mt-12 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="space-y-1 text-center md:text-left">
+            <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
+              🏛️ Registered Physical Office & Showroom • पंजीकृत पता
+            </span>
+            <h3 className="text-lg sm:text-xl font-black text-slate-900">
+              Satyarthi Solar Solution (Prop. Er. Satya Prakash Satyarthi)
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+              📍 <strong>Address:</strong> {businessData.address} • GSTIN: <strong>{businessData.gstin}</strong> • Udyam: <strong>{businessData.udyamNo}</strong> • UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>
+            </p>
+          </div>
+          <a
+            href={businessData.googleMapLink}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0 flex items-center gap-1.5"
+          >
+            <MapPin className="w-4 h-4 text-slate-950" />
+            <span>Google Maps • लोकेशन ↗</span>
+          </a>
         </div>
 
       </div>

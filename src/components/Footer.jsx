@@ -121,10 +121,20 @@ function Footer({ onOpenAdmin, onNavigate }) {
             </h4>
             <div className="space-y-2 text-xs text-slate-400">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                <p className="text-slate-300 leading-snug">
-                  {businessData.address}
-                </p>
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white font-medium leading-snug">
+                    {businessData.address}
+                  </p>
+                  <a
+                    href={businessData.googleMapLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] text-amber-300 hover:text-amber-200 font-semibold inline-flex items-center gap-1 mt-0.5"
+                  >
+                    <span>View on Google Maps ↗</span>
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-2">

@@ -687,6 +687,41 @@ export function BentoGallery() {
           </motion.div>
         </motion.div>
 
+        {/* Showroom & Live Installation Visit Card */}
+        <motion.div
+          whileHover={{ y: -4, scale: 1.005 }}
+          className="mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div className="space-y-1 text-center md:text-left">
+            <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
+              📍 Visit Our Engineering Showroom & Demo Center
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              Satyarthi Solar Solution • Motiram Adda, Gorakhpur
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
+              {businessData.address}. Inspect real elevated pergola structures, live solar inverters, and battery banks in person.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a
+              href={businessData.googleMapLink}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+            >
+              Google Maps • लोकेशन ↗
+            </a>
+            <a
+              href={`tel:${businessData.phone[0]}`}
+              className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition flex items-center justify-center gap-1.5"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>+91 {businessData.phone[0]}</span>
+            </a>
+          </div>
+        </motion.div>
+
       </div>
 
       {/* Lightbox Inspection Modal with Keyboard Navigation & High Clarity */}

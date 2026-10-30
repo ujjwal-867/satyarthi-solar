@@ -15,7 +15,8 @@ import {
   BatteryCharging,
   Tv,
   Camera,
-  Award
+  Award,
+  MapPin
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
@@ -90,7 +91,7 @@ function Navbar({
       <div className="bg-[#0a1e3b] text-slate-100 text-xs py-1.5 px-3 sm:px-6 lg:px-8 border-b border-[#132c52]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
           
-          {/* Left: Govt Approvals & Vendor Code */}
+          {/* Left: Govt Approvals, Vendor Code & Showroom Address */}
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center sm:justify-start">
             <span className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px] shadow-xs">
               <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-950" />
@@ -100,13 +101,21 @@ function Navbar({
             <span className="text-slate-200 font-medium text-[10px] sm:text-[11px]">
               Code: <strong className="text-amber-300 font-mono">{businessData.vendorCode}</strong>
             </span>
-            <span className="hidden md:inline text-blue-900">|</span>
-            <span className="hidden md:inline text-slate-300 text-[11px]">
-              GST: <strong className="text-white font-mono">{businessData.gstin}</strong>
-            </span>
+            <span className="hidden sm:inline text-blue-900">|</span>
+            <a 
+              href={businessData.googleMapLink} 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-slate-200 hover:text-amber-300 transition text-[10px] sm:text-[11px]"
+              title="Showroom Location & Google Maps"
+            >
+              <MapPin className="w-3 h-3 text-amber-400 shrink-0" />
+              <span className="hidden lg:inline">{businessData.address}</span>
+              <span className="lg:hidden">Motiram Adda, Gorakhpur</span>
+            </a>
           </div>
 
-          {/* Right: Festive Offer Badge, Social Media, Helplines & Admin */}
+          {/* Right: Special Offer Badge, Social Media, Helplines & Admin */}
           <div className="flex items-center gap-2.5 text-xs flex-wrap justify-center">
             {onOpenFestiveOffer && (
               <button
@@ -115,7 +124,7 @@ function Navbar({
                 className="inline-flex items-center gap-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-2.5 py-0.5 rounded-full text-[10px] transition cursor-pointer shadow-xs"
               >
                 <Gift className="w-3 h-3 text-rose-800" />
-                <span>🪔 Navratri & Diwali Offer</span>
+                <span>🎁 Special Offer</span>
               </button>
             )}
 
