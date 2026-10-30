@@ -22,7 +22,7 @@ function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="testimonials" className="pt-6 pb-10 sm:pt-8 sm:pb-12 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

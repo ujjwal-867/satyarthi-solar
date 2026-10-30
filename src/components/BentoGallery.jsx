@@ -469,7 +469,7 @@ export function BentoGallery() {
   }, [lightboxIndex, filteredItems.length]);
 
   return (
-    <section id="gallery" className="py-16 sm:py-24 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="gallery" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
       <div className="gpu-layer absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
       <div className="gpu-layer absolute -bottom-40 -left-40 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>

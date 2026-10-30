@@ -44,7 +44,7 @@ function FAQ() {
   ];
 
   return (
-    <section className="py-24 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

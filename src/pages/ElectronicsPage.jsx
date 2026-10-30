@@ -69,7 +69,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section of Electronics Page with Expressive Kinetic Typography & Collaborative Cursors */}
-        <section className="py-16 bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white relative overflow-hidden">
+        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white relative overflow-hidden">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -143,7 +143,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
         />
 
         {/* Product Catalog Section */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           
           {/* Category Filter Pills */}
           <div className="flex justify-start sm:justify-center items-center gap-2 overflow-x-auto pb-4 scrollbar-none">

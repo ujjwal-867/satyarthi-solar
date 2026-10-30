@@ -27,7 +27,7 @@ function Quotations() {
   };
 
   return (
-    <section id="quotations" className="py-24 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
+    <section id="quotations" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header (Simultaneous English + Hindi) */}

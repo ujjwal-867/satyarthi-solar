@@ -23,7 +23,7 @@ function Projects() {
   }, [activeCategory]);
 
   return (
-    <section id="projects" className="py-24 bg-white border-t border-slate-200/60">
+    <section id="projects" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

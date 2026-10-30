@@ -51,7 +51,7 @@ function Certificates({ isStandalonePage = false }) {
   }, [activeFilter]);
 
   return (
-    <section id="certificates" className="pb-20 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="certificates" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Expressive Kinetic Typography Marquee Ribbon */}
       <KineticMarqueeStrip
         items={[
@@ -66,7 +66,7 @@ function Certificates({ isStandalonePage = false }) {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Expressive Kinetic Typography */}
         <motion.div 

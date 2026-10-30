@@ -51,7 +51,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="py-16 bg-gradient-to-b from-blue-950 via-[#0a1e3b] to-slate-950 text-white relative overflow-hidden text-center">
+        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 bg-gradient-to-b from-blue-950 via-[#0a1e3b] to-slate-950 text-white relative overflow-hidden text-center">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -141,7 +141,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
         />
 
         {/* Pricing Cards 3D Bento Grid */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="text-center mb-10">
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
               <ExpressiveKineticText

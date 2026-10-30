@@ -88,7 +88,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="py-16 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
+        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -149,7 +149,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
         />
 
         {/* True Rate List 3D Bento Cards */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="text-center mb-10">
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
               <ExpressiveKineticText

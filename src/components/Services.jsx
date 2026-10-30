@@ -75,7 +75,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-16 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="services" className="pt-10 pb-6 sm:pt-12 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Real-Time Collaborative Engineering Cursors */}
       <CollaborativeCursorsOverlay
         cursors={[

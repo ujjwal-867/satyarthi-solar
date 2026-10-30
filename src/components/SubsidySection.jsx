@@ -61,7 +61,7 @@ function SubsidySection() {
   ];
 
   return (
-    <section id="subsidy" className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-t border-slate-200/80">
+    <section id="subsidy" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
