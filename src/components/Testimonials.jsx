@@ -22,7 +22,7 @@ function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="pt-6 pb-10 sm:pt-8 sm:pb-12 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="testimonials" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -35,10 +35,15 @@ function Testimonials() {
           className="text-center max-w-3xl mx-auto space-y-2.5"
         >
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <a 
+              href={businessData.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 hover:border-blue-400 hover:bg-blue-100 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs transition cursor-pointer"
+            >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>4.9 / 5 Google Rating • 2500+ Clients Across UP</span>
-            </div>
+              <span>4.9 / 5 Google Rating • 2500+ Clients Across UP ↗</span>
+            </a>
             <LiveActivityStreamBadge />
           </div>
 
@@ -58,7 +63,7 @@ function Testimonials() {
         </motion.div>
 
         {/* Testimonials 3D Bento Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mt-10" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-3 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {businessData.testimonials.map((t, idx) => (
             <motion.div
               key={idx}
@@ -113,7 +118,7 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="mt-6 sm:mt-8 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
         >
           {/* Subtle Ambient Glow */}
           <div className="gpu-layer absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -151,56 +156,47 @@ function Testimonials() {
             </div>
 
             {/* Right Col: Direct Action Buttons */}
-            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-2.5 justify-center">
               <motion.a
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                href={businessData.instagramUrl}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href={businessData.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-3 px-4 rounded-2xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-rose-600/30 transition hover:opacity-95"
+                className="py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-amber-400/20 transition cursor-pointer"
               >
-                <InstagramIcon className="w-4 h-4 fill-white" />
-                <span>Watch Customer Reels on Instagram</span>
+                <MapPin className="w-4 h-4 text-slate-950" />
+                <span>Verified Google Reviews (★ 4.9 • 2500+ Clients)</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href={businessData.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-rose-600/25 transition hover:opacity-95 cursor-pointer"
+              >
+                <InstagramIcon className="w-4 h-4 fill-white" />
+                <span>Customer Reels on Instagram</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-3 px-4 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition hover:opacity-95"
+                className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-600/25 transition hover:opacity-95 cursor-pointer"
               >
                 <FacebookIcon className="w-4 h-4 fill-white" />
-                <span>Watch Video Proofs on Facebook</span>
+                <span>Video Proofs on Facebook</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </motion.a>
             </div>
           </div>
-        </motion.div>
-
-        {/* Google Reviews Banner */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-10 text-center"
-        >
-          <motion.a
-            whileHover={{ scale: 1.03, y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            href={businessData.mapsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-800 bg-white border border-slate-300 px-6 py-3 rounded-full hover:bg-slate-50 hover:border-blue-500 shadow-xs transition"
-          >
-            <MapPin className="w-4 h-4 text-blue-700" />
-            <span>Verified Google Reviews</span>
-            <span className="text-amber-500 font-black">★ 4.9 Rating (2500+ Clients)</span>
-          </motion.a>
         </motion.div>
 
       </div>

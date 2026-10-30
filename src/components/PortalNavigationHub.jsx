@@ -96,7 +96,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
   ];
 
   return (
-    <section id="portal-hub" className="pt-7 pb-8 sm:pt-9 sm:pb-10 bg-white border-b border-slate-200/70 relative overflow-hidden">
+    <section id="portal-hub" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-b border-slate-200/70 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Clean Header */}

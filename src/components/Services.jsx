@@ -75,7 +75,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="pt-10 pb-6 sm:pt-12 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="services" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Real-Time Collaborative Engineering Cursors */}
       <CollaborativeCursorsOverlay
         cursors={[
@@ -124,7 +124,7 @@ export default function Services() {
         </div>
 
         {/* 3 Core 3D Bento Animated Cards with Interactive ⚡ Bursts */}
-        <div className="grid md:grid-cols-3 gap-6 mt-10" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-3 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {coreServices.map((service, idx) => {
             const Icon = service.icon;
             return (

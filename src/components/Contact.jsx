@@ -218,7 +218,7 @@ function Contact({ prefilledData }) {
   };
 
   return (
-    <section id="contact" className="pt-8 pb-12 sm:pt-10 sm:pb-14 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="contact" className="pt-6 pb-8 sm:pt-8 sm:pb-10 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
       <div className="gpu-layer absolute top-1/3 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
       <div className="gpu-layer absolute -bottom-20 -left-20 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -254,7 +254,7 @@ function Contact({ prefilledData }) {
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="mt-10 sm:mt-12 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start" style={{ perspective: "1100px" }}>
+        <div className="mt-6 sm:mt-8 grid lg:grid-cols-12 gap-6 sm:gap-8 items-start" style={{ perspective: "1100px" }}>
           
           {/* Left Column: Office Details & Map (5 cols) */}
           <motion.div 

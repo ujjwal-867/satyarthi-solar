@@ -18,7 +18,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
   };
 
   return (
-    <footer className="bg-[#0a1e3b] text-white pt-10 pb-20 sm:pb-8 border-t border-[#16325c]">
+    <footer className="bg-[#0a1e3b] text-white pt-8 pb-16 sm:pb-8 border-t border-[#16325c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Compact 3-Column Footer Grid */}
