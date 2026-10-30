@@ -44,7 +44,7 @@ function FAQ() {
   ];
 
   return (
-    <section className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -73,7 +73,7 @@ function FAQ() {
         </motion.div>
 
         {/* Accordion */}
-        <div className="mt-14 space-y-4">
+        <div className="mt-6 sm:mt-8 space-y-4">
           {bilingualFaqs.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
@@ -126,7 +126,7 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/60 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
+          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/60 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
         >
           <div>
             <h4 className="font-bold text-base text-slate-900">

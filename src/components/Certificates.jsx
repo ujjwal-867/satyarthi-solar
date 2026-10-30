@@ -51,7 +51,7 @@ function Certificates({ isStandalonePage = false }) {
   }, [activeFilter]);
 
   return (
-    <section id="certificates" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="certificates" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Expressive Kinetic Typography Marquee Ribbon */}
       <KineticMarqueeStrip
         items={[
@@ -119,7 +119,7 @@ function Certificates({ isStandalonePage = false }) {
         </div>
 
         {/* Certificates 3D Bento Showcase Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 max-w-7xl mx-auto" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-6 sm:mt-8 max-w-7xl mx-auto" style={{ perspective: "1100px" }}>
           {filteredCertificates.map((cert, idx) => {
             return (
               <motion.div
@@ -241,7 +241,7 @@ function Certificates({ isStandalonePage = false }) {
         </div>
 
         {/* Official Registered Legal Details & Address Banner */}
-        <div className="mt-12 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-6 sm:mt-8 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-1 text-center md:text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
               🏛️ Registered Physical Office & Showroom • पंजीकृत पता

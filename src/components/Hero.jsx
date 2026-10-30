@@ -127,7 +127,7 @@ function Hero({ onOpenCalculator }) {
   return (
     <section 
       id="hero" 
-      className="relative w-full min-h-[84vh] lg:min-h-[88vh] flex flex-col justify-between overflow-hidden bg-[#0a1e3b] text-white pt-10 pb-8 lg:pt-14 lg:pb-10"
+      className="relative w-full overflow-hidden bg-[#0a1e3b] text-white pt-6 pb-6 lg:pt-8 lg:pb-8"
     >
       {/* =========================================================================
           HERO BACKGROUND: SMOOTH KEN-BURNS CROSSFADE + ROYAL SOLAR BLUE & SUN GOLD

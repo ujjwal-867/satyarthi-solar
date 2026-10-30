@@ -175,7 +175,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
   };
 
   return (
-    <section ref={sectionRef} id="ar-vr-solar" className="py-12 sm:py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+    <section ref={sectionRef} id="ar-vr-solar" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
       {/* Ambient Motion Graphics Background Glows */}
       <div className="gpu-layer absolute -top-32 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="gpu-layer absolute -bottom-32 right-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
@@ -351,7 +351,7 @@ export default function ARVRSolarVisualizer({ onOpenCalculator, onNavigate }) {
             {/* ===============================================================
                 CENTER 3D ISOMETRIC SOLAR ROOF & PERGOLA DIGITAL TWIN
             =============================================================== */}
-            <div className="relative z-20 mt-14 sm:mt-12 mb-4 flex items-center justify-center py-2 sm:py-4" style={{ perspective: "1100px" }}>
+            <div className="relative z-20 mt-6 sm:mt-8 mb-4 flex items-center justify-center py-2 sm:py-4" style={{ perspective: "1100px" }}>
               <motion.div
                 animate={{
                   rotateX: tilt.rotateX,

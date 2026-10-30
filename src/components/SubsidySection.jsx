@@ -61,7 +61,7 @@ function SubsidySection() {
   ];
 
   return (
-    <section id="subsidy" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-t border-slate-200/80">
+    <section id="subsidy" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -108,7 +108,7 @@ function SubsidySection() {
         </div>
 
         {/* Subsidy Cards 3D Grid */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-12" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {subsidyData.tiers.map((tier, idx) => (
             <div
               key={idx}
@@ -245,7 +245,7 @@ function SubsidySection() {
         </div>
 
         {/* 5-Step Subsidy Process Banner */}
-        <div className="mt-14 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
+        <div className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
           <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-white">
               How Er. Satyaprakash Gets Your Subsidy Credited in 5 Simple Steps

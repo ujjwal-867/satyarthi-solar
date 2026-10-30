@@ -69,7 +69,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section of Electronics Page with Expressive Kinetic Typography & Collaborative Cursors */}
-        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white relative overflow-hidden">
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white relative overflow-hidden">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -143,7 +143,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
         />
 
         {/* Product Catalog Section */}
-        <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           
           {/* Category Filter Pills */}
           <div className="flex justify-start sm:justify-center items-center gap-2 overflow-x-auto pb-4 scrollbar-none">
@@ -262,7 +262,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Showroom Visit CTA */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-14 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
+            className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">

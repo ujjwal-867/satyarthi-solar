@@ -59,7 +59,7 @@ function Products() {
   };
 
   return (
-    <section id="products" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section id="products" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -88,7 +88,7 @@ function Products() {
         </motion.div>
 
         {/* Filter & Search Bar */}
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-6 sm:mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
             {categories.map((cat) => (
@@ -122,7 +122,7 @@ function Products() {
         </div>
 
         {/* Products 3D Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10" style={{ perspective: "1100px" }}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {filteredProducts.map((product, idx) => {
             const discountPercent = product.originalPrice
               ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
@@ -238,7 +238,7 @@ function Products() {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-16 bg-slate-50 rounded-2xl border border-slate-200 mt-8">
+          <div className="text-center py-8 bg-slate-50 rounded-2xl border border-slate-200 mt-6">
             <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
             <h3 className="text-base font-bold text-slate-800">No products found • कोई उत्पाद नहीं मिला</h3>
             <p className="text-xs text-slate-500 mt-1">Try searching for other equipment or reset the filter.</p>
@@ -257,7 +257,7 @@ function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-14 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-3">
             <div className="p-3 bg-[#0a1e3b] text-amber-400 rounded-2xl font-bold shadow-md shadow-blue-950/20">

@@ -23,7 +23,7 @@ function Projects() {
   }, [activeCategory]);
 
   return (
-    <section id="projects" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white border-t border-slate-200/60">
+    <section id="projects" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -44,7 +44,7 @@ function Projects() {
         </div>
 
         {/* Filter Categories */}
-        <div className="flex justify-center items-center gap-2 mt-10 overflow-x-auto pb-2 scrollbar-none">
+        <div className="flex justify-center items-center gap-2 mt-6 sm:mt-8 overflow-x-auto pb-2 scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -62,7 +62,7 @@ function Projects() {
         </div>
 
         {/* Projects 3D Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {filteredProjects.map((project) => (
             <div
               key={project.id}

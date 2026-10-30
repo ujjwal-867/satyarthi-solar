@@ -182,7 +182,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
   });
 
   return (
-    <section id="districts-coverage" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-slate-50 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="districts-coverage" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Soft Ambient Background */}
       <div className="gpu-layer absolute top-1/4 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
       <div className="gpu-layer absolute bottom-1/4 left-0 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
@@ -218,7 +218,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
         </motion.div>
 
         {/* Primary Purvanchal Hubs: Interactive Showcase Grid */}
-        <div className="mt-12">
+        <div className="mt-6 sm:mt-8">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-amber-500" />
@@ -402,7 +402,7 @@ export default function DistrictsCoverage({ onSelectDistrict }) {
         )}
 
         {/* State-Wide All 75 Districts Explorer Strip */}
-        <div className="mt-14 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl space-y-5">
+        <div className="mt-8 sm:mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl space-y-5">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">

@@ -4,7 +4,7 @@ import { businessData } from "../data/businessData";
 
 export default function ElectronicsTeaser({ onNavigateElectronics }) {
   return (
-    <section className="py-12 bg-white border-t border-slate-200/80">
+    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6">
           

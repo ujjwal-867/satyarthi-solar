@@ -27,7 +27,7 @@ function Quotations() {
   };
 
   return (
-    <section id="quotations" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
+    <section id="quotations" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header (Simultaneous English + Hindi) */}
@@ -53,7 +53,7 @@ function Quotations() {
         </div>
 
         {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
-        <div className="mt-10 max-w-4xl mx-auto bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
+        <div className="mt-6 sm:mt-8 max-w-4xl mx-auto bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
             <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
               <Calendar className="w-5 h-5 text-slate-950" />
@@ -83,7 +83,7 @@ function Quotations() {
         </div>
 
         {/* Quotation Cards 3D Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-2 gap-8 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {businessData.quotationFlyers.map((flyer) => (
             <div
               key={flyer.id}
@@ -168,7 +168,7 @@ function Quotations() {
         </div>
 
         {/* Partner Brands Grid Banner */}
-        <div className="mt-16 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+        <div className="mt-8 sm:mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-1">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
               Direct Manufacturer Associations

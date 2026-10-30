@@ -469,7 +469,7 @@ export function BentoGallery() {
   }, [lightboxIndex, filteredItems.length]);
 
   return (
-    <section id="gallery" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="gallery" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
       <div className="gpu-layer absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
       <div className="gpu-layer absolute -bottom-40 -left-40 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -663,7 +663,7 @@ export function BentoGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+          className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
         >
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-900">2500+ Clients</div>
@@ -690,7 +690,7 @@ export function BentoGallery() {
         {/* Showroom & Live Installation Visit Card */}
         <motion.div
           whileHover={{ y: -4, scale: 1.005 }}
-          className="mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+          className="mt-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <div className="space-y-1 text-center md:text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">

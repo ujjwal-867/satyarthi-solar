@@ -51,7 +51,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 bg-gradient-to-b from-blue-950 via-[#0a1e3b] to-slate-950 text-white relative overflow-hidden text-center">
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-blue-950 via-[#0a1e3b] to-slate-950 text-white relative overflow-hidden text-center">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -141,8 +141,8 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
         />
 
         {/* Pricing Cards 3D Bento Grid */}
-        <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="text-center mb-10">
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="text-center mb-6 sm:mb-8">
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
               <ExpressiveKineticText
                 text="Official On-Grid Price List & Net Cost Breakdown"
@@ -300,7 +300,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           </div>
 
           {/* 5-Step Process Banner with 3D Bento Step Cards */}
-          <div className="mt-14 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
+          <div className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
             <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-white">
                 How Er. Satyaprakash Gets Your Subsidy Credited in 5 Simple Steps
@@ -343,7 +343,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           {/* Showroom & Engineering Office Card */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
           >
             <div className="space-y-1 text-center md:text-left">
               <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">

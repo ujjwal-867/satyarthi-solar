@@ -184,7 +184,7 @@ function Calculator({ onSelectQuote }) {
   };
 
   return (
-    <section id="calculator" className="pt-10 pb-12 sm:pt-12 sm:pb-14 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="calculator" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Blue & Amber Ambient Gradients */}
       <div className="gpu-layer absolute top-0 right-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
       <div className="gpu-layer absolute bottom-0 left-1/4 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -218,7 +218,7 @@ function Calculator({ onSelectQuote }) {
         </motion.div>
 
         {/* Main Calculator Grid */}
-        <div className="mt-14 grid lg:grid-cols-12 gap-8 items-start">
+        <div className="mt-6 sm:mt-8 grid lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: User Inputs (White SaaS Card) */}
           <motion.div 
