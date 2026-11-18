@@ -1,6 +1,5 @@
 import { businessData } from "../data/businessData";
 import { MessageCircle, Phone } from "lucide-react";
-import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
 function FloatingWhatsApp() {
   const whatsappHref = `https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(
@@ -9,126 +8,58 @@ function FloatingWhatsApp() {
 
   return (
     <>
-      {/* =====================================================================
-          DESKTOP & TABLET (sm+): Left-Side Floating Vertical Stack
-      ===================================================================== */}
+      {/* Desktop & Tablet: Minimal 2-Action Contact Stack (Call + WhatsApp) */}
       <aside aria-label="Quick contact links" className="hidden sm:flex fixed bottom-6 left-5 z-40 flex-col items-center gap-2.5">
-        {/* 1. Floating Direct Call Button */}
         <a
           href={`tel:${businessData.phone[0]}`}
-          className="group relative flex items-center justify-center w-12 h-12 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
+          className="group relative flex items-center justify-center w-11 h-11 bg-[#0a1e3b] hover:bg-blue-800 text-white rounded-full shadow-md transition-colors border border-white/20 cursor-pointer"
           aria-label="Call 24x7 Helpline"
           title={`Call 24×7: +91 ${businessData.phone[0]}`}
         >
-          <Phone className="w-5 h-5 text-white" />
-          <span className="absolute left-14 bg-slate-900 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
+          <Phone className="w-4 h-4 text-white" />
+          <span className="absolute left-13 bg-slate-900 text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
             Call: +91 {businessData.phone[0]}
           </span>
         </a>
 
-        {/* 2. Floating WhatsApp 24x7 Button */}
         <a
           href={whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="group relative flex items-center justify-center w-13 h-13 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
+          className="group relative flex items-center justify-center w-12 h-12 bg-[#16a34a] hover:bg-[#15803d] text-white rounded-full shadow-lg transition-colors border-2 border-white cursor-pointer"
           aria-label="Chat on WhatsApp"
           title="WhatsApp 24×7"
         >
-          <MessageCircle className="w-7 h-7 fill-white" />
-          <span className="absolute left-15 bg-[#0a1e3b] text-amber-300 border border-amber-400/40 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
-            WhatsApp 24×7 Live
-          </span>
-        </a>
-
-        {/* 3. Floating Instagram Button */}
-        <a
-          href={businessData.instagramUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="group relative flex items-center justify-center w-11 h-11 bg-gradient-to-tr from-amber-500 via-pink-600 to-purple-600 hover:opacity-90 text-white rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
-          aria-label="Follow on Instagram"
-          title="Instagram Profile"
-        >
-          <InstagramIcon className="w-5 h-5 text-white" />
-          <span className="absolute left-13 bg-slate-900 text-pink-300 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
-            Instagram: @satyarthi_solar_solution.gkp
-          </span>
-        </a>
-
-        {/* 4. Floating Facebook Button */}
-        <a
-          href={businessData.facebookUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="group relative flex items-center justify-center w-11 h-11 bg-blue-700 hover:bg-blue-600 text-white rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
-          aria-label="Connect on Facebook"
-          title="Facebook Page"
-        >
-          <FacebookIcon className="w-5 h-5 text-white" />
-          <span className="absolute left-13 bg-slate-900 text-sky-300 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
-            Facebook: Satyarthi Solar Solutions
+          <MessageCircle className="w-6 h-6 fill-white" />
+          <span className="absolute left-14 bg-[#0a1e3b] text-amber-300 border border-amber-400/30 text-[11px] font-semibold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
+            WhatsApp Quote
           </span>
         </a>
       </aside>
 
-      {/* =====================================================================
-          MOBILE (< 640px): Sleek App-Style Bottom Quick-Action Dock
-          (Zero floating clutter blocking the left/right edges of the phone screen)
-      ===================================================================== */}
+      {/* Mobile (< 640px): Clean 2-Action Bottom Bar */}
       <nav
         aria-label="Mobile quick actions"
-        className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-slate-950/95 border-t border-slate-800 px-2 py-1.5 flex items-center justify-around shadow-[0_-8px_25px_rgba(0,0,0,0.65)]"
-        style={{ transform: "translateZ(0)" }}
+        className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-[#0a1e3b] border-t border-slate-800 px-3 py-2 flex items-center gap-2.5 shadow-lg"
       >
         <a
           href={`tel:${businessData.phone[0]}`}
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 active:scale-95 transition"
+          className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold border border-white/15 transition"
           aria-label="Call 24x7 Helpline"
         >
-          <span className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-xs">
-            <Phone className="w-3.5 h-3.5" />
-          </span>
-          <span className="text-[9.5px] font-bold tracking-tight">Call</span>
+          <Phone className="w-3.5 h-3.5 text-amber-400" />
+          <span>Call Engineer</span>
         </a>
 
         <a
           href={whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 hover:text-amber-300 active:scale-95 transition"
+          className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl bg-[#16a34a] hover:bg-[#15803d] text-white text-xs font-semibold transition"
           aria-label="WhatsApp 24x7"
         >
-          <span className="w-7 h-7 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs">
-            <MessageCircle className="w-4 h-4 fill-white" />
-          </span>
-          <span className="text-[9.5px] font-black tracking-tight">WhatsApp</span>
-        </a>
-
-        <a
-          href={businessData.instagramUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-pink-300 active:scale-95 transition"
-          aria-label="Instagram"
-        >
-          <span className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 via-pink-600 to-purple-600 flex items-center justify-center text-white shadow-xs">
-            <InstagramIcon className="w-3.5 h-3.5" />
-          </span>
-          <span className="text-[9.5px] font-bold tracking-tight">Insta</span>
-        </a>
-
-        <a
-          href={businessData.facebookUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-sky-300 active:scale-95 transition"
-          aria-label="Facebook"
-        >
-          <span className="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-white shadow-xs">
-            <FacebookIcon className="w-3.5 h-3.5" />
-          </span>
-          <span className="text-[9.5px] font-bold tracking-tight">Facebook</span>
+          <MessageCircle className="w-3.5 h-3.5 fill-white" />
+          <span>WhatsApp Quote</span>
         </a>
       </nav>
     </>

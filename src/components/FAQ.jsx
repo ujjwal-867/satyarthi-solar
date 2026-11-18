@@ -59,7 +59,7 @@ function FAQ() {
             <HelpCircle className="w-4 h-4 text-blue-600" />
             <span>Solar & Subsidy Guide • सवाल व उत्तर</span>
           </p>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Frequently Asked <span className="text-blue-700">Questions</span>
           </h2>
           <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">

@@ -7,12 +7,7 @@ import {
   ArrowRight, 
   Zap 
 } from "lucide-react";
-import {
-  ExpressiveKineticText,
-  CollaborativeCursorsOverlay,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
-} from "./MotionEffects";
+import { ExpressiveKineticText } from "./MotionEffects";
 
 export default function Services() {
   const handleBookService = (serviceTitle) => {
@@ -76,28 +71,6 @@ export default function Services() {
 
   return (
     <section id="services" className="py-10 sm:py-12 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
-      {/* Real-Time Collaborative Engineering Cursors */}
-      <CollaborativeCursorsOverlay
-        cursors={[
-          {
-            name: "Er. Satyaprakash",
-            badge: "Turnkey EPC Design",
-            color: "bg-blue-600 text-white",
-            pathX: ["5%", "19%", "12%", "5%"],
-            pathY: ["18%", "45%", "72%", "18%"],
-            duration: 16
-          },
-          {
-            name: "Agro VFD Team",
-            badge: "15HP Chakki Live",
-            color: "bg-amber-400 text-slate-950",
-            pathX: ["85%", "72%", "80%", "85%"],
-            pathY: ["24%", "58%", "32%", "24%"],
-            duration: 19
-          }
-        ]}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Left-Aligned Architectural Header */}
@@ -107,7 +80,7 @@ export default function Services() {
               <Zap className="w-3.5 h-3.5 text-amber-500" />
               <span>Core Solar Pillars • प्रमुख सेवाएं</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               <ExpressiveKineticText
                 text="Solar Service & Engineering in Gorakhpur"
                 highlightWords={["Solar", "Service", "Engineering"]}
@@ -134,27 +107,18 @@ export default function Services() {
                 transition={{ duration: 0.25 }}
                 className="relative bg-white rounded-2xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
-
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-4">
-                    <motion.div 
-                      whileHover={{ rotate: 12, scale: 1.14 }}
-                      className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors shadow-xs"
-                    >
-                      <Icon className="w-6 h-6" />
-                    </motion.div>
-
-                    <div className="flex items-center gap-2">
-                      <InteractiveZapBurstButton initialCount={service.likes} label="Active" />
-                      <span className="text-xl font-black text-slate-300 group-hover:text-amber-500 transition-colors font-mono">
-                        {service.number}
-                      </span>
+                    <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors">
+                      <Icon className="w-5 h-5" />
                     </div>
+
+                    <span className="text-xl font-bold text-slate-300 group-hover:text-amber-500 transition-colors font-mono">
+                      {service.number}
+                    </span>
                   </div>
 
-                  <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
                     {service.title}
                   </h3>
                   <p className="text-xs font-bold text-blue-800 font-hindi mt-0.5">

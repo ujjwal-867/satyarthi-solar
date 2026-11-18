@@ -12,9 +12,7 @@ import {
   MapPin
 } from "lucide-react";
 import {
-  ExpressiveKineticText,
-  KineticMarqueeStrip,
-  InteractiveZapBurstButton
+  ExpressiveKineticText
 } from "./MotionEffects";
 
 function Certificates({ isStandalonePage = false }) {
@@ -52,20 +50,6 @@ function Certificates({ isStandalonePage = false }) {
 
   return (
     <section id="certificates" className="py-10 sm:py-12 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
-      {/* Expressive Kinetic Typography Marquee Ribbon */}
-      <KineticMarqueeStrip
-        items={[
-          "UPNEDA EMPANELLED VENDOR GKP2604066741",
-          "SAUR SAMMAN AWARD HONOREE",
-          "GSTIN 09JCNPS2666N1ZE",
-          "MSME UDYAM-UP-32-0049022",
-          "LOOM SOLAR AUTHORIZED DEALER",
-          "FUJIYAMA SOLAR PARTNER",
-          "AMAZE AUTHORIZED CHANNEL",
-          "2500+ VERIFIED INSTALLATIONS"
-        ]}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Left-Aligned Header */}
@@ -81,7 +65,7 @@ function Certificates({ isStandalonePage = false }) {
               <ShieldCheck className="w-4 h-4 text-amber-500" />
               <span>Legally Verified & Empanelled • सरकारी व कंपनी प्रमाणित</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               <ExpressiveKineticText
                 text="Government Approvals & Brand Authorizations"
                 highlightWords={["Government", "Brand", "Authorizations"]}
@@ -129,8 +113,6 @@ function Certificates({ isStandalonePage = false }) {
                 transition={{ duration: 0.25 }}
                 className="relative bg-white rounded-2xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
 
                 <div>
                   {/* Header Tag */}
@@ -155,7 +137,7 @@ function Certificates({ isStandalonePage = false }) {
                       decoding="async"
                       className="max-h-full max-w-full object-contain rounded-lg shadow-xs desktop-image-zoom"
                     />
-                    <div className="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2.5 backdrop-blur-xs z-30">
+                    <div className="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2.5 z-30">
                       <button
                         type="button"
                         onClick={() => setSelectedCert(cert)}
@@ -181,7 +163,6 @@ function Certificates({ isStandalonePage = false }) {
                       <span className="text-[10px] font-bold uppercase tracking-wider text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
                         {cert.type}
                       </span>
-                      <InteractiveZapBurstButton initialCount={128 + idx * 17} label="Verified" />
                     </div>
 
                     <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition leading-snug">
@@ -243,20 +224,20 @@ function Certificates({ isStandalonePage = false }) {
         <div className="mt-6 sm:mt-8 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-1 text-center md:text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
-              🏛️ Registered Physical Office & Showroom • पंजीकृत पता
+              Registered Physical Office & Showroom • पंजीकृत पता
             </span>
-            <h3 className="text-lg sm:text-xl font-black text-slate-900">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               Satyarthi Solar Solution (Prop. Er. Satya Prakash Satyarthi)
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
-              📍 <strong>Address:</strong> {businessData.address} • GSTIN: <strong>{businessData.gstin}</strong> • Udyam: <strong>{businessData.udyamNo}</strong> • UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>
+              <strong>Address:</strong> {businessData.address} • GSTIN: <strong>{businessData.gstin}</strong> • Udyam: <strong>{businessData.udyamNo}</strong> • UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>
             </p>
           </div>
           <a
             href={businessData.googleMapLink}
             target="_blank"
             rel="noreferrer"
-            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0 flex items-center gap-1.5"
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0 flex items-center gap-1.5"
           >
             <MapPin className="w-4 h-4 text-slate-950" />
             <span>Google Maps • लोकेशन ↗</span>

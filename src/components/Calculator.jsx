@@ -203,7 +203,7 @@ function Calculator({ onSelectQuote }) {
               <CalcIcon className="w-4 h-4 text-blue-600" />
               <span>Instant Solar ROI Calculator • सोलर बचत कैलकुलेटर</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Calculate Solar Capacity & <span className="text-amber-600">Govt Subsidy</span>
             </h2>
             <p className="text-sm font-bold text-blue-900 font-hindi">
@@ -225,7 +225,7 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-slate-50/70 border border-slate-200 rounded-2xl p-6 sm:p-8 backdrop-blur-xl space-y-7 shadow-xl shadow-slate-100"
+            className="lg:col-span-6 bg-slate-50/70 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-7 shadow-sm shadow-slate-100"
           >
             
             {/* Input 1: Property Type */}
@@ -277,7 +277,7 @@ function Calculator({ onSelectQuote }) {
                   <span className="text-[11px] text-slate-500">औसत बिजली का मासिक खर्च</span>
                 </div>
                 <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-blue-600 font-black text-lg">₹{bill.toLocaleString()}</span>
+                  <span className="text-blue-600 font-bold text-lg">₹{bill.toLocaleString()}</span>
                   <span className="text-[10px] text-slate-400">/month • माह</span>
                 </div>
               </div>
@@ -308,7 +308,7 @@ function Calculator({ onSelectQuote }) {
                   <span className="text-[11px] text-slate-500">छाया-मुक्त (Shadow-Free) पक्की छत</span>
                 </div>
                 <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-blue-700 font-black text-lg">{roofArea}</span>
+                  <span className="text-blue-700 font-bold text-lg">{roofArea}</span>
                   <span className="text-[10px] text-slate-400">Sq Ft • वर्ग फुट</span>
                 </div>
               </div>
@@ -371,7 +371,7 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-white border-2 border-blue-600/30 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-blue-950/5 space-y-6"
+            className="lg:col-span-6 bg-white border-2 border-blue-600/30 rounded-2xl p-6 sm:p-8 shadow-md shadow-blue-950/5 space-y-6"
           >
             
             {/* Top Recommended System Pill */}
@@ -381,7 +381,7 @@ function Calculator({ onSelectQuote }) {
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                   <span>Recommended Solution • अनुशंसित सोलर प्लांट</span>
                 </p>
-                <h3 className="text-3xl font-black text-slate-900 mt-1">
+                <h3 className="text-3xl font-extrabold text-slate-900 mt-1">
                   {calculation.recommendedKw} kW <span className="text-blue-600">Solar System</span>
                 </h3>
                 <p className="text-sm font-semibold text-slate-700 font-hindi mt-0.5">
@@ -403,7 +403,7 @@ function Calculator({ onSelectQuote }) {
                 onClick={() => setCalcMode("subsidy")}
                 className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
                   calcMode === "subsidy"
-                    ? "bg-white text-slate-900 shadow-sm font-black border border-slate-200"
+                    ? "bg-white text-slate-900 shadow-sm font-bold border border-slate-200"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -416,13 +416,13 @@ function Calculator({ onSelectQuote }) {
                 onClick={() => setCalcMode("loan")}
                 className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
                   calcMode === "loan"
-                    ? "bg-blue-600 text-white shadow-md font-black shadow-blue-600/20"
+                    ? "bg-blue-600 text-white shadow-md font-bold shadow-blue-600/20"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 <Landmark className="w-3.5 h-3.5 text-amber-300" />
                 <span>6-7% Bank Loan & EMI • आसान किस्त</span>
-                <span className="text-[9px] bg-amber-400 text-slate-950 font-black px-1.5 py-0.5 rounded-full uppercase hidden sm:inline">
+                <span className="text-[9px] bg-amber-400 text-slate-950 font-bold px-1.5 py-0.5 rounded-full uppercase hidden sm:inline">
                   ₹1,800/mo
                 </span>
               </button>
@@ -432,10 +432,10 @@ function Calculator({ onSelectQuote }) {
               /* DEDICATED 6-7% GOVT BANK LOAN & EMI MINI-TAB */
               <div className="space-y-4">
                 {/* Middle-Class Eye-Opener: Monthly Bill vs Solar EMI */}
-                <div className="bg-[#0a1e3b] text-white p-5 rounded-2xl shadow-xl border border-blue-800 space-y-4">
+                <div className="bg-[#0a1e3b] text-white p-5 rounded-2xl shadow-sm border border-blue-800 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black">
+                      <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold">
                         <PiggyBank className="w-4 h-4" />
                       </div>
                       <div>
@@ -459,7 +459,7 @@ function Calculator({ onSelectQuote }) {
                       <span className="text-[10px] font-bold uppercase tracking-wider text-red-400 block">
                         Current Bijli Bill • वर्तमान बिल
                       </span>
-                      <p className="text-2xl font-black text-red-300 mt-1">
+                      <p className="text-2xl font-extrabold text-red-300 mt-1">
                         ₹{bill.toLocaleString()}
                         <span className="text-xs font-normal text-slate-400">/mo</span>
                       </p>
@@ -473,7 +473,7 @@ function Calculator({ onSelectQuote }) {
                       <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 block">
                         New Solar Loan EMI • मासिक किस्त
                       </span>
-                      <p className="text-2xl font-black text-amber-400 mt-1">
+                      <p className="text-2xl font-extrabold text-amber-400 mt-1">
                         ₹{loanCalc.emi.toLocaleString()}
                         <span className="text-xs font-normal text-amber-200">/mo</span>
                       </p>
@@ -492,7 +492,7 @@ function Calculator({ onSelectQuote }) {
                           <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()} cheaper</strong> than your current power bill!
                         </span>
                       </div>
-                      <span className="text-[10px] bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded-full shrink-0">
+                      <span className="text-[10px] bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded-full shrink-0">
                         +₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()}/mo extra
                       </span>
                     </div>
@@ -523,7 +523,7 @@ function Calculator({ onSelectQuote }) {
                           onClick={() => setLoanTenure(t.years)}
                           className={`py-2 px-1 rounded-xl text-center text-xs font-bold transition cursor-pointer ${
                             loanTenure === t.years
-                              ? "bg-amber-400 text-slate-950 shadow-md font-black"
+                              ? "bg-amber-400 text-slate-950 shadow-md font-bold"
                               : "bg-slate-800/80 text-slate-300 hover:bg-slate-800"
                           }`}
                         >
@@ -570,7 +570,7 @@ function Calculator({ onSelectQuote }) {
                   </div>
                   <div className="flex justify-between text-blue-900 font-semibold">
                     <span>Govt Subsidy (DBT direct to bank account):</span>
-                    <span className="font-black text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
+                    <span className="font-bold text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-blue-700">
                     <span>Borrower Margin Money (10% Down Payment):</span>
@@ -585,7 +585,7 @@ function Calculator({ onSelectQuote }) {
                         @ 6% - 7% p.a. via JanSamarth for {loanTenure} years ({loanCalc.totalMonths} EMIs)
                       </span>
                     </div>
-                    <span className="text-xl font-black text-blue-600">
+                    <span className="text-xl font-bold text-blue-600">
                       ₹{loanCalc.effectiveLoanPrincipal.toLocaleString()}
                     </span>
                   </div>
@@ -601,7 +601,7 @@ function Calculator({ onSelectQuote }) {
                       <Coins className="w-3.5 h-3.5 text-amber-500" />
                       <span>Monthly Savings • मासिक बचत</span>
                     </span>
-                    <p className="text-2xl font-black text-blue-900 mt-1">
+                    <p className="text-2xl font-extrabold text-blue-900 mt-1">
                       ₹{calculation.monthlySaving.toLocaleString()}
                     </p>
                     <p className="text-[11px] text-slate-500 mt-0.5">
@@ -614,7 +614,7 @@ function Calculator({ onSelectQuote }) {
                       <Clock className="w-3.5 h-3.5 text-blue-600" />
                       <span>Payback Period • लागत वापसी</span>
                     </span>
-                    <p className="text-2xl font-black text-blue-600 mt-1">
+                    <p className="text-2xl font-extrabold text-blue-600 mt-1">
                       {calculation.paybackYears} Years • वर्ष
                     </p>
                     <p className="text-[11px] text-slate-500 mt-0.5">
@@ -638,7 +638,7 @@ function Calculator({ onSelectQuote }) {
                         <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
                         <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
                       </span>
-                      <span className="font-black text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
+                      <span className="font-bold text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
                     </div>
                   ) : (
                     <div className="flex justify-between items-center text-blue-700 text-xs sm:text-sm">
@@ -656,7 +656,7 @@ function Calculator({ onSelectQuote }) {
                         Subsidy directly credited in bank via DBT • सीधे बैंक खाते में सब्सिडी
                       </span>
                     </div>
-                    <span className="text-3xl font-black text-blue-950">
+                    <span className="text-3xl font-extrabold text-blue-950">
                       ₹{calculation.netCost.toLocaleString()}*
                     </span>
                   </div>
@@ -668,14 +668,14 @@ function Calculator({ onSelectQuote }) {
                     <TrendingUp className="w-4 h-4 text-blue-700 shrink-0" />
                     <div>
                       <span className="text-slate-600 block text-[10px]">25-Year Net Profit • कुल लाभ:</span>
-                      <span className="font-black text-slate-900">₹{(calculation.lifetimeSavings / 100000).toFixed(1)} Lakhs • लाख</span>
+                      <span className="font-bold text-slate-900">₹{(calculation.lifetimeSavings / 100000).toFixed(1)} Lakhs • लाख</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Leaf className="w-4 h-4 text-amber-600 shrink-0" />
                     <div>
                       <span className="text-slate-600 block text-[10px]">CO2 Emissions Cut • प्रदूषण कमी:</span>
-                      <span className="font-black text-slate-900">{calculation.co2Reduction} Tons • टन</span>
+                      <span className="font-bold text-slate-900">{calculation.co2Reduction} Tons • टन</span>
                     </div>
                   </div>
                 </div>
@@ -687,7 +687,7 @@ function Calculator({ onSelectQuote }) {
               <button
                 type="button"
                 onClick={handleApplyEstimate}
-                className="flex-1 bg-gradient-to-r from-[#0a1e3b] to-blue-800 hover:from-blue-900 hover:to-blue-950 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-blue-950/20 transition flex items-center justify-center gap-2 cursor-pointer text-sm"
+                className="flex-1 bg-[#0a1e3b] hover:bg-blue-900 text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer text-sm"
               >
                 {calcMode === "loan" ? (
                   <>

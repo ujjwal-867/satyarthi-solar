@@ -8,7 +8,6 @@ import {
   Zap,
   Users
 } from "lucide-react";
-import { InteractiveZapBurstButton } from "./MotionEffects";
 
 function AnimatedNumber({ targetText }) {
   const ref = useRef(null);
@@ -124,7 +123,7 @@ function Stats() {
 
   return (
     <section className="relative z-20 -mt-8 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-200/80 p-4 sm:p-5">
+      <div className="bg-white/95 rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-200/80 p-4 sm:p-5">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {bilingualStats.map((stat, idx) => {
             const Icon = stat.icon;
@@ -139,18 +138,14 @@ function Stats() {
                 className={`group relative rounded-xl p-3.5 ${stat.accent} border transition-all duration-200 hover:shadow-md flex flex-col justify-between overflow-hidden cursor-default`}
               >
                 <div className="flex items-center justify-between gap-1 mb-2.5 relative z-10">
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.12 }}
-                    className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-xs ${stat.iconStyle}`}
-                  >
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${stat.iconStyle}`}>
                     <Icon className="w-4 h-4" />
-                  </motion.div>
-                  <InteractiveZapBurstButton initialCount={stat.likes} label="" />
+                  </div>
                 </div>
 
                 <div className="space-y-1 relative z-10">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-blue-900 transition-colors">
+                    <span className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight group-hover:text-blue-900 transition-colors">
                       <AnimatedNumber targetText={stat.value} />
                     </span>
                     <span className="text-[10px] font-extrabold text-blue-700">

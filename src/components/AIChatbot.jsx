@@ -90,7 +90,7 @@ export function AIChatbot() {
     // 1. Subsidy / PM Surya Ghar / 3kW / 2kW / 1kW
     if (q.includes("subsidy") || q.includes("subcidy") || q.includes("अनुदान") || q.includes("surya ghar") || q.includes("3kw") || q.includes("3 kw") || q.includes("1kw") || q.includes("2kw")) {
       return {
-        text: `☀️ **PM Surya Ghar: Muft Bijli Yojana (आधिकारिक नई दरें व सब्सिडी):**\n\n• **1 kW On-Grid:** ₹85,000 से शुरू | कुल सब्सिडी ₹45,000 ➔ **नेट लागत मात्र ₹40,000***\n• **2 kW On-Grid:** ₹1,40,000 से शुरू | कुल सब्सिडी ₹90,000 ➔ **नेट लागत मात्र ₹50,000***\n• **3 kW On-Grid:** ₹1,90,000 से शुरू | कुल सब्सिडी ₹1,08,000 (अधिकतम) ➔ **नेट लागत मात्र ₹82,000***\n\n✅ **आसान बैंक लोन:** 6-7% न्यूनतम ब्याज दर पर आसान EMI (₹650 - ₹1,800/माह)।\n✅ **मासिक बचत:** हर महीने ₹1,200 से ₹4,500 की सीधी बिजली बिल बचत!`,
+        text: `**PM Surya Ghar: Muft Bijli Yojana (आधिकारिक नई दरें व सब्सिडी):**\n\n• **1 kW On-Grid:** ₹85,000 से शुरू | कुल सब्सिडी ₹45,000 **नेट लागत मात्र ₹40,000***\n• **2 kW On-Grid:** ₹1,40,000 से शुरू | कुल सब्सिडी ₹90,000 **नेट लागत मात्र ₹50,000***\n• **3 kW On-Grid:** ₹1,90,000 से शुरू | कुल सब्सिडी ₹1,08,000 (अधिकतम) **नेट लागत मात्र ₹82,000***\n\n**आसान बैंक लोन:** 6-7% न्यूनतम ब्याज दर पर आसान EMI (₹650 - ₹1,800/माह)।\n**मासिक बचत:** हर महीने ₹1,200 से ₹4,500 की सीधी बिजली बिल बचत!`,
         action: {
           label: "View Rates & Subsidy | दरें देखें",
           url: "/on-grid"
@@ -101,7 +101,7 @@ export function AIChatbot() {
     // 2. 5kW / 10kW / Commercial Cost & Savings
     if (q.includes("5kw") || q.includes("5 kw") || q.includes("10kw") || q.includes("commercial") || q.includes("cost") || q.includes("saving") || q.includes("खर्च") || q.includes("बचत") || q.includes("price") || q.includes("रेट")) {
       return {
-        text: `⚡ **5 kW एवं 10 kW On-Grid Solar (आधिकारिक नई विशेष दर):**\n\n• **5 kW System:** नई विशेष दर **₹3,00,000** (सब्सिडी के बाद नेट लागत ₹1,92,000*) — बड़े घरों एवं 1.5 टन एसी के लिए आदर्श। मासिक बचत ~₹7,500!\n• **10 kW System:** नई विशेष दर **₹6,00,000** (सब्सिडी के बाद नेट लागत ₹4,92,000*) — स्कूल, अस्पताल, शोरूम एवं व्यावसायिक प्रतिष्ठानों हेतु। मासिक बचत ~₹15,000+!\n• **Tax Benefit:** व्यावसायिक प्रतिष्ठानों हेतु 40% टैक्स डिप्रिसिएशन लाभ उपलब्ध।\n• **वारंटी:** 25 साल की पैनल परफॉर्मेंस वारंटी + 5 साल की फ्री ऑन-साइट सर्विस।`,
+        text: `**5 kW एवं 10 kW On-Grid Solar (आधिकारिक नई विशेष दर):**\n\n• **5 kW System:** नई विशेष दर **₹3,00,000** (सब्सिडी के बाद नेट लागत ₹1,92,000*) — बड़े घरों एवं 1.5 टन एसी के लिए आदर्श। मासिक बचत ~₹7,500!\n• **10 kW System:** नई विशेष दर **₹6,00,000** (सब्सिडी के बाद नेट लागत ₹4,92,000*) — स्कूल, अस्पताल, शोरूम एवं व्यावसायिक प्रतिष्ठानों हेतु। मासिक बचत ~₹15,000+!\n• **Tax Benefit:** व्यावसायिक प्रतिष्ठानों हेतु 40% टैक्स डिप्रिसिएशन लाभ उपलब्ध।\n• **वारंटी:** 25 साल की पैनल परफॉर्मेंस वारंटी + 5 साल की फ्री ऑन-साइट सर्विस।`,
         action: {
           label: "Inquire on WhatsApp",
           url: `https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, please share customized quotation for 5kW/10kW solar system.")}`
@@ -112,7 +112,7 @@ export function AIChatbot() {
     // 3. Home Appliances / Electronics / AC / Fridge / Cooler
     if (q.includes("appliance") || q.includes("ac") || q.includes("fridge") || q.includes("cooler") || q.includes("electronic") || q.includes("washing machine") || q.includes("geyser") || q.includes("tv")) {
       return {
-        text: `❄️ **Satyarthi Solar & Home Electronics Showroom:**\n\nAlong with solar, we are an authorized dealer for **24+ leading electronics brands**:\n\n• **Air Conditioners:** 5-Star Dual-Inverter Split ACs (LG, Lloyd, Voltas, Samsung, Haier)\n• **Refrigerators:** Double-door frost-free inverter fridges (Godrej, Whirlpool, LG)\n• **Desert Coolers:** Heavy-duty 85L honey-comb pad coolers (Bajaj, Crompton, Symphony)\n• **Washing Machines & Geysers:** Fully automatic front/top loads & 25L 5-star geysers\n\n💡 **Zero-Bill Solar Combo:** We design specialized solar systems that run your AC & Fridge entirely free of electricity bills!`,
+        text: `**Satyarthi Solar & Home Electronics Showroom:**\n\nAlong with solar, we are an authorized dealer for **24+ leading electronics brands**:\n\n• **Air Conditioners:** 5-Star Dual-Inverter Split ACs (LG, Lloyd, Voltas, Samsung, Haier)\n• **Refrigerators:** Double-door frost-free inverter fridges (Godrej, Whirlpool, LG)\n• **Desert Coolers:** Heavy-duty 85L honey-comb pad coolers (Bajaj, Crompton, Symphony)\n• **Washing Machines & Geysers:** Fully automatic front/top loads & 25L 5-star geysers\n\n**Zero-Bill Solar Combo:** We design specialized solar systems that run your AC & Fridge entirely free of electricity bills!`,
         action: {
           label: "Explore Appliances Store ↗",
           url: "/appliances"
@@ -123,7 +123,7 @@ export function AIChatbot() {
     // 4. Solar Aata Chakki / Flour Mill / Agro
     if (q.includes("chakki") || q.includes("aata") || q.includes("flour") || q.includes("mill") || q.includes("diesel") || q.includes("vfd") || q.includes("agro")) {
       return {
-        text: `🌾 **Solar Aata Chakki (Flour Mill) & Agro Systems:**\n\n• **Zero Diesel:** Runs 10 HP to 25 HP heavy motors directly on solar VFD drive without expensive batteries!\n• **Daily Operation:** Runs 8 hours continuously under the sun (8:30 AM to 5:00 PM).\n• **Massive Monthly Savings:** Saves **₹25,000 - ₹45,000 every month** on diesel!\n• **Payback Period:** Pays for itself in just 12 to 16 months.\n• **Successful Sites:** Operational across Kushinagar, Gorakhpur, and Deoria.`,
+        text: `**Solar Aata Chakki (Flour Mill) & Agro Systems:**\n\n• **Zero Diesel:** Runs 10 HP to 25 HP heavy motors directly on solar VFD drive without expensive batteries!\n• **Daily Operation:** Runs 8 hours continuously under the sun (8:30 AM to 5:00 PM).\n• **Massive Monthly Savings:** Saves **₹25,000 - ₹45,000 every month** on diesel!\n• **Payback Period:** Pays for itself in just 12 to 16 months.\n• **Successful Sites:** Operational across Kushinagar, Gorakhpur, and Deoria.`,
         action: {
           label: "View Flour Mill & Rates ↗",
           url: "/off-grid"
@@ -134,7 +134,7 @@ export function AIChatbot() {
     // 5. UPNEDA / Government Empanelment / Certifications
     if (q.includes("upneda") || q.includes("mnre") || q.includes("approval") || q.includes("approve") || q.includes("vendor") || q.includes("gst") || q.includes("loom solar") || q.includes("fujiyama") || q.includes("amaze")) {
       return {
-        text: `🏛️ **Official Government & Brand Credentials:**\n\n• **UPNEDA Empanelled Vendor:** Govt of Uttar Pradesh Vendor Code **${businessData.vendorCode}**\n• **GST Registered:** **${businessData.gstin}** (Proprietorship: Er. Satya Prakash Satyarthi)\n• **LOOM SOLAR Authorized Dealer:** Certificate No. **${businessData.loomCertificateNo}** (Valid till 2028)\n• **FUJIYAMA SOLAR:** Authorized Dealer for Gorakhpur & UP East-2\n• **AMAZE:** Authorized Channel Partner\n\nAll installations receive official UPPCL net metering and government DBT subsidy assurance!`,
+        text: `**Official Government & Brand Credentials:**\n\n• **UPNEDA Empanelled Vendor:** Govt of Uttar Pradesh Vendor Code **${businessData.vendorCode}**\n• **GST Registered:** **${businessData.gstin}** (Proprietorship: Er. Satya Prakash Satyarthi)\n• **LOOM SOLAR Authorized Dealer:** Certificate No. **${businessData.loomCertificateNo}** (Valid till 2028)\n• **FUJIYAMA SOLAR:** Authorized Dealer for Gorakhpur & UP East-2\n• **AMAZE:** Authorized Channel Partner\n\nAll installations receive official UPPCL net metering and government DBT subsidy assurance!`,
         action: {
           label: "View Official Certificates",
           url: "/certificates"
@@ -145,7 +145,7 @@ export function AIChatbot() {
     // 6. Location / Address / Google Maps
     if (q.includes("location") || q.includes("address") || q.includes("map") || q.includes("kaha") || q.includes("where") || q.includes("pata") || q.includes("dukan") || q.includes("office") || q.includes("gorakhpur")) {
       return {
-        text: `📍 **Head Office & Showroom Location:**\n\n**Satyarthi Solar Solution**\nMOTIRAM ADDA DEORIYA ROAD GORAKHPUR UTTAR PRADESH 273202\n*(Near Motiram Chauraha / Rampur, Gorakhpur-Deoria State Highway)*\n\n• **Distances:** 16 km from Gorakhpur Junction | 22 km from Deoria Sadar\n• **Store Hours:** Mon - Sat: 9:00 AM – 7:30 PM | Sun: 10:00 AM – 4:00 PM\n• **Free Survey Coverage:** Gorakhpur, Deoria, Kushinagar, Maharajganj, Basti, Sant Kabir Nagar.`,
+        text: `**Head Office & Showroom Location:**\n\n**Satyarthi Solar Solution**\nMOTIRAM ADDA DEORIYA ROAD GORAKHPUR UTTAR PRADESH 273202\n*(Near Motiram Chauraha / Rampur, Gorakhpur-Deoria State Highway)*\n\n• **Distances:** 16 km from Gorakhpur Junction | 22 km from Deoria Sadar\n• **Store Hours:** Mon - Sat: 9:00 AM – 7:30 PM | Sun: 10:00 AM – 4:00 PM\n• **Free Survey Coverage:** Gorakhpur, Deoria, Kushinagar, Maharajganj, Basti, Sant Kabir Nagar.`,
         action: {
           label: "Open in Google Maps",
           url: businessData.googleMapLink
@@ -156,7 +156,7 @@ export function AIChatbot() {
     // 7. Contact / Phone Number / Call Er. Satya Prakash
     if (q.includes("contact") || q.includes("phone") || q.includes("call") || q.includes("number") || q.includes("mobile") || q.includes("satyaprakash") || q.includes("whatsapp")) {
       return {
-        text: `📞 **Contact Er. Satya Prakash Satyarthi:**\n\n• **Primary Business Line:** +91 ${businessData.phone[0]} (⚡ 24x7 Active)\n• **Secondary Business Line:** +91 ${businessData.phone[1]} (⚡ 24x7 Active)\n• **Office Direct Line:** +91 ${businessData.phone[2]}\n• **WhatsApp Support:** +91 ${businessData.whatsapp[0]}\n• **Email:** ${businessData.email}\n\nBoth numbers are dedicated for business purposes and available **24x7** for urgent calls, rooftop inquiries, and solar consultations!`,
+        text: `**Contact Er. Satya Prakash Satyarthi:**\n\n• **Primary Business Line:** +91 ${businessData.phone[0]} (24x7 Active)\n• **Secondary Business Line:** +91 ${businessData.phone[1]} (24x7 Active)\n• **Office Direct Line:** +91 ${businessData.phone[2]}\n• **WhatsApp Support:** +91 ${businessData.whatsapp[0]}\n• **Email:** ${businessData.email}\n\nBoth numbers are dedicated for business purposes and available **24x7** for urgent calls, rooftop inquiries, and solar consultations!`,
         action: {
           label: "Chat with Er. Satyaprakash on WhatsApp",
           url: `https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I have an inquiry regarding solar installation.")}`
@@ -167,7 +167,7 @@ export function AIChatbot() {
     // 8. Survey / Booking
     if (q.includes("survey") || q.includes("book") || q.includes("site visit") || q.includes("quote") || q.includes("survey book")) {
       return {
-        text: `📋 **Book a 100% Free Site Survey:**\n\nOur certified solar engineers will visit your roof, perform precision 3D shadow analysis, check your electricity meter connection, and calculate your exact subsidy.\n\n👉 Simply scroll to the **Contact Form** or message us directly with your Address & Phone Number!`,
+        text: `**Book a 100% Free Site Survey:**\n\nOur certified solar engineers will visit your roof, perform precision 3D shadow analysis, check your electricity meter connection, and calculate your exact subsidy.\n\nSimply scroll to the **Contact Form** or message us directly with your Address & Phone Number!`,
         action: {
           label: "Go to Contact Form",
           url: "#contact"
@@ -222,10 +222,10 @@ export function AIChatbot() {
         time: "Just now",
         text: "Conversation reset! How can I assist you with your solar or appliances inquiry today?",
         quickReplies: [
-          "💰 3kW Subsidy?",
-          "❄️ Home Appliances",
-          "🌾 Solar Aata Chakki",
-          "📍 Google Maps Location"
+          "3kW Subsidy?",
+          "Home Appliances",
+          "Solar Aata Chakki",
+          "Google Maps Location"
         ]
       }
     ]);
@@ -355,7 +355,7 @@ export function AIChatbot() {
                         onClick={() => {
                           if (!msg.action.url.startsWith("http")) setIsOpen(false);
                         }}
-                        className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black text-[11px] py-1.5 px-3 rounded-xl shadow-xs transition"
+                        className="inline-flex items-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-[11px] py-1.5 px-3 rounded-lg transition"
                       >
                         <span>{msg.action.label}</span>
                         <ChevronRight className="w-3.5 h-3.5" />

@@ -3,9 +3,7 @@ import { businessData } from "../data/businessData";
 import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink, BadgeCheck } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
-  ExpressiveKineticText,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
+  ExpressiveKineticText
 } from "./MotionEffects";
 
 function Testimonials() {
@@ -38,7 +36,7 @@ function Testimonials() {
             <p className="text-xs font-bold text-blue-700 font-hindi tracking-wide">
               2500+ संतुष्ट परिवार • वास्तविक ग्राहक अनुभव
             </p>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               <ExpressiveKineticText
                 text="What Our Customers Say Across Uttar Pradesh"
                 highlightWords={["Customers", "Uttar", "Pradesh"]}
@@ -71,11 +69,9 @@ function Testimonials() {
               transition={{ duration: 0.25 }}
               className="relative bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
             >
-              {/* Desktop-Only Gallery Shine Sweep */}
-              <div className="desktop-shine-sweep" />
 
               <div className="relative z-10">
-                {/* Stars & Interactive ⚡ Burst */}
+                {/* Rating Stars */}
                 <div className="flex items-center justify-between mb-3.5">
                   <div className="flex items-center gap-1">
                     {[...Array(t.rating)].map((_, i) => (
@@ -84,7 +80,6 @@ function Testimonials() {
                     <span className="text-xs font-bold text-slate-700 ml-1.5">5.0</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <InteractiveZapBurstButton initialCount={92 + idx * 19} label="Helpful" />
                     <Quote className="w-5 h-5 text-slate-200 group-hover:text-amber-400 transition" />
                   </div>
                 </div>
@@ -116,7 +111,7 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-md relative overflow-hidden"
         >
           {/* Subtle Ambient Glow */}
 
@@ -128,7 +123,7 @@ function Testimonials() {
                 <span>Customer Video Proofs & Reels</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                 Watch Real Installations on <span className="text-amber-400">Instagram</span> & <span className="text-blue-400">Facebook</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -159,7 +154,7 @@ function Testimonials() {
                 href={businessData.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-amber-400/20 transition cursor-pointer"
+                className="py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-amber-400/20 transition cursor-pointer"
               >
                 <MapPin className="w-4 h-4 text-slate-950" />
                 <span>Verified Google Reviews (★ 4.9 • 2500+ Clients)</span>
@@ -185,7 +180,7 @@ function Testimonials() {
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-600/25 transition hover:opacity-95 cursor-pointer"
+                className="py-2.5 px-4 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
               >
                 <FacebookIcon className="w-4 h-4 fill-white" />
                 <span>Video Proofs on Facebook</span>

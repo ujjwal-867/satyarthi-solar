@@ -38,7 +38,7 @@ function Quotations() {
               <span>Official Rate Cards &amp; Quotations • आधिकारिक सोलर कोटेशन</span>
             </p>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Official Solar <span className="text-amber-500">Rate Cards</span>
             </h2>
             <p className="text-sm font-bold text-blue-900 font-hindi">
@@ -51,7 +51,7 @@ function Quotations() {
               Transparent pricing as per UPNEDA and MNRE guidelines with PM Surya Ghar subsidy matrices and 6%–7% bank EMI options.
             </p>
             <p className="text-blue-900 font-semibold text-xs font-hindi">
-              🇮🇳 सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी
+              सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी
             </p>
           </div>
         </div>
@@ -59,7 +59,7 @@ function Quotations() {
         {/* Quotation Highlights Alert */}
         <div className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white p-5 rounded-2xl shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
+            <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-bold shrink-0">
               <Calendar className="w-5 h-5 text-slate-950" />
             </div>
             <div className="space-y-0.5">
@@ -80,9 +80,9 @@ function Quotations() {
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
           >
-            Request Rate PDF • पीडीएफ मंगवाएं
+            Request Rate PDF
           </a>
         </div>
 
@@ -93,8 +93,6 @@ function Quotations() {
               key={flyer.id}
               className="relative bg-white rounded-2xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
             >
-              {/* Desktop-Only Gallery Shine Sweep */}
-              <div className="desktop-shine-sweep" />
 
               <div>
                 {/* Image Frame */}
@@ -130,7 +128,7 @@ function Quotations() {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
                     Official Rate Card
                   </span>
-                  <h3 className="text-xl font-black text-slate-900 leading-snug">
+                  <h3 className="text-xl font-bold text-slate-900 leading-snug">
                     {flyer.title}
                   </h3>
                   <p className="text-xs font-semibold text-blue-900">
@@ -178,7 +176,7 @@ function Quotations() {
               <span className="text-[11px] font-bold uppercase tracking-widest text-blue-700">
                 Direct Manufacturer Associations
               </span>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                 Our Official Partner Brands
               </h3>
             </div>
@@ -197,7 +195,7 @@ function Quotations() {
                   <div className="flex items-center gap-1.5">
                     <span className="text-slate-900 group-hover:text-blue-900 transition">{b.name}</span>
                     {b.role && (
-                      <span className="text-[9px] bg-blue-50 text-blue-900 px-1.5 py-0.5 rounded font-black uppercase tracking-wide">
+                      <span className="text-[9px] bg-blue-50 text-blue-900 px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">
                         {b.role}
                       </span>
                     )}

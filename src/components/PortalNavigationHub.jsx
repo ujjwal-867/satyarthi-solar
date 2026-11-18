@@ -106,7 +106,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
               <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
               <span>Quick Access Portals • मुख्य विभाग</span>
             </p>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               <ExpressiveKineticText
                 text="Explore Our Divisions & Rate Lists"
                 highlightWords={["Divisions", "Rate", "Lists"]}
@@ -135,22 +135,17 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                 onClick={btn.onClick}
                 className={`group relative text-left p-4 rounded-2xl border ${btn.cardStyle} transition-all duration-300 flex flex-col justify-between cursor-pointer desktop-gallery-card-hover overflow-hidden`}
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
                 <div className="relative z-10">
                   <div className="flex items-center justify-between gap-1.5 mb-3">
-                    <motion.div
-                      whileHover={{ rotate: 12, scale: 1.12 }}
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-xs ${btn.iconColor} transition`}
-                    >
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${btn.iconColor} transition-colors`}>
                       <Icon className="w-4 h-4" />
-                    </motion.div>
-                    <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded-full border ${btn.badgeColor}`}>
+                    </div>
+                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border ${btn.badgeColor}`}>
                       {btn.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-blue-900 transition leading-snug">
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-blue-900 transition leading-snug">
                     {btn.title}
                   </h3>
                   <span className="text-[10.5px] font-semibold text-blue-900 font-hindi block mt-0.5">

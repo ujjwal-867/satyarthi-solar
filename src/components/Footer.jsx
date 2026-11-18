@@ -31,7 +31,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 <Sun className="w-5 h-5 text-slate-950" />
               </div>
               <div className="min-w-0">
-                <span className="text-base sm:text-lg font-black tracking-tight text-white block">
+                <span className="text-base sm:text-lg font-bold tracking-tight text-white block">
                   SATYARTHI <span className="text-amber-400">SOLAR SOLUTION</span>
                 </span>
                 <p className="text-[11px] text-sky-300 font-hindi">
@@ -170,7 +170,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 href={businessData.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 bg-[#0d284f] hover:bg-pink-600 rounded-lg text-slate-300 hover:text-white transition"
+                className="p-2 bg-[#0d284f] hover:bg-blue-700 rounded-lg text-slate-300 hover:text-white transition"
                 title="Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />

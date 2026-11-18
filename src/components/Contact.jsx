@@ -17,8 +17,7 @@ import {
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
-  ExpressiveKineticText,
-  InteractiveZapBurstButton
+  ExpressiveKineticText
 } from "./MotionEffects";
 
 function Contact({ prefilledData }) {
@@ -75,7 +74,7 @@ function Contact({ prefilledData }) {
 
   const buildWhatsAppMessage = (lead) => {
     return (
-      `☀️ *New Solar & Electronics Inquiry (Satyarthi Solar Solution)*\n\n` +
+      `*New Solar & Electronics Inquiry (Satyarthi Solar Solution)*\n\n` +
       `• *Name:* ${lead.name}\n` +
       `• *Mobile:* +91 ${lead.phone}\n` +
       (lead.email ? `• *Email:* ${lead.email}\n` : "") +
@@ -89,7 +88,7 @@ function Contact({ prefilledData }) {
   };
 
   const buildMailtoHref = (lead) => {
-    const subject = encodeURIComponent(`☀️ New Solar Inquiry: ${lead.name} (${lead.phone}) - ${lead.location}`);
+    const subject = encodeURIComponent(`New Solar Inquiry: ${lead.name} (${lead.phone}) - ${lead.location}`);
     const body = encodeURIComponent(
       `New Customer Inquiry from Satyarthi Solar Solution Website:\n\n` +
       `Full Name: ${lead.name}\n` +
@@ -165,7 +164,7 @@ function Contact({ prefilledData }) {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        _subject: `☀️ New Solar Lead: ${newLead.name} (+91 ${newLead.phone}) - ${newLead.location}`,
+        _subject: `New Solar Lead: ${newLead.name} (+91 ${newLead.phone}) - ${newLead.location}`,
         _template: "table",
         _captcha: "false",
         Lead_ID: newLead.id,
@@ -234,7 +233,7 @@ function Contact({ prefilledData }) {
               <ShieldCheck className="w-4 h-4 text-amber-500" />
               <span>UPNEDA Empanelled Contractor • Vendor Code: {businessData.vendorCode}</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               <ExpressiveKineticText
                 text="Get Your Free Site Survey & Solar Quote"
                 highlightWords={["Free", "Site", "Survey", "Quote"]}
@@ -260,17 +259,13 @@ function Contact({ prefilledData }) {
             className="lg:col-span-5 space-y-6"
           >
             
-            {/* Quick Contact 3D Bento Card */}
-            <motion.div
-              whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
-              className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-7 backdrop-blur-md space-y-4 shadow-xl transition-all duration-300 group overflow-hidden"
-            >
+            {/* Quick Contact Information Card */}
+            <div className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-7 space-y-4 shadow-sm transition-colors group overflow-hidden">
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">Company Information</h3>
                   <span className="text-xs text-blue-900 font-semibold">2500+ Happy Families in Purvanchal</span>
                 </div>
-                <InteractiveZapBurstButton initialCount={264} label="24×7" />
               </div>
 
               <div className="space-y-3.5 text-sm relative z-10">
@@ -282,7 +277,7 @@ function Contact({ prefilledData }) {
                   <div className="space-y-1 flex-1">
                     <span className="text-xs text-slate-500 font-bold flex items-center gap-1.5 flex-wrap">
                       <span>Calling Lines:</span>
-                      <span className="bg-blue-50 text-blue-900 text-[10px] px-2 py-0.5 rounded-full font-black border border-blue-200">Active</span>
+                      <span className="bg-blue-50 text-blue-900 text-[10px] px-2 py-0.5 rounded-full font-bold border border-blue-200">Active</span>
                     </span>
                     <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-600 transition block text-sm">
                       +91 {businessData.phone[0]} <span className="text-xs text-slate-500 font-normal">(Er. Satya Prakash • 24×7)</span>
@@ -330,7 +325,7 @@ function Contact({ prefilledData }) {
 
                 {/* Address */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-rose-50 text-rose-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-blue-50 text-blue-700 rounded-xl shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -371,7 +366,7 @@ function Contact({ prefilledData }) {
                     href={businessData.instagramUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-pink-600 hover:text-white rounded-xl transition text-slate-700"
+                    className="p-2.5 bg-slate-100 hover:bg-[#0a1e3b] hover:text-white rounded-xl transition text-slate-700"
                     title="Instagram"
                   >
                     <InstagramIcon className="w-4 h-4" />
@@ -380,14 +375,14 @@ function Contact({ prefilledData }) {
                     href={businessData.facebookUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-blue-600 hover:text-white rounded-xl transition text-slate-700"
+                    className="p-2.5 bg-slate-100 hover:bg-blue-700 hover:text-white rounded-xl transition text-slate-700"
                     title="Facebook"
                   >
                     <FacebookIcon className="w-4 h-4" />
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Google Map Embedded Frame */}
             <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
@@ -426,14 +421,14 @@ function Contact({ prefilledData }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-6 sm:p-10 shadow-2xl border border-slate-200"
+            className="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-6 sm:p-10 shadow-md border border-slate-200"
           >
             {isSubmitted ? (
               <div className="text-center py-8 space-y-4 animate-fadeIn">
                 <div className="w-16 h-16 bg-blue-50 text-blue-900 rounded-full flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900">
+                <h3 className="text-2xl font-extrabold text-slate-900">
                   Thank You, {submittedLead?.name}!
                 </h3>
                 <p className="text-base font-bold text-blue-900 font-hindi">
@@ -441,9 +436,9 @@ function Contact({ prefilledData }) {
                 </p>
 
                 <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-100 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700">
-                  <span>✅ Email Sent: {businessData.email}</span>
+                  <span>Email Sent: {businessData.email}</span>
                   <span>•</span>
-                  <span>✅ WhatsApp: +91 {businessData.whatsapp[0]}</span>
+                  <span>WhatsApp: +91 {businessData.whatsapp[0]}</span>
                 </div>
 
                 {/* Instant WhatsApp & Email Dispatch Actions */}
@@ -460,7 +455,7 @@ function Contact({ prefilledData }) {
                     <button
                       type="button"
                       onClick={() => openWhatsAppLead(businessData.whatsapp[0])}
-                      className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                      className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4 fill-slate-950 shrink-0" />
                       <span>WhatsApp (+91 {businessData.whatsapp[0]})</span>
@@ -533,7 +528,7 @@ function Contact({ prefilledData }) {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                     Request Free Solar Site Survey
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -717,7 +712,7 @@ function Contact({ prefilledData }) {
                 </button>
 
                 <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-                  🔒 We respect your privacy. Your information is strictly used for the solar site survey and subsidy application.
+                  We respect your privacy. Your information is strictly used for the solar site survey and subsidy application.
                 </p>
               </form>
             )}

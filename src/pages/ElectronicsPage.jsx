@@ -17,11 +17,7 @@ import {
 import PortalNavigationHub from "../components/PortalNavigationHub";
 import Footer from "../components/Footer";
 import {
-  ExpressiveKineticText,
-  KineticMarqueeStrip,
-  CollaborativeCursorsOverlay,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
+  ExpressiveKineticText
 } from "../components/MotionEffects";
 
 export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
@@ -77,7 +73,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                 <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
               </p>
 
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 <ExpressiveKineticText
                   text="Home Appliances & Smart Living"
                   highlightWords={["Smart", "Living"]}
@@ -98,7 +94,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               <span className="text-amber-400 font-bold text-[11px] uppercase tracking-wider block">
                 Our Core Principle • हमारा संकल्प
               </span>
-              <p className="text-lg font-black text-white font-hindi mt-0.5">
+              <p className="text-lg font-bold text-white font-hindi mt-0.5">
                 &ldquo;हम सस्ता नहीं, क्वालिटी लगाते हैं&rdquo;
               </p>
             </div>
@@ -146,29 +142,20 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                   transition={{ duration: 0.4, delay: (idx % 4) * 0.06 }}
                   className="group relative bg-white rounded-2xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
                 >
-                  {/* Desktop-Only Gallery Shine Sweep */}
-                  <div className="desktop-shine-sweep" />
-
                   <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
-                      <motion.div
-                        whileHover={{ rotate: 12, scale: 1.12 }}
-                        className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors flex items-center justify-center shadow-2xs"
-                      >
-                        <Icon className="w-6 h-6" />
-                      </motion.div>
-                      <div className="flex flex-col items-end gap-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-900 px-2.5 py-0.5 rounded-full border border-blue-200">
-                          In Stock • उपलब्ध
-                        </span>
-                        <InteractiveZapBurstButton initialCount={64 + idx * 11} label="" />
+                      <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors flex items-center justify-center">
+                        <Icon className="w-5 h-5" />
                       </div>
+                      <span className="text-[10px] font-semibold bg-blue-50 text-blue-900 px-2.5 py-0.5 rounded-md border border-blue-200">
+                        In Stock
+                      </span>
                     </div>
 
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                       {app.category}
                     </span>
-                    <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-900 transition-colors mt-1 leading-snug">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors mt-1 leading-snug">
                       {app.name}
                     </h3>
                     <p className="text-xs font-semibold text-blue-800 font-hindi mt-0.5">
@@ -207,7 +194,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                       className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Order on WhatsApp • ऑर्डर करें</span>
+                      <span>Order on WhatsApp</span>
                     </button>
                     <a
                       href={`tel:${businessData.phone[0]}`}
@@ -225,13 +212,13 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Showroom Visit CTA */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
+            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
-                📍 Showroom Location & Timing • शोरूम का पता
+                Showroom Location & Timing • शोरूम का पता
               </span>
-              <h3 className="text-2xl font-black text-white">
+              <h3 className="text-2xl font-extrabold text-white">
                 Visit Our Motiram Adda Showroom in Gorakhpur
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 max-w-xl">
@@ -243,9 +230,9 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md"
               >
-                Google Maps • लोकेशन ↗
+                Google Maps ↗
               </a>
               <button
                 type="button"

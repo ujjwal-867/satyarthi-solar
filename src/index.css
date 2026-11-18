@@ -14,7 +14,7 @@
   }
 
   html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -27,42 +27,24 @@
   }
 }
 
-/* GPU Compositor Acceleration Utility */
-.gpu-layer {
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  perspective: 1000px;
+.font-hindi {
+  font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
-/* Custom animations & glow */
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.92; transform: scale(1.02); }
+/* Subtle modal & menu fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-pulse-subtle {
-  animation: pulse-subtle 3s ease-in-out infinite;
-}
-
-/* Continuous Smooth Marquee for Brand Headlines */
-@keyframes marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out both;
 }
 
 /* Custom scrollbars */
@@ -111,11 +93,6 @@
     transform: translateY(-3px) !important;
     box-shadow: 0 12px 24px -8px rgba(10, 30, 59, 0.14) !important;
     border-color: #2563eb !important;
-  }
-
-  .desktop-shine-sweep,
-  .gallery-shine-sweep {
-    display: none;
   }
 
   .desktop-image-zoom,

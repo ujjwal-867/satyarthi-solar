@@ -4,11 +4,7 @@ import { businessData } from "../data/businessData";
 import PortalNavigationHub from "../components/PortalNavigationHub";
 import Footer from "../components/Footer";
 import {
-  ExpressiveKineticText,
-  KineticMarqueeStrip,
-  CollaborativeCursorsOverlay,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
+  ExpressiveKineticText
 } from "../components/MotionEffects";
 
 export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
@@ -59,7 +55,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 <span>Official Government Subsidy Portal 2026 • 2500+ Happy Clients</span>
               </p>
 
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 <ExpressiveKineticText
                   text="PM Surya Ghar: On-Grid Solar Rates"
                   highlightWords={["On-Grid", "Solar", "Rates"]}
@@ -95,7 +91,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, please guide me on bank loan facility for solar rooftop.")}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full inline-flex justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-5 py-2.5 rounded-xl transition shadow-xs"
+                className="w-full inline-flex justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs px-5 py-2.5 rounded-xl transition shadow-xs"
               >
                 लोन सहायता लें ↗
               </a>
@@ -107,7 +103,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
         <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-7 border-b border-slate-200">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 <ExpressiveKineticText
                   text="Official On-Grid Price List & Net Cost Breakdown"
                   highlightWords={["On-Grid", "Price", "List"]}
@@ -130,18 +126,16 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
                 className={`group relative rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
-                    ? "bg-[#0a1e3b] text-white shadow-xl shadow-blue-950/20 ring-2 ring-amber-400"
+                    ? "bg-[#0a1e3b] text-white shadow-sm shadow-blue-950/20 ring-2 ring-amber-400"
                     : tier.popular
-                    ? "bg-white text-slate-900 border-2 border-blue-600 shadow-lg hover:shadow-2xl"
-                    : "bg-white text-slate-900 border border-slate-200 hover:border-blue-400 shadow-xs hover:shadow-2xl"
+                    ? "bg-white text-slate-900 border-2 border-blue-600 shadow-lg hover:shadow-md"
+                    : "bg-white text-slate-900 border border-slate-200 hover:border-blue-400 shadow-xs hover:shadow-md"
                 }`}
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
 
                 {/* Badges */}
                 {tier.bestValue && (
-                  <div className="bg-amber-400 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
+                  <div className="bg-amber-400 text-slate-950 font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     ★ Best Value • सबसे लोकप्रिय
                   </div>
                 )}
@@ -151,36 +145,29 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                   </div>
                 )}
                 {tier.specialOffer && !tier.bestValue && (
-                  <div className="bg-amber-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
+                  <div className="bg-amber-500 text-slate-950 font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     ★ Special Offer • विशेष दर
                   </div>
                 )}
                 {tier.commercialGrade && !tier.bestValue && (
-                  <div className="bg-[#0a1e3b] text-white font-black text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
+                  <div className="bg-[#0a1e3b] text-white font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
                     Commercial • उच्च क्षमता
                   </div>
                 )}
 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between gap-1">
-                    <div>
-                      <h4 className={`text-xl font-black ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
-                        {tier.capacity}
-                      </h4>
-                      <span className={`text-[11px] font-bold block ${tier.bestValue ? "text-sky-300" : "text-blue-700"}`}>
-                        {tier.capacityHi || "सोलर प्लांट"}
-                      </span>
-                    </div>
-                    <InteractiveZapBurstButton
-                      initialCount={110 + idx * 34}
-                      label=""
-                      dark={Boolean(tier.bestValue)}
-                    />
+                  <div>
+                    <h4 className={`text-xl font-extrabold ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
+                      {tier.capacity}
+                    </h4>
+                    <span className={`text-[11px] font-semibold font-hindi block ${tier.bestValue ? "text-sky-300" : "text-blue-700"}`}>
+                      {tier.capacityHi || "सोलर प्लांट"}
+                    </span>
                   </div>
 
                   {/* Rate Badge Chip */}
                   {tier.rateBadge && (
-                    <div className={`mt-2.5 py-1 px-2.5 rounded-xl text-[11px] font-black flex items-center justify-center gap-1.5 shadow-xs ${
+                    <div className={`mt-2.5 py-1 px-2.5 rounded-xl text-[11px] font-bold flex items-center justify-center gap-1.5 shadow-xs ${
                       tier.bestValue
                         ? "bg-amber-400 text-slate-950 ring-1 ring-amber-300"
                         : tier.specialOffer || tier.commercialGrade
@@ -196,32 +183,32 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     {tier.idealFor}
                   </p>
 
-                  <div className={`mt-4 p-2.5 rounded-2xl ${tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"}`}>
+                  <div className={`mt-4 p-2.5 rounded-xl ${tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"}`}>
                     <div className="flex justify-between items-center text-xs">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Output • उत्पादन:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Monthly Output:</span>
                       <strong className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>{tier.monthlyUnits}</strong>
                     </div>
                     <div className="flex justify-between items-center text-xs mt-1">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Savings • बचत:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Est. Savings:</span>
                       <strong className="text-amber-400 font-bold">~₹{tier.monthlySaving.toLocaleString()}/mo</strong>
                     </div>
                   </div>
 
                   <div className="mt-5 space-y-2 text-xs">
                     <div className="flex justify-between items-center">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>System Cost • कुल लागत:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>System Cost:</span>
                       <span className={tier.bestValue ? "text-slate-300 line-through" : "text-slate-400 line-through"}>
                         ₹{tier.approxSystemCost.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between items-center font-medium">
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>Central • केंद्र सब्सिडी:</span>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>Central Subsidy:</span>
                       <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
                         - ₹{tier.centralSubsidy.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between items-center font-medium">
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>UP State • राज्य सब्सिडी:</span>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>UP State Subsidy:</span>
                       <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
                         - ₹{tier.upStateSubsidy.toLocaleString()}
                       </span>
@@ -229,16 +216,16 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     <div className={`pt-2 border-t flex justify-between items-center font-bold text-xs ${
                       tier.bestValue ? "border-slate-700 text-amber-300" : "border-slate-100 text-blue-900"
                     }`}>
-                      <span>Total Subsidy • कुल सब्सिडी:</span>
+                      <span>Total Subsidy:</span>
                       <span>₹{tier.totalSubsidy.toLocaleString()}</span>
                     </div>
                   </div>
 
                   <div className={`mt-5 pt-3 border-t ${tier.bestValue ? "border-slate-700" : "border-slate-100"}`}>
                     <p className={`text-[11px] uppercase tracking-wider font-semibold ${tier.bestValue ? "text-slate-400" : "text-slate-500"}`}>
-                      Net Cost • शुद्ध देय राशि
+                      Net Payable Cost
                     </p>
-                    <p className={`text-2xl font-black mt-0.5 ${tier.bestValue ? "text-amber-400" : "text-slate-900"}`}>
+                    <p className={`text-2xl font-extrabold mt-0.5 ${tier.bestValue ? "text-amber-400" : "text-slate-900"}`}>
                       ₹{tier.netPayable.toLocaleString()}*
                     </p>
                     {tier.emi && (
@@ -257,7 +244,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                       : "bg-[#0a1e3b] text-white hover:bg-blue-900"
                   }`}
                 >
-                  <span>Apply • आवेदन करें</span>
+                  <span>Apply Now</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </motion.div>
@@ -282,15 +269,14 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {stepsBilingual.map((st, i) => (
-                <motion.div
+                <div
                   key={i}
-                  whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.02 }}
-                  className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 hover:border-amber-400/60 space-y-1 transition overflow-hidden"
+                  className="group relative bg-white/10 rounded-xl p-4 border border-white/15 hover:border-amber-400/50 space-y-1 transition-colors overflow-hidden"
                 >
-                  <span className="text-2xl font-black text-amber-400 block">{st.step}</span>
+                  <span className="text-xl font-extrabold text-amber-400 block">{st.step}</span>
                   <h4 className="font-bold text-sm text-white">{st.title}</h4>
                   <p className="text-xs text-slate-200 pt-1 leading-relaxed">{st.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -302,9 +288,9 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
               <button
                 type="button"
                 onClick={onNavigateHome}
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 cursor-pointer"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shrink-0 cursor-pointer"
               >
-                Back to Main Home • सोलर होम
+                Back to Home
               </button>
             </div>
           </div>
@@ -316,9 +302,9 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           >
             <div className="space-y-1 text-center md:text-left">
               <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
-                📍 Showroom & Engineering Office • मुख्य पता
+                Showroom & Engineering Office • मुख्य पता
               </span>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                 Visit Our Motiram Adda Showroom in Gorakhpur
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
@@ -330,9 +316,9 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
               >
-                Google Maps • लोकेशन ↗
+                Google Maps ↗
               </a>
               <a
                 href={`tel:${businessData.phone[0]}`}

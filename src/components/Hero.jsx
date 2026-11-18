@@ -16,8 +16,7 @@ import {
   Sun
 } from "lucide-react";
 import {
-  ExpressiveKineticText,
-  InteractiveZapBurstButton
+  ExpressiveKineticText
 } from "./MotionEffects";
 
 // Real Gorakhpur Site Slides rotating in the Hero Section
@@ -164,11 +163,11 @@ function Hero({ onOpenCalculator }) {
             >
               <motion.div
                 whileHover={{ scale: 1.03, y: -2 }}
-                className="inline-flex items-center gap-1.5 bg-blue-600/30 backdrop-blur-md border border-blue-400/40 text-blue-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-blue-600/30 border border-blue-400/40 text-blue-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm"
               >
                 <ShieldCheck className="w-4 h-4 text-blue-300 shrink-0" />
                 <span>UPNEDA Approved Vendor</span>
-                <span className="bg-amber-400 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
+                <span className="bg-amber-400 text-slate-950 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full">
                   {businessData.vendorCode}
                 </span>
               </motion.div>
@@ -181,12 +180,11 @@ function Hero({ onOpenCalculator }) {
                 <span>Motiram Adda, Gorakhpur Hub</span>
               </motion.div>
 
-              <InteractiveZapBurstButton initialCount={2500} label="Happy Families" dark />
             </motion.div>
 
             {/* Expressive Kinetic Headline with Targeted Local Keywords */}
             <motion.div variants={itemVariants} className="space-y-2.5">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-black tracking-tight leading-[1.15] text-white">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-extrabold tracking-tight leading-[1.15] text-white">
                 <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-400 mb-1">
                   #1 Solar EPC in Gorakhpur & Purvanchal
                 </span>
@@ -222,7 +220,7 @@ function Hero({ onOpenCalculator }) {
                     backgroundColor: "rgba(255, 255, 255, 0.12)"
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-amber-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
+                  className="group relative bg-white/8 border border-white/15 hover:border-amber-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
                 >
                   
                   <div className="flex items-center gap-1.5 relative z-10">
@@ -243,38 +241,32 @@ function Hero({ onOpenCalculator }) {
               variants={itemVariants}
               className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
             >
-              <motion.button
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={() => scrollTo("#contact")}
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
+                className="group inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-xl shadow-sm transition-colors cursor-pointer text-sm border border-blue-500/60"
               >
-                <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
-                <span className="relative z-10">Book Free Survey • मुफ्त सर्वे</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10 shrink-0" />
-              </motion.button>
+                <FileText className="w-4 h-4 text-white shrink-0" />
+                <span>Book Free Survey</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform shrink-0" />
+              </button>
 
-              <motion.button
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={() => {
                   if (onOpenCalculator) onOpenCalculator();
                 }}
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
+                className="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl shadow-sm transition-colors cursor-pointer text-sm border border-amber-300"
               >
-                <Calculator className="w-4 h-4 text-slate-950 relative z-10 shrink-0" />
-                <span className="relative z-10">Solar Calculator</span>
-              </motion.button>
+                <Calculator className="w-4 h-4 text-slate-950 shrink-0" />
+                <span>Solar Calculator</span>
+              </button>
 
-              <motion.a
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+              <a
                 href={`tel:${businessData.phone[0]}`}
-                className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-4 py-3 rounded-2xl border border-white/20 transition text-sm cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 text-white font-semibold px-4 py-3 rounded-xl border border-white/20 transition-colors text-sm cursor-pointer"
               >
                 <Phone className="w-4 h-4 text-amber-300 shrink-0" />
                 <span>+91 {businessData.phone[0]}</span>
-              </motion.a>
+              </a>
             </motion.div>
 
             {/* Showroom Location with Direct Google Maps Link */}
@@ -283,11 +275,11 @@ function Hero({ onOpenCalculator }) {
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 px-3.5 py-1.5 rounded-full transition cursor-pointer shadow-xs"
+                className="inline-flex items-center gap-2 text-xs text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 px-3.5 py-1.5 rounded-lg transition cursor-pointer"
               >
                 <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span><strong>Showroom:</strong> Motiram Adda, Deoria Road, Gorakhpur (273202)</span>
-                <span className="text-amber-300 font-bold ml-1">Google Maps ↗</span>
+                <span className="text-amber-300 font-semibold ml-1">Google Maps ↗</span>
               </a>
             </motion.div>
           </motion.div>
@@ -298,16 +290,10 @@ function Hero({ onOpenCalculator }) {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
-              whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-amber-400/60 rounded-2xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
+              className="group relative bg-[#0d284f]/95 border border-blue-400/25 hover:border-amber-400/50 rounded-2xl p-4 sm:p-6 shadow-lg space-y-4 text-white overflow-hidden transition-colors"
             >
-              {/* Diagonal Glassmorphic Shimmer Sweep */}
-
               <div className="relative z-10 flex items-center gap-3.5 sm:gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.06, rotate: -2 }}
-                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-md shrink-0"
-                >
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 border-amber-400/80 shrink-0">
                   <img
                     src={businessData.engineerImage}
                     alt="Er. Satyaprakash Satyarthi - Lead Solar Engineer Gorakhpur"
@@ -317,7 +303,7 @@ function Hero({ onOpenCalculator }) {
                   <div className="absolute bottom-0 inset-x-0 bg-blue-600 text-white text-[8px] text-center font-bold py-0.5 uppercase tracking-wider">
                     VERIFIED
                   </div>
-                </motion.div>
+                </div>
 
                 <div className="min-w-0 flex-1 space-y-1">
                   <div className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-200 border border-blue-400/30 px-2 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-bold max-w-full">
@@ -325,7 +311,7 @@ function Hero({ onOpenCalculator }) {
                     <span className="truncate">Chief Solar EPC Engineer</span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-black text-white leading-tight">
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
                     Er. Satyaprakash Satyarthi
                   </h3>
 
@@ -346,7 +332,7 @@ function Hero({ onOpenCalculator }) {
                     <Sun className="w-3.5 h-3.5 text-amber-400" />
                     <span>Gorakhpur Solar Yield Performance</span>
                   </span>
-                  <span className="font-mono font-black text-sky-300">98.4% Efficiency</span>
+                  <span className="font-mono font-bold text-sky-300">98.4% Efficiency</span>
                 </div>
                 <div className="w-full h-1.5 bg-blue-950/80 rounded-full overflow-hidden">
                   <div className="h-full w-[98%] bg-amber-400 rounded-full" />
@@ -360,14 +346,14 @@ function Hero({ onOpenCalculator }) {
                   className="bg-white/6 hover:bg-blue-500/10 transition p-2.5 rounded-2xl border border-white/10"
                 >
                   <p className="text-[10px] text-slate-300 font-medium">Installed Capacity</p>
-                  <p className="text-base font-black text-amber-300">2,200+ kW</p>
+                  <p className="text-base font-bold text-amber-300">2,200+ kW</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ y: -3 }}
                   className="bg-white/6 hover:bg-blue-500/10 transition p-2.5 rounded-2xl border border-white/10"
                 >
                   <p className="text-[10px] text-slate-300 font-medium">Verified Families</p>
-                  <p className="text-base font-black text-sky-300">2500+ Clients</p>
+                  <p className="text-base font-bold text-sky-300">2500+ Clients</p>
                 </motion.div>
               </div>
 
@@ -380,7 +366,7 @@ function Hero({ onOpenCalculator }) {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
+                  className="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
                 >
                   <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950" />
                   <span>WhatsApp • सीधे बात करें</span>

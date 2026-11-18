@@ -75,7 +75,7 @@ function Products() {
               <ShoppingBag className="w-4 h-4 text-blue-600" />
               <span>Solar Inventory & Wholesale Rates • अधिकृत सोलर उपकरण</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Solar Equipment & <span className="text-amber-600">Products Catalog</span>
             </h2>
             <p className="text-sm font-bold text-blue-900 font-hindi">
@@ -138,8 +138,6 @@ function Products() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="relative bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
 
                 <div>
                   {/* Image & Badge Container */}
@@ -158,7 +156,7 @@ function Products() {
 
                     {/* Discount Tag */}
                     {discountPercent && discountPercent > 0 && (
-                      <span className="absolute top-3 right-3 bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded shadow-sm">
+                      <span className="absolute top-3 right-3 bg-amber-400 text-slate-950 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
                         {discountPercent}% OFF
                       </span>
                     )}
@@ -185,7 +183,7 @@ function Products() {
 
                     {/* Pricing */}
                     <div className="mt-3 flex items-baseline gap-2">
-                      <span className="text-xl font-black text-slate-900">
+                      <span className="text-xl font-bold text-slate-900">
                         ₹{product.price.toLocaleString()}
                       </span>
                       {product.originalPrice && (
@@ -313,11 +311,11 @@ function Products() {
                 <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
                   {selectedProduct.category}
                 </span>
-                <h3 className="text-xl font-black text-slate-900 mt-1">
+                <h3 className="text-xl font-bold text-slate-900 mt-1">
                   {selectedProduct.name}
                 </h3>
                 <div className="flex items-baseline gap-2 mt-2">
-                  <span className="text-2xl font-black text-slate-900">
+                  <span className="text-2xl font-extrabold text-slate-900">
                     ₹{selectedProduct.price.toLocaleString()}
                   </span>
                   {selectedProduct.originalPrice && (

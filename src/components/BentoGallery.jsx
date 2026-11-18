@@ -23,41 +23,9 @@ import {
   Camera
 } from "lucide-react";
 
-const GALLERY_COLLAB_FEED = [
-  "🟢 Er. Satyaprakash (Lead EPC) verified GPS coordinates at Saketpuri Pergola",
-  "⚡ 22 Homeowners in Gorakhpur & Deoria inspecting live site photos now",
-  "🏆 2500+ Happy Clients milestone verified across Purvanchal & UP",
-  "🔋 UPNEDA Inspector audited 5.4 kVA Okaya MPPT setup in Khorabar"
-];
-
-const GALLERY_COLLAB_CURSORS = [
-  {
-    id: "cursor-er",
-    label: "Er. Satyaprakash • Structural Audit",
-    tag: "150 km/h Wind-Load GI Frame",
-    color: "bg-blue-600 text-white border-blue-400",
-    hex: "#2563eb",
-    x: ["8%", "42%", "24%", "8%"],
-    y: ["16%", "28%", "56%", "16%"]
-  },
-  {
-    id: "cursor-upneda",
-    label: "UPNEDA Verification (#GKP2604066741)",
-    tag: "GPS Coordinates & Net-Meter Synced",
-    color: "bg-sky-400 text-slate-950 border-sky-200",
-    hex: "#38bdf8",
-    x: ["72%", "54%", "78%", "72%"],
-    y: ["22%", "48%", "34%", "22%"]
-  }
-];
-
 export function BentoGallery() {
   const [activeTab, setActiveTab] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const [showCollabCursors, setShowCollabCursors] = useState(true);
-  const [collabFeedIdx, setCollabFeedIdx] = useState(0);
-  const [likesMap, setLikesMap] = useState({});
-  const [burstMap, setBurstMap] = useState({});
   const [loadedPhotos, setLoadedPhotos] = useState(() => new Set());
   const [loadAllPhotos, setLoadAllPhotos] = useState(false);
 
@@ -81,23 +49,6 @@ export function BentoGallery() {
     });
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCollabFeedIdx((prev) => (prev + 1) % GALLERY_COLLAB_FEED.length);
-    }, 3600);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleCollabVerify = (e, itemId, idx) => {
-    e.stopPropagation();
-    const baseCount = 118 + (idx * 17) % 90;
-    setLikesMap((prev) => ({
-      ...prev,
-      [itemId]: (prev[itemId] || baseCount) + 1
-    }));
-    setBurstMap((prev) => ({ ...prev, [itemId]: Date.now() }));
-  };
-
   // Complete Catalog of 20 Real Work Photos (GPS Verified Sites, Gazebo Pergolas, Inverters & Industrial Systems)
   const bentoItems = useMemo(() => [
     {
@@ -108,7 +59,7 @@ export function BentoGallery() {
       categoryLabel: "Elevated Pergola • एलिवेटेड स्ट्रक्चर",
       location: "Saketpuri Colony, Rajendra Nagar, Gorakhpur (273015)",
       image: "/images/projects/team-saketpuri-pergola.jpg",
-      badge: "📍 GPS Verified • 10/09/2025",
+      badge: "GPS Verified • 10/09/2025",
       badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
       span: "col-span-1 md:col-span-2 row-span-2",
       description: "Complete elevated rooftop gazebo pergola plant engineered by Satyarthi Solar Solution. Allows full terrace walking and recreational usage below the solar array.",
@@ -124,7 +75,7 @@ export function BentoGallery() {
       categoryLabel: "Elevated Rooftop • आंधी-रोधी स्ट्रक्चर",
       location: "303b, Railvihar Ph-2, Shatabdipuram, Gorakhpur (273013)",
       image: "/images/projects/elevated-solar-railvihar.jpg",
-      badge: "📍 GPS Verified • 03/06/2026",
+      badge: "GPS Verified • 03/06/2026",
       badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-2",
       description: "Terrace rooftop solar installation elevated over water tank superstructure, engineered with hot-dip galvanized cross-braced framing tested against 150 km/h storm winds.",
@@ -140,7 +91,7 @@ export function BentoGallery() {
       categoryLabel: "Grouted Pillars • कंक्रीट बेस",
       location: "Fertilizer Rd, Fertilizer Colony, Gorakhpur (273013)",
       image: "/images/projects/fertilizer-colony-completed-array.jpg",
-      badge: "📍 GPS Verified • 03/06/2026",
+      badge: "GPS Verified • 03/06/2026",
       badgeColor: "bg-[#0a1e3b] text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "High-durability elevated residential plant with reinforced concrete pedestal footings anchored for zero-vibration storm resistance in Gorakhpur.",
@@ -155,7 +106,7 @@ export function BentoGallery() {
       categoryLabel: "Inverter & Switchgear • इन्वर्टर व डीसीडीबी",
       location: "Bank Rd, Purdilpur, Gorakhpur (273001)",
       image: "/images/projects/waaree-inverter-purdilpur.jpg",
-      badge: "⚡ Waaree Solar • 10/04/2026",
+      badge: "Waaree Solar • 10/04/2026",
       badgeColor: "bg-amber-600 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Clean interior electrical installation featuring Waaree high-efficiency grid-tied solar inverter with dual ACDB & DCDB surge protection switchgear and fire-retardant conduits.",
@@ -170,7 +121,7 @@ export function BentoGallery() {
       categoryLabel: "Solar Irrigation • कृषि सोलर पंप",
       location: "Agricultural Farms, Purvanchal (Eastern UP)",
       image: "/images/projects/solar-water-pump-agriculture.jpg",
-      badge: "🌾 PM Kusum Scheme • जीरो डीजल",
+      badge: "PM Kusum Scheme • जीरो डीजल",
       badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-2",
       description: "High-discharge solar submersible pumping station pumping continuous clean irrigation water for agricultural farms with zero electric or diesel bills.",
@@ -185,7 +136,7 @@ export function BentoGallery() {
       categoryLabel: "Solar PCU • 5.4 kVA 48V",
       location: "Rapti Nagar Phase-4, Khorabar, Gorakhpur (273010)",
       image: "/images/projects/okaya-pcu-khorabar.jpg",
-      badge: "🔋 Okaya MPPT • 08/06/2026",
+      badge: "Okaya MPPT • 08/06/2026",
       badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
       span: "col-span-1 row-span-1",
       description: "High-capacity Okaya MPPT Solar PCU with digital telemetry display and UTL solar backup battery bank powering heavy domestic and commercial loads.",
@@ -200,7 +151,7 @@ export function BentoGallery() {
       categoryLabel: "High-Clearance Pergola • परगोला रूफटॉप",
       location: "78, Netaji Rd, Rajendra Nagar, Gorakhpur (273015)",
       image: "/images/projects/elevated-pergola-rajendranagar.jpg",
-      badge: "📍 GPS Verified • 03/09/2025",
+      badge: "GPS Verified • 03/09/2025",
       badgeColor: "bg-[#0a1e3b] text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Architectural high-clearance solar gazebo framing elevating panels above the terrace parapet for maximum solar irradiance.",
@@ -215,7 +166,7 @@ export function BentoGallery() {
       categoryLabel: "Residential Rooftop • आवासीय सोलर",
       location: "Siddharth Nagar Colony, Rajendra Nagar, Gorakhpur (273015)",
       image: "/images/projects/siddharth-nagar-rajendranagar.jpg",
-      badge: "📍 GPS Verified • 05/01/2026",
+      badge: "GPS Verified • 05/01/2026",
       badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Residential rooftop solar installation providing 100% electricity bill offset with net-meter grid export under PM Surya Ghar.",
@@ -230,7 +181,7 @@ export function BentoGallery() {
       categoryLabel: "Customer Showcase • खुशहाल परिवार",
       location: "Deoria Rd, Jangl Ramgarh Urf Chawri, Gorakhpur (273202)",
       image: "/images/projects/happy-client-jangl-ramgarh.jpg",
-      badge: "😊 Happy Client • 28/07/2026",
+      badge: "Happy Client • 28/07/2026",
       badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Homeowner standing with his newly energized elevated rooftop solar plant equipped with copper lightning arrester protection on Deoria Road.",
@@ -245,7 +196,7 @@ export function BentoGallery() {
       categoryLabel: "Customer Showcase • गौरी बाजार",
       location: "Gauri Bazar, Uttar Pradesh (274202)",
       image: "/images/projects/happy-client-gauribazar.jpg",
-      badge: "😊 Happy Client • 01/08/2026",
+      badge: "Happy Client • 01/08/2026",
       badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Client proudly standing beside his newly installed high-performance rooftop solar array overlooking the neighborhood in Gauri Bazar.",
@@ -260,7 +211,7 @@ export function BentoGallery() {
       categoryLabel: "Elevated Concrete Base • पुरदिलपुर",
       location: "267, Purdilpur, Miyan Baza, Gorakhpur (273001)",
       image: "/images/projects/purdilpur-pillar-array.jpg",
-      badge: "📍 GPS Verified • 10/04/2026",
+      badge: "GPS Verified • 10/04/2026",
       badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Sturdy elevated rooftop installation with reinforced concrete pedestal anchoring for storm resistance in central Gorakhpur.",
@@ -275,7 +226,7 @@ export function BentoGallery() {
       categoryLabel: "Atta Chakki & VFD • आटा चक्की",
       location: "Purvanchal Industrial & Flour Mill Installations",
       image: "/images/projects/vfd-solar-drive-panel.jpg",
-      badge: "⚡ Solar Atta Chakki • वीएफडी पैनल",
+      badge: "Solar Atta Chakki • वीएफडी पैनल",
       badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Weatherproof industrial control cabinet featuring INVT Variable Frequency Drive with heavy-duty MCBs for running 10HP to 25HP flour mills directly on solar.",
@@ -289,7 +240,7 @@ export function BentoGallery() {
       categoryLabel: "Hybrid Solar PCU • वाई-फाई मॉनिटरिंग",
       location: "Gauri Bazar, Uttar Pradesh (274202)",
       image: "/images/projects/utl-sigma-pcu-gauribazar.jpg",
-      badge: "📡 Wi-Fi PCU • 01/08/2026",
+      badge: "Wi-Fi PCU • 01/08/2026",
       badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "State-of-the-art UTL Sigma hybrid grid export inverter equipped with remote Wi-Fi mobile tracking and intelligent battery charging.",
@@ -304,7 +255,7 @@ export function BentoGallery() {
       categoryLabel: "Lead Engineer • मुख्य विशेषज्ञ",
       location: "Live Installation Site, Gorakhpur",
       image: "/images/projects/engineer-on-solar-roof.jpg",
-      badge: "👨‍💼 Lead Engineer • UPNEDA Approved",
+      badge: "Lead Engineer • UPNEDA Approved",
       badgeColor: "bg-slate-900 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Er. Satyaprakash Satyarthi conducting final commissioning quality audit on a newly installed high-efficiency rooftop solar plant.",
@@ -318,7 +269,7 @@ export function BentoGallery() {
       categoryLabel: "Industry Leadership • एक्सपो व तकनीक",
       location: "Renewable Energy India Expo",
       image: "/images/brand/gautam-solar-expo.jpg",
-      badge: "🏆 630 Wp TOPCon • गौतम सोलर",
+      badge: "630 Wp TOPCon • गौतम सोलर",
       badgeColor: "bg-red-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Er. Satyaprakash Satyarthi consulting with Gautam Solar leaders on ultra-high-efficiency 630 Wp TOPCon Bifacial solar technology for Purvanchal projects.",
@@ -332,7 +283,7 @@ export function BentoGallery() {
       categoryLabel: "Precision EPC • कुशल कारीगरी",
       location: "Gorakhpur Installation Site",
       image: "/images/projects/technicians-mounting-structure.jpg",
-      badge: "🔧 Certified Installation • कुशल टीम",
+      badge: "Certified Installation • कुशल टीम",
       badgeColor: "bg-[#0a1e3b] text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Specialized solar technicians carefully securing high-efficiency modules onto heavy-gauge galvanized framing.",
@@ -346,7 +297,7 @@ export function BentoGallery() {
       categoryLabel: "Commercial PCU • कंट्रोल रूम",
       location: "Gorakhpur Commercial Facility",
       image: "/images/projects/heavy-duty-solar-pcu.jpg",
-      badge: "🏢 Commercial Scale • 24/7 Power",
+      badge: "Commercial Scale • 24/7 Power",
       badgeColor: "bg-blue-800 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Dedicated climate-controlled inverter room engineered for uninterrupted power supply to schools, hospitals, and commercial complexes.",
@@ -360,7 +311,7 @@ export function BentoGallery() {
       categoryLabel: "Mono PERC Tech • उच्च दक्षता पैनल्स",
       location: "Rooftop Terrace, Gorakhpur",
       image: "/images/projects/mono-perc-array-closeup.jpg",
-      badge: "☀️ Mono PERC • 550W+ Modules",
+      badge: "Mono PERC • 550W+ Modules",
       badgeColor: "bg-amber-600 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Detailed engineering inspection of anti-reflective tempered glass and corrosion-resistant mid and end clamps on high-wattage Mono PERC modules.",
@@ -374,7 +325,7 @@ export function BentoGallery() {
       categoryLabel: "Main Store • मुख्य शोरूम",
       location: "Motiram Adda, Deoria Road, Gorakhpur (273202)",
       image: "/images/brand/main-hoarding-banner.jpg",
-      badge: "📍 Main Showroom • मोतीराम अड्डा",
+      badge: "Main Showroom • मोतीराम अड्डा",
       badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Official technical center and showroom displaying high-efficiency solar modules, hybrid PCUs, and energy-efficient home appliances on Deoria Road highway.",
@@ -389,7 +340,7 @@ export function BentoGallery() {
       categoryLabel: "Official Brochure • ब्रोशर व ब्रांड्स",
       location: "Gorakhpur & Purvanchal Distribution",
       image: "/images/quotations/solar-electronics-brochure.jpg",
-      badge: "🌟 24+ Brands • ब्रोशर 2026",
+      badge: "24+ Brands • ब्रोशर 2026",
       badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Complete mega brochure showcasing 12+ Solar Brands (Tata Power, Adani, Waaree, Loom Solar, Havells, Vikram, UTL) and 12+ Appliance Brands.",
@@ -447,7 +398,7 @@ export function BentoGallery() {
               <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur &amp; UP</span>
             </p>
 
-            <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-slate-900">
               Real Works, <span className="text-blue-700">Sites &amp; Photo Gallery</span>
             </h2>
             <p className="text-sm font-bold text-blue-900 font-hindi">
@@ -479,7 +430,7 @@ export function BentoGallery() {
               }}
               className={`px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === tab.id
-                  ? "bg-[#0a1e3b] text-white shadow-lg shadow-blue-950/20 font-black border border-blue-900"
+                  ? "bg-[#0a1e3b] text-white shadow-lg shadow-blue-950/20 font-bold border border-blue-900"
                   : "bg-white text-slate-700 hover:bg-slate-100 hover:text-blue-700 border border-slate-200 shadow-xs"
               }`}
             >
@@ -496,10 +447,7 @@ export function BentoGallery() {
             className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[270px] md:auto-rows-[295px]"
           >
             <AnimatePresence>
-              {filteredItems.map((item, idx) => {
-                const count = likesMap[item.id] || (118 + (idx * 17) % 90);
-                const burstKey = burstMap[item.id];
-                return (
+              {filteredItems.map((item, idx) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, scale: 0.96 }}
@@ -507,7 +455,7 @@ export function BentoGallery() {
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.25 }}
                     onClick={() => setLightboxIndex(idx)}
-                    className={`group relative rounded-2xl overflow-hidden cursor-pointer border border-slate-200/90 desktop-gallery-card-hover shadow-md ${item.span}`}
+                    className={`group relative rounded-2xl overflow-hidden cursor-pointer border border-slate-200/90 desktop-gallery-card-hover shadow-sm ${item.span}`}
                   >
                     {/* Background Image - Visible Smoothly while Scrolling */}
                     <img
@@ -518,66 +466,32 @@ export function BentoGallery() {
                       className="w-full h-full object-cover object-center desktop-image-zoom"
                     />
 
-                    {/* Animated Glassmorphic Shine Sweep on Hover (Strictly Desktop) */}
-                    <div className="desktop-shine-sweep" />
-
-                    {/* Gradient Scrim for Perfect Typography Contrast */}
+                    {/* Gradient Scrim for Typography Contrast */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/55 to-transparent group-hover:via-slate-950/75 transition-colors duration-300"></div>
 
-                    {/* Top Badges + Real-Time Collaborative Reaction Button */}
+                    {/* Top Badge & Expand Trigger */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-20">
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-md ${item.badgeColor}`}>
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold shadow-sm ${item.badgeColor}`}>
                         {item.badge}
                       </span>
 
-                      <div className="flex items-center gap-1.5">
-                        {/* Real-Time Collaborative Appreciate / Verify Button */}
-                        <motion.button
-                          type="button"
-                          whileHover={{ scale: 1.08 }}
-                          whileTap={{ scale: 0.9 }}
-                          onClick={(e) => handleCollabVerify(e, item.id, idx)}
-                          title="Real-Time Verify / Appreciate Installation"
-                          className="relative px-2.5 py-1 rounded-full bg-slate-900/85 hover:bg-amber-500 hover:text-slate-950 backdrop-blur-md text-white text-[11px] font-black flex items-center gap-1 border border-white/20 shadow-md transition cursor-pointer"
-                        >
-                          <span>⚡</span>
-                          <span>{count}</span>
-
-                          {/* Floating Particle Burst on Click */}
-                          <AnimatePresence>
-                            {burstKey && (
-                              <motion.span
-                                key={burstKey}
-                                initial={{ opacity: 1, y: 0, scale: 0.8 }}
-                                animate={{ opacity: 0, y: -34, scale: 1.5 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.65 }}
-                                className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs pointer-events-none"
-                              >
-                                ⚡☀️👏
-                              </motion.span>
-                            )}
-                          </AnimatePresence>
-                        </motion.button>
-
-                        <button
-                          type="button"
-                          aria-label="View Full Photo"
-                          className="w-8 h-8 rounded-full bg-slate-900/85 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-200 shadow-md"
-                        >
-                          <Maximize2 className="w-4 h-4" />
-                        </button>
-                      </div>
+                      <button
+                        type="button"
+                        aria-label="View Full Photo"
+                        className="w-8 h-8 rounded-lg bg-slate-900/80 text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors shadow-sm"
+                      >
+                        <Maximize2 className="w-4 h-4" />
+                      </button>
                     </div>
 
-                    {/* Bottom Content Card with Expressive Slide-Up Typography */}
-                    <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 flex flex-col justify-end space-y-1 transition-transform duration-300 group-hover:-translate-y-1">
+                    {/* Bottom Content Card */}
+                    <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 flex flex-col justify-end space-y-1 transition-transform duration-300 group-hover:-translate-y-0.5">
                       <div className="flex items-center gap-1.5 text-amber-300 text-xs font-semibold truncate">
                         <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-400" />
                         <span className="truncate">{item.location}</span>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors line-clamp-1 tracking-tight">
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-1 tracking-tight">
                         {item.title}
                       </h3>
                       <p className="text-xs text-amber-300 font-semibold font-hindi line-clamp-1">
@@ -588,19 +502,17 @@ export function BentoGallery() {
                         {item.description}
                       </p>
 
-                      {/* Google Map quick action indicator */}
                       {item.googleMapLink && (
                         <div className="pt-1 flex items-center gap-2">
                           <span className="inline-flex items-center gap-1 text-[11px] text-amber-400 font-semibold">
                             <Navigation className="w-3 h-3" />
-                            GPS Coordinates Verified • क्लिक कर देखें
+                            GPS Verified Site
                           </span>
                         </div>
                       )}
                     </div>
                   </motion.div>
-                );
-              })}
+              ))}
             </AnimatePresence>
           </div>
         </div>
@@ -614,22 +526,22 @@ export function BentoGallery() {
           className="mt-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-sm grid grid-cols-2 lg:grid-cols-4 gap-6 text-left"
         >
           <div className="space-y-1 border-l-2 border-blue-900 pl-3.5">
-            <div className="text-2xl sm:text-3xl font-black text-blue-900">2500+ Clients</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-blue-900">2500+ Clients</div>
             <div className="text-xs text-slate-800 font-bold">Happy Clients • संतुष्ट परिवार</div>
             <p className="text-[11px] text-slate-500">Residential &amp; Commercial Plants</p>
           </div>
           <div className="space-y-1 border-l-2 border-blue-700 pl-3.5">
-            <div className="text-2xl sm:text-3xl font-black text-blue-700">2,200+ kW</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-blue-700">2,200+ kW</div>
             <div className="text-xs text-slate-800 font-bold">Installed Capacity • क्षमता</div>
             <p className="text-[11px] text-slate-500">Across Gorakhpur &amp; Eastern UP</p>
           </div>
           <div className="space-y-1 border-l-2 border-amber-500 pl-3.5">
-            <div className="text-2xl sm:text-3xl font-black text-amber-500">₹1,08,000</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-amber-500">₹1,08,000</div>
             <div className="text-xs text-slate-800 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
             <p className="text-[11px] text-slate-500">Direct Bank DBT Credit</p>
           </div>
           <div className="space-y-1 border-l-2 border-blue-900 pl-3.5">
-            <div className="text-2xl sm:text-3xl font-black text-blue-900">25 Years</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-blue-900">25 Years</div>
             <div className="text-xs text-slate-800 font-bold">Panel Warranty • वारंटी</div>
             <p className="text-[11px] text-slate-500">Tier-1 Mono PERC Reliability</p>
           </div>
@@ -642,9 +554,9 @@ export function BentoGallery() {
         >
           <div className="space-y-1 text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
-              📍 Visit Our Engineering Showroom & Demo Center
+              Visit Our Engineering Showroom & Demo Center
             </span>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
               Satyarthi Solar Solution • Motiram Adda, Gorakhpur
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
@@ -656,9 +568,9 @@ export function BentoGallery() {
               href={businessData.googleMapLink}
               target="_blank"
               rel="noreferrer"
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
             >
-              Google Maps • लोकेशन ↗
+              Google Maps ↗
             </a>
             <a
               href={`tel:${businessData.phone[0]}`}
@@ -674,7 +586,7 @@ export function BentoGallery() {
 
       {/* Lightbox Inspection Modal with Keyboard Navigation & High Clarity */}
       {currentLightboxItem && (
-        <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -737,7 +649,7 @@ export function BentoGallery() {
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                       {currentLightboxItem.title}
                     </h3>
                     <p className="text-sm text-blue-900 font-bold font-hindi mt-0.5">
@@ -796,10 +708,10 @@ export function BentoGallery() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs py-2.5 px-5 rounded-xl shadow-lg shadow-amber-500/20 transition"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs py-2.5 px-5 rounded-xl shadow-lg shadow-amber-500/20 transition"
                 >
                   <MessageCircle className="w-4 h-4 fill-slate-950" />
-                  <span>Inquire on WhatsApp • पूछताछ करें</span>
+                  <span>Inquire on WhatsApp</span>
                 </a>
               </div>
             </div>

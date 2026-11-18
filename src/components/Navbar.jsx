@@ -91,7 +91,7 @@ function Navbar({
           
           {/* Left: Govt Approvals, Vendor Code & Showroom Address */}
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center sm:justify-start">
-            <span className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px] shadow-xs">
+            <span className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] sm:text-[11px] shadow-xs">
               <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-950" />
               UPNEDA APPROVED
             </span>
@@ -199,7 +199,7 @@ function Navbar({
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-[15px] lg:text-base font-black tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-blue-700 transition-colors">
+              <span className="text-[12.5px] min-[375px]:text-[14px] sm:text-[15px] lg:text-base font-bold tracking-tight text-slate-900 font-sans whitespace-nowrap leading-tight group-hover:text-blue-700 transition-colors">
                 SATYARTHI SOLAR SOLUTION
               </span>
               <p className="text-[9px] sm:text-[9.5px] font-bold tracking-wider text-blue-800 uppercase flex items-center gap-1 whitespace-nowrap">
@@ -231,7 +231,7 @@ function Navbar({
                   }`}>
                     {link.en}
                   </span>
-                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-gradient-to-r from-blue-600 to-amber-500 transition-transform duration-300 origin-center rounded-full ${
+                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-blue-700 transition-transform duration-200 origin-center rounded-full ${
                     active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   }`} />
                 </motion.button>
@@ -246,7 +246,7 @@ function Navbar({
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.97 }}
               onClick={onOpenCalculator}
-              className="inline-flex items-center gap-1.5 text-xs font-black text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
             >
               <Calculator className="w-3.5 h-3.5 text-slate-950 shrink-0" />
               <span>Calculator</span>
@@ -276,7 +276,7 @@ function Navbar({
               onClick={onOpenCalculator}
               aria-label="Open Solar Calculator"
               title="Solar Calculator"
-              className="text-[11px] font-black text-slate-950 bg-amber-400 p-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center justify-center"
+              className="text-[11px] font-bold text-slate-950 bg-amber-400 p-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center justify-center"
             >
               <Calculator className="w-4 h-4" />
             </button>
@@ -307,9 +307,9 @@ function Navbar({
                 key={item.route}
                 type="button"
                 onClick={() => handleNavClick({ route: item.route })}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
                   active
-                    ? "bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-sm font-extrabold"
+                    ? "bg-amber-400 text-slate-950 font-bold"
                     : "bg-slate-800/90 text-slate-200 hover:bg-slate-700 border border-slate-700/80"
                 }`}
               >
@@ -333,7 +333,7 @@ function Navbar({
 
       {/* Mobile Hamburger Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 shadow-xl animate-fadeIn">
+        <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 shadow-sm animate-fadeIn">
           <div className="flex flex-col space-y-1">
             {navLinks.map((link, idx) => {
               const active = isRouteActive(link.route);
@@ -360,7 +360,7 @@ function Navbar({
                 setMobileMenuOpen(false);
                 if (onOpenCalculator) onOpenCalculator();
               }}
-              className="w-full inline-flex justify-center items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-3 rounded-xl shadow-xs border border-amber-300"
+              className="w-full inline-flex justify-center items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3 rounded-xl shadow-xs border border-amber-300"
             >
               <Calculator className="w-5 h-5 text-slate-950" />
               <span>Solar Calculator</span>
@@ -376,7 +376,7 @@ function Navbar({
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="w-full inline-flex justify-center items-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-black py-3 rounded-xl shadow-xs transition"
+              className="w-full inline-flex justify-center items-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-3 rounded-xl shadow-xs transition"
             >
               <FileText className="w-5 h-5 text-amber-400" />
               <span>Get Free Quote</span>

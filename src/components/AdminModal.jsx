@@ -306,7 +306,7 @@ function AdminModal({ isOpen, onClose }) {
               <Lock className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-black text-lg text-white flex items-center gap-2">
+              <h3 className="font-bold text-lg text-white flex items-center gap-2">
                 <span>Satyarthi Solar • Management Portal</span>
                 {isAuthenticated && (
                   <span className="text-[10px] bg-blue-500/20 text-sky-300 border border-blue-400/30 px-2 py-0.5 rounded font-mono font-bold">
@@ -444,11 +444,11 @@ function AdminModal({ isOpen, onClose }) {
               /* Visual Tools & Performance Suite View */
               <div className="space-y-6 animate-fadeIn">
                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                  <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-blue-900 font-bold text-xs uppercase tracking-wider">
                     <BadgeCheck className="w-4 h-4 text-amber-500" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
                   </div>
-                  <h3 className="text-xl font-black text-slate-900">
+                  <h3 className="text-xl font-bold text-slate-900">
                     High-End Visual Media, Frame Extraction & AirLift Optimization
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -466,7 +466,7 @@ function AdminModal({ isOpen, onClose }) {
                         </span>
                         <Camera className="w-5 h-5 text-blue-600" />
                       </div>
-                      <h4 className="text-lg font-black text-slate-900">Google Whisk (Visuals)</h4>
+                      <h4 className="text-lg font-bold text-slate-900">Google Whisk (Visuals)</h4>
                       <p className="text-xs text-slate-600">
                         Create photo-realistic elevated pergola and rooftop solar visuals for client proposals in Gorakhpur and UP.
                       </p>
@@ -492,9 +492,9 @@ function AdminModal({ isOpen, onClose }) {
                         <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full uppercase">
                           Generative Video Flow
                         </span>
-                        <Film className="w-5 h-5 text-purple-600" />
+                        <Film className="w-5 h-5 text-blue-700" />
                       </div>
-                      <h4 className="text-lg font-black text-slate-900">Google Veo Flow</h4>
+                      <h4 className="text-lg font-bold text-slate-900">Google Veo Flow</h4>
                       <p className="text-xs text-slate-600">
                         Convert static site photos into high-definition 1080p aerial drone flyover videos for customer reels and showcases.
                       </p>
@@ -522,7 +522,7 @@ function AdminModal({ isOpen, onClose }) {
                         </span>
                         <Scissors className="w-5 h-5 text-amber-600" />
                       </div>
-                      <h4 className="text-lg font-black text-slate-900">EZGif (Frame Extraction)</h4>
+                      <h4 className="text-lg font-bold text-slate-900">EZGif (Frame Extraction)</h4>
                       <p className="text-xs text-slate-600">
                         Extract uncompressed, high-definition still frames from live on-site mobile video recordings (Saketpuri, Railvihar) to add to the Bento Gallery.
                       </p>
@@ -550,7 +550,7 @@ function AdminModal({ isOpen, onClose }) {
                         </span>
                         <Zap className="w-5 h-5 text-blue-600" />
                       </div>
-                      <h4 className="text-lg font-black text-slate-900">AirLift (Performance)</h4>
+                      <h4 className="text-lg font-bold text-slate-900">AirLift (Performance)</h4>
                       <p className="text-xs text-slate-600">
                         Edge caching, resource preconnects, responsive images, and sub-second page views for users across UP.
                       </p>
@@ -581,19 +581,19 @@ function AdminModal({ isOpen, onClose }) {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-slate-500">Total Enquiries</span>
-                    <p className="text-2xl font-black text-slate-900 mt-1">{leadCounts.total}</p>
+                    <p className="text-2xl font-extrabold text-slate-900 mt-1">{leadCounts.total}</p>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-amber-600 font-semibold">New Uncontacted</span>
-                    <p className="text-2xl font-black text-amber-600 mt-1">{leadCounts.new}</p>
+                    <p className="text-2xl font-extrabold text-amber-600 mt-1">{leadCounts.new}</p>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-blue-600 font-semibold">Site Visits Scheduled</span>
-                    <p className="text-2xl font-black text-blue-600 mt-1">{leadCounts.siteVisit}</p>
+                    <p className="text-2xl font-extrabold text-blue-600 mt-1">{leadCounts.siteVisit}</p>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-blue-600 font-semibold">Converted Installations</span>
-                    <p className="text-2xl font-black text-blue-900 mt-1">{leadCounts.converted}</p>
+                    <p className="text-2xl font-extrabold text-blue-900 mt-1">{leadCounts.converted}</p>
                   </div>
                 </div>
 
