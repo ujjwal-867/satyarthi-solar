@@ -96,29 +96,31 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
   ];
 
   return (
-    <section id="portal-hub" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-b border-slate-200/70 relative overflow-hidden">
+    <section id="portal-hub" className="py-8 sm:py-10 bg-white border-b border-slate-200/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Clean Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
-            <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
-            <span>Quick Access Portals • मुख्य विभाग</span>
+        {/* Editorial Left-Aligned Split Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-6 border-b border-slate-200/80">
+          <div className="space-y-1">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
+              <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
+              <span>Quick Access Portals • मुख्य विभाग</span>
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Explore Our Divisions & Rate Lists"
+                highlightWords={["Divisions", "Rate", "Lists"]}
+                highlightClass="text-blue-700"
+              />
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Explore Our Divisions & Rate Lists"
-              highlightWords={["Divisions", "Rate", "Lists"]}
-              highlightClass="text-blue-700"
-            />
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
-            Instant access to subsidy rate charts, off-grid systems, and solar calculators.
+          <p className="text-xs sm:text-sm text-slate-500 md:max-w-sm md:text-right">
+            Direct access to 2026 subsidy rate charts, off-grid packages, and instant solar calculators.
           </p>
         </div>
 
-        {/* COMPACT SINGLE-LINE ANIMATED 3D BENTO ROW ON DESKTOP (6 Columns in 1 Row) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5" style={{ perspective: "1000px" }}>
+        {/* 6-Column Division Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
           {portalButtons.map((btn, idx) => {
             const Icon = btn.icon;
             return (

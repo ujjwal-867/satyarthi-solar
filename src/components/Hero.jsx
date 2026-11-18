@@ -212,7 +212,7 @@ function Hero({ onOpenCalculator }) {
             </motion.div>
 
             {/* 4 Crisp Key Highlights with 3D Bento Hover */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-2.5 pt-1" style={{ perspective: "1000px" }}>
+            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-2.5 pt-1">
               {KEY_HIGHLIGHTS.map((pt, idx) => (
                 <motion.div
                   key={idx}
@@ -299,7 +299,7 @@ function Hero({ onOpenCalculator }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-amber-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
+              className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-amber-400/60 rounded-2xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
 

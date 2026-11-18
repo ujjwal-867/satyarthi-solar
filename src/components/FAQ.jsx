@@ -44,30 +44,25 @@ function FAQ() {
   ];
 
   return (
-    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section className="py-10 sm:py-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Left-Aligned Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-3"
+          transition={{ duration: 0.45 }}
+          className="space-y-2 pb-6 border-b border-slate-200"
         >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
             <HelpCircle className="w-4 h-4 text-blue-600" />
             <span>Solar & Subsidy Guide • सवाल व उत्तर</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          </p>
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Frequently Asked <span className="text-blue-700">Questions</span>
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
-            </span>
           </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
             Everything you need to know about rooftop solar, PM Surya Ghar subsidy rules, net metering, and installation in UP.
           </p>
         </motion.div>
@@ -126,7 +121,7 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-slate-50 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
+          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-slate-50 rounded-2xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
         >
           <div>
             <h4 className="font-bold text-base text-slate-900">

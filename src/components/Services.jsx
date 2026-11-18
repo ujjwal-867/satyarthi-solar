@@ -75,7 +75,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="services" className="py-10 sm:py-12 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Real-Time Collaborative Engineering Cursors */}
       <CollaborativeCursorsOverlay
         cursors={[
@@ -100,31 +100,29 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Expressive Kinetic Typography & Live Collaborative Ticker */}
-        <div className="text-center max-w-3xl mx-auto space-y-2.5">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
+        {/* Left-Aligned Architectural Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-4 border-amber-500 pl-4">
+          <div className="space-y-1">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
               <Zap className="w-3.5 h-3.5 text-amber-500" />
               <span>Core Solar Pillars • प्रमुख सेवाएं</span>
-            </div>
-            <LiveActivityStreamBadge />
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Solar Service & Engineering in Gorakhpur"
+                highlightWords={["Solar", "Service", "Engineering"]}
+                highlightClass="text-blue-700"
+              />
+            </h2>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Solar Service & Engineering in Gorakhpur"
-              highlightWords={["Solar", "Service", "Engineering"]}
-              highlightClass="text-blue-700"
-            />
-          </h2>
-
-          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm md:max-w-md md:text-right">
             Turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep installation across Purvanchal.
           </p>
         </div>
 
-        {/* 3 Core 3D Bento Animated Cards with Interactive ⚡ Bursts */}
-        <div className="grid md:grid-cols-3 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
+        {/* 3 Core Service Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mt-8">
           {coreServices.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -134,7 +132,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25 }}
-                className="relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
+                className="relative bg-white rounded-2xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
                 <div className="desktop-shine-sweep" />

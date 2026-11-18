@@ -296,7 +296,7 @@ function AdminModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col border border-slate-200"
+        className="bg-white rounded-2xl max-w-5xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col border border-slate-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
@@ -443,7 +443,7 @@ function AdminModal({ isOpen, onClose }) {
             {activeTab === "tools" ? (
               /* Visual Tools & Performance Suite View */
               <div className="space-y-6 animate-fadeIn">
-                <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
                   <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
                     <BadgeCheck className="w-4 h-4 text-amber-500" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
@@ -458,7 +458,7 @@ function AdminModal({ isOpen, onClose }) {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Tool 1: Google Whisk */}
-                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full uppercase">
@@ -486,7 +486,7 @@ function AdminModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Tool 2: Google Veo Flow */}
-                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full uppercase">
@@ -514,7 +514,7 @@ function AdminModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Tool 3: EZGif Frame Extraction */}
-                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-full uppercase">
@@ -542,7 +542,7 @@ function AdminModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Tool 4: AirLift Performance Optimization */}
-                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] bg-blue-100 text-blue-900 font-bold px-2.5 py-1 rounded-full uppercase">

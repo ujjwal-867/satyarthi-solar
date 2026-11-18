@@ -51,7 +51,7 @@ function Certificates({ isStandalonePage = false }) {
   }, [activeFilter]);
 
   return (
-    <section id="certificates" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="certificates" className="py-10 sm:py-12 bg-white text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
       {/* Expressive Kinetic Typography Marquee Ribbon */}
       <KineticMarqueeStrip
         items={[
@@ -68,39 +68,38 @@ function Certificates({ isStandalonePage = false }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Expressive Kinetic Typography */}
+        {/* Left-Aligned Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
         >
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-amber-500" />
-              <span>100% Legally Verified & Empanelled • सरकारी व कंपनी प्रमाणित</span>
-            </div>
+              <span>Legally Verified & Empanelled • सरकारी व कंपनी प्रमाणित</span>
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Government Approvals & Brand Authorizations"
+                highlightWords={["Government", "Brand", "Authorizations"]}
+                highlightClass="text-blue-700"
+              />
+            </h2>
+            <p className="text-sm font-bold text-blue-900 font-hindi">
+              यूपीनेडा सूचीबद्धता, सौर सम्मान एवं अधिकृत डीलरशिप प्रमाणपत्र
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Government Approvals & Brand Authorizations"
-              highlightWords={["Government", "Brand", "Authorizations"]}
-              highlightClass="text-blue-700"
-            />
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              यूपीनेडा सूचीबद्धता, सौर सम्मान एवं अधिकृत डीलरशिप प्रमाणपत्र
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Official government empanelment (UPNEDA: <strong>GKP2604066741</strong>), state awards, GST/MSME registrations, and tier-1 brand dealerships backing every solar installation.
+          <p className="text-slate-600 text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
+            Official government empanelment (UPNEDA: <strong>GKP2604066741</strong>), state awards, GST/MSME registrations, and tier-1 brand dealerships.
           </p>
         </motion.div>
 
-        {/* Filter Tabs */}
-        <div className="flex justify-center items-center gap-2 mt-8 overflow-x-auto pb-2 scrollbar-none">
+        {/* Left-Aligned Filter Tabs */}
+        <div className="flex justify-start items-center gap-2 mt-6 overflow-x-auto pb-2 scrollbar-none">
           {filterTabs.map((flt) => (
             <button
               key={flt.id}
@@ -119,7 +118,7 @@ function Certificates({ isStandalonePage = false }) {
         </div>
 
         {/* Certificates 3D Bento Showcase Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-6 sm:mt-8 max-w-7xl mx-auto" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-6 sm:mt-8 max-w-7xl mx-auto">
           {filteredCertificates.map((cert, idx) => {
             return (
               <motion.div
@@ -128,7 +127,7 @@ function Certificates({ isStandalonePage = false }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25 }}
-                className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
+                className="relative bg-white rounded-2xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
                 <div className="desktop-shine-sweep" />
@@ -241,7 +240,7 @@ function Certificates({ isStandalonePage = false }) {
         </div>
 
         {/* Official Registered Legal Details & Address Banner */}
-        <div className="mt-6 sm:mt-8 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-6 sm:mt-8 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-1 text-center md:text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
               🏛️ Registered Physical Office & Showroom • पंजीकृत पता
@@ -273,7 +272,7 @@ function Certificates({ isStandalonePage = false }) {
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col"
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4 bg-slate-900 text-white flex justify-between items-center">

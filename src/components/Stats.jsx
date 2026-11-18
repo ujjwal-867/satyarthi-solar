@@ -124,19 +124,19 @@ function Stats() {
 
   return (
     <section className="relative z-20 -mt-8 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl shadow-slate-900/5 border border-slate-200/80 p-4 sm:p-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3" style={{ perspective: "1000px" }}>
+      <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-200/80 p-4 sm:p-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {bilingualStats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.03 }}
-                className={`group relative rounded-2xl p-3.5 ${stat.accent} border transition-all duration-300 hover:shadow-lg flex flex-col justify-between overflow-hidden cursor-default`}
+                transition={{ duration: 0.35, delay: idx * 0.04 }}
+                whileHover={{ y: -3 }}
+                className={`group relative rounded-xl p-3.5 ${stat.accent} border transition-all duration-200 hover:shadow-md flex flex-col justify-between overflow-hidden cursor-default`}
               >
                 <div className="flex items-center justify-between gap-1 mb-2.5 relative z-10">
                   <motion.div

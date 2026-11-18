@@ -10,7 +10,7 @@ export function ExpressiveKineticText({
 }) {
   const words = text.split(" ");
   return (
-    <span className={`inline-flex flex-wrap justify-center gap-x-2 gap-y-1 ${className}`}>
+    <span className={`inline ${className}`}>
       {words.map((word, i) => {
         const cleanWord = word.replace(/[^a-zA-Z0-9₹+-]/g, "");
         const isHighlighted = highlightWords.some(
@@ -18,7 +18,7 @@ export function ExpressiveKineticText({
         );
         return (
           <span key={i} className={isHighlighted ? highlightClass : ""}>
-            {word}
+            {word}{i < words.length - 1 ? " " : ""}
           </span>
         );
       })}

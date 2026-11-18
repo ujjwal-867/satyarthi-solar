@@ -50,69 +50,44 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
   return (
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-[#0a1e3b] text-white relative overflow-hidden text-center">
-          <CollaborativeCursorsOverlay
-            cursors={[
-              {
-                name: "PM Surya Ghar Portal",
-                badge: "₹1,08,000 DBT Active",
-                color: "bg-amber-400 text-slate-950",
-                pathX: ["5%", "18%", "11%", "5%"],
-                pathY: ["18%", "46%", "68%", "18%"],
-                duration: 15
-              },
-              {
-                name: "UPPCL Net-Meter",
-                badge: "GKP2604066741 Verified",
-                color: "bg-sky-400 text-slate-950",
-                pathX: ["84%", "70%", "78%", "84%"],
-                pathY: ["22%", "54%", "32%", "22%"],
-                duration: 18
-              }
-            ]}
-          />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+        {/* Left-Aligned Hero Band */}
+        <section className="py-10 sm:py-12 bg-[#0a1e3b] text-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-7 space-y-3">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
                 <BadgeCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Official Government Subsidy Portal 2026 • 2500+ Happy Clients</span>
-              </div>
-              <LiveActivityStreamBadge dark />
+              </p>
+
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                <ExpressiveKineticText
+                  text="PM Surya Ghar: On-Grid Solar Rates"
+                  highlightWords={["On-Grid", "Solar", "Rates"]}
+                  highlightClass="text-amber-400"
+                />
+              </h1>
+
+              <h2 className="text-base sm:text-xl font-bold text-amber-300 font-hindi">
+                पीएम सूर्य घर मुफ्त बिजली योजना • केंद्र व राज्य सरकार की ₹1,08,000 तक सब्सिडी
+              </h2>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+                Transparent itemized pricing for 1 kW to 10 kW residential rooftop systems. Satyarthi Solar Solution (UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>) handles 100% of portal approvals and UPPCL net-metering.
+              </p>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              <ExpressiveKineticText
-                text="PM Surya Ghar: On-Grid Solar Rates"
-                highlightWords={["On-Grid", "Solar", "Rates"]}
-                highlightClass="text-amber-400"
-              />
-            </h1>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
-              पीएम सूर्य घर मुफ्त बिजली योजना • केंद्र व राज्य सरकार की ₹1,08,000 तक सब्सिडी
-            </h2>
-
-            <p className="max-w-3xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
-              Transparent itemized pricing for 1 kW to 10 kW residential rooftop systems. Satyarthi Solar Solution (UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>) manages 100% of the portal approvals and bidirectional net-metering.
-            </p>
-
-            {/* Official Highlight Banner Requested by User */}
-            <motion.div
-              whileHover={{ y: -4, scale: 1.01 }}
-              className="mt-6 max-w-3xl mx-auto p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 font-black">
-                  <Banknote className="w-6 h-6 text-slate-950" />
+            {/* Right-Aligned Highlight Card */}
+            <div className="lg:col-span-5 p-5 rounded-2xl bg-white/10 border border-white/15 text-white space-y-4">
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center shrink-0">
+                  <Banknote className="w-5 h-5 text-slate-950" />
                 </div>
-                <div className="space-y-0.5">
-                  <p className="font-black text-sm sm:text-base text-white">
-                    🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी।
+                <div className="space-y-1">
+                  <p className="font-bold text-sm text-white">
+                    केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी।
                   </p>
-                  <p className="text-xs sm:text-sm font-bold text-sky-200">
-                    ⚡ 6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Bank Loan) उपलब्ध।
+                  <p className="text-xs font-medium text-sky-200">
+                    6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Bank Loan) उपलब्ध।
                   </p>
                 </div>
               </div>
@@ -120,42 +95,32 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, please guide me on bank loan facility for solar rooftop.")}`}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-5 py-2.5 rounded-xl transition shadow-xs shrink-0 whitespace-nowrap"
+                className="w-full inline-flex justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-5 py-2.5 rounded-xl transition shadow-xs"
               >
                 लोन सहायता लें ↗
               </a>
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Expressive Kinetic Marquee Ribbon */}
-        <KineticMarqueeStrip
-          items={[
-            "1 KW ON-GRID ₹85,000",
-            "2 KW ON-GRID ₹1,40,000",
-            "3 KW ON-GRID ₹1,90,000",
-            "5 KW SPECIAL RATE ₹3,00,000",
-            "10 KW SPECIAL RATE ₹6,00,000",
-            "UP TO ₹1,08,000 GOVT SUBSIDY"
-          ]}
-        />
-
-        {/* Pricing Cards 3D Bento Grid */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="text-center mb-6 sm:mb-8">
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-              <ExpressiveKineticText
-                text="Official On-Grid Price List & Net Cost Breakdown"
-                highlightWords={["On-Grid", "Price", "List"]}
-                highlightClass="text-blue-700"
-              />
-            </h3>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
-              सभी 5 प्रमुख क्षमताएं — आधिकारिक नई विशेष दरें एवं सब्सिडी के बाद शुद्ध देय राशि
-            </p>
+        {/* Pricing Cards Grid */}
+        <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-7 border-b border-slate-200">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                <ExpressiveKineticText
+                  text="Official On-Grid Price List & Net Cost Breakdown"
+                  highlightWords={["On-Grid", "Price", "List"]}
+                  highlightClass="text-blue-700"
+                />
+              </h3>
+              <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
+                सभी 5 प्रमुख क्षमताएं — आधिकारिक नई विशेष दरें एवं सब्सिडी के बाद शुद्ध देय राशि
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5" style={{ perspective: "1100px" }}>
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
             {subsidyData.tiers.map((tier, idx) => (
               <motion.div
                 key={idx}
@@ -163,7 +128,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
-                className={`group relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
+                className={`group relative rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
                     ? "bg-[#0a1e3b] text-white shadow-xl shadow-blue-950/20 ring-2 ring-amber-400"
                     : tier.popular
@@ -299,18 +264,23 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
             ))}
           </div>
 
-          {/* 5-Step Process Banner with 3D Bento Step Cards */}
-          <div className="mt-8 sm:mt-10 bg-[#0a1e3b] rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
-            <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-white">
-                How Er. Satyaprakash Gets Your Subsidy Credited in 5 Simple Steps
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-200">
-                इंजीनियर सत्यप्रकाश द्वारा 5 आसान चरणों में सब्सिडी प्रक्रिया • No need to visit any government office.
+          {/* 5-Step Process Banner */}
+          <div className="mt-8 sm:mt-10 bg-[#0a1e3b] rounded-2xl p-6 sm:p-8 text-white shadow-lg border border-blue-900/50">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-6 mb-6 border-b border-white/10">
+              <div className="space-y-1 max-w-2xl">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-amber-400">
+                  End-to-End Subsidy Processing
+                </p>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  How Er. Satyaprakash Gets Your Subsidy Credited in 5 Simple Steps
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 font-hindi md:text-right">
+                5 आसान चरणों में सब्सिडी प्रक्रिया • No government office visits required.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" style={{ perspective: "1000px" }}>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {stepsBilingual.map((st, i) => (
                 <motion.div
                   key={i}
@@ -342,7 +312,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           {/* Showroom & Engineering Office Card */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
           >
             <div className="space-y-1 text-center md:text-left">
               <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">

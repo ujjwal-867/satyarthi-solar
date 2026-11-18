@@ -22,48 +22,46 @@ function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="testimonials" className="py-10 sm:py-14 bg-slate-50/70 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header with Expressive Kinetic Typography */}
+        {/* Split Left-Aligned Editorial Header + Right Google Rating Anchor */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-2.5"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
         >
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <a 
-              href={businessData.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 hover:border-blue-400 hover:bg-blue-100 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs transition cursor-pointer"
-            >
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>4.9 / 5 Google Rating • 2500+ Clients Across UP ↗</span>
-            </a>
-            <LiveActivityStreamBadge />
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-xs font-bold text-blue-700 font-hindi tracking-wide">
+              2500+ संतुष्ट परिवार • वास्तविक ग्राहक अनुभव
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              <ExpressiveKineticText
+                text="What Our Customers Say Across Uttar Pradesh"
+                highlightWords={["Customers", "Uttar", "Pradesh"]}
+              />
+            </h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Verified feedback from homeowners, doctors, and business owners who cut their electricity bills with Satyarthi Solar.
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="What Our Customers Say Across Uttar Pradesh"
-              highlightWords={["Customers", "Uttar", "Pradesh"]}
-            />
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              2500+ संतुष्ट परिवार • वास्तविक ग्राहक अनुभव
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Real stories from homeowners, doctors, and business owners who eliminated their electricity bills with Satyarthi Solar.
-          </p>
+          <a 
+            href={businessData.mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-white text-slate-900 border border-slate-300 hover:border-blue-600 rounded-xl px-4 py-2.5 text-xs font-bold shadow-xs transition cursor-pointer self-start lg:self-end shrink-0"
+          >
+            <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+            <span>4.9 / 5 Google Rating • 2500+ Clients ↗</span>
+          </a>
         </motion.div>
 
-        {/* Testimonials 3D Bento Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mt-8">
           {businessData.testimonials.map((t, idx) => (
             <motion.div
               key={idx}
@@ -71,7 +69,7 @@ function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.25 }}
-              className="relative bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
+              className="relative bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
             >
               {/* Desktop-Only Gallery Shine Sweep */}
               <div className="desktop-shine-sweep" />
@@ -118,7 +116,7 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
         >
           {/* Subtle Ambient Glow */}
 

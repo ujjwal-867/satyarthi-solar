@@ -68,85 +68,48 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
   return (
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Hero Section of Electronics Page with Expressive Kinetic Typography & Collaborative Cursors */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-[#0a1e3b] text-white relative overflow-hidden">
-          <CollaborativeCursorsOverlay
-            cursors={[
-              {
-                name: "Motiram Adda Showroom",
-                badge: "5-Star Solar Appliances",
-                color: "bg-amber-400 text-slate-950",
-                pathX: ["5%", "19%", "11%", "5%"],
-                pathY: ["18%", "45%", "68%", "18%"],
-                duration: 16
-              },
-              {
-                name: "Diwali Utsav Desk",
-                badge: "Assured Gift Active 🎁",
-                color: "bg-amber-400 text-slate-950",
-                pathX: ["84%", "70%", "78%", "84%"],
-                pathY: ["22%", "54%", "32%", "22%"],
-                duration: 18
-              }
-            ]}
-          />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+        {/* Left-Aligned Split Hero Section */}
+        <section className="py-10 sm:py-12 bg-[#0a1e3b] text-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div className="space-y-3 max-w-2xl">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
                 <BadgeCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
-              </div>
-              <LiveActivityStreamBadge dark />
+              </p>
+
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                <ExpressiveKineticText
+                  text="Home Appliances & Smart Living"
+                  highlightWords={["Smart", "Living"]}
+                  highlightClass="text-amber-400"
+                />
+              </h1>
+
+              <h2 className="text-base sm:text-xl font-bold text-amber-300 font-hindi">
+                सोलर अनुकूलित 5-स्टार इलेक्ट्रॉनिक उपकरण • शून्य बिजली बिल
+              </h2>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Run your 5-Star Inverter AC, Refrigerator, Washing Machine, and Heavy-Duty Coolers on 100% solar power. Genuine authorized brands with manufacturer warranties.
+              </p>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              <ExpressiveKineticText
-                text="Home Appliances & Smart Living"
-                highlightWords={["Smart", "Living"]}
-                highlightClass="text-amber-400"
-              />
-            </h1>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
-              सोलर अनुकूलित 5-स्टार इलेक्ट्रॉनिक उपकरण • शून्य बिजली बिल
-            </h2>
-
-            <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
-              Run your 5-Star Inverter AC, Refrigerator, Washing Machine, and Heavy-Duty Coolers on 100% solar power. Genuine authorized brands with manufacturer warranties.
-            </p>
-
-            {/* Quality Slogan Ribbon */}
-            <motion.div
-              whileHover={{ scale: 1.03, y: -2 }}
-              className="mt-6 inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3"
-            >
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
-                ★ Our Core Principle • हमारा संकल्प
+            <div className="bg-white/10 border border-white/15 rounded-xl px-5 py-3.5 shrink-0">
+              <span className="text-amber-400 font-bold text-[11px] uppercase tracking-wider block">
+                Our Core Principle • हमारा संकल्प
               </span>
-              <p className="text-xl font-black text-white font-hindi mt-0.5">
+              <p className="text-lg font-black text-white font-hindi mt-0.5">
                 &ldquo;हम सस्ता नहीं, क्वालिटी लगाते हैं&rdquo;
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Expressive Kinetic Marquee Ribbon */}
-        <KineticMarqueeStrip
-          items={[
-            "5-STAR SOLAR INVERTER AC",
-            "FROST-FREE DOUBLE DOOR FRIDGE",
-            "BLDC SOLAR CEILING FANS",
-            "SMART 4K LED TV & RO PURIFIER",
-            "NAVRATRI & DIWALI ASSURED GIFTS"
-          ]}
-        />
-
         {/* Product Catalog Section */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           
           {/* Category Filter Pills */}
-          <div className="flex justify-start sm:justify-center items-center gap-2 overflow-x-auto pb-4 scrollbar-none">
+          <div className="flex justify-start items-center gap-2 overflow-x-auto pb-4 scrollbar-none">
             {categories.map((cat) => {
               const Icon = categoryIcons[cat.id] || BadgeCheck;
               return (
@@ -171,7 +134,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           </div>
 
           {/* Appliances 3D Bento Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" style={{ perspective: "1100px" }}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {filteredAppliances.map((app, idx) => {
               const Icon = categoryIcons[app.category] || BadgeCheck;
               return (
@@ -181,7 +144,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: (idx % 4) * 0.06 }}
-                  className="group relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
+                  className="group relative bg-white rounded-2xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
                 >
                   {/* Desktop-Only Gallery Shine Sweep */}
                   <div className="desktop-shine-sweep" />
@@ -262,7 +225,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Showroom Visit CTA */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
+            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">

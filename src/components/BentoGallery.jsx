@@ -51,45 +51,6 @@ const GALLERY_COLLAB_CURSORS = [
   }
 ];
 
-function ExpressiveKineticTitle({ text, highlightWords = [] }) {
-  const words = text.split(" ");
-  return (
-    <span className="inline-flex flex-wrap justify-center gap-x-2.5 gap-y-1" style={{ perspective: "800px" }}>
-      {words.map((word, wIdx) => {
-        const isHighlight = highlightWords.includes(word);
-        return (
-          <motion.span
-            key={wIdx}
-            initial={{ opacity: 0, y: 28, rotateX: -65, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
-            transition={{
-              type: "spring",
-              stiffness: 150,
-              damping: 14,
-              delay: (wIdx % 8) * 0.04
-            }}
-            whileHover={{
-              y: -6,
-              scale: 1.09,
-              rotate: wIdx % 2 === 0 ? -2 : 2,
-              transition: { type: "spring", stiffness: 300, damping: 12 }
-            }}
-            style={{ willChange: "transform, opacity", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
-            className={`inline-block cursor-default select-none ${
-              isHighlight
-                ? "text-blue-700"
-                : "text-slate-900"
-            }`}
-          >
-            {word}
-          </motion.span>
-        );
-      })}
-    </span>
-  );
-}
-
 export function BentoGallery() {
   const [activeTab, setActiveTab] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
@@ -469,48 +430,37 @@ export function BentoGallery() {
   }, [lightboxIndex, filteredItems.length]);
 
   return (
-    <section id="gallery" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
-      {/* Background Soft Ambient Lights */}
-
+    <section id="gallery" className="py-10 sm:py-12 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Expressive Kinetic Typography */}
+        {/* Left-Aligned Split Gallery Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto space-y-4"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
         >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <BadgeCheck className="w-4 h-4 text-amber-500" />
-            <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur & UP</span>
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
+              <BadgeCheck className="w-4 h-4 text-amber-500" />
+              <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur &amp; UP</span>
+            </p>
+
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight text-slate-900">
+              Real Works, <span className="text-blue-700">Sites &amp; Photo Gallery</span>
+            </h2>
+            <p className="text-sm font-bold text-blue-900 font-hindi">
+              हमारे वास्तविक सोलर प्रोजेक्ट्स, साइट फोटो एवं मोतीराम अड्डा शोरूम
+            </p>
           </div>
-
-          {/* 3D Expressive Kinetic Word-by-Word Animated Title */}
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-            <ExpressiveKineticTitle
-              text="Real Works, Sites & Photo Gallery"
-              highlightWords={["Sites", "&", "Photo", "Gallery"]}
-            />
-            <motion.span 
-              initial={{ opacity: 0, scale: 0.92 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.35, duration: 0.5 }}
-              className="block text-lg sm:text-xl font-extrabold text-blue-900 mt-2 font-hindi"
-            >
-              2500+ संतुष्ट परिवार • वास्तविक साइट्स व कार्य गैलरी
-            </motion.span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Authentic installation photos from customer rooftops across Gorakhpur and Eastern UP, engineered under the direct supervision of <strong className="text-slate-900">Er. Satya Prakash Satyarthi</strong>.
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md lg:text-right">
+            Authentic rooftop installations across Gorakhpur and Eastern UP, supervised by <strong className="text-slate-900">Er. Satya Prakash Satyarthi</strong>.
           </p>
         </motion.div>
 
-        {/* Filter Navigation Tabs with Spring Animation */}
-        <div className="flex justify-center items-center gap-2 mt-8 overflow-x-auto pb-2 scrollbar-none">
+        {/* Filter Navigation Tabs */}
+        <div className="flex justify-start items-center gap-2 mt-6 overflow-x-auto pb-2 scrollbar-none">
           {[
             { id: "all", label: "All Works", hindi: "सभी" },
             { id: "elevated", label: "Elevated Rooftops", hindi: "एलिवेटेड" },
@@ -557,7 +507,7 @@ export function BentoGallery() {
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.25 }}
                     onClick={() => setLightboxIndex(idx)}
-                    className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-200/90 desktop-gallery-card-hover shadow-md ${item.span}`}
+                    className={`group relative rounded-2xl overflow-hidden cursor-pointer border border-slate-200/90 desktop-gallery-card-hover shadow-md ${item.span}`}
                   >
                     {/* Background Image - Visible Smoothly while Scrolling */}
                     <img
@@ -661,36 +611,36 @@ export function BentoGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+          className="mt-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-sm grid grid-cols-2 lg:grid-cols-4 gap-6 text-left"
         >
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+          <div className="space-y-1 border-l-2 border-blue-900 pl-3.5">
             <div className="text-2xl sm:text-3xl font-black text-blue-900">2500+ Clients</div>
             <div className="text-xs text-slate-800 font-bold">Happy Clients • संतुष्ट परिवार</div>
-            <p className="text-[11px] text-slate-500">Residential & Commercial Plants</p>
-          </motion.div>
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+            <p className="text-[11px] text-slate-500">Residential &amp; Commercial Plants</p>
+          </div>
+          <div className="space-y-1 border-l-2 border-blue-700 pl-3.5">
             <div className="text-2xl sm:text-3xl font-black text-blue-700">2,200+ kW</div>
             <div className="text-xs text-slate-800 font-bold">Installed Capacity • क्षमता</div>
-            <p className="text-[11px] text-slate-500">Across Gorakhpur & Eastern UP</p>
-          </motion.div>
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+            <p className="text-[11px] text-slate-500">Across Gorakhpur &amp; Eastern UP</p>
+          </div>
+          <div className="space-y-1 border-l-2 border-amber-500 pl-3.5">
             <div className="text-2xl sm:text-3xl font-black text-amber-500">₹1,08,000</div>
             <div className="text-xs text-slate-800 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
             <p className="text-[11px] text-slate-500">Direct Bank DBT Credit</p>
-          </motion.div>
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+          </div>
+          <div className="space-y-1 border-l-2 border-blue-900 pl-3.5">
             <div className="text-2xl sm:text-3xl font-black text-blue-900">25 Years</div>
             <div className="text-xs text-slate-800 font-bold">Panel Warranty • वारंटी</div>
             <p className="text-[11px] text-slate-500">Tier-1 Mono PERC Reliability</p>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* Showroom & Live Installation Visit Card */}
         <motion.div
-          whileHover={{ y: -4, scale: 1.005 }}
-          className="mt-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+          whileHover={{ y: -2 }}
+          className="mt-6 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
         >
-          <div className="space-y-1 text-center md:text-left">
+          <div className="space-y-1 text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
               📍 Visit Our Engineering Showroom & Demo Center
             </span>
@@ -730,7 +680,7 @@ export function BentoGallery() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.25 }}
-            className="relative max-w-4xl w-full bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
+            className="relative max-w-4xl w-full bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
           >
             
             {/* Header */}

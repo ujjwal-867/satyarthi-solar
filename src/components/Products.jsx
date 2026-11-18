@@ -59,31 +59,32 @@ function Products() {
   };
 
   return (
-    <section id="products" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section id="products" className="py-10 sm:py-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Left-Aligned Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
         >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <ShoppingBag className="w-4 h-4 text-blue-600" />
-            <span>Verified Solar Inventory & Wholesale Rates • अधिकृत सोलर उपकरण व थोक दरें</span>
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
+              <ShoppingBag className="w-4 h-4 text-blue-600" />
+              <span>Solar Inventory & Wholesale Rates • अधिकृत सोलर उपकरण</span>
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Solar Equipment & <span className="text-amber-600">Products Catalog</span>
+            </h2>
+            <p className="text-sm font-bold text-blue-900 font-hindi">
+              सोलर उपकरण, इन्वर्टर, पैनल एवं स्ट्रक्चर कैटलॉग
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Solar Equipment & <span className="text-amber-500">Products Catalog</span>
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              सोलर उपकरण, इन्वर्टर, पैनल एवं स्ट्रक्चर कैटलॉग
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Authorized supply of Tier-1 solar panels, smart hybrid inverters, solar flour mill drives, and heavy GI mounting hardware at wholesale prices.
+          <p className="text-slate-600 text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
+            Authorized supply of Tier-1 solar panels, smart hybrid inverters, solar flour mill drives, and heavy GI mounting hardware.
           </p>
         </motion.div>
 
@@ -122,7 +123,7 @@ function Products() {
         </div>
 
         {/* Products 3D Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 sm:mt-8">
           {filteredProducts.map((product, idx) => {
             const discountPercent = product.originalPrice
               ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
@@ -135,7 +136,7 @@ function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="relative bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
+                className="relative bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
                 <div className="desktop-shine-sweep" />
@@ -257,7 +258,7 @@ function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-8 sm:mt-10 bg-slate-50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-8 sm:mt-10 bg-slate-50 rounded-2xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-3">
             <div className="p-3 bg-[#0a1e3b] text-amber-400 rounded-2xl font-bold shadow-md shadow-blue-950/20">
@@ -290,7 +291,7 @@ function Products() {
           onClick={() => setSelectedProduct(null)}
         >
           <div 
-            className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100"
+            className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative bg-slate-900 p-6 flex items-center justify-center max-h-72">

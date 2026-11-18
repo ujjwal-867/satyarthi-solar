@@ -87,39 +87,15 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
   return (
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-[#0a1e3b] text-white relative overflow-hidden text-center">
-          <CollaborativeCursorsOverlay
-            cursors={[
-              {
-                name: "Er. Satyaprakash",
-                badge: "24×7 Hybrid Storage",
-                color: "bg-amber-400 text-slate-950",
-                pathX: ["6%", "20%", "12%", "6%"],
-                pathY: ["18%", "48%", "66%", "18%"],
-                duration: 16
-              },
-              {
-                name: "15HP Chakki VFD",
-                badge: "Zero Diesel • Kushinagar",
-                color: "bg-blue-600 text-white",
-                pathX: ["83%", "68%", "77%", "83%"],
-                pathY: ["22%", "52%", "32%", "22%"],
-                duration: 18
-              }
-            ]}
-          />
+        {/* Left-Aligned Hero Band */}
+        <section className="py-10 sm:py-12 bg-[#0a1e3b] text-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
+              <BatteryCharging className="w-4 h-4 text-amber-400" />
+              <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
+            </p>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <BatteryCharging className="w-3.5 h-3.5 text-amber-400" />
-                <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
-              </div>
-              <LiveActivityStreamBadge dark />
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white max-w-3xl leading-tight">
               <ExpressiveKineticText
                 text="Off-Grid & Hybrid Solar: Our True Rate List"
                 highlightWords={["True", "Rate", "List"]}
@@ -127,30 +103,19 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               />
             </h1>
 
-            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
+            <h2 className="text-base sm:text-xl font-bold text-amber-300 font-hindi">
               24×7 पावर बैकअप • इन्वर्टर, बैटरी व सोलर आटा चक्की रेट लिस्ट
             </h2>
 
-            <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="max-w-2xl text-slate-300 text-sm sm:text-base leading-relaxed">
               24×7 independent solar power systems with genuine C10 solar tubular and LiFePO4 lithium battery banks for homes, hospitals, and rural flour mills.
             </p>
           </div>
         </section>
 
-        {/* Expressive Kinetic Marquee Ribbon */}
-        <KineticMarqueeStrip
-          items={[
-            "24×7 BATTERY BACKUP",
-            "15 HP SOLAR AATA CHAKKI VFD",
-            "C10 TALL TUBULAR & LIFEPO4 LITHIUM",
-            "UTL • LUMINOUS • EXIDE • FUJIYAMA",
-            "2500+ HAPPY FAMILIES IN UP"
-          ]}
-        />
-
-        {/* True Rate List 3D Bento Cards */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="text-center mb-6 sm:mb-8">
+        {/* True Rate List Section */}
+        <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-7 border-b border-slate-200">
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
@@ -158,12 +123,12 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 highlightClass="text-blue-700"
               />
             </h3>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1">
+            <p className="text-slate-500 text-xs sm:text-sm md:max-w-sm md:text-right">
               Transparent rate card with Tier-1 solar panels, pure sine wave PCUs, and heavy battery banks.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: "1100px" }}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {offGridTiers.map((tier, idx) => (
               <motion.div
                 key={idx}
@@ -171,7 +136,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
-                className={`group relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
+                className={`group relative rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
                     ? "bg-[#0a1e3b] text-white shadow-xl ring-2 ring-amber-400"
                     : tier.aataChakki
@@ -256,7 +221,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Agro Mill Direct Consultation Banner */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
+            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
@@ -282,7 +247,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Showroom & Engineering Office Card */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
           >
             <div className="space-y-1 text-center md:text-left">
               <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">

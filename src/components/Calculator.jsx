@@ -184,34 +184,35 @@ function Calculator({ onSelectQuote }) {
   };
 
   return (
-    <section id="calculator" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="calculator" className="py-12 sm:py-16 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Blue & Amber Ambient Gradients */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Bilingual Typography */}
+        {/* Left-Aligned Split Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
         >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <CalcIcon className="w-4 h-4 text-blue-600" />
-            <span>Instant Solar ROI Calculator • तुरंत सोलर बचत कैलकुलेटर</span>
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
+              <CalcIcon className="w-4 h-4 text-blue-600" />
+              <span>Instant Solar ROI Calculator • सोलर बचत कैलकुलेटर</span>
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Calculate Solar Capacity & <span className="text-amber-600">Govt Subsidy</span>
+            </h2>
+            <p className="text-sm font-bold text-blue-900 font-hindi">
+              सोलर क्षमता एवं सरकारी सब्सिडी की तुरंत गणना करें
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Calculate Solar Capacity & <span className="text-amber-500">Govt Subsidy</span>
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              सोलर क्षमता एवं सरकारी सब्सिडी की तुरंत गणना करें
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Enter your monthly electricity bill and roof space to see recommended system capacity, investment cost, UPNEDA subsidy, and payback period.
+          <p className="text-slate-600 text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
+            Enter your monthly electricity bill and roof space to see recommended capacity, net UPNEDA subsidy, and payback period.
           </p>
         </motion.div>
 
@@ -224,7 +225,7 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-slate-50/70 border border-slate-200 rounded-3xl p-6 sm:p-8 backdrop-blur-xl space-y-7 shadow-xl shadow-slate-100"
+            className="lg:col-span-6 bg-slate-50/70 border border-slate-200 rounded-2xl p-6 sm:p-8 backdrop-blur-xl space-y-7 shadow-xl shadow-slate-100"
           >
             
             {/* Input 1: Property Type */}
@@ -370,7 +371,7 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-white border-2 border-blue-600/30 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-blue-950/5 space-y-6"
+            className="lg:col-span-6 bg-white border-2 border-blue-600/30 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-blue-950/5 space-y-6"
           >
             
             {/* Top Recommended System Pill */}
@@ -431,7 +432,7 @@ function Calculator({ onSelectQuote }) {
               /* DEDICATED 6-7% GOVT BANK LOAN & EMI MINI-TAB */
               <div className="space-y-4">
                 {/* Middle-Class Eye-Opener: Monthly Bill vs Solar EMI */}
-                <div className="bg-[#0a1e3b] text-white p-5 rounded-3xl shadow-xl border border-blue-800 space-y-4">
+                <div className="bg-[#0a1e3b] text-white p-5 rounded-2xl shadow-xl border border-blue-800 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black">

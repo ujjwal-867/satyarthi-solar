@@ -27,33 +27,37 @@ function Quotations() {
   };
 
   return (
-    <section id="quotations" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-t border-slate-200/80">
+    <section id="quotations" className="py-10 sm:py-12 bg-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Simultaneous English + Hindi) */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-            <Coins className="w-3.5 h-3.5 text-blue-600" />
-            <span>Official Rate Cards & Quotations • आधिकारिक सोलर कोटेशन एवं रेट चार्ट्स</span>
+        {/* Left-Aligned Split Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200">
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
+              <Coins className="w-3.5 h-3.5 text-blue-700" />
+              <span>Official Rate Cards &amp; Quotations • आधिकारिक सोलर कोटेशन</span>
+            </p>
+
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              Official Solar <span className="text-amber-500">Rate Cards</span>
+            </h2>
+            <p className="text-sm font-bold text-blue-900 font-hindi">
+              सत्यार्थी सोलर सॉल्यूशन • आधिकारिक कोटेशन एवं रेट चार्ट
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Official Solar <span className="text-amber-500">Rate Cards</span>
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              सत्यार्थी सोलर सॉल्यूशन • आधिकारिक कोटेशन एवं रेट चार्ट
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Transparent pricing as per UPNEDA and MNRE guidelines with PM Surya Ghar subsidy matrices and bank loan EMI offers.
-          </p>
-          <p className="text-blue-900 font-semibold text-xs sm:text-sm bg-blue-50/80 p-2.5 rounded-xl border border-blue-200">
-            🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी। 6% से 7% ब्याज दर पर आसान बैंक ऋण।
-          </p>
+          <div className="max-w-md space-y-1.5 lg:text-right">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Transparent pricing as per UPNEDA and MNRE guidelines with PM Surya Ghar subsidy matrices and 6%–7% bank EMI options.
+            </p>
+            <p className="text-blue-900 font-semibold text-xs font-hindi">
+              🇮🇳 सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी
+            </p>
+          </div>
         </div>
 
-        {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
-        <div className="mt-6 sm:mt-8 max-w-4xl mx-auto bg-[#0a1e3b] text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
+        {/* Quotation Highlights Alert */}
+        <div className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white p-5 rounded-2xl shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
             <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
               <Calendar className="w-5 h-5 text-slate-950" />
@@ -83,11 +87,11 @@ function Quotations() {
         </div>
 
         {/* Quotation Cards 3D Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
+        <div className="grid md:grid-cols-2 gap-8 mt-6 sm:mt-8">
           {businessData.quotationFlyers.map((flyer) => (
             <div
               key={flyer.id}
-              className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
+              className="relative bg-white rounded-2xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
             >
               {/* Desktop-Only Gallery Shine Sweep */}
               <div className="desktop-shine-sweep" />
@@ -168,24 +172,26 @@ function Quotations() {
         </div>
 
         {/* Partner Brands Grid Banner */}
-        <div className="mt-8 sm:mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
-              Direct Manufacturer Associations
-            </span>
-            <h3 className="text-2xl font-black text-slate-900">
-              Our Official Partner Brands
-            </h3>
-            <p className="text-xs text-slate-500">
+        <div className="mt-8 sm:mt-10 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-4 border-b border-slate-100">
+            <div className="space-y-1">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-blue-700">
+                Direct Manufacturer Associations
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                Our Official Partner Brands
+              </h3>
+            </div>
+            <p className="text-xs text-slate-500 sm:text-right max-w-sm">
               We supply only 100% genuine Tier-1 solar panels, batteries, inverters, and electronics.
             </p>
           </div>
 
           <div>
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-left">
               Solar Panels & Inverter Brands:
             </p>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+            <div className="flex flex-wrap items-center justify-start gap-2.5">
               {businessData.partnerBrands.solar.map((b, idx) => (
                 <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-blue-500 transition group">
                   <div className="flex items-center gap-1.5">
@@ -203,10 +209,10 @@ function Quotations() {
           </div>
 
           <div className="pt-4 border-t border-slate-100">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-left">
               Batteries, Inverters & Home Appliances Brands:
             </p>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+            <div className="flex flex-wrap items-center justify-start gap-2.5">
               {businessData.partnerBrands.electronicsAndBatteries.map((b, idx) => (
                 <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-amber-400 transition">
                   <span className="text-slate-900">{b.name}</span>
@@ -226,7 +232,7 @@ function Quotations() {
           onClick={() => setSelectedFlyer(null)}
         >
           <div
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col"
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4 bg-slate-900 text-white flex justify-between items-center">

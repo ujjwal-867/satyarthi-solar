@@ -218,41 +218,38 @@ function Contact({ prefilledData }) {
   };
 
   return (
-    <section id="contact" className="pt-6 pb-8 sm:pt-8 sm:pb-10 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
-      {/* Background Soft Ambient Lights */}
-
+    <section id="contact" className="py-10 sm:py-14 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Expressive Kinetic Typography */}
+        {/* Left-Aligned Header Above 12-Column Contact Layout */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-2.5"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
         >
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
+          <div className="space-y-1.5 max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-amber-500" />
-              <span>UPNEDA Empanelled Contractor • Code: {businessData.vendorCode}</span>
-            </div>
+              <span>UPNEDA Empanelled Contractor • Vendor Code: {businessData.vendorCode}</span>
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Get Your Free Site Survey & Solar Quote"
+                highlightWords={["Free", "Site", "Survey", "Quote"]}
+                highlightClass="text-blue-700"
+              />
+            </h2>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Get Your Free Site Survey & Solar Quote"
-              highlightWords={["Free", "Site", "Survey", "Quote"]}
-              highlightClass="text-blue-700"
-            />
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Fill out the form below or contact Er. Satya Prakash directly for quick quotation & subsidy assistance.
+          <p className="text-slate-600 text-sm lg:max-w-sm lg:text-right">
+            Submit your details or contact Er. Satya Prakash directly for itemized quotation & subsidy paperwork.
           </p>
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="mt-6 sm:mt-8 grid lg:grid-cols-12 gap-6 sm:gap-8 items-start" style={{ perspective: "1100px" }}>
+        <div className="mt-8 grid lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* Left Column: Office Details & Map (5 cols) */}
           <motion.div 
@@ -266,7 +263,7 @@ function Contact({ prefilledData }) {
             {/* Quick Contact 3D Bento Card */}
             <motion.div
               whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
-              className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-3xl p-5 sm:p-7 backdrop-blur-md space-y-4 shadow-xl transition-all duration-300 group overflow-hidden"
+              className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-7 backdrop-blur-md space-y-4 shadow-xl transition-all duration-300 group overflow-hidden"
             >
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
@@ -393,7 +390,7 @@ function Contact({ prefilledData }) {
             </motion.div>
 
             {/* Google Map Embedded Frame */}
-            <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg">
+            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
               <div className="p-3 bg-slate-50 flex justify-between items-center text-xs text-slate-700 px-4">
                 <span className="flex items-center gap-1.5 font-semibold">
                   <MapPin className="w-3.5 h-3.5 text-blue-600" /> Motiram Adda, Gorakhpur
@@ -429,7 +426,7 @@ function Contact({ prefilledData }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-white text-slate-900 rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-200"
+            className="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-6 sm:p-10 shadow-2xl border border-slate-200"
           >
             {isSubmitted ? (
               <div className="text-center py-8 space-y-4 animate-fadeIn">
