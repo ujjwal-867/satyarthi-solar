@@ -114,7 +114,7 @@ export default function Services() {
             <ExpressiveKineticText
               text="Solar Service & Engineering in Gorakhpur"
               highlightWords={["Solar", "Service", "Engineering"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+              highlightClass="text-blue-700"
             />
           </h2>
 

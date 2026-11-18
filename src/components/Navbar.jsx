@@ -263,7 +263,7 @@ function Navbar({
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500 hover:from-blue-600 hover:to-amber-400 px-3 py-2 rounded-xl transition shadow-md shadow-blue-950/20 cursor-pointer border border-blue-400/40 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#0a1e3b] hover:bg-blue-900 px-3 py-2 rounded-xl transition shadow-md shadow-blue-950/20 cursor-pointer border border-blue-400/40 whitespace-nowrap"
             >
               <FileText className="w-3.5 h-3.5 text-white shrink-0" />
               <span>Get Quote</span>

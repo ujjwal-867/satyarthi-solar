@@ -27,8 +27,8 @@ function Footer({ onOpenAdmin, onNavigate }) {
           {/* Col 1: Brand Info & Govt Code (5 cols) */}
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-sky-500 to-amber-500 rounded-xl flex items-center justify-center text-white font-bold shadow-md">
-                <Sun className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-amber-400 rounded-xl flex items-center justify-center text-slate-950 font-bold shadow-sm">
+                <Sun className="w-5 h-5 text-slate-950" />
               </div>
               <div className="min-w-0">
                 <span className="text-base sm:text-lg font-black tracking-tight text-white block">

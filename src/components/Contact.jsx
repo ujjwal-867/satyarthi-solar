@@ -220,8 +220,6 @@ function Contact({ prefilledData }) {
   return (
     <section id="contact" className="pt-6 pb-8 sm:pt-8 sm:pb-10 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
-      <div className="gpu-layer absolute top-1/3 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="gpu-layer absolute -bottom-20 -left-20 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -244,7 +242,7 @@ function Contact({ prefilledData }) {
             <ExpressiveKineticText
               text="Get Your Free Site Survey & Solar Quote"
               highlightWords={["Free", "Site", "Survey", "Quote"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+              highlightClass="text-blue-700"
             />
           </h2>
 
@@ -270,7 +268,6 @@ function Contact({ prefilledData }) {
               whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
               className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-3xl p-5 sm:p-7 backdrop-blur-md space-y-4 shadow-xl transition-all duration-300 group overflow-hidden"
             >
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-blue-50/70 to-transparent pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">Company Information</h3>

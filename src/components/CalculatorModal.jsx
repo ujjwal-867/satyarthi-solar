@@ -12,7 +12,7 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white p-4 sm:p-5 flex items-center justify-between border-b border-slate-800">
+        <div className="bg-[#0a1e3b] text-white p-4 sm:p-5 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black shadow-md">
               <CalcIcon className="w-5 h-5" />

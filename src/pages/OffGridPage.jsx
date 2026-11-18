@@ -88,7 +88,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-[#0a1e3b] text-white relative overflow-hidden text-center">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -123,7 +123,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Off-Grid & Hybrid Solar: Our True Rate List"
                 highlightWords={["True", "Rate", "List"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200"
+                highlightClass="text-amber-400"
               />
             </h1>
 
@@ -155,7 +155,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
                 highlightWords={["Off-Grid", "Aata", "Chakki"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+                highlightClass="text-blue-700"
               />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1">
@@ -173,7 +173,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
                 className={`group relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
-                    ? "bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl ring-2 ring-amber-400"
+                    ? "bg-[#0a1e3b] text-white shadow-xl ring-2 ring-amber-400"
                     : tier.aataChakki
                     ? "bg-gradient-to-br from-amber-50 to-orange-50/40 text-slate-900 border-2 border-amber-400 shadow-md hover:shadow-2xl"
                     : "bg-white text-slate-900 border border-slate-200 hover:border-amber-400 shadow-xs hover:shadow-2xl"
@@ -256,7 +256,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Agro Mill Direct Consultation Banner */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
+            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">

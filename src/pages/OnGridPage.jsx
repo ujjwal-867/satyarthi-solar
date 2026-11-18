@@ -51,7 +51,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
     <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
         {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
-        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-blue-950 via-[#0a1e3b] to-slate-950 text-white relative overflow-hidden text-center">
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-[#0a1e3b] text-white relative overflow-hidden text-center">
           <CollaborativeCursorsOverlay
             cursors={[
               {
@@ -86,7 +86,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
               <ExpressiveKineticText
                 text="PM Surya Ghar: On-Grid Solar Rates"
                 highlightWords={["On-Grid", "Solar", "Rates"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-200 to-amber-300"
+                highlightClass="text-amber-400"
               />
             </h1>
 
@@ -147,7 +147,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
               <ExpressiveKineticText
                 text="Official On-Grid Price List & Net Cost Breakdown"
                 highlightWords={["On-Grid", "Price", "List"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+                highlightClass="text-blue-700"
               />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
@@ -165,7 +165,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
                 className={`group relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
-                    ? "bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-amber-400"
+                    ? "bg-[#0a1e3b] text-white shadow-xl shadow-blue-950/20 ring-2 ring-amber-400"
                     : tier.popular
                     ? "bg-white text-slate-900 border-2 border-blue-600 shadow-lg hover:shadow-2xl"
                     : "bg-white text-slate-900 border border-slate-200 hover:border-blue-400 shadow-xs hover:shadow-2xl"
@@ -300,7 +300,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           </div>
 
           {/* 5-Step Process Banner with 3D Bento Step Cards */}
-          <div className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
+          <div className="mt-8 sm:mt-10 bg-[#0a1e3b] rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-blue-900/50">
             <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-white">
                 How Er. Satyaprakash Gets Your Subsidy Credited in 5 Simple Steps
@@ -317,7 +317,6 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                   whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.02 }}
                   className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 hover:border-amber-400/60 space-y-1 transition overflow-hidden"
                 >
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
                   <span className="text-2xl font-black text-amber-400 block">{st.step}</span>
                   <h4 className="font-bold text-sm text-white">{st.title}</h4>
                   <p className="text-xs text-slate-200 pt-1 leading-relaxed">{st.desc}</p>

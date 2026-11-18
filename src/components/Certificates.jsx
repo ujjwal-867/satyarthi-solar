@@ -87,7 +87,7 @@ function Certificates({ isStandalonePage = false }) {
             <ExpressiveKineticText
               text="Government Approvals & Brand Authorizations"
               highlightWords={["Government", "Brand", "Authorizations"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+              highlightClass="text-blue-700"
             />
             <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               यूपीनेडा सूचीबद्धता, सौर सम्मान एवं अधिकृत डीलरशिप प्रमाणपत्र

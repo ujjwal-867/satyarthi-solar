@@ -109,7 +109,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
             <ExpressiveKineticText
               text="Explore Our Divisions & Rate Lists"
               highlightWords={["Divisions", "Rate", "Lists"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+              highlightClass="text-blue-700"
             />
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">

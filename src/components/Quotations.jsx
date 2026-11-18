@@ -27,7 +27,7 @@ function Quotations() {
   };
 
   return (
-    <section id="quotations" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
+    <section id="quotations" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header (Simultaneous English + Hindi) */}
@@ -53,7 +53,7 @@ function Quotations() {
         </div>
 
         {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
-        <div className="mt-6 sm:mt-8 max-w-4xl mx-auto bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
+        <div className="mt-6 sm:mt-8 max-w-4xl mx-auto bg-[#0a1e3b] text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
             <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
               <Calendar className="w-5 h-5 text-slate-950" />

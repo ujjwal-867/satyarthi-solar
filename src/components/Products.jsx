@@ -257,7 +257,7 @@ function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-8 sm:mt-10 bg-slate-50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-3">
             <div className="p-3 bg-[#0a1e3b] text-amber-400 rounded-2xl font-bold shadow-md shadow-blue-950/20">

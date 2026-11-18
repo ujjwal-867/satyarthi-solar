@@ -489,7 +489,7 @@ function AdminModal({ isOpen, onClose }) {
                   <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-purple-100 text-purple-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full uppercase">
                           Generative Video Flow
                         </span>
                         <Film className="w-5 h-5 text-purple-600" />
@@ -506,7 +506,7 @@ function AdminModal({ isOpen, onClose }) {
                       href="https://deepmind.google/technologies/veo/"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Open Google Veo</span>
                       <ExternalLink className="w-3.5 h-3.5" />

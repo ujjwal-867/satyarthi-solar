@@ -78,7 +78,7 @@ function ExpressiveKineticTitle({ text, highlightWords = [] }) {
             style={{ willChange: "transform, opacity", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             className={`inline-block cursor-default select-none ${
               isHighlight
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+                ? "text-blue-700"
                 : "text-slate-900"
             }`}
           >
@@ -240,7 +240,7 @@ export function BentoGallery() {
       location: "78, Netaji Rd, Rajendra Nagar, Gorakhpur (273015)",
       image: "/images/projects/elevated-pergola-rajendranagar.jpg",
       badge: "📍 GPS Verified • 03/09/2025",
-      badgeColor: "bg-indigo-600 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Architectural high-clearance solar gazebo framing elevating panels above the terrace parapet for maximum solar irradiance.",
       specs: ["GPS: 26.772317° N, 83.343731° E", "Dual-Row Mono PERC Array", "Cross-Braced Structural Stability", "Zero Terrace Shadowing"],
@@ -315,7 +315,7 @@ export function BentoGallery() {
       location: "Purvanchal Industrial & Flour Mill Installations",
       image: "/images/projects/vfd-solar-drive-panel.jpg",
       badge: "⚡ Solar Atta Chakki • वीएफडी पैनल",
-      badgeColor: "bg-purple-700 text-white font-bold",
+      badgeColor: "bg-blue-700 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Weatherproof industrial control cabinet featuring INVT Variable Frequency Drive with heavy-duty MCBs for running 10HP to 25HP flour mills directly on solar.",
       specs: ["INVT High-Efficiency Solar Drive", "Soft Start Technology for Heavy Motors", "Multi-Stage Overload Protection", "Cut Milling Diesel Costs to Zero"]
@@ -471,8 +471,6 @@ export function BentoGallery() {
   return (
     <section id="gallery" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Ambient Lights */}
-      <div className="gpu-layer absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="gpu-layer absolute -bottom-40 -left-40 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -485,7 +483,7 @@ export function BentoGallery() {
           className="text-center max-w-4xl mx-auto space-y-4"
         >
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <BadgeCheck className="w-4 h-4 text-amber-500 animate-spin" style={{ animationDuration: "6s" }} />
+            <BadgeCheck className="w-4 h-4 text-amber-500" />
             <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur & UP</span>
           </div>
 

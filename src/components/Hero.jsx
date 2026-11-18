@@ -224,7 +224,6 @@ function Hero({ onOpenCalculator }) {
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
                   className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-amber-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
                 >
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                   
                   <div className="flex items-center gap-1.5 relative z-10">
                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
@@ -250,7 +249,6 @@ function Hero({ onOpenCalculator }) {
                 onClick={() => scrollTo("#contact")}
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
                 <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
                 <span className="relative z-10">Book Free Survey • मुफ्त सर्वे</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10 shrink-0" />
@@ -264,7 +262,6 @@ function Hero({ onOpenCalculator }) {
                 }}
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
                 <Calculator className="w-4 h-4 text-slate-950 relative z-10 shrink-0" />
                 <span className="relative z-10">Solar Calculator</span>
               </motion.button>
@@ -305,7 +302,6 @@ function Hero({ onOpenCalculator }) {
               className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-amber-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
 
               <div className="relative z-10 flex items-center gap-3.5 sm:gap-4">
                 <motion.div
@@ -353,7 +349,7 @@ function Hero({ onOpenCalculator }) {
                   <span className="font-mono font-black text-sky-300">98.4% Efficiency</span>
                 </div>
                 <div className="w-full h-1.5 bg-blue-950/80 rounded-full overflow-hidden">
-                  <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 via-sky-400 to-amber-400 rounded-full" />
+                  <div className="h-full w-[98%] bg-amber-400 rounded-full" />
                 </div>
               </div>
 

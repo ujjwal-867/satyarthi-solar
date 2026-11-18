@@ -186,8 +186,6 @@ function Calculator({ onSelectQuote }) {
   return (
     <section id="calculator" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
       {/* Background Soft Blue & Amber Ambient Gradients */}
-      <div className="gpu-layer absolute top-0 right-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="gpu-layer absolute bottom-0 left-1/4 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -372,7 +370,7 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-gradient-to-br from-white via-slate-50 to-blue-50/30 border-2 border-blue-600/30 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-blue-950/5 space-y-6"
+            className="lg:col-span-6 bg-white border-2 border-blue-600/30 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-blue-950/5 space-y-6"
           >
             
             {/* Top Recommended System Pill */}
@@ -433,7 +431,7 @@ function Calculator({ onSelectQuote }) {
               /* DEDICATED 6-7% GOVT BANK LOAN & EMI MINI-TAB */
               <div className="space-y-4">
                 {/* Middle-Class Eye-Opener: Monthly Bill vs Solar EMI */}
-                <div className="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white p-5 rounded-3xl shadow-xl border border-blue-800 space-y-4">
+                <div className="bg-[#0a1e3b] text-white p-5 rounded-3xl shadow-xl border border-blue-800 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black">

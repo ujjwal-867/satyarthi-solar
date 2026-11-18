@@ -61,7 +61,7 @@ function FAQ() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Questions</span>
+            Frequently Asked <span className="text-blue-700">Questions</span>
             <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
             </span>
@@ -126,7 +126,7 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/60 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
+          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-slate-50 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
         >
           <div>
             <h4 className="font-bold text-base text-slate-900">
