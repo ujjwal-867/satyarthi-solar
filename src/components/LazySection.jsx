@@ -88,11 +88,11 @@ export default function LazySection({
       ) : (
         <div
           style={{ minHeight }}
-          className="w-full flex flex-col items-center justify-center p-8 bg-slate-50/50"
+          className="w-full flex flex-col items-center justify-center p-8 bg-[#FAF8F4]/50"
           aria-hidden="true"
         >
-          <div className="w-10 h-10 rounded-2xl bg-blue-600/10 flex items-center justify-center animate-pulse">
-            <div className="w-4 h-4 rounded-full border-2 border-blue-600 border-t-transparent animate-spin" />
+          <div className="w-10 h-10 rounded-2xl bg-[#083D2A]/10 flex items-center justify-center animate-pulse">
+            <div className="w-4 h-4 rounded-full border-2 border-[#083D2A] border-t-transparent animate-spin" />
           </div>
           <span className="text-xs font-semibold text-slate-400 mt-2.5">
             Loading section...

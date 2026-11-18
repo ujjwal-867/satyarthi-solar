@@ -5,6 +5,7 @@
   body {
     max-width: 100%;
     overflow-x: clip;
+    scroll-behavior: smooth;
   }
 
   #root {
@@ -14,13 +15,13 @@
   }
 
   html {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Epilogue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #ffffff;
+    color: #0d1f17;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
@@ -28,10 +29,10 @@
 }
 
 .font-hindi {
-  font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Noto Sans Devanagari', 'Epilogue', system-ui, sans-serif;
 }
 
-/* Subtle modal & menu fade-in */
+/* Subtle modal & drawer fade-in */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -47,19 +48,19 @@
   animation: fadeIn 0.2s ease-out both;
 }
 
-/* Custom scrollbars */
+/* Clean scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #faf8f4;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #d5cfc4;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #083d2a;
 }
 
 /* Mobile & Touch Scrolling Optimization */
@@ -68,7 +69,6 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Prevent sticky header redraw jank during touch fling */
   header, nav {
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
@@ -81,7 +81,7 @@
   }
 }
 
-/* Card hover transitions (desktop pointer only, keeps mobile touch scrolling smooth) */
+/* Restrained editorial hover transitions (desktop pointer only) */
 .desktop-gallery-card-hover,
 .gallery-3d-card-hover {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -90,19 +90,19 @@
 @media (hover: hover) and (pointer: fine) {
   .desktop-gallery-card-hover:hover,
   .gallery-3d-card-hover:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 12px 24px -8px rgba(10, 30, 59, 0.14) !important;
-    border-color: #2563eb !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 24px -10px rgba(8, 61, 42, 0.14) !important;
+    border-color: #083d2a !important;
   }
 
   .desktop-image-zoom,
   .gallery-image-zoom {
-    transition: transform 0.35s ease !important;
+    transition: transform 0.4s ease !important;
   }
 
   .group:hover .desktop-image-zoom,
   .group:hover .gallery-image-zoom {
-    transform: scale(1.04) !important;
+    transform: scale(1.03) !important;
   }
 
   .desktop-button-hover,

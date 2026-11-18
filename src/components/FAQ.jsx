@@ -44,7 +44,7 @@ function FAQ() {
   ];
 
   return (
-    <section className="py-10 sm:py-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section className="py-10 sm:py-14 bg-white text-[#0D1F17] border-t border-[#E5E0D8] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Left-Aligned Header */}
@@ -53,16 +53,16 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="space-y-2 pb-6 border-b border-slate-200"
+          className="space-y-2 pb-6 border-b border-[#E5E0D8]"
         >
-          <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
-            <HelpCircle className="w-4 h-4 text-blue-600" />
+          <p className="text-[11px] font-bold uppercase tracking-widest text-[#083D2A] flex items-center gap-1.5">
+            <HelpCircle className="w-4 h-4 text-[#083D2A]" />
             <span>Solar & Subsidy Guide • सवाल व उत्तर</span>
           </p>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Frequently Asked <span className="text-blue-700">Questions</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0D1F17] tracking-tight">
+            Frequently Asked <span className="text-[#083D2A]">Questions</span>
           </h2>
-          <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
+          <p className="text-[#4B5550] text-sm leading-relaxed max-w-2xl">
             Everything you need to know about rooftop solar, PM Surya Ghar subsidy rules, net metering, and installation in UP.
           </p>
         </motion.div>
@@ -78,25 +78,25 @@ function FAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="border border-slate-200 rounded-2xl overflow-hidden transition shadow-xs"
+                className="border border-[#E5E0D8] rounded-2xl overflow-hidden transition shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
                   className={`w-full text-left p-5 flex justify-between items-center gap-4 transition cursor-pointer ${
-                    isOpen ? "bg-blue-50/50" : "bg-slate-50/70 hover:bg-slate-100"
+                    isOpen ? "bg-[#FAF8F4]/50" : "bg-[#FAF8F4] hover:bg-slate-100"
                   }`}
                 >
                   <div className="space-y-0.5">
-                    <span className="font-bold text-sm sm:text-base text-slate-900 block">
+                    <span className="font-bold text-sm sm:text-base text-[#0D1F17] block">
                       {item.qEn}
                     </span>
-                    <span className="font-semibold text-xs sm:text-sm text-blue-900 font-hindi block">
+                    <span className="font-semibold text-xs sm:text-sm text-[#083D2A] font-hindi block">
                       • {item.qHi}
                     </span>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-blue-600 shrink-0 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-[#083D2A] shrink-0 transition-transform duration-200 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -105,7 +105,7 @@ function FAQ() {
                 {isOpen && (
                   <div className="p-5 bg-white text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 space-y-2.5">
                     <p>{item.aEn}</p>
-                    <p className="font-hindi text-blue-950 font-semibold bg-blue-50/70 p-3 rounded-xl border border-blue-100">
+                    <p className="font-hindi text-[#0D1F17] font-semibold bg-[#FAF8F4] p-3 rounded-xl border border-blue-100">
                       • {item.aHi}
                     </p>
                   </div>
@@ -121,31 +121,31 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-slate-50 rounded-2xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
+          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-[#FAF8F4] rounded-2xl border border-[#E5E0D8] flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
         >
           <div>
-            <h4 className="font-bold text-base text-slate-900">
+            <h4 className="font-bold text-base text-[#0D1F17]">
               Have a specific question about your roof or meter?
             </h4>
-            <p className="text-xs sm:text-sm text-blue-900 font-semibold font-hindi mt-0.5">
+            <p className="text-xs sm:text-sm text-[#083D2A] font-semibold font-hindi mt-0.5">
               अपनी छत, बिजली बिल या सब्सिडी के बारे में इंजीनियर सत्यप्रकाश से सीधे बात करें।
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-2 shrink-0">
             <a
               href={`tel:${businessData.phone[0]}`}
-              className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition"
+              className="bg-[#083D2A] hover:bg-[#062E20] text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-sky-400" />
+              <PhoneCall className="w-3.5 h-3.5 text-[#F5C441]" />
               <span>Call 24×7: +91 {businessData.phone[0]}</span>
             </a>
             <a
               href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I have a few questions regarding solar installation for my property in UP.")}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-xs"
+              className="bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-xs"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
+              <MessageCircle className="w-3.5 h-3.5 fill-slate-950 text-[#0D1F17]" />
               <span>Ask on WhatsApp</span>
             </a>
           </div>

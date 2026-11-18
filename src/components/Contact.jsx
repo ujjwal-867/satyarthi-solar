@@ -217,7 +217,7 @@ function Contact({ prefilledData }) {
   };
 
   return (
-    <section id="contact" className="py-10 sm:py-14 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200">
+    <section id="contact" className="py-10 sm:py-14 bg-white text-[#0D1F17] relative overflow-hidden border-t border-[#E5E0D8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Left-Aligned Header Above 12-Column Contact Layout */}
@@ -226,23 +226,23 @@ function Contact({ prefilledData }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-[#E5E0D8]"
         >
           <div className="space-y-1.5 max-w-2xl">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-amber-500" />
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#083D2A] flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#B5850A]" />
               <span>UPNEDA Empanelled Contractor • Vendor Code: {businessData.vendorCode}</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0D1F17] tracking-tight">
               <ExpressiveKineticText
                 text="Get Your Free Site Survey & Solar Quote"
                 highlightWords={["Free", "Site", "Survey", "Quote"]}
-                highlightClass="text-blue-700"
+                highlightClass="text-[#083D2A]"
               />
             </h2>
           </div>
 
-          <p className="text-slate-600 text-sm lg:max-w-sm lg:text-right">
+          <p className="text-[#4B5550] text-sm lg:max-w-sm lg:text-right">
             Submit your details or contact Er. Satya Prakash directly for itemized quotation & subsidy paperwork.
           </p>
         </motion.div>
@@ -260,30 +260,30 @@ function Contact({ prefilledData }) {
           >
             
             {/* Quick Contact Information Card */}
-            <div className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-7 space-y-4 shadow-sm transition-colors group overflow-hidden">
+            <div className="relative bg-white border border-[#E5E0D8] hover:border-[#083D2A] rounded-2xl p-5 sm:p-7 space-y-4 shadow-sm transition-colors group overflow-hidden">
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Company Information</h3>
-                  <span className="text-xs text-blue-900 font-semibold">2500+ Happy Families in Purvanchal</span>
+                  <h3 className="text-lg font-bold text-[#0D1F17]">Company Information</h3>
+                  <span className="text-xs text-[#083D2A] font-semibold">2500+ Happy Families in Purvanchal</span>
                 </div>
               </div>
 
               <div className="space-y-3.5 text-sm relative z-10">
                 {/* Phone & Office Number */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-[#FAF8F4] text-[#083D2A] rounded-xl shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="space-y-1 flex-1">
                     <span className="text-xs text-slate-500 font-bold flex items-center gap-1.5 flex-wrap">
                       <span>Calling Lines:</span>
-                      <span className="bg-blue-50 text-blue-900 text-[10px] px-2 py-0.5 rounded-full font-bold border border-blue-200">Active</span>
+                      <span className="bg-[#FAF8F4] text-[#083D2A] text-[10px] px-2 py-0.5 rounded-full font-bold border border-[#E5E0D8]">Active</span>
                     </span>
-                    <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-600 transition block text-sm">
+                    <a href={`tel:${businessData.phone[0]}`} className="font-bold text-[#0D1F17] hover:text-[#083D2A] transition block text-sm">
                       +91 {businessData.phone[0]} <span className="text-xs text-slate-500 font-normal">(Er. Satya Prakash • 24×7)</span>
                     </a>
-                    <a href={`tel:${businessData.officeNumber}`} className="font-semibold text-blue-900 hover:text-blue-950 transition flex items-center gap-1.5 text-xs bg-blue-50/90 border border-blue-200/80 px-2.5 py-1 rounded-xl w-fit">
-                      <PhoneCall className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                    <a href={`tel:${businessData.officeNumber}`} className="font-semibold text-[#083D2A] hover:text-[#0D1F17] transition flex items-center gap-1.5 text-xs bg-[#FAF8F4] border border-[#E5E0D8] px-2.5 py-1 rounded-xl w-fit">
+                      <PhoneCall className="w-3.5 h-3.5 text-[#083D2A] shrink-0" />
                       <span>Office: +91 {businessData.officeNumber}</span>
                     </a>
                   </div>
@@ -291,7 +291,7 @@ function Contact({ prefilledData }) {
 
                 {/* WhatsApp */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-amber-50 text-amber-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-[#FDF3D0] text-[#9A6E04] rounded-xl shrink-0">
                     <MessageCircle className="w-4 h-4" />
                   </div>
                   <div className="space-y-0.5">
@@ -300,7 +300,7 @@ function Contact({ prefilledData }) {
                       href={`https://wa.me/91${businessData.whatsapp[0]}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-bold text-blue-900 hover:text-blue-950 transition block text-xs"
+                      className="font-bold text-[#083D2A] hover:text-[#0D1F17] transition block text-xs"
                     >
                       +91 {businessData.whatsapp[0]} (Primary WhatsApp)
                     </a>
@@ -316,7 +316,7 @@ function Contact({ prefilledData }) {
                     <span className="text-xs text-slate-500 block">Official Email:</span>
                     <a 
                       href={`mailto:${businessData.email}`}
-                      className="font-semibold text-slate-800 hover:text-blue-600 transition break-all text-xs"
+                      className="font-semibold text-slate-800 hover:text-[#083D2A] transition break-all text-xs"
                     >
                       {businessData.email}
                     </a>
@@ -325,7 +325,7 @@ function Contact({ prefilledData }) {
 
                 {/* Address */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-blue-50 text-blue-700 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-[#FAF8F4] text-[#083D2A] rounded-xl shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -337,7 +337,7 @@ function Contact({ prefilledData }) {
                       href={businessData.mapsUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-blue-600 font-bold hover:underline mt-1"
+                      className="inline-flex items-center gap-1 text-xs text-[#083D2A] font-bold hover:underline mt-1"
                     >
                       <span>Open in Google Maps ↗</span>
                     </a>
@@ -346,7 +346,7 @@ function Contact({ prefilledData }) {
 
                 {/* Working Hours */}
                 <div className="flex items-start gap-3 pt-2 border-t border-slate-100">
-                  <div className="p-2.5 bg-slate-100 text-slate-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-slate-100 text-[#4B5550] rounded-xl shrink-0">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
@@ -366,7 +366,7 @@ function Contact({ prefilledData }) {
                     href={businessData.instagramUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-[#0a1e3b] hover:text-white rounded-xl transition text-slate-700"
+                    className="p-2.5 bg-slate-100 hover:bg-[#083D2A] hover:text-white rounded-xl transition text-slate-700"
                     title="Instagram"
                   >
                     <InstagramIcon className="w-4 h-4" />
@@ -375,7 +375,7 @@ function Contact({ prefilledData }) {
                     href={businessData.facebookUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-blue-700 hover:text-white rounded-xl transition text-slate-700"
+                    className="p-2.5 bg-slate-100 hover:bg-[#083D2A] hover:text-white rounded-xl transition text-slate-700"
                     title="Facebook"
                   >
                     <FacebookIcon className="w-4 h-4" />
@@ -385,16 +385,16 @@ function Contact({ prefilledData }) {
             </div>
 
             {/* Google Map Embedded Frame */}
-            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
-              <div className="p-3 bg-slate-50 flex justify-between items-center text-xs text-slate-700 px-4">
+            <div className="bg-white border border-[#E5E0D8] rounded-2xl overflow-hidden shadow-lg">
+              <div className="p-3 bg-[#FAF8F4] flex justify-between items-center text-xs text-slate-700 px-4">
                 <span className="flex items-center gap-1.5 font-semibold">
-                  <MapPin className="w-3.5 h-3.5 text-blue-600" /> Motiram Adda, Gorakhpur
+                  <MapPin className="w-3.5 h-3.5 text-[#083D2A]" /> Motiram Adda, Gorakhpur
                 </span>
                 <a
                   href={businessData.mapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-blue-600 font-bold hover:underline"
+                  className="text-[#083D2A] font-bold hover:underline"
                 >
                   View Large Map ↗
                 </a>
@@ -421,17 +421,17 @@ function Contact({ prefilledData }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-6 sm:p-10 shadow-md border border-slate-200"
+            className="lg:col-span-7 bg-white text-[#0D1F17] rounded-2xl p-6 sm:p-10 shadow-md border border-[#E5E0D8]"
           >
             {isSubmitted ? (
               <div className="text-center py-8 space-y-4 animate-fadeIn">
-                <div className="w-16 h-16 bg-blue-50 text-blue-900 rounded-full flex items-center justify-center mx-auto shadow-md">
+                <div className="w-16 h-16 bg-[#FAF8F4] text-[#083D2A] rounded-full flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-extrabold text-slate-900">
+                <h3 className="text-2xl font-extrabold text-[#0D1F17]">
                   Thank You, {submittedLead?.name}!
                 </h3>
-                <p className="text-base font-bold text-blue-900 font-hindi">
+                <p className="text-base font-bold text-[#083D2A] font-hindi">
                   धन्यवाद! आपका कोटेशन अनुरोध ईमेल और व्हाट्सएप पर भेज दिया गया है।
                 </p>
 
@@ -442,12 +442,12 @@ function Contact({ prefilledData }) {
                 </div>
 
                 {/* Instant WhatsApp & Email Dispatch Actions */}
-                <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-5 max-w-lg mx-auto text-left space-y-3">
-                  <div className="flex items-center gap-2 text-blue-950 font-bold text-sm">
-                    <MessageCircle className="w-4 h-4 text-blue-700" />
+                <div className="bg-[#FAF8F4] border border-[#E5E0D8] rounded-2xl p-5 max-w-lg mx-auto text-left space-y-3">
+                  <div className="flex items-center gap-2 text-[#0D1F17] font-bold text-sm">
+                    <MessageCircle className="w-4 h-4 text-[#083D2A]" />
                     <span>Direct WhatsApp & Email Confirmation</span>
                   </div>
-                  <p className="text-xs text-slate-600">
+                  <p className="text-xs text-[#4B5550]">
                     Your details have been automatically forwarded. You can also tap below to message our Primary Helpline, Office Number ({businessData.officeNumber}), or send a direct copy via your Email app:
                   </p>
 
@@ -455,7 +455,7 @@ function Contact({ prefilledData }) {
                     <button
                       type="button"
                       onClick={() => openWhatsAppLead(businessData.whatsapp[0])}
-                      className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                      className="w-full bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4 fill-slate-950 shrink-0" />
                       <span>WhatsApp (+91 {businessData.whatsapp[0]})</span>
@@ -464,7 +464,7 @@ function Contact({ prefilledData }) {
                     <button
                       type="button"
                       onClick={() => openWhatsAppLead(businessData.officeNumber)}
-                      className="w-full bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                      className="w-full bg-[#083D2A] hover:bg-[#062E20] text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                       <span>Office WhatsApp ({businessData.officeNumber})</span>
@@ -472,7 +472,7 @@ function Contact({ prefilledData }) {
 
                     <a
                       href={submittedLead ? buildMailtoHref(submittedLead) : `mailto:${businessData.email}`}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
+                      className="w-full bg-[#083D2A] hover:bg-[#083D2A] text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
                     >
                       <Mail className="w-4 h-4 shrink-0" />
                       <span>Send via Email App</span>
@@ -482,7 +482,7 @@ function Contact({ prefilledData }) {
                       href={`tel:${businessData.officeNumber}`}
                       className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
                     >
-                      <PhoneCall className="w-4 h-4 text-amber-400 shrink-0" />
+                      <PhoneCall className="w-4 h-4 text-[#F5C441] shrink-0" />
                       <span>Call Office: {businessData.officeNumber}</span>
                     </a>
                   </div>
@@ -528,7 +528,7 @@ function Contact({ prefilledData }) {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#0D1F17]">
                     Request Free Solar Site Survey
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -549,7 +549,7 @@ function Contact({ prefilledData }) {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rameshwar Sharma"
-                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100"
                     />
                   </div>
 
@@ -565,7 +565,7 @@ function Contact({ prefilledData }) {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="10-digit mobile number"
-                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100"
                     />
                   </div>
                 </div>
@@ -582,7 +582,7 @@ function Contact({ prefilledData }) {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="yourname@gmail.com"
-                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100"
                     />
                   </div>
 
@@ -595,7 +595,7 @@ function Contact({ prefilledData }) {
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 cursor-pointer"
+                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] focus:outline-none focus:border-[#083D2A] cursor-pointer"
                     >
                       <option value="Gorakhpur">Gorakhpur</option>
                       <option value="Deoria">Deoria</option>
@@ -624,7 +624,7 @@ function Contact({ prefilledData }) {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 cursor-pointer"
+                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] focus:outline-none focus:border-[#083D2A] cursor-pointer"
                   >
                     <option value="Residential Rooftop Solar (PM Surya Ghar)">
                       Residential Rooftop Solar (Up to ₹1,08,000 Subsidy)
@@ -661,7 +661,7 @@ function Contact({ prefilledData }) {
                       value={formData.bill}
                       onChange={handleChange}
                       placeholder="e.g. 3500"
-                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100"
                     />
                   </div>
 
@@ -676,7 +676,7 @@ function Contact({ prefilledData }) {
                       value={formData.roofArea}
                       onChange={handleChange}
                       placeholder="e.g. 400"
-                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                      className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100"
                     />
                   </div>
                 </div>
@@ -693,7 +693,7 @@ function Contact({ prefilledData }) {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your rooftop or specific requirements..."
-                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-[#0D1F17] placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100"
                   ></textarea>
                 </div>
 
@@ -701,7 +701,7 @@ function Contact({ prefilledData }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-950/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full bg-[#083D2A] hover:bg-[#062E20] text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-[#083D2A]/15 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>

@@ -5,7 +5,7 @@
 export function ExpressiveKineticText({
   text,
   highlightWords = [],
-  highlightClass = "text-blue-700",
+  highlightClass = "text-[#083D2A]",
   className = ""
 }) {
   const words = text.split(" ");

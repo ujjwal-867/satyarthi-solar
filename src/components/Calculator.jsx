@@ -184,7 +184,7 @@ function Calculator({ onSelectQuote }) {
   };
 
   return (
-    <section id="calculator" className="py-12 sm:py-16 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
+    <section id="calculator" className="py-12 sm:py-16 bg-white text-[#0D1F17] relative overflow-hidden border-t border-[#E5E0D8]">
       {/* Background Soft Blue & Amber Ambient Gradients */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 pointer-events-none"></div>
 
@@ -196,22 +196,22 @@ function Calculator({ onSelectQuote }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-[#E5E0D8]"
         >
           <div className="space-y-1.5 max-w-2xl">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
-              <CalcIcon className="w-4 h-4 text-blue-600" />
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#083D2A] flex items-center gap-1.5">
+              <CalcIcon className="w-4 h-4 text-[#083D2A]" />
               <span>Instant Solar ROI Calculator • सोलर बचत कैलकुलेटर</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Calculate Solar Capacity & <span className="text-amber-600">Govt Subsidy</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0D1F17] tracking-tight">
+              Calculate Solar Capacity & <span className="text-[#9A6E04]">Govt Subsidy</span>
             </h2>
-            <p className="text-sm font-bold text-blue-900 font-hindi">
+            <p className="text-sm font-bold text-[#083D2A] font-hindi">
               सोलर क्षमता एवं सरकारी सब्सिडी की तुरंत गणना करें
             </p>
           </div>
 
-          <p className="text-slate-600 text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
+          <p className="text-[#4B5550] text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
             Enter your monthly electricity bill and roof space to see recommended capacity, net UPNEDA subsidy, and payback period.
           </p>
         </motion.div>
@@ -225,7 +225,7 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-slate-50/70 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-7 shadow-sm shadow-slate-100"
+            className="lg:col-span-6 bg-[#FAF8F4] border border-[#E5E0D8] rounded-2xl p-6 sm:p-8 space-y-7 shadow-sm shadow-slate-100"
           >
             
             {/* Input 1: Property Type */}
@@ -249,15 +249,15 @@ function Calculator({ onSelectQuote }) {
                       onClick={() => setPropertyType(item.id)}
                       className={`p-3 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 cursor-pointer ${
                         isSelected
-                          ? "bg-blue-600 text-white border-blue-600 font-bold shadow-lg shadow-blue-500/20"
-                          : "bg-white border-slate-200 text-slate-700 hover:border-blue-300 hover:bg-blue-50/40"
+                          ? "bg-[#083D2A] text-white border-[#083D2A] font-bold shadow-sm"
+                          : "bg-white border-[#E5E0D8] text-slate-700 hover:border-[#D4CEC2] hover:bg-[#FAF8F4]/40"
                       }`}
                     >
                       <Icon className="w-5 h-5 mb-0.5" />
                       <span className="text-xs font-bold">{item.label}</span>
                       <span className="text-[10px] opacity-90">{item.hindi}</span>
                       <span className={`text-[9px] px-1.5 py-0.5 rounded font-semibold mt-0.5 ${
-                        isSelected ? "bg-white/20 text-white" : "bg-blue-50 text-blue-800 border border-blue-200"
+                        isSelected ? "bg-white/20 text-white" : "bg-[#FAF8F4] text-[#083D2A] border border-[#E5E0D8]"
                       }`}>
                         {item.badge}
                       </span>
@@ -276,8 +276,8 @@ function Calculator({ onSelectQuote }) {
                   </label>
                   <span className="text-[11px] text-slate-500">औसत बिजली का मासिक खर्च</span>
                 </div>
-                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-blue-600 font-bold text-lg">₹{bill.toLocaleString()}</span>
+                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-[#E5E0D8] shadow-xs">
+                  <span className="text-[#083D2A] font-bold text-lg">₹{bill.toLocaleString()}</span>
                   <span className="text-[10px] text-slate-400">/month • माह</span>
                 </div>
               </div>
@@ -288,7 +288,7 @@ function Calculator({ onSelectQuote }) {
                 step="500"
                 value={bill}
                 onChange={(e) => setBill(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-2.5 bg-[#E5E0D8] rounded-lg appearance-none cursor-pointer accent-[#083D2A]"
               />
               <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                 <span>₹1,000</span>
@@ -307,8 +307,8 @@ function Calculator({ onSelectQuote }) {
                   </label>
                   <span className="text-[11px] text-slate-500">छाया-मुक्त (Shadow-Free) पक्की छत</span>
                 </div>
-                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-blue-700 font-bold text-lg">{roofArea}</span>
+                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-[#E5E0D8] shadow-xs">
+                  <span className="text-[#083D2A] font-bold text-lg">{roofArea}</span>
                   <span className="text-[10px] text-slate-400">Sq Ft • वर्ग फुट</span>
                 </div>
               </div>
@@ -319,7 +319,7 @@ function Calculator({ onSelectQuote }) {
                 step="50"
                 value={roofArea}
                 onChange={(e) => setRoofArea(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-2.5 bg-[#E5E0D8] rounded-lg appearance-none cursor-pointer accent-[#083D2A]"
               />
               <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                 <span>100 sq ft</span>
@@ -337,7 +337,7 @@ function Calculator({ onSelectQuote }) {
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 font-medium focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 cursor-pointer shadow-xs"
+                className="w-full bg-white border border-[#E5E0D8] rounded-2xl px-4 py-3 text-sm text-slate-800 font-medium focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-blue-100 cursor-pointer shadow-xs"
               >
                 <option value="Gorakhpur">Gorakhpur • गोरखपुर (Head Office - Motiram Adda)</option>
                 <option value="Deoria">Deoria • देवरिया</option>
@@ -356,8 +356,8 @@ function Calculator({ onSelectQuote }) {
             </div>
 
             {/* Helpline Note */}
-            <div className="p-3 bg-blue-50/80 rounded-2xl border border-blue-200/80 flex items-center gap-3 text-xs text-blue-900">
-              <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
+            <div className="p-3 bg-[#FAF8F4] rounded-2xl border border-[#E5E0D8] flex items-center gap-3 text-xs text-[#083D2A]">
+              <ShieldCheck className="w-5 h-5 text-[#083D2A] shrink-0" />
               <div>
                 <strong>24×7 Engineer Support:</strong> Call <strong>+91 8112991941</strong> or <strong>+91 8112991441</strong> for site survey assistance.
               </div>
@@ -371,18 +371,18 @@ function Calculator({ onSelectQuote }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 bg-white border-2 border-blue-600/30 rounded-2xl p-6 sm:p-8 shadow-md shadow-blue-950/5 space-y-6"
+            className="lg:col-span-6 bg-white border-2 border-[#083D2A]/30 rounded-2xl p-6 sm:p-8 shadow-md shadow-[#083D2A]/5 space-y-6"
           >
             
             {/* Top Recommended System Pill */}
-            <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E5E0D8]">
               <div>
-                <p className="text-xs uppercase font-bold text-blue-900 tracking-wider flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                <p className="text-xs uppercase font-bold text-[#083D2A] tracking-wider flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#083D2A]" />
                   <span>Recommended Solution • अनुशंसित सोलर प्लांट</span>
                 </p>
-                <h3 className="text-3xl font-extrabold text-slate-900 mt-1">
-                  {calculation.recommendedKw} kW <span className="text-blue-600">Solar System</span>
+                <h3 className="text-3xl font-extrabold text-[#0D1F17] mt-1">
+                  {calculation.recommendedKw} kW <span className="text-[#083D2A]">Solar System</span>
                 </h3>
                 <p className="text-sm font-semibold text-slate-700 font-hindi mt-0.5">
                   {calculation.recommendedKw} किलोवाट सोलर रूफटॉप प्लांट
@@ -391,23 +391,23 @@ function Calculator({ onSelectQuote }) {
                   Requires ~{calculation.panelCount} high-efficiency 550W Loom Solar / Tata panels (~{calculation.recommendedKw * 85} sq ft roof)
                 </p>
               </div>
-              <div className="p-3.5 bg-blue-50 text-blue-600 rounded-2xl border border-blue-100 shadow-xs">
+              <div className="p-3.5 bg-[#FAF8F4] text-[#083D2A] rounded-2xl border border-blue-100 shadow-xs">
                 <Zap className="w-8 h-8" />
               </div>
             </div>
 
             {/* Mode Switcher: Cash & Subsidy vs 6-7% Govt Bank Loan & EMI */}
-            <div className="bg-slate-100 p-1.5 rounded-2xl flex gap-1.5 border border-slate-200">
+            <div className="bg-slate-100 p-1.5 rounded-2xl flex gap-1.5 border border-[#E5E0D8]">
               <button
                 type="button"
                 onClick={() => setCalcMode("subsidy")}
                 className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
                   calcMode === "subsidy"
-                    ? "bg-white text-slate-900 shadow-sm font-bold border border-slate-200"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-white text-[#0D1F17] shadow-sm font-bold border border-[#E5E0D8]"
+                    : "text-[#4B5550] hover:text-[#0D1F17]"
                 }`}
               >
-                <Coins className="w-3.5 h-3.5 text-amber-500" />
+                <Coins className="w-3.5 h-3.5 text-[#B5850A]" />
                 <span>Cash & Subsidy • नकदी व सब्सिडी</span>
               </button>
 
@@ -416,13 +416,13 @@ function Calculator({ onSelectQuote }) {
                 onClick={() => setCalcMode("loan")}
                 className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
                   calcMode === "loan"
-                    ? "bg-blue-600 text-white shadow-md font-bold shadow-blue-600/20"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#083D2A] text-white shadow-sm font-bold"
+                    : "text-[#4B5550] hover:text-[#0D1F17]"
                 }`}
               >
-                <Landmark className="w-3.5 h-3.5 text-amber-300" />
+                <Landmark className="w-3.5 h-3.5 text-[#F5C441]" />
                 <span>6-7% Bank Loan & EMI • आसान किस्त</span>
-                <span className="text-[9px] bg-amber-400 text-slate-950 font-bold px-1.5 py-0.5 rounded-full uppercase hidden sm:inline">
+                <span className="text-[9px] bg-[#F5C441] text-[#0D1F17] font-bold px-1.5 py-0.5 rounded-full uppercase hidden sm:inline">
                   ₹1,800/mo
                 </span>
               </button>
@@ -432,14 +432,14 @@ function Calculator({ onSelectQuote }) {
               /* DEDICATED 6-7% GOVT BANK LOAN & EMI MINI-TAB */
               <div className="space-y-4">
                 {/* Middle-Class Eye-Opener: Monthly Bill vs Solar EMI */}
-                <div className="bg-[#0a1e3b] text-white p-5 rounded-2xl shadow-sm border border-blue-800 space-y-4">
+                <div className="bg-[#083D2A] text-white p-5 rounded-2xl shadow-sm border border-[#0F4D37] space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold">
+                      <div className="w-8 h-8 rounded-xl bg-[#F5C441] text-[#0D1F17] flex items-center justify-center font-bold">
                         <PiggyBank className="w-4 h-4" />
                       </div>
                       <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#F5C441] block">
                           Middle-Class Reality Check • बिजली बिल बनाम ईएमआई
                         </span>
                         <span className="text-[11px] text-slate-400">
@@ -447,7 +447,7 @@ function Calculator({ onSelectQuote }) {
                         </span>
                       </div>
                     </div>
-                    <span className="text-[11px] bg-blue-500/20 text-sky-300 border border-blue-500/40 px-2.5 py-0.5 rounded-full font-bold">
+                    <span className="text-[11px] bg-[#FAF8F4]0/20 text-[#F5C441] border border-[#083D2A]/40 px-2.5 py-0.5 rounded-full font-bold">
                       6-7% Fixed Interest
                     </span>
                   </div>
@@ -469,11 +469,11 @@ function Calculator({ onSelectQuote }) {
                     </div>
 
                     {/* New Solar EMI */}
-                    <div className="bg-[#0a1e3b]/80 border border-amber-400/40 p-3.5 rounded-2xl">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 block">
+                    <div className="bg-[#083D2A]/80 border border-[#F5C441]/40 p-3.5 rounded-2xl">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F5C441] block">
                         New Solar Loan EMI • मासिक किस्त
                       </span>
-                      <p className="text-2xl font-extrabold text-amber-400 mt-1">
+                      <p className="text-2xl font-extrabold text-[#F5C441] mt-1">
                         ₹{loanCalc.emi.toLocaleString()}
                         <span className="text-xs font-normal text-amber-200">/mo</span>
                       </p>
@@ -485,19 +485,19 @@ function Calculator({ onSelectQuote }) {
 
                   {/* Monthly In-Pocket Cash Saving Banner */}
                   {loanCalc.isCheaperThanBill ? (
-                    <div className="bg-blue-500/15 border border-blue-400/40 p-3 rounded-2xl flex items-center justify-between text-xs text-sky-200">
+                    <div className="bg-[#FAF8F4]0/15 border border-[#083D2A]/40 p-3 rounded-2xl flex items-center justify-between text-xs text-[#C7D6CE]">
                       <div className="flex items-center gap-2">
-                        <BadgeCheck className="w-4 h-4 text-amber-400 shrink-0" />
+                        <BadgeCheck className="w-4 h-4 text-[#F5C441] shrink-0" />
                         <span>
                           <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()} cheaper</strong> than your current power bill!
                         </span>
                       </div>
-                      <span className="text-[10px] bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded-full shrink-0">
+                      <span className="text-[10px] bg-[#F5C441] text-[#0D1F17] font-bold px-2 py-0.5 rounded-full shrink-0">
                         +₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()}/mo extra
                       </span>
                     </div>
                   ) : (
-                    <div className="bg-blue-500/15 border border-blue-400/30 p-3 rounded-2xl text-xs text-blue-200 flex items-center gap-2">
+                    <div className="bg-[#FAF8F4]0/15 border border-[#083D2A]/30 p-3 rounded-2xl text-xs text-blue-200 flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                       <span>
                         Loan paid off in <strong>{loanTenure} years</strong>, followed by <strong>20+ years of 100% FREE electricity</strong>!
@@ -523,7 +523,7 @@ function Calculator({ onSelectQuote }) {
                           onClick={() => setLoanTenure(t.years)}
                           className={`py-2 px-1 rounded-xl text-center text-xs font-bold transition cursor-pointer ${
                             loanTenure === t.years
-                              ? "bg-amber-400 text-slate-950 shadow-md font-bold"
+                              ? "bg-[#F5C441] text-[#0D1F17] shadow-md font-bold"
                               : "bg-slate-800/80 text-slate-300 hover:bg-slate-800"
                           }`}
                         >
@@ -551,7 +551,7 @@ function Calculator({ onSelectQuote }) {
                           onClick={() => setSelectedBank(b.id)}
                           className={`py-1.5 px-2 rounded-xl text-center font-semibold transition cursor-pointer text-[11px] ${
                             selectedBank === b.id
-                              ? "bg-blue-600 text-white font-bold border border-blue-400"
+                              ? "bg-[#083D2A] text-white font-bold border border-[#083D2A]"
                               : "bg-slate-800/60 text-slate-400 hover:text-white"
                           }`}
                         >
@@ -563,29 +563,29 @@ function Calculator({ onSelectQuote }) {
                 </div>
 
                 {/* Loan Financing Breakdown Table */}
-                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-2.5 text-xs text-slate-700 shadow-xs">
+                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#E5E0D8] space-y-2.5 text-xs text-slate-700 shadow-xs">
                   <div className="flex justify-between">
                     <span>Gross Plant Investment • कुल प्लांट लागत:</span>
-                    <span className="font-bold text-slate-900">₹{calculation.grossCost.toLocaleString()}</span>
+                    <span className="font-bold text-[#0D1F17]">₹{calculation.grossCost.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-blue-900 font-semibold">
+                  <div className="flex justify-between text-[#083D2A] font-semibold">
                     <span>Govt Subsidy (DBT direct to bank account):</span>
-                    <span className="font-bold text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
+                    <span className="font-bold text-[#B5850A]">- ₹{calculation.subsidy.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-blue-700">
+                  <div className="flex justify-between text-[#083D2A]">
                     <span>Borrower Margin Money (10% Down Payment):</span>
-                    <span className="font-bold text-blue-700">₹{loanCalc.minDownPayment.toLocaleString()}</span>
+                    <span className="font-bold text-[#083D2A]">₹{loanCalc.minDownPayment.toLocaleString()}</span>
                   </div>
-                  <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline">
+                  <div className="pt-2 border-t border-[#E5E0D8] flex justify-between items-baseline">
                     <div>
-                      <span className="text-slate-900 font-bold block">
+                      <span className="text-[#0D1F17] font-bold block">
                         Net Bank Loan Financed • ऋण राशि:
                       </span>
                       <span className="text-[10px] text-slate-500">
                         @ 6% - 7% p.a. via JanSamarth for {loanTenure} years ({loanCalc.totalMonths} EMIs)
                       </span>
                     </div>
-                    <span className="text-xl font-bold text-blue-600">
+                    <span className="text-xl font-bold text-[#083D2A]">
                       ₹{loanCalc.effectiveLoanPrincipal.toLocaleString()}
                     </span>
                   </div>
@@ -596,12 +596,12 @@ function Calculator({ onSelectQuote }) {
               <div className="space-y-6">
                 {/* Financial Overview Cards */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                  <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] shadow-xs">
                     <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
-                      <Coins className="w-3.5 h-3.5 text-amber-500" />
+                      <Coins className="w-3.5 h-3.5 text-[#B5850A]" />
                       <span>Monthly Savings • मासिक बचत</span>
                     </span>
-                    <p className="text-2xl font-extrabold text-blue-900 mt-1">
+                    <p className="text-2xl font-extrabold text-[#083D2A] mt-1">
                       ₹{calculation.monthlySaving.toLocaleString()}
                     </p>
                     <p className="text-[11px] text-slate-500 mt-0.5">
@@ -609,12 +609,12 @@ function Calculator({ onSelectQuote }) {
                     </p>
                   </div>
 
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                  <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] shadow-xs">
                     <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-blue-600" />
+                      <Clock className="w-3.5 h-3.5 text-[#083D2A]" />
                       <span>Payback Period • लागत वापसी</span>
                     </span>
-                    <p className="text-2xl font-extrabold text-blue-600 mt-1">
+                    <p className="text-2xl font-extrabold text-[#083D2A] mt-1">
                       {calculation.paybackYears} Years • वर्ष
                     </p>
                     <p className="text-[11px] text-slate-500 mt-0.5">
@@ -624,58 +624,58 @@ function Calculator({ onSelectQuote }) {
                 </div>
 
                 {/* Detailed Cost Breakdown Table */}
-                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-3 text-sm shadow-xs">
+                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#E5E0D8] space-y-3 text-sm shadow-xs">
                   <div className="flex justify-between items-center text-slate-700 text-xs sm:text-sm">
                     <span>Estimated Gross Cost • अनुमानित कुल लागत:</span>
-                    <span className="font-bold text-slate-900">
+                    <span className="font-bold text-[#0D1F17]">
                       ₹{calculation.grossCost.toLocaleString()}
                     </span>
                   </div>
 
                   {propertyType === "residential" ? (
-                    <div className="flex justify-between items-center text-blue-900 text-xs sm:text-sm font-semibold">
+                    <div className="flex justify-between items-center text-[#083D2A] text-xs sm:text-sm font-semibold">
                       <span className="flex items-center gap-1">
-                        <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
+                        <BadgeCheck className="w-3.5 h-3.5 text-[#B5850A]" />
                         <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
                       </span>
-                      <span className="font-bold text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
+                      <span className="font-bold text-[#B5850A]">- ₹{calculation.subsidy.toLocaleString()}</span>
                     </div>
                   ) : (
-                    <div className="flex justify-between items-center text-blue-700 text-xs sm:text-sm">
+                    <div className="flex justify-between items-center text-[#083D2A] text-xs sm:text-sm">
                       <span>Accelerated Depreciation • 40% टैक्स छूट:</span>
                       <span className="font-bold">40% Tax Write-Off</span>
                     </div>
                   )}
 
-                  <div className="pt-3 border-t border-slate-200 flex justify-between items-baseline">
+                  <div className="pt-3 border-t border-[#E5E0D8] flex justify-between items-baseline">
                     <div>
-                      <span className="text-slate-900 font-bold text-sm block">
+                      <span className="text-[#0D1F17] font-bold text-sm block">
                         Net Effective Investment • आपकी शुद्ध लागत:
                       </span>
-                      <span className="text-[10px] text-blue-800 font-semibold block">
+                      <span className="text-[10px] text-[#083D2A] font-semibold block">
                         Subsidy directly credited in bank via DBT • सीधे बैंक खाते में सब्सिडी
                       </span>
                     </div>
-                    <span className="text-3xl font-extrabold text-blue-950">
+                    <span className="text-3xl font-extrabold text-[#0D1F17]">
                       ₹{calculation.netCost.toLocaleString()}*
                     </span>
                   </div>
                 </div>
 
                 {/* Environmental & Lifetime Benefit */}
-                <div className="grid grid-cols-2 gap-3 text-xs bg-blue-50/70 p-3.5 rounded-2xl border border-blue-200">
+                <div className="grid grid-cols-2 gap-3 text-xs bg-[#FAF8F4] p-3.5 rounded-2xl border border-[#E5E0D8]">
                   <div className="flex items-center gap-2">
-                    <TrendingUp className="w-4 h-4 text-blue-700 shrink-0" />
+                    <TrendingUp className="w-4 h-4 text-[#083D2A] shrink-0" />
                     <div>
-                      <span className="text-slate-600 block text-[10px]">25-Year Net Profit • कुल लाभ:</span>
-                      <span className="font-bold text-slate-900">₹{(calculation.lifetimeSavings / 100000).toFixed(1)} Lakhs • लाख</span>
+                      <span className="text-[#4B5550] block text-[10px]">25-Year Net Profit • कुल लाभ:</span>
+                      <span className="font-bold text-[#0D1F17]">₹{(calculation.lifetimeSavings / 100000).toFixed(1)} Lakhs • लाख</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Leaf className="w-4 h-4 text-amber-600 shrink-0" />
+                    <Leaf className="w-4 h-4 text-[#9A6E04] shrink-0" />
                     <div>
-                      <span className="text-slate-600 block text-[10px]">CO2 Emissions Cut • प्रदूषण कमी:</span>
-                      <span className="font-bold text-slate-900">{calculation.co2Reduction} Tons • टन</span>
+                      <span className="text-[#4B5550] block text-[10px]">CO2 Emissions Cut • प्रदूषण कमी:</span>
+                      <span className="font-bold text-[#0D1F17]">{calculation.co2Reduction} Tons • टन</span>
                     </div>
                   </div>
                 </div>
@@ -687,7 +687,7 @@ function Calculator({ onSelectQuote }) {
               <button
                 type="button"
                 onClick={handleApplyEstimate}
-                className="flex-1 bg-[#0a1e3b] hover:bg-blue-900 text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer text-sm"
+                className="flex-1 bg-[#083D2A] hover:bg-[#062E20] text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer text-sm"
               >
                 {calcMode === "loan" ? (
                   <>
@@ -705,9 +705,9 @@ function Calculator({ onSelectQuote }) {
               <button
                 type="button"
                 onClick={shareOnWhatsApp}
-                className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 px-5 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer text-sm shadow-md shadow-amber-500/20"
+                className="bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold py-3.5 px-5 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer text-sm shadow-md shadow-amber-500/20"
               >
-                <MessageCircle className="w-4 h-4 text-slate-950" />
+                <MessageCircle className="w-4 h-4 text-[#0D1F17]" />
                 <span>{calcMode === "loan" ? "WhatsApp EMI Plan • ईएमआई प्लान" : "WhatsApp Quote • कोटेशन"}</span>
               </button>
             </div>

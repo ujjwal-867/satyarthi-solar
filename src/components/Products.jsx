@@ -59,7 +59,7 @@ function Products() {
   };
 
   return (
-    <section id="products" className="py-10 sm:py-14 bg-white text-slate-900 border-t border-slate-200/80 relative">
+    <section id="products" className="py-10 sm:py-14 bg-white text-[#0D1F17] border-t border-[#E5E0D8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Left-Aligned Header */}
@@ -68,22 +68,22 @@ function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-slate-200"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-[#E5E0D8]"
         >
           <div className="space-y-1.5 max-w-2xl">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
-              <ShoppingBag className="w-4 h-4 text-blue-600" />
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#083D2A] flex items-center gap-1.5">
+              <ShoppingBag className="w-4 h-4 text-[#083D2A]" />
               <span>Solar Inventory & Wholesale Rates • अधिकृत सोलर उपकरण</span>
             </p>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Solar Equipment & <span className="text-amber-600">Products Catalog</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0D1F17] tracking-tight">
+              Solar Equipment & <span className="text-[#9A6E04]">Products Catalog</span>
             </h2>
-            <p className="text-sm font-bold text-blue-900 font-hindi">
+            <p className="text-sm font-bold text-[#083D2A] font-hindi">
               सोलर उपकरण, इन्वर्टर, पैनल एवं स्ट्रक्चर कैटलॉग
             </p>
           </div>
 
-          <p className="text-slate-600 text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
+          <p className="text-[#4B5550] text-xs sm:text-sm lg:max-w-sm lg:text-right leading-relaxed">
             Authorized supply of Tier-1 solar panels, smart hybrid inverters, solar flour mill drives, and heavy GI mounting hardware.
           </p>
         </motion.div>
@@ -99,8 +99,8 @@ function Products() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap transition cursor-pointer desktop-button-hover ${
                   selectedCategory === cat.id
-                    ? "bg-[#0a1e3b] text-white shadow-lg shadow-blue-950/20"
-                    : "bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100"
+                    ? "bg-[#083D2A] text-white shadow-lg shadow-[#083D2A]/15"
+                    : "bg-[#FAF8F4] text-slate-700 border border-[#E5E0D8] hover:bg-slate-100"
                 }`}
               >
                 <span>{cat.en}</span>
@@ -117,7 +117,7 @@ function Products() {
               placeholder="Search product / उत्पाद खोजें..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-10 pr-4 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100"
+              className="w-full bg-[#FAF8F4] border border-[#E5E0D8] rounded-2xl pl-10 pr-4 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#083D2A] focus:bg-white focus:ring-2 focus:ring-blue-100"
             />
           </div>
         </div>
@@ -136,7 +136,7 @@ function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="relative bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
+                className="relative bg-white rounded-2xl border border-[#E5E0D8] overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
               >
 
                 <div>
@@ -150,13 +150,13 @@ function Products() {
                     />
                     
                     {/* Badge */}
-                    <span className="absolute top-3 left-3 bg-[#0a1e3b] text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-amber-400/30">
+                    <span className="absolute top-3 left-3 bg-[#083D2A] text-[#F5C441] text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-[#F5C441]/30">
                       {product.badge || product.category}
                     </span>
 
                     {/* Discount Tag */}
                     {discountPercent && discountPercent > 0 && (
-                      <span className="absolute top-3 right-3 bg-amber-400 text-slate-950 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                      <span className="absolute top-3 right-3 bg-[#F5C441] text-[#0D1F17] text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
                         {discountPercent}% OFF
                       </span>
                     )}
@@ -174,16 +174,16 @@ function Products() {
 
                   {/* Body Content */}
                   <div className="p-5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#083D2A]">
                       {product.category}
                     </span>
-                    <h3 className="text-base font-bold text-slate-900 mt-1 line-clamp-2 leading-snug">
+                    <h3 className="text-base font-bold text-[#0D1F17] mt-1 line-clamp-2 leading-snug">
                       {product.name}
                     </h3>
 
                     {/* Pricing */}
                     <div className="mt-3 flex items-baseline gap-2">
-                      <span className="text-xl font-bold text-slate-900">
+                      <span className="text-xl font-bold text-[#0D1F17]">
                         ₹{product.price.toLocaleString()}
                       </span>
                       {product.originalPrice && (
@@ -196,7 +196,7 @@ function Products() {
                       </span>
                     </div>
 
-                    <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#4B5550] mt-2 line-clamp-2 leading-relaxed">
                       {product.description}
                     </p>
 
@@ -216,7 +216,7 @@ function Products() {
                   <button
                     type="button"
                     onClick={() => handleWhatsAppInquiry(product)}
-                    className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                    className="flex-1 bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
                     <MessageCircle className="w-3.5 h-3.5 fill-slate-950" />
                     <span>WhatsApp Order • ऑर्डर</span>
@@ -226,7 +226,7 @@ function Products() {
                     type="button"
                     onClick={() => handleSelectForQuote(product)}
                     title="Get Official Quote"
-                    className="p-2.5 bg-blue-50 hover:bg-blue-100 text-blue-900 rounded-xl transition cursor-pointer"
+                    className="p-2.5 bg-[#FAF8F4] hover:bg-blue-100 text-[#083D2A] rounded-xl transition cursor-pointer"
                   >
                     <ArrowRight className="w-4 h-4" />
                   </button>
@@ -237,13 +237,13 @@ function Products() {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-8 bg-slate-50 rounded-2xl border border-slate-200 mt-6">
+          <div className="text-center py-8 bg-[#FAF8F4] rounded-2xl border border-[#E5E0D8] mt-6">
             <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
             <h3 className="text-base font-bold text-slate-800">No products found • कोई उत्पाद नहीं मिला</h3>
             <p className="text-xs text-slate-500 mt-1">Try searching for other equipment or reset the filter.</p>
             <button
               onClick={() => { setSelectedCategory("All"); setSearchQuery(""); }}
-              className="mt-4 text-xs font-bold text-blue-600 underline cursor-pointer"
+              className="mt-4 text-xs font-bold text-[#083D2A] underline cursor-pointer"
             >
               Reset Filters • फ़िल्टर रीसेट करें
             </button>
@@ -256,24 +256,24 @@ function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-8 sm:mt-10 bg-slate-50 rounded-2xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-8 sm:mt-10 bg-[#FAF8F4] rounded-2xl p-6 sm:p-7 border border-[#E5E0D8] flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#0a1e3b] text-amber-400 rounded-2xl font-bold shadow-md shadow-blue-950/20">
+            <div className="p-3 bg-[#083D2A] text-[#F5C441] rounded-2xl font-bold shadow-md shadow-[#083D2A]/15">
               <Zap className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 text-sm">
+              <h4 className="font-bold text-[#0D1F17] text-sm">
                 Need Bulk Solar Panels, Heavy GI Structures or Custom Chakki VFD Drives?
               </h4>
-              <p className="text-xs text-blue-900 font-semibold font-hindi mt-0.5">
+              <p className="text-xs text-[#083D2A] font-semibold font-hindi mt-0.5">
                 डीलर, ठेकेदार व चक्की मालिकों के लिए थोक आपूर्ति सीधे मोतिराम अड्डा डिपो से उपलब्ध है।
               </p>
             </div>
           </div>
           <a
             href={`tel:${businessData.phone[0]}`}
-            className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-6 py-3 rounded-xl text-xs transition shrink-0 flex items-center gap-2 shadow-md"
+            className="bg-[#083D2A] hover:bg-[#062E20] text-white font-bold px-6 py-3 rounded-xl text-xs transition shrink-0 flex items-center gap-2 shadow-md"
           >
             <PhoneCall className="w-3.5 h-3.5" />
             <span>Call Wholesale Desk: +91 {businessData.phone[0]}</span>
@@ -308,14 +308,14 @@ function Products() {
 
             <div className="p-6 space-y-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#083D2A]">
                   {selectedProduct.category}
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 mt-1">
+                <h3 className="text-xl font-bold text-[#0D1F17] mt-1">
                   {selectedProduct.name}
                 </h3>
                 <div className="flex items-baseline gap-2 mt-2">
-                  <span className="text-2xl font-extrabold text-slate-900">
+                  <span className="text-2xl font-extrabold text-[#0D1F17]">
                     ₹{selectedProduct.price.toLocaleString()}
                   </span>
                   {selectedProduct.originalPrice && (
@@ -327,7 +327,7 @@ function Products() {
                 </div>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-[#4B5550] leading-relaxed">
                 {selectedProduct.description}
               </p>
 
@@ -337,8 +337,8 @@ function Products() {
                 </h4>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   {selectedProduct.specs?.map((s, idx) => (
-                    <div key={idx} className="bg-slate-50 p-2 rounded-xl text-slate-700 flex items-center gap-1.5 border border-slate-100">
-                      <Check className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                    <div key={idx} className="bg-[#FAF8F4] p-2 rounded-xl text-slate-700 flex items-center gap-1.5 border border-slate-100">
+                      <Check className="w-3.5 h-3.5 text-[#083D2A] shrink-0" />
                       <span>{s}</span>
                     </div>
                   ))}
@@ -352,7 +352,7 @@ function Products() {
                     handleWhatsAppInquiry(selectedProduct);
                     setSelectedProduct(null);
                   }}
-                  className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-amber-500/20"
+                  className="flex-1 bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-amber-500/20"
                 >
                   <MessageCircle className="w-4 h-4 fill-slate-950" />
                   <span>Order on WhatsApp • ऑर्डर</span>
@@ -363,7 +363,7 @@ function Products() {
                     handleSelectForQuote(selectedProduct);
                     setSelectedProduct(null);
                   }}
-                  className="flex-1 bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-3 rounded-xl text-xs transition cursor-pointer"
+                  className="flex-1 bg-[#083D2A] hover:bg-[#062E20] text-white font-bold py-3 rounded-xl text-xs transition cursor-pointer"
                 >
                   Request Official Quote • कोटेशन
                 </button>

@@ -81,13 +81,13 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
   };
 
   return (
-    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+    <div className="flex-1 bg-[#FAF8F4] text-[#0D1F17] font-sans selection:bg-[#F5C441] selection:text-[#0D1F17] flex flex-col justify-between">
       <div>
         {/* Left-Aligned Hero Band */}
-        <section className="py-10 sm:py-12 bg-[#0a1e3b] text-white relative overflow-hidden">
+        <section className="py-10 sm:py-12 bg-[#083D2A] text-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
-              <BatteryCharging className="w-4 h-4 text-amber-400" />
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#F5C441] flex items-center gap-1.5">
+              <BatteryCharging className="w-4 h-4 text-[#F5C441]" />
               <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
             </p>
 
@@ -95,11 +95,11 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Off-Grid & Hybrid Solar: Our True Rate List"
                 highlightWords={["True", "Rate", "List"]}
-                highlightClass="text-amber-400"
+                highlightClass="text-[#F5C441]"
               />
             </h1>
 
-            <h2 className="text-base sm:text-xl font-bold text-amber-300 font-hindi">
+            <h2 className="text-base sm:text-xl font-bold text-[#F5C441] font-hindi">
               24×7 पावर बैकअप • इन्वर्टर, बैटरी व सोलर आटा चक्की रेट लिस्ट
             </h2>
 
@@ -111,12 +111,12 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
 
         {/* True Rate List Section */}
         <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-7 border-b border-slate-200">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-7 border-b border-[#E5E0D8]">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0D1F17]">
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
                 highlightWords={["Off-Grid", "Aata", "Chakki"]}
-                highlightClass="text-blue-700"
+                highlightClass="text-[#083D2A]"
               />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm md:max-w-sm md:text-right">
@@ -128,21 +128,20 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
             {offGridTiers.map((tier, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.07 }}
-                className={`group relative rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.04 }}
+                className={`group relative rounded-xl p-6 flex flex-col justify-between transition-all duration-200 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
-                    ? "bg-[#0a1e3b] text-white shadow-sm ring-2 ring-amber-400"
+                    ? "bg-[#083D2A] text-white shadow-sm ring-2 ring-[#F5C441]"
                     : tier.aataChakki
-                    ? "bg-amber-50/70 text-slate-900 border-2 border-amber-400 shadow-xs hover:shadow-md"
-                    : "bg-white text-slate-900 border border-slate-200 hover:border-amber-400 shadow-xs hover:shadow-md"
+                    ? "bg-[#FDF3D0]/60 text-[#0D1F17] border-2 border-[#F5C441] shadow-xs hover:shadow-md"
+                    : "bg-white text-[#0D1F17] border border-[#E5E0D8] hover:border-[#F5C441] shadow-xs hover:shadow-md"
                 }`}
               >
                 <div className="relative z-10">
                   <div className="flex justify-between items-start gap-2 mb-2">
-                    <span className="text-[11px] font-bold bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-md">
+                    <span className="text-[11px] font-bold bg-[#F5C441] text-[#0D1F17] px-2.5 py-0.5 rounded-md">
                       {tier.rateBadge}
                     </span>
                     {tier.aataChakki && (
@@ -152,24 +151,24 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     )}
                   </div>
 
-                  <h4 className={`text-xl font-bold mt-2 ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
+                  <h4 className={`text-xl font-bold mt-2 ${tier.bestValue ? "text-white" : "text-[#0D1F17]"}`}>
                     {tier.capacity}
                   </h4>
 
                   <div className={`mt-4 p-3 rounded-2xl space-y-1.5 text-xs ${
-                    tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"
+                    tier.bestValue ? "bg-white/10" : "bg-[#FAF8F4] border border-slate-100"
                   }`}>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Battery Setup:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-slate-900"}`}>{tier.batterySetup}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-[#F5C441]" : "text-[#0D1F17]"}`}>{tier.batterySetup}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Inverter PCU:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-white" : "text-blue-700"}`}>{tier.inverterSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-white" : "text-[#083D2A]"}`}>{tier.inverterSpec}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Solar Panels:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-blue-900"}`}>{tier.panelSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-[#F5C441]" : "text-[#083D2A]"}`}>{tier.panelSpec}</strong>
                     </div>
                   </div>
 
@@ -177,7 +176,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     <p className={`font-semibold ${tier.bestValue ? "text-slate-200" : "text-slate-700"}`}>
                       <strong>Ideal For:</strong> {tier.idealFor}
                     </p>
-                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-blue-900 font-hindi"}`}>
+                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-[#083D2A] font-hindi"}`}>
                       <strong>Backup Benefit:</strong> {tier.backup}
                     </p>
                   </div>
@@ -187,7 +186,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   <button
                     type="button"
                     onClick={() => handleInquire(tier.capacity)}
-                    className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="flex-1 bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     <span>WhatsApp Quote</span>
@@ -197,7 +196,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl transition flex items-center justify-center shrink-0"
                     title="Call Engineer"
                   >
-                    <Phone className="w-4 h-4 text-blue-700" />
+                    <Phone className="w-4 h-4 text-[#083D2A]" />
                   </a>
                 </div>
               </motion.div>
@@ -207,10 +206,10 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Agro Mill Direct Consultation Banner */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-8 sm:mt-10 bg-[#0a1e3b] text-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
+            className="mt-8 sm:mt-10 bg-[#083D2A] text-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row justify-between items-center gap-6 border border-[#0F4D37]"
           >
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
+              <span className="text-[#F5C441] font-bold text-xs uppercase tracking-wider block">
                 Solar Flour Mill & Agro VFD Engineering
               </span>
               <h3 className="text-2xl font-extrabold text-white">
@@ -224,7 +223,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I want complete details and quotation for 10HP/15HP Solar Aata Chakki plant.")}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0"
+              className="bg-[#F5C441] hover:bg-[#eab62e] text-[#0D1F17] font-bold px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0"
             >
               Get Chakki Quotation ↗
             </a>
@@ -233,16 +232,16 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Showroom & Engineering Office Card */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+            className="mt-6 sm:mt-8 bg-white border border-[#E5E0D8] rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
           >
             <div className="space-y-1 text-center md:text-left">
-              <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
+              <span className="text-[#083D2A] font-bold text-xs uppercase tracking-wider block">
                 Showroom & Engineering Office • मुख्य पता
               </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0D1F17]">
                 Visit Our Motiram Adda Showroom in Gorakhpur
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#4B5550] max-w-xl">
                 {businessData.address}. Live demo of UTL, Luminous, Exide & Fujiyama PCUs, C10 Batteries & VFD Flour Mill Drives.
               </p>
             </div>
@@ -251,13 +250,13 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+                className="bg-[#F5C441] hover:bg-[#eab62e] text-[#0D1F17] font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
               >
                 Google Maps ↗
               </a>
               <a
                 href={`tel:${businessData.phone[0]}`}
-                className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition flex items-center justify-center gap-1.5"
+                className="bg-[#083D2A] hover:bg-[#062E20] text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition flex items-center justify-center gap-1.5"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>+91 {businessData.phone[0]}</span>

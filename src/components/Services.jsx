@@ -1,13 +1,5 @@
 import { motion } from "framer-motion";
-import { 
-  Home, 
-  Building2, 
-  Wheat, 
-  CheckCircle2, 
-  ArrowRight, 
-  Zap 
-} from "lucide-react";
-import { ExpressiveKineticText } from "./MotionEffects";
+import { Home, Building2, Wheat, Check, ArrowRight } from "lucide-react";
 
 export default function Services() {
   const handleBookService = (serviceTitle) => {
@@ -26,10 +18,9 @@ export default function Services() {
       id: "residential",
       icon: Home,
       number: "01",
-      likes: 184,
       title: "Residential Rooftop Solar",
       titleHi: "आवासीय रूफटॉप सोलर",
-      tagline: "PM Surya Ghar • Up to ₹1,08,000 Direct Subsidy",
+      tagline: "PM Surya Ghar · Up to ₹1,08,000 Direct Subsidy",
       bullets: [
         "1 kW to 10 kW On-Grid Rooftop Systems",
         "25-Year Warranty + UPPCL Net Metering",
@@ -41,7 +32,6 @@ export default function Services() {
       id: "commercial",
       icon: Building2,
       number: "02",
-      likes: 142,
       title: "Commercial & Institutional Solar",
       titleHi: "कमर्शियल सोलर प्लांट्स",
       tagline: "Cut Commercial Electricity Bills by up to 80%",
@@ -56,10 +46,9 @@ export default function Services() {
       id: "aata-chakki",
       icon: Wheat,
       number: "03",
-      likes: 169,
       title: "Solar Aata Chakki & Heavy Drives",
       titleHi: "सोलर आटा चक्की ड्राइव्स",
-      tagline: "Zero Diesel • Run 10 HP to 25 HP on Sun",
+      tagline: "Zero Diesel · Run 10 HP to 25 HP on Sun",
       bullets: [
         "Save ₹25,000 – ₹45,000/mo on Diesel",
         "High-Torque Solar VFD (No Batteries Needed)",
@@ -70,32 +59,24 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-10 sm:py-12 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Left-Aligned Architectural Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-4 border-amber-500 pl-4">
-          <div className="space-y-1">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-700 flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-amber-500" />
-              <span>Core Solar Pillars • प्रमुख सेवाएं</span>
+    <section id="services" className="py-20 sm:py-24 bg-white text-[#0D1F17]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-10 border-b border-[#E5E0D8]">
+          <div className="space-y-2 max-w-xl">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#083D2A]">
+              Why Satyarthi Solar
             </p>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              <ExpressiveKineticText
-                text="Solar Service & Engineering in Gorakhpur"
-                highlightWords={["Solar", "Service", "Engineering"]}
-                highlightClass="text-blue-700"
-              />
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0D1F17] leading-tight">
+              Core Solar EPC Solutions
             </h2>
+            <div className="w-10 h-[3px] bg-[#F5C441]" />
           </div>
-
-          <p className="text-slate-600 text-xs sm:text-sm md:max-w-md md:text-right">
-            Turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep installation across Purvanchal.
+          <p className="text-sm text-[#4B5550] max-w-sm md:text-right font-hindi">
+            घरेलू, कमर्शियल एवं सोलर आटा चक्की — उच्च गुणवत्ता व 25 वर्ष वारंटी
           </p>
         </div>
 
-        {/* 3 Core Service Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
+        <div className="mt-10 grid md:grid-cols-3 gap-6">
           {coreServices.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -104,57 +85,56 @@ export default function Services() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.25 }}
-                className="relative bg-white rounded-2xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
+                transition={{ duration: 0.35, delay: idx * 0.06 }}
+                className="bg-[#FAF8F4] border border-[#E5E0D8] hover:border-[#083D2A] rounded-xl p-6 sm:p-7 flex flex-col justify-between transition-colors"
               >
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-10 h-10 rounded-lg bg-[#083D2A] text-[#F5C441] flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-
-                    <span className="text-xl font-bold text-slate-300 group-hover:text-amber-500 transition-colors font-mono">
+                    <span className="text-sm font-mono font-semibold text-[#8A928D]">
                       {service.number}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
+                  <h3 className="text-xl font-bold text-[#0D1F17] leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-xs font-bold text-blue-800 font-hindi mt-0.5">
+                  <p className="text-xs font-medium text-[#083D2A] font-hindi mt-1">
                     {service.titleHi}
                   </p>
-
-                  <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+                  <p className="text-xs font-semibold text-[#6F5306] bg-[#FDF3D0] border border-[#EFE0A8] rounded-md px-3 py-1.5 mt-4 inline-block">
                     {service.tagline}
                   </p>
 
-                  {/* Concise Bullet Points */}
-                  <div className="mt-4 pt-3 border-t border-slate-100 space-y-2">
+                  <ul className="mt-5 pt-5 border-t border-[#E5E0D8] space-y-2.5 text-sm text-[#4B5550]">
                     {service.bullets.map((b, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-[#083D2A] shrink-0 mt-0.5" />
                         <span>{b}</span>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
 
-                <div className="relative z-10 mt-6 pt-3 border-t border-slate-100">
+                <div className="mt-7 pt-5 border-t border-[#E5E0D8] flex items-center justify-between gap-3">
+                  <span className="text-xs text-[#5C6660] truncate">
+                    {service.ideal}
+                  </span>
                   <button
                     type="button"
                     onClick={() => handleBookService(service.title)}
-                    className="w-full py-2.5 bg-slate-100 group-hover:bg-[#0a1e3b] group-hover:text-white text-slate-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-[#083D2A] hover:bg-[#062E20] text-white text-xs font-semibold transition-colors shrink-0 cursor-pointer"
                   >
-                    <span>Inquire Now • परामर्श लें</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <span>Book Survey</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );
