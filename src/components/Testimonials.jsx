@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
-import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink, Sparkles } from "lucide-react";
+import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink, BadgeCheck } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
   ExpressiveKineticText,

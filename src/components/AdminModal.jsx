@@ -17,7 +17,7 @@ import {
   LogOut,
   ShieldCheck,
   RefreshCw,
-  Sparkles,
+  BadgeCheck,
   Camera,
   Film,
   Scissors,
@@ -435,7 +435,7 @@ function AdminModal({ isOpen, onClose }) {
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <BadgeCheck className="w-3.5 h-3.5 text-amber-300" />
                 <span>Visual AI & Performance Suite (Whisk • Veo • EZGif • AirLift)</span>
               </button>
             </div>
@@ -445,7 +445,7 @@ function AdminModal({ isOpen, onClose }) {
               <div className="space-y-6 animate-fadeIn">
                 <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
                   <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
-                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <BadgeCheck className="w-4 h-4 text-amber-500" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
                   </div>
                   <h3 className="text-xl font-black text-slate-900">

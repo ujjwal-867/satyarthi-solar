@@ -10,7 +10,7 @@ import {
   ChevronRight, 
   ShieldCheck, 
   Zap, 
-  Sparkles, 
+  BadgeCheck, 
   MessageCircle, 
   Phone, 
   Maximize2,
@@ -485,7 +485,7 @@ export function BentoGallery() {
           className="text-center max-w-4xl mx-auto space-y-4"
         >
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <Sparkles className="w-4 h-4 text-amber-500 animate-spin" style={{ animationDuration: "6s" }} />
+            <BadgeCheck className="w-4 h-4 text-amber-500 animate-spin" style={{ animationDuration: "6s" }} />
             <span>2500+ Happy Clients • GPS Verified Installations in Gorakhpur & UP</span>
           </div>
 

@@ -1,21 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { businessData } from "../data/businessData";
 import { 
-  Bot, 
   X, 
   Send, 
-  Sparkles, 
   MessageCircle, 
-  Phone, 
   HelpCircle, 
-  MapPin, 
-  Zap, 
   RotateCcw, 
-  CheckCircle2, 
   Sun,
   ShieldCheck,
-  ChevronRight,
-  ExternalLink
+  ChevronRight
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -30,35 +23,35 @@ export function AIChatbot() {
   // Quick Basic FAQs
   const basicFaqs = [
     {
-      label: "💰 3kW PM Surya Ghar Subsidy?",
+      label: "3kW PM Surya Ghar Subsidy",
       query: "What is the subsidy and cost for a 3kW solar system under PM Surya Ghar?"
     },
     {
-      label: "⚡ 5kW Cost & Savings?",
+      label: "5kW Cost & Savings",
       query: "How much does a 5kW On-Grid solar system cost and how much will I save each month?"
     },
     {
-      label: "❄️ Home Appliances (AC/Fridge)?",
+      label: "Home Appliances (AC/Fridge)",
       query: "Which electronics and home appliances (Inverter AC, Fridge, Cooler) do you sell?"
     },
     {
-      label: "🌾 Solar Aata Chakki (0 Diesel)?",
+      label: "Solar Aata Chakki",
       query: "Can solar run my Aata Chakki (Flour Mill) without diesel and how much will I save?"
     },
     {
-      label: "📜 UPNEDA & MNRE Approval?",
+      label: "UPNEDA & MNRE Approval",
       query: "Are you an official government approved vendor under UPNEDA and Loom Solar?"
     },
     {
-      label: "📍 Store Location & Google Map?",
+      label: "Store Location & Map",
       query: "Where is your store located and what is your Google Maps address in Gorakhpur?"
     },
     {
-      label: "📞 Contact Er. Satya Prakash?",
+      label: "Contact Er. Satya Prakash",
       query: "How can I contact Er. Satya Prakash Satyarthi directly?"
     },
     {
-      label: "📋 Book Free Site Survey?",
+      label: "Book Free Site Survey",
       query: "How do I book a free roof survey for my home or business?"
     }
   ];
@@ -69,12 +62,12 @@ export function AIChatbot() {
       id: "msg-1",
       sender: "bot",
       time: "Just now",
-      text: "नमस्ते! I am **Surya Mitra AI (सूर्य साथी)**, the official AI assistant of **Satyarthi Solar Solution & Electronics**, Gorakhpur.\n\nI can help you calculate solar subsidies, system costs, home appliances, or book a **100% Free Site Survey**.",
+      text: "नमस्ते! Welcome to the **Satyarthi Solar Help Desk (सोलर सहायता केंद्र)**, Gorakhpur.\n\nSelect a topic below or type your question for instant subsidy tables, system costs, store address, or to book a **Free Site Survey**.",
       quickReplies: [
-        "💰 3kW Subsidy?",
-        "❄️ Home Appliances",
-        "🌾 Solar Aata Chakki",
-        "📍 Google Maps Location"
+        "3kW Subsidy",
+        "Home Appliances",
+        "Solar Aata Chakki",
+        "Store Location & Map"
       ]
     }
   ]);
@@ -249,53 +242,46 @@ export function AIChatbot() {
             className="hidden sm:flex bg-slate-900/95 hover:bg-slate-900 text-white text-[11px] font-bold px-3.5 py-2 rounded-full shadow-xl border border-amber-400/60 items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping shrink-0"></span>
-            <span className="whitespace-nowrap">{lang === "hi" ? "सूर्य साथी AI • सब्सिडी" : "Surya AI • Subsidies & Rates"}</span>
+            <span className="whitespace-nowrap">{lang === "hi" ? "सोलर सहायता • सब्सिडी व दरें" : "Solar Help Desk • Rates & Subsidy"}</span>
           </button>
         )}
 
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Open AI Solar Assistant"
-          className="group relative flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 rounded-full shadow-2xl shadow-amber-500/40 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
+          aria-label="Open Solar Help Desk"
+          className="group relative flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-white cursor-pointer"
         >
           {isOpen ? (
             <X className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950" />
           ) : (
-            <>
-              <Bot className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
-              <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5 sm:h-4 sm:w-4">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-sky-500 border-2 border-white"></span>
-              </span>
-            </>
+            <HelpCircle className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950" />
           )}
         </button>
       </div>
 
-      {/* Expanded AI Chatbot Window */}
+      {/* Expanded Help Desk Window */}
       {isOpen && (
-        <div className="fixed bottom-28 right-2.5 sm:bottom-24 sm:right-6 z-50 w-[95vw] sm:w-[410px] max-h-[75vh] sm:max-h-[80vh] h-[540px] sm:h-[580px] bg-white rounded-3xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed bottom-28 right-2.5 sm:bottom-24 sm:right-6 z-50 w-[95vw] sm:w-[410px] max-h-[75vh] sm:max-h-[80vh] h-[540px] sm:h-[580px] bg-white rounded-2xl shadow-2xl border border-slate-300/80 flex flex-col overflow-hidden">
           
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#0a1e3b] via-blue-950 to-slate-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
+          <div className="bg-[#0a1e3b] text-white p-4 flex items-center justify-between border-b border-slate-800">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 to-amber-500 flex items-center justify-center shadow-md">
-                <Sun className="w-6 h-6 text-slate-950 animate-[spin_12s_linear_infinite]" />
-                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-sky-400 rounded-full border-2 border-slate-900"></span>
+              <div className="w-10 h-10 rounded-xl bg-amber-400 flex items-center justify-center shadow-sm">
+                <Sun className="w-6 h-6 text-slate-950" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h3 className="text-sm font-black text-white tracking-wide">
-                    Surya Mitra AI
+                  <h3 className="text-sm font-bold text-white tracking-wide">
+                    Solar Help Desk
                   </h3>
-                  <span className="bg-amber-400/20 text-amber-300 text-[10px] px-1.5 py-0.2 rounded font-bold border border-amber-400/30">
-                    सूर्य साथी
+                  <span className="bg-amber-400/20 text-amber-300 text-[10px] px-1.5 py-0.5 rounded font-semibold border border-amber-400/30">
+                    सहायता केंद्र
                   </span>
                 </div>
                 <p className="text-[11px] text-sky-300 flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3" />
-                  UPNEDA Approved EPC Assistant
+                  UPNEDA Approved EPC Support
                 </p>
               </div>
             </div>

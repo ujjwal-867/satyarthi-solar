@@ -1,8 +1,8 @@
 import { businessData } from "../data/businessData";
-import { MessageCircle, Phone, Gift } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
-function FloatingWhatsApp({ onOpenFestiveOffer }) {
+function FloatingWhatsApp() {
   const whatsappHref = `https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(
     "Hello Er. Satyaprakash, I want a solar installation quotation and subsidy guidance for my property in Uttar Pradesh."
   )}`;
@@ -104,20 +104,6 @@ function FloatingWhatsApp({ onOpenFestiveOffer }) {
           </span>
           <span className="text-[9.5px] font-black tracking-tight">WhatsApp</span>
         </a>
-
-        {onOpenFestiveOffer && (
-          <button
-            type="button"
-            onClick={onOpenFestiveOffer}
-            className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-amber-300 active:scale-95 transition cursor-pointer"
-            aria-label="Open Festive Offer"
-          >
-            <span className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 flex items-center justify-center text-white shadow-xs border border-amber-200/70">
-              <Gift className="w-3.5 h-3.5" />
-            </span>
-            <span className="text-[9.5px] font-black tracking-tight">Offer 🎁</span>
-          </button>
-        )}
 
         <a
           href={businessData.instagramUrl}

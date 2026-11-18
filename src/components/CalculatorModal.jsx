@@ -1,4 +1,4 @@
-import { X, Sparkles, Calculator as CalcIcon } from "lucide-react";
+import { X, BadgeCheck, Calculator as CalcIcon } from "lucide-react";
 import Calculator from "./Calculator";
 import ErrorBoundary from "./ErrorBoundary";
 

@@ -9,7 +9,6 @@ import {
   FileText,
   Lock,
   Calculator,
-  Gift,
   Home,
   Sun,
   BatteryCharging,
@@ -24,7 +23,6 @@ function Navbar({
   onOpenAdmin, 
   onNavigate, 
   onOpenCalculator, 
-  onOpenFestiveOffer,
   currentRoute = "/" 
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -115,19 +113,8 @@ function Navbar({
             </a>
           </div>
 
-          {/* Right: Special Offer Badge, Social Media, Helplines & Admin */}
+          {/* Right: Social Media, Helplines & Admin */}
           <div className="flex items-center gap-2.5 text-xs flex-wrap justify-center">
-            {onOpenFestiveOffer && (
-              <button
-                type="button"
-                onClick={onOpenFestiveOffer}
-                className="inline-flex items-center gap-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-2.5 py-0.5 rounded-full text-[10px] transition cursor-pointer shadow-xs"
-              >
-                <Gift className="w-3 h-3 text-rose-800" />
-                <span>🎁 Special Offer</span>
-              </button>
-            )}
-
             {/* Direct Instagram & Facebook Icons */}
             <div className="flex items-center gap-2 pr-2 sm:border-r border-blue-800/50">
               <a 
@@ -285,18 +272,6 @@ function Navbar({
 
           {/* Mobile Right Controls: Compact so Brand Name stays on 1 Line */}
           <div className="flex items-center gap-1 sm:gap-2 xl:hidden shrink-0">
-            {onOpenFestiveOffer && (
-              <button
-                type="button"
-                onClick={onOpenFestiveOffer}
-                aria-label="Open Festive Offer"
-                title="Navratri & Diwali Offer"
-                className="text-[11px] font-black text-slate-950 bg-gradient-to-r from-amber-400 to-orange-500 p-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center justify-center"
-              >
-                <Gift className="w-4 h-4 text-rose-900" />
-              </button>
-            )}
-
             <button
               onClick={onOpenCalculator}
               aria-label="Open Solar Calculator"
@@ -379,20 +354,6 @@ function Navbar({
           </div>
 
           <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
-            {onOpenFestiveOffer && (
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenFestiveOffer();
-                }}
-                className="w-full inline-flex justify-center items-center gap-2 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-slate-950 font-black py-3 rounded-xl shadow-xs border border-amber-300"
-              >
-                <Gift className="w-5 h-5 text-slate-950" />
-                <span>🪔 Festive Offers</span>
-              </button>
-            )}
-
             <button
               type="button"
               onClick={() => {

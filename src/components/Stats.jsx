@@ -138,7 +138,7 @@ function Stats() {
                 whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.03 }}
                 className={`group relative rounded-2xl p-3.5 ${stat.accent} border transition-all duration-300 hover:shadow-lg flex flex-col justify-between overflow-hidden cursor-default`}
               >
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 hidden pointer-events-none" />
                 <div className="flex items-center justify-between gap-1 mb-2.5 relative z-10">
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.12 }}

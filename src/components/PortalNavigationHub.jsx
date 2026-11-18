@@ -7,7 +7,7 @@ import {
   ArrowRight, 
   PhoneCall,
   Calculator,
-  Sparkles
+  BadgeCheck
 } from "lucide-react";
 import { ExpressiveKineticText } from "./MotionEffects";
 
@@ -102,7 +102,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
         {/* Clean Header */}
         <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
             <span>Quick Access Portals • मुख्य विभाग</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">

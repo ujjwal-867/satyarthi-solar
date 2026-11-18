@@ -7,7 +7,7 @@ import {
   Droplets, 
   Flame, 
   Shirt, 
-  Sparkles, 
+  BadgeCheck, 
   Zap, 
   MessageCircle, 
   Check, 
@@ -94,7 +94,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <BadgeCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
               </div>
               <LiveActivityStreamBadge dark />
@@ -148,7 +148,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Category Filter Pills */}
           <div className="flex justify-start sm:justify-center items-center gap-2 overflow-x-auto pb-4 scrollbar-none">
             {categories.map((cat) => {
-              const Icon = categoryIcons[cat.id] || Sparkles;
+              const Icon = categoryIcons[cat.id] || BadgeCheck;
               return (
                 <motion.button
                   key={cat.id}
@@ -173,7 +173,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Appliances 3D Bento Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" style={{ perspective: "1100px" }}>
             {filteredAppliances.map((app, idx) => {
-              const Icon = categoryIcons[app.category] || Sparkles;
+              const Icon = categoryIcons[app.category] || BadgeCheck;
               return (
                 <motion.div
                   key={app.id}

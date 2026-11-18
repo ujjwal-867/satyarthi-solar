@@ -35,3 +35,13 @@ api/data/*.json
 *.njsproj
 *.sln
 *.sw?
+
+# College Internship Documents (Local Only - Never Deploy)
+*.docx
+*.pptx
+satyarthi_solar_internship_presentation.pptx
+satyarthi_solar_internship_report.docx
+satyarthi_solar_offer_letter.*
+satyarthi_solar_internship_certificate.*
+
+

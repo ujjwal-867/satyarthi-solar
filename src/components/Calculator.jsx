@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
 import { 
   Calculator as CalcIcon, 
-  Sparkles, 
+  BadgeCheck, 
   ArrowRight, 
   MessageCircle, 
   Zap, 
@@ -488,7 +488,7 @@ function Calculator({ onSelectQuote }) {
                   {loanCalc.isCheaperThanBill ? (
                     <div className="bg-blue-500/15 border border-blue-400/40 p-3 rounded-2xl flex items-center justify-between text-xs text-sky-200">
                       <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                        <BadgeCheck className="w-4 h-4 text-amber-400 shrink-0" />
                         <span>
                           <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()} cheaper</strong> than your current power bill!
                         </span>
@@ -636,7 +636,7 @@ function Calculator({ onSelectQuote }) {
                   {propertyType === "residential" ? (
                     <div className="flex justify-between items-center text-blue-900 text-xs sm:text-sm font-semibold">
                       <span className="flex items-center gap-1">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                        <BadgeCheck className="w-3.5 h-3.5 text-amber-500" />
                         <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
                       </span>
                       <span className="font-black text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>

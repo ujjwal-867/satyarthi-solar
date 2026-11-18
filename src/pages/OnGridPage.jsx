@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, ShieldCheck, Banknote, ArrowRight, Zap, MapPin, Phone } from "lucide-react";
+import { BadgeCheck, ShieldCheck, Banknote, ArrowRight, Zap, MapPin, Phone } from "lucide-react";
 import { businessData } from "../data/businessData";
 import PortalNavigationHub from "../components/PortalNavigationHub";
 import Footer from "../components/Footer";
@@ -76,7 +76,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <BadgeCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Official Government Subsidy Portal 2026 • 2500+ Happy Clients</span>
               </div>
               <LiveActivityStreamBadge dark />

@@ -13,8 +13,7 @@ import {
   Calculator,
   ChevronDown,
   Box,
-  Sun,
-  Sparkles
+  Sun
 } from "lucide-react";
 import {
   ExpressiveKineticText,
@@ -78,15 +77,6 @@ const KEY_HIGHLIGHTS = [
     title: "25-Year Warranty",
     subtitle: "25 साल वारंटी व नेट मीटरिंग"
   }
-];
-
-// Floating ambient solar photon particles for eye-soothing motion graphics
-const SOLAR_PARTICLES = [
-  { left: "12%", top: "22%", size: 6, delay: 0, duration: 7 },
-  { left: "28%", top: "68%", size: 8, delay: 1.2, duration: 9 },
-  { left: "64%", top: "18%", size: 5, delay: 0.6, duration: 8 },
-  { left: "82%", top: "54%", size: 7, delay: 1.8, duration: 10 },
-  { left: "46%", top: "36%", size: 6, delay: 2.4, duration: 8.5 }
 ];
 
 const containerVariants = {
@@ -154,64 +144,9 @@ function Hero({ onOpenCalculator }) {
         {/* Royal Navy Blue Directional Blend */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1e3b] via-[#0d284f]/90 sm:via-[#0d284f]/80 lg:via-[#0d284f]/65 to-[#0a1e3b]/30"></div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-50 via-slate-50/45 to-transparent pointer-events-none"></div>
-
-        {/* Desktop-Only Animated Breathing Solar Aurora Orbs (Conserves Mobile GPU/Battery) */}
-        <div className="hidden sm:block">
-          <motion.div
-            animate={{ scale: [1, 1.18, 1], opacity: [0.15, 0.25, 0.15] }}
-            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-            style={{ transform: "translate3d(0,0,0)", willChange: "transform, opacity", backfaceVisibility: "hidden" }}
-            className="gpu-layer absolute top-1/4 -left-24 w-96 h-96 bg-blue-500/22 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{ scale: [1, 1.22, 1], opacity: [0.12, 0.22, 0.12] }}
-            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            style={{ transform: "translate3d(0,0,0)", willChange: "transform, opacity", backfaceVisibility: "hidden" }}
-            className="gpu-layer absolute bottom-1/4 left-1/3 w-96 h-96 bg-amber-400/18 rounded-full blur-3xl"
-          />
-        </div>
-
-        {/* Mobile-Optimized Static Ambient Glow */}
-        <div className="gpu-layer sm:hidden absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
-        <div className="gpu-layer sm:hidden absolute bottom-1/4 right-0 w-64 h-64 bg-amber-400/12 rounded-full blur-2xl pointer-events-none" />
-
-        {/* Subtle 3D Perspective Grid Overlay */}
-        <div
-          className="absolute inset-0 opacity-14"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, rgba(56, 189, 248, 0.14) 1px, transparent 1px), linear-gradient(to bottom, rgba(245, 158, 11, 0.12) 1px, transparent 1px)",
-            backgroundSize: "56px 56px"
-          }}
-        />
-
-        {/* Desktop-Only Floating Solar Photon Particles */}
-        <div className="hidden sm:block">
-          {SOLAR_PARTICLES.map((p, i) => (
-            <motion.span
-              key={i}
-              style={{ left: p.left, top: p.top, width: p.size, height: p.size, willChange: "transform, opacity" }}
-              animate={{
-                y: [0, -28, 0],
-                x: [0, 12, 0],
-                opacity: [0.25, 0.75, 0.25],
-                scale: [0.9, 1.25, 0.9]
-              }}
-              transition={{
-                duration: p.duration,
-                delay: p.delay,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="gpu-layer absolute rounded-full bg-gradient-to-tr from-sky-300 to-amber-300 blur-[0.5px] shadow-sm shadow-sky-300/50"
-            />
-          ))}
-        </div>
       </div>
 
-      {/* =========================================================================
-          MAIN HERO CONTAINER (3D BENTO HOVER & EXPRESSIVE KINETIC TYPOGRAPHY)
-      ========================================================================= */}
+      {/* Main Hero Container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-14 lg:px-16 xl:px-12 my-auto">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
@@ -263,15 +198,9 @@ function Hero({ onOpenCalculator }) {
                     className="!justify-start"
                   />
                 </span>
-                <motion.span
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.25 }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className="inline-block whitespace-nowrap text-[1.38rem] min-[375px]:text-[1.55rem] sm:text-4xl md:text-5xl lg:text-[3.1rem] text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-amber-300 cursor-default"
-                >
+                <span className="inline-block whitespace-nowrap text-[1.38rem] min-[375px]:text-[1.55rem] sm:text-4xl md:text-5xl lg:text-[3.1rem] text-amber-400">
                   Satyarthi Solar Solution
-                </motion.span>
+                </span>
               </h1>
               
               <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed max-w-xl">
@@ -481,7 +410,7 @@ function Hero({ onOpenCalculator }) {
                   transition={{ duration: 0.35 }}
                   className="inline-flex items-center gap-1.5 text-left min-w-0"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span className="font-semibold text-slate-200 text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
                 </motion.div>
 

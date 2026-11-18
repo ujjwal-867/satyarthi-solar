@@ -6,7 +6,7 @@ import {
   Eye, 
   X, 
   CheckCircle2, 
-  Sparkles, 
+  BadgeCheck, 
   ArrowRight, 
   MessageCircle, 
   Coins, 

@@ -12,7 +12,7 @@ import {
   Clock, 
   ShieldCheck,
   Building2,
-  Sparkles,
+  BadgeCheck,
   PhoneCall
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";

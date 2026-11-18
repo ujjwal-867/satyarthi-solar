@@ -1,220 +1,72 @@
-# ☀️ Satyarthi Solar Solution - Official Website & Portal
+# Satyarthi Solar Solution — Web Platform & Solar Sizing Portal
 
-Official web portal and lead generation platform for **Satyarthi Solar Solution**, an approved solar EPC contractor empanelled with **UPNEDA** (Government of Uttar Pradesh) & **MNRE** under the **PM Surya Ghar: Muft Bijli Yojana**, and an **Authorized Dealer of LOOM SOLAR**.
+Official web application and automated solar sizing tool for **Satyarthi Solar Solution**, a UPNEDA-empanelled rooftop solar EPC contractor based at Motiram Adda, Deoria Road, Gorakhpur (Uttar Pradesh).
+
+**Live Website:** [https://satyarthisolarsolution.in](https://satyarthisolarsolution.in)
 
 ---
 
-## 🏢 Business Details & Credentials
+## Organization Details
 
-| Parameter | Details |
+| Field | Details |
 | :--- | :--- |
-| **Company Name** | Satyarthi Solar Solution (Solar & Electronics) |
-| **Proprietor / Lead Engineer** | **Er. Satya Prakash Satyarthi** |
-| **UPNEDA Vendor Code** | **`GKP2604066741`** |
-| **GSTIN** | **`09JCNPS2666N1ZE`** |
-| **Loom Solar Dealer Cert** | **`49531/UP/06/2023`** (Valid till 30 June 2028) |
-| **Fujiyama Solar Dealership** | Authorized Dealer (Deoria & Gorakhpur) |
-| **Amaze Dealership** | Authorized Partner |
-| **Approved Scheme** | PM Surya Ghar Muft Bijli Yojna / Grid Connected Rooftop Solar Phase-II |
-| **Contact Numbers** | `+91 8112991941` / `+91 8112991441` / Office: `+91 8112991914` |
-| **WhatsApp Support** | `+91 8112991941` |
-| **Email Address** | `satyarthisolarsolution@gmail.com` |
-| **Head Office Address** | Motiram Adda, Deoria Road, Gorakhpur, Uttar Pradesh - 273202 |
-| **Google Maps Pin** | [https://maps.app.goo.gl/52WNA9GceDuqo8L87](https://maps.app.goo.gl/52WNA9GceDuqo8L87) |
-| **Instagram** | [@satyarthi_solar_solution.gkp](https://www.instagram.com/satyarthi_solar_solution.gkp/) |
-| **Facebook** | [Satyarthi Solar Solutions](https://www.facebook.com/people/Satyarthi-Solar-Solutions/61566023554911/?locale=fi_FI#) |
+| **Organization** | Satyarthi Solar Solution (Solar & Electronics) |
+| **Proprietor & Chief EPC Engineer** | Er. Satya Prakash Satyarthi |
+| **UPNEDA Vendor Code** | `GKP2604066741` (PM Surya Ghar: Muft Bijli Yojana Phase-II) |
+| **GSTIN** | `09JCNPS2666N1ZE` |
+| **MSME Udyam** | `UDYAM-UP-32-0049022` |
+| **Address** | Motiram Adda, Deoria Road, Gorakhpur, Uttar Pradesh – 273202 |
+| **Contact** | `+91 8112991941` / `+91 8112991441` / Office: `+91 8112991914` |
+| **Email** | `satyarthisolarsolution@gmail.com` |
 
 ---
 
-## 🌟 Key Website Features
+## Key Modules
 
-1. **Top Govt Verification & Contact Bar**:
-   - Verified badge with UPNEDA Vendor Code: `GKP2604066741` & GSTIN `09JCNPS2666N1ZE`.
-   - Direct calling numbers and secret Admin CRM Portal launcher.
-2. **Hero Section**:
-   - Compelling headline and solar visual branding.
-   - Quick highlights: Loom Solar Dealer, Fujiyama & Amaze Partner, UPPCL Net Metering, 25-Year Panel Warranty.
-   - 3kW PM Surya Ghar cost breakdown card showing up to **₹1,08,000 Govt Subsidy**.
-3. **Credentials & Statistics Bar**:
-   - 5+ Years Experience, 2,200+ Installations, ₹4.5+ Cr Customer Savings, 45+ 5-Star Reviews.
-4. **PM Surya Ghar Subsidy Guide (UP 2026)**:
-   - Detailed breakdown for 1kW, 2kW, 3kW, 5kW, and 10kW systems with Central vs UP State subsidy splits.
-   - 5-step roadmap showing how Er. Satyaprakash gets the subsidy credited via DBT.
-5. **Interactive Solar ROI Calculator**:
-   - Live inputs for Monthly Bill (₹), Roof Area (sq ft), Property Type (Home, Commercial, Industrial, Chakki), and UP District.
-   - Outputs: Recommended kW, panel count, gross cost, subsidy deduction, net cost, monthly/annual savings, payback period, and lifetime return.
-   - One-click button to export quote directly to WhatsApp or pre-fill the contact form.
-6. **Official Quotation Sheets & Rate Cards**:
-   - High-resolution modal view of official PM Surya Ghar quotation sheet, On-Grid tier chart, and seasonal promotion brochures.
-7. **Home Appliances & Electronics Showroom**:
-   - Complete retail store showcasing 5-Star Inverter ACs, Double-Door Refrigerators, Desert Air Coolers, Fully Automatic Washing Machines, RO Water Purifiers, Heavy Geysers, and Smart LED TVs.
-   - Special **Solar + Appliance Combo Bundles** designed to run zero-electricity-bill households.
-8. **Turnkey Solar Services**:
-   - Residential Rooftop Solar, Commercial Solar, Industrial Plants, Solar Aata Chakki (10HP-25HP VFD), and Maintenance & AMC.
-9. **Equipment & Products Catalog**:
-   - Direct WhatsApp inventory catalog featuring Solar Aata Chakkis, Solar Water Heaters, On-Grid Inverters, rMPPT PCUs, Earthing Kits, and Structure Mounting Hardware.
-10. **Bento Grid Picture Gallery (Modern Asymmetric Showcase)**:
-    - Apple/Linear-style Bento Grid layout featuring real site photos, store hoarding at Motiram Adda, 2026 solar & home appliances brochures, rate charts, and Google Maps photos.
-    - Interactive filter tabs (All, Rooftop Solar, Store & Maps, Brochures & Rates, Aata Chakki & Commercial).
-    - Full-screen Lightbox modal with zoom, specifications, previous/next navigation, and direct "Inquire on WhatsApp" pre-filled button.
-11. **Interactive Google Maps Location & Store Experience Center**:
-    - Embedded live Google Map centered at **Motiram Adda, Deoria Road, Gorakhpur, UP - 273202** (Landmark: Near Motiram Chauraha & Rampur Market).
-    - Direct buttons for **"Open in Google Maps App"** (`https://maps.app.goo.gl/52WNA9GceDuqo8L87`) and turn-by-turn driving directions.
-    - Transit hub distances: 16 km from Gorakhpur Junction, 18 km from Airport, 22 km from Deoria Sadar.
-    - Operating hours (Mon-Sat 9 AM - 7:30 PM, Sun 10 AM - 4 PM) and 100km free site survey district badges (Gorakhpur, Deoria, Kushinagar, Maharajganj, Basti, etc.).
-12. **Surya Mitra AI Chatbot (सूर्य साथी AI Assistant)**:
-    - 24/7 interactive conversational AI floating widget powered by bilingual knowledge base (Hindi, English, Hinglish).
-    - One-click **Basic FAQs** answering:
-      - 💰 3kW PM Surya Ghar subsidy (₹1,08,000 max)
-      - ⚡ 5kW/10kW cost and monthly savings
-      - ❄️ 5-Star Home Appliances (AC, Fridge, Cooler) and zero-bill combos
-      - 🌾 Diesel-free Solar Aata Chakki (10-25HP VFD)
-      - 📜 UPNEDA Vendor Code (`GKP2604066741`), GSTIN (`09JCNPS2666N1ZE`), Loom Solar Dealer Cert
-      - 📍 Store location and Google Maps link
-      - 📞 Instant calling and WhatsApp handoff to Er. Satya Prakash
-    - In-chat lead capture for booking free roof site surveys.
-13. **Official Certificates & Approvals (High Trust)**:
-    - Interactive zoom & download view of:
-      1. UPNEDA Official Empanelment Letter (Govt of UP)
-      2. GST Registration Certificate (Form GST REG-06)
-      3. Fujiyama Solar Authorized Dealership Certificate
-      4. Loom Solar Authorized Dealership Certificate
-      5. Amaze Solar & Inverter Authorized Channel Partner Certificate
-14. **About Er. Satya Prakash Satyarthi & Mission**:
-    - Engineering background, company story, and comparison vs uncertified installers.
-15. **Customer Reviews & FAQ**:
-    - Verified UP client testimonials and accordion FAQ covering Net Metering and subsidies.
-16. **Lead Generation & Contact**:
-    - Instant form saving leads to local storage, sending POST to PHP endpoint, triggering confetti, and auto-dispatching formatted WhatsApp message.
-17. **Administrative CRM Dashboard (`Admin Portal`)**:
-    - Accessible via PIN (`satyarthi2026`).
-    - Tracks leads, changes status (New, Contacted, Site Visit, Converted, Rejected), 1-click calls/WhatsApp, and exports leads to Excel/CSV.
-18. **Floating WhatsApp Widget & Mobile Action Bar**:
-    - Floating action button on desktop and sticky quick-call/WhatsApp bar on mobile.
-    - Floating action button on desktop and sticky quick-call/WhatsApp bar on mobile.
+1. **Solar Capacity & Subsidy Calculator**: Client-side sizing calibrated to Eastern UP insolation (`120 units/kW/month`), UPPCL domestic tariff slabs, shadow-free roof area checks (`85 sq.ft/kW`), PM Surya Ghar 2026 DBT subsidy tiers (Central up to ₹78,000 + UP State ₹30,000 = ₹1,08,000), and reducing-balance 6.5% bank loan EMI estimates.
+2. **Multi-Portal SPA Architecture**: Dedicated lazy-loaded views for On-Grid Solar (`/on-grid`), Off-Grid & Solar Aata Chakki (`/off-grid`), Electronics Showroom (`/appliances`), Project Gallery (`/gallery`), and UPNEDA/Dealership Certificates (`/certificates`).
+3. **Lead Capture & Anti-Spam REST API**: Lightweight PHP 8 endpoint (`public/api/leads.php`) with Indian mobile regex validation (`^[6-9]\d{9}$`), XSS sanitization, CSS-hidden Honeypot bot trap, atomic `flock(LOCK_EX)` JSON persistence, `.htaccess` directory isolation, and structured WhatsApp dispatch.
+4. **Solar Help Desk**: Rule-based bilingual FAQ drawer covering subsidy tiers, system sizing, store location, and site survey booking.
+5. **Admin Lead Portal**: Protected lead management modal with status tracking and CSV export (credentials configured via server environment / private deployment config).
 
 ---
 
-## 🚀 Live Hosting Architecture: Hostinger Premium & Automated GitHub CI/CD
+## Tech Stack
 
-The production website is actively hosted on **Hostinger Premium Web Hosting** with an **India Edge CDN (Mumbai)** node delivering sub-50ms TTFB across Purvanchal and Uttar Pradesh:
-
-- **Live Production URL:** [https://satyarthisolarsolution.in/](https://satyarthisolarsolution.in/)
-- **Hosting Tier:** Hostinger Premium Plan (20 GB NVMe SSD, Unlimited Bandwidth)
-- **Web Server:** LiteSpeed / Hostinger Edge CDN (`hcdn`) with HTTP/2 & HTTP/3 support
-- **SSL Certificate:** Free Unlimited Automated Let's Encrypt Wildcard SSL
-- **Webroot Directory:** `/domains/satyarthisolarsolution.in/public_html`
-- **Backend Runtime:** PHP 8.x with PDO MySQL support & atomic file locking
+- **Frontend:** React 19, Vite 8 (Rolldown), Tailwind CSS v4, Framer Motion, Lucide React
+- **Backend:** Native PHP 8.x REST endpoints + file-locked JSON persistence
+- **Hosting & CI/CD:** Hostinger Cloud (Apache 2.4, TLS 1.3 SSL, `.htaccess` SPA routing & far-future caching) deployed via GitHub Actions (`.github/workflows/deploy.yml`)
 
 ---
 
-### ⚡ 100% Automated CI/CD GitHub Deployment
-
-Whenever code or content is pushed to the `main` branch, **GitHub Actions** automatically runs the production pipeline (`.github/workflows/deploy.yml`):
-
-1. **Checkout & Setup:** Checks out repository on Ubuntu runner with Node.js 20.
-2. **Build:** Runs `npm run build` with Vite compiler (generates hashed asset bundles, minified HTML/CSS, and structured JSON-LD).
-3. **Lead Data Protection:** Automatically protects `api/data/leads.json` from ever being overwritten by deployment artifacts.
-4. **FTP Synchronization:** Executes `scripts/ftp-sync.js` via `basic-ftp`, syncing the `dist/` bundle directly to Hostinger's live webroot (`domains/satyarthisolarsolution.in/public_html` and `public_html`).
-5. **Audit Report:** Generates and commits `deploy-report.txt` with verified file sizes and timestamps.
-
-> **Deployment Time:** ~30 to 45 seconds from `git push` to live reflection.
-
----
-
-### 📦 Manual Deployment Method (Backup / Offline)
-
-If you ever wish to update files manually without git:
-
-1. **Generate the Package:**
-   ```bash
-   npm run package:cpanel
-   ```
-   *Creates `satyarthi-solar-cpanel.zip` (~7.2 MB) containing all compiled assets, images, certificates, and PHP endpoints.*
-
-2. **Upload to Hostinger hPanel:**
-   - Log into [Hostinger hPanel](https://hpanel.hostinger.com/).
-   - Go to **Websites** ➔ **Manage** ➔ **Files** ➔ **File Manager**.
-   - Open `/domains/satyarthisolarsolution.in/public_html`.
-   - Click **Upload** (⬆️) and select `satyarthi-solar-cpanel.zip`.
-   - Right-click `satyarthi-solar-cpanel.zip` and select **Extract** (extract to `.`).
-   - Delete the `.zip` file after extraction.
-
----
-
-### 🔍 Google Search Console & UP Local SEO
-
-The production domain is indexed on Google Search:
-- **Search Console Property:** `https://satyarthisolarsolution.in/`
-- **Verification Method:** HTML verification file (`google32b43d0bb8eeb794.html`)
-- **XML Sitemap:** `https://satyarthisolarsolution.in/sitemap.xml` (5 indexed landing pages)
-- **Target Keywords:** `satyarthi solar`, `satyarthi solar solution`, `satyarthi solar gorakhpur`, `upneda solar installer deoria`, `pm surya ghar subsidy maharajganj`.
-
----
-
-## 🛡️ Security Architecture & Hardening Measures
-
-This portal has been hardened according to OWASP Top 10 web application security principles:
-
-1. **Server-Side Authentication & Session Tokens (`api/auth.php`)**:
-   - Administrative login is verified server-side with constant-time password verification (`hash_equals`).
-   - Issues cryptographically secure 256-bit session tokens (`bin2hex(random_bytes(32))`) with a 4-hour expiration window.
-   - **Brute Force Protection**: Failed login attempts are tracked per IP address. After 5 failed attempts, the IP is automatically locked out for 15 minutes (`429 Too Many Requests`).
-   - Customer leads endpoint (`api/leads.php`) strictly requires a valid `Authorization: Bearer <token>` header.
-
-2. **Form Sanitization, Honeypot & XSS Defenses (`api/lead.php`)**:
-   - **Honeypot Bot Trap**: Hidden trap field (`website`) catches automated scrapers and spam bots, silently discarding their requests without consuming server resources.
-   - **Strict Input Validation**: Validates 10-digit Indian mobile numbers (`/^[6-9]\d{9}$/`), email formats, and strips dangerous HTML/script tags with `htmlspecialchars(strip_tags(...), ENT_QUOTES, 'UTF-8')`.
-   - **Anti-CRLF Header Injection**: Sanitizes email sender headers to prevent SMTP header injection attacks.
-
-3. **API Rate Limiting & DoS Mitigation**:
-   - Public inquiries via `POST /api/lead.php` are limited to **5 submissions per 10 minutes per IP**.
-
-4. **Security Headers & Sensitive File Shielding (`.htaccess`)**:
-   - `Options -Indexes`: Completely disables directory browsing across all folders.
-   - Blocks direct web access to sensitive files (`.env`, `config.php`, `database/schema.sql`, `*.json`, `*.log`, `package*.json`).
-   - `Content-Security-Policy`: Restricts scripts, styles, and frames to trusted sources.
-   - `X-Frame-Options: SAMEORIGIN`: Prevents iframe clickjacking attacks.
-   - `X-Content-Type-Options: nosniff`: Prevents MIME-sniffing exploits.
-   - `Strict-Transport-Security` (HSTS): Enforces 100% HTTPS encrypted transmission.
-
-5. **Production Debug Mode & Error Shielding**:
-   - `APP_DEBUG=false` by default in production.
-   - Suppresses PHP error display (`display_errors = 0`) to prevent leaking internal server paths, database credentials, or stack traces to attackers.
-
-6. **Database Prepared Statements (Zero SQL Injection)**:
-   - When MySQL is active, all queries use PDO prepared statements with parameter binding:
-     ```php
-     $stmt = $pdo->prepare("INSERT INTO leads (...) VALUES (?, ...)");
-     $stmt->execute([...]);
-     ```
-
----
-
-## 🛠️ Local Development & Security Audit
+## Local Development & Build
 
 ```bash
 # Install dependencies
 npm install
 
-# Start Vite dev server
+# Run local development server (includes Vite mock API plugin)
 npm run dev
-
-# Run Automated Security Audit (Tests 30+ security vectors)
-npm run audit:security
 
 # Build production bundle
 npm run build
 
-# Build and generate hardened cPanel zip archive
+# Package hardened cPanel archive (satyarthi-solar-cpanel.zip)
 npm run package:cpanel
 ```
 
 ---
 
-## 🔐 Admin Access
+## Repository Structure
 
-Click **Admin Login** in the footer or top navigation and enter:
-- **Default PIN:** `satyarthi2026`
-- **Session Duration:** 4 Hours (Auto-revoked on logout)
-- **Password Hash Customization:** Update `ADMIN_PASSWORD_HASH` in `.env` or `api/config.php`
+```text
+src/
+  components/    # Reusable UI sections, calculator, gallery, help desk, contact form
+  pages/         # Lazy-loaded route views (OnGrid, OffGrid, Electronics, Gallery, Certificates)
+  context/       # Language context provider
+  data/          # Business credentials, tariffs, subsidy tiers, and site records
+public/
+  api/           # PHP REST endpoints and .htaccess-protected data directory
+  images/        # Site installation photography, brand logos, and certificates
+scripts/         # Build packaging, FTP deployment sync, and security audit scripts
+```

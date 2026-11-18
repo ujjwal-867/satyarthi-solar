@@ -6,7 +6,7 @@ import {
   MessageCircle, 
   Search, 
   Check, 
-  Sparkles, 
+  BadgeCheck, 
   ArrowRight, 
   Zap, 
   ShieldCheck, 
