@@ -123,7 +123,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Off-Grid & Hybrid Solar: Our True Rate List"
                 highlightWords={["True", "Rate", "List"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200"
+                highlightClass="text-amber-400 font-extrabold"
               />
             </h1>
 
@@ -155,7 +155,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
                 highlightWords={["Off-Grid", "Aata", "Chakki"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+                highlightClass="text-amber-500 font-extrabold"
               />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1">
@@ -227,7 +227,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                       💡 <strong>Ideal For:</strong> {tier.idealFor}
                     </p>
                     <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-blue-900 font-hindi"}`}>
-                      ⚡ <strong>Backup Benefit:</strong> {tier.backup}
+                      <strong>Backup Benefit:</strong> {tier.backup}
                     </p>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
-                🌾 Solar Flour Mill & Agro VFD Engineering
+                Solar Flour Mill & Agro VFD Engineering
               </span>
               <h3 className="text-2xl font-black text-white">
                 Save ₹25,000 – ₹45,000 Every Month on Diesel
@@ -286,7 +286,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           >
             <div className="space-y-1 text-center md:text-left">
               <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
-                📍 Showroom & Engineering Office • मुख्य पता
+                Showroom & Engineering Office • मुख्य पता
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                 Visit Our Motiram Adda Showroom in Gorakhpur

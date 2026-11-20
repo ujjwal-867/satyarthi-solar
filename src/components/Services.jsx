@@ -100,25 +100,24 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Expressive Kinetic Typography & Live Collaborative Ticker */}
-        <div className="text-center max-w-3xl mx-auto space-y-2.5">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
+        {/* Section Header: Clean Asymmetric Editorial Layout */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <Zap className="w-3.5 h-3.5 text-amber-500" />
               <span>Core Solar Pillars • प्रमुख सेवाएं</span>
             </div>
-            <LiveActivityStreamBadge />
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Solar Service & Engineering in Gorakhpur"
+                highlightWords={["Solar", "Service", "Engineering"]}
+                highlightClass="text-amber-500 font-extrabold"
+              />
+            </h2>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Solar Service & Engineering in Gorakhpur"
-              highlightWords={["Solar", "Service", "Engineering"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
-            />
-          </h2>
-
-          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-sm sm:text-right">
             Turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep installation across Purvanchal.
           </p>
         </div>

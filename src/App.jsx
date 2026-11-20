@@ -15,9 +15,8 @@ const Testimonials = lazy(() => import("./components/Testimonials"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 
-// Deferred Floating Assistants & Popups (Zero overhead during initial paint)
+// Deferred Floating Assistants (Zero overhead during initial paint)
 const AIChatbot = lazy(() => import("./components/AIChatbot"));
-const FestiveOfferPopup = lazy(() => import("./components/FestiveOfferPopup"));
 
 // Lazy-loaded Modals & Independent Portal Pages for Fast Initial Mobile Load
 const AdminModal = lazy(() => import("./components/AdminModal"));
@@ -31,7 +30,6 @@ const CertificatesPage = lazy(() => import("./pages/CertificatesPage"));
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
-  const [isFestiveOfferOpen, setIsFestiveOfferOpen] = useState(false);
   const [prefilledQuote, setPrefilledQuote] = useState(null);
   const [loadChatbot, setLoadChatbot] = useState(false);
 
@@ -245,14 +243,6 @@ function AppContent() {
             </LazySection>
           </div>
         )}
-      </Suspense>
-
-      {/* Navratri & Diwali Maha-Utsav Animated Popup & Floating Gift Trigger (Lazy) */}
-      <Suspense fallback={null}>
-        <FestiveOfferPopup 
-          isOpenExternal={isFestiveOfferOpen}
-          onCloseExternal={() => setIsFestiveOfferOpen(false)}
-        />
       </Suspense>
 
       {/* Persistent Global Floating Assistants across All Pages (Chatbot deferred for instant mobile paint) */}

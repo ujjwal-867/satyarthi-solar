@@ -87,7 +87,7 @@ function Certificates({ isStandalonePage = false }) {
             <ExpressiveKineticText
               text="Government Approvals & Brand Authorizations"
               highlightWords={["Government", "Brand", "Authorizations"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+              highlightClass="text-amber-500 font-extrabold"
             />
             <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               यूपीनेडा सूचीबद्धता, सौर सम्मान एवं अधिकृत डीलरशिप प्रमाणपत्र
@@ -244,13 +244,13 @@ function Certificates({ isStandalonePage = false }) {
         <div className="mt-6 sm:mt-8 p-6 sm:p-8 bg-slate-50 border border-slate-200 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-1 text-center md:text-left">
             <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
-              🏛️ Registered Physical Office & Showroom • पंजीकृत पता
+              Registered Physical Office & Showroom • पंजीकृत पता
             </span>
             <h3 className="text-lg sm:text-xl font-black text-slate-900">
               Satyarthi Solar Solution (Prop. Er. Satya Prakash Satyarthi)
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
-              📍 <strong>Address:</strong> {businessData.address} • GSTIN: <strong>{businessData.gstin}</strong> • Udyam: <strong>{businessData.udyamNo}</strong> • UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>
+              <strong>Address:</strong> {businessData.address} • GSTIN: <strong>{businessData.gstin}</strong> • Udyam: <strong>{businessData.udyamNo}</strong> • UPNEDA Vendor Code: <strong>{businessData.vendorCode}</strong>
             </p>
           </div>
           <a

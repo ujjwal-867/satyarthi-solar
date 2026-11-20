@@ -75,7 +75,7 @@ function Contact({ prefilledData }) {
 
   const buildWhatsAppMessage = (lead) => {
     return (
-      `☀️ *New Solar & Electronics Inquiry (Satyarthi Solar Solution)*\n\n` +
+      `*New Solar & Electronics Inquiry (Satyarthi Solar Solution)*\n\n` +
       `• *Name:* ${lead.name}\n` +
       `• *Mobile:* +91 ${lead.phone}\n` +
       (lead.email ? `• *Email:* ${lead.email}\n` : "") +
@@ -89,7 +89,7 @@ function Contact({ prefilledData }) {
   };
 
   const buildMailtoHref = (lead) => {
-    const subject = encodeURIComponent(`☀️ New Solar Inquiry: ${lead.name} (${lead.phone}) - ${lead.location}`);
+    const subject = encodeURIComponent(`New Solar Inquiry: ${lead.name} (${lead.phone}) - ${lead.location}`);
     const body = encodeURIComponent(
       `New Customer Inquiry from Satyarthi Solar Solution Website:\n\n` +
       `Full Name: ${lead.name}\n` +
@@ -165,7 +165,7 @@ function Contact({ prefilledData }) {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        _subject: `☀️ New Solar Lead: ${newLead.name} (+91 ${newLead.phone}) - ${newLead.location}`,
+        _subject: `New Solar Lead: ${newLead.name} (+91 ${newLead.phone}) - ${newLead.location}`,
         _template: "table",
         _captcha: "false",
         Lead_ID: newLead.id,
@@ -219,39 +219,30 @@ function Contact({ prefilledData }) {
 
   return (
     <section id="contact" className="pt-6 pb-8 sm:pt-8 sm:pb-10 bg-slate-50/70 text-slate-900 relative overflow-hidden border-t border-slate-200/80">
-      {/* Background Soft Ambient Lights */}
-      <div className="gpu-layer absolute top-1/3 -right-40 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="gpu-layer absolute -bottom-20 -left-20 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Expressive Kinetic Typography */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-2.5"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-              <ShieldCheck className="w-4 h-4 text-amber-500" />
+        {/* Section Header: Clean Editorial Layout */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
               <span>UPNEDA Empanelled Contractor • Code: {businessData.vendorCode}</span>
             </div>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Get Your Free Site Survey & Solar Quote"
+                highlightWords={["Free", "Site", "Survey", "Quote"]}
+                highlightClass="text-amber-500 font-extrabold"
+              />
+            </h2>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Get Your Free Site Survey & Solar Quote"
-              highlightWords={["Free", "Site", "Survey", "Quote"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
-            />
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-sm sm:text-right">
             Fill out the form below or contact Er. Satya Prakash directly for quick quotation & subsidy assistance.
           </p>
-        </motion.div>
+        </div>
 
         {/* Contact Grid */}
         <div className="mt-6 sm:mt-8 grid lg:grid-cols-12 gap-6 sm:gap-8 items-start" style={{ perspective: "1100px" }}>

@@ -86,7 +86,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
               <ExpressiveKineticText
                 text="PM Surya Ghar: On-Grid Solar Rates"
                 highlightWords={["On-Grid", "Solar", "Rates"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-200 to-amber-300"
+                highlightClass="text-amber-400 font-extrabold"
               />
             </h1>
 
@@ -112,7 +112,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी।
                   </p>
                   <p className="text-xs sm:text-sm font-bold text-sky-200">
-                    ⚡ 6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Bank Loan) उपलब्ध।
+                    6% से 7% ब्याज दर पर आसान सरकारी बैंक ऋण (Bank Loan) उपलब्ध।
                   </p>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
               <ExpressiveKineticText
                 text="Official On-Grid Price List & Net Cost Breakdown"
                 highlightWords={["On-Grid", "Price", "List"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+                highlightClass="text-amber-500 font-extrabold"
               />
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
@@ -347,7 +347,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           >
             <div className="space-y-1 text-center md:text-left">
               <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
-                📍 Showroom & Engineering Office • मुख्य पता
+                Showroom & Engineering Office • मुख्य पता
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                 Visit Our Motiram Adda Showroom in Gorakhpur

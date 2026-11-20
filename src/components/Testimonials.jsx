@@ -1,12 +1,8 @@
 import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
-import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink, Sparkles } from "lucide-react";
+import { Star, Quote, CheckCircle2, MapPin, Play, Video, ExternalLink } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
-import {
-  ExpressiveKineticText,
-  InteractiveZapBurstButton,
-  LiveActivityStreamBadge
-} from "./MotionEffects";
+import { ExpressiveKineticText } from "./MotionEffects";
 
 function Testimonials() {
   const hindiComments = [
@@ -27,40 +23,34 @@ function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header with Expressive Kinetic Typography */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-2.5"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-2">
+        {/* Section Header: Clean Editorial Layout Breaking Monotony */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200">
+          <div className="space-y-2">
             <a 
               href={businessData.mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 hover:border-blue-400 hover:bg-blue-100 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs transition cursor-pointer"
+              className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 hover:border-blue-300 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider transition cursor-pointer"
             >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>4.9 / 5 Google Rating • 2500+ Clients Across UP ↗</span>
+              <span>4.9 / 5 Google Rating • 2,500+ Clients Across UP ↗</span>
             </a>
-            <LiveActivityStreamBadge />
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="What Our Customers Say Across Uttar Pradesh"
+                highlightWords={["Customers", "Uttar", "Pradesh"]}
+              />
+              <span className="block text-sm sm:text-base font-bold text-slate-600 mt-1 font-hindi">
+                2,500+ संतुष्ट परिवार • वास्तविक ग्राहक अनुभव
+              </span>
+            </h2>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="What Our Customers Say Across Uttar Pradesh"
-              highlightWords={["Customers", "Uttar", "Pradesh"]}
-            />
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              2500+ संतुष्ट परिवार • वास्तविक ग्राहक अनुभव
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Real stories from homeowners, doctors, and business owners who eliminated their electricity bills with Satyarthi Solar.
+          <p className="text-slate-600 text-xs sm:text-sm max-w-sm sm:text-right">
+            Real feedback from homeowners, doctors, and business owners who eliminated their electricity bills with Satyarthi Solar.
           </p>
-        </motion.div>
+        </div>
 
         {/* Testimonials 3D Bento Grid */}
         <div className="grid md:grid-cols-3 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
@@ -85,10 +75,7 @@ function Testimonials() {
                     ))}
                     <span className="text-xs font-bold text-slate-700 ml-1.5">5.0</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <InteractiveZapBurstButton initialCount={92 + idx * 19} label="Helpful" />
-                    <Quote className="w-5 h-5 text-slate-200 group-hover:text-amber-400 transition" />
-                  </div>
+                  <Quote className="w-5 h-5 text-slate-300 group-hover:text-amber-500 transition" />
                 </div>
 
                 {/* Comment */}
@@ -118,12 +105,8 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white rounded-3xl p-6 sm:p-8 border border-blue-900 shadow-2xl relative overflow-hidden"
         >
-          {/* Subtle Ambient Glow */}
-          <div className="gpu-layer absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="gpu-layer absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-
           <div className="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
             {/* Left Col: Info */}
             <div className="lg:col-span-7 space-y-3">

@@ -47,30 +47,26 @@ function FAQ() {
     <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 border-t border-slate-200/80 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <HelpCircle className="w-4 h-4 text-blue-600" />
-            <span>Solar & Subsidy Guide • सवाल व उत्तर</span>
+        {/* Header: Clean Editorial Layout */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+              <HelpCircle className="w-3.5 h-3.5 text-blue-700" />
+              <span>Solar & Subsidy Guide • सवाल व उत्तर</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Frequently Asked <span className="text-amber-500">Questions</span>
+              <span className="block text-sm sm:text-base font-bold text-slate-600 mt-1 font-hindi">
+                सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
+              </span>
+            </h2>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500">Questions</span>
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-sm sm:text-right">
             Everything you need to know about rooftop solar, PM Surya Ghar subsidy rules, net metering, and installation in UP.
           </p>
-        </motion.div>
+        </div>
 
         {/* Accordion */}
         <div className="mt-6 sm:mt-8 space-y-4">

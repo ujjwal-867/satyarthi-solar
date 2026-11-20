@@ -185,37 +185,30 @@ function Calculator({ onSelectQuote }) {
 
   return (
     <section id="calculator" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200/80">
-      {/* Background Soft Blue & Amber Ambient Gradients */}
-      <div className="gpu-layer absolute top-0 right-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="gpu-layer absolute bottom-0 left-1/4 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Bilingual Typography */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <CalcIcon className="w-4 h-4 text-blue-600" />
-            <span>Instant Solar ROI Calculator • तुरंत सोलर बचत कैलकुलेटर</span>
+        {/* Section Header: Clean Editorial Layout */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+              <CalcIcon className="w-3.5 h-3.5 text-blue-600" />
+              <span>Instant Solar ROI Calculator • तुरंत सोलर बचत कैलकुलेटर</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Calculate Solar Capacity & <span className="text-amber-500">Govt Subsidy</span>
+              <span className="block text-sm sm:text-base font-bold text-slate-600 mt-1 font-hindi">
+                सोलर क्षमता एवं सरकारी सब्सिडी की तुरंत गणना करें
+              </span>
+            </h2>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Calculate Solar Capacity & <span className="text-amber-500">Govt Subsidy</span>
-            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
-              सोलर क्षमता एवं सरकारी सब्सिडी की तुरंत गणना करें
-            </span>
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Enter your monthly electricity bill and roof space to see recommended system capacity, investment cost, UPNEDA subsidy, and payback period.
+          <p className="text-slate-600 text-xs sm:text-sm max-w-sm sm:text-right">
+            Enter your monthly bill and roof area to estimate recommended capacity, net cost after subsidy, and return on investment.
           </p>
-        </motion.div>
+        </div>
 
         {/* Main Calculator Grid */}
         <div className="mt-6 sm:mt-8 grid lg:grid-cols-12 gap-8 items-start">

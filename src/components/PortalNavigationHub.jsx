@@ -99,20 +99,22 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
     <section id="portal-hub" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-b border-slate-200/70 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Clean Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span>Quick Access Portals • मुख्य विभाग</span>
+        {/* Clean Editorial Header Breaking Monotony */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+          <div className="space-y-1.5">
+            <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-blue-950 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Quick Access Portals • मुख्य विभाग</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <ExpressiveKineticText
+                text="Explore Our Divisions & Rate Lists"
+                highlightWords={["Divisions", "Rate", "Lists"]}
+                highlightClass="text-amber-500 font-extrabold"
+              />
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            <ExpressiveKineticText
-              text="Explore Our Divisions & Rate Lists"
-              highlightWords={["Divisions", "Rate", "Lists"]}
-              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
-            />
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-slate-500 sm:text-right max-w-xs">
             Instant access to subsidy rate charts, off-grid systems, and solar calculators.
           </p>
         </div>

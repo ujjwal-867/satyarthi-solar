@@ -60,7 +60,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
       `• Category: ${item.category}\n` +
       `• Model: ${item.name}\n` +
       `• Price Range: ${item.priceRange}\n` +
-      `Please share models in stock, best Navratri/Diwali festive gift & discount, and delivery in Gorakhpur.`;
+      `Please share models in stock, best seasonal pricing & warranty details, and showroom delivery in Gorakhpur.`;
 
     window.open(`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -82,7 +82,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               },
               {
                 name: "Diwali Utsav Desk",
-                badge: "Assured Gift Active 🎁",
+                badge: "Official Dealership",
                 color: "bg-amber-400 text-slate-950",
                 pathX: ["84%", "70%", "78%", "84%"],
                 pathY: ["22%", "54%", "32%", "22%"],
@@ -104,7 +104,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               <ExpressiveKineticText
                 text="Home Appliances & Smart Living"
                 highlightWords={["Smart", "Living"]}
-                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-200 to-amber-300"
+                highlightClass="text-amber-400 font-extrabold"
               />
             </h1>
 
@@ -266,7 +266,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           >
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
-                📍 Showroom Location & Timing • शोरूम का पता
+                Showroom Location & Timing • शोरूम का पता
               </span>
               <h3 className="text-2xl font-black text-white">
                 Visit Our Motiram Adda Showroom in Gorakhpur
