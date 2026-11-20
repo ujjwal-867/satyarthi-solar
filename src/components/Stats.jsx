@@ -1,79 +1,175 @@
-import { businessData } from "../data/businessData";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { 
+  Award, 
+  Sun, 
+  Star, 
+  ShieldCheck, 
+  Zap,
+  Users
+} from "lucide-react";
+import { InteractiveZapBurstButton } from "./MotionEffects";
 
-function Stats({ onOpenCalculator }) {
-  const keyMetrics = [
-    { value: "2,500+", label: "Installed Sites", hi: "संतुष्ट परिवार व प्रतिष्ठान" },
-    { value: "2,200+ kW", label: "Commissioned Capacity", hi: "पूर्वांचल में कुल क्षमता" },
-    { value: "₹1,08,000", label: "Max Govt. Subsidy", hi: "सीधे बैंक खाते में DBT" },
-    { value: "25 Years", label: "Panel Warranty", hi: "टियर-1 मोनो पर्क गारंटी" }
+function AnimatedNumber({ targetText }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const [display, setDisplay] = useState(targetText);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const clean = targetText.replace(/,/g, "");
+    const match = clean.match(/^(\d+)(\+?%?)$/);
+    if (!match) {
+      setDisplay(targetText);
+      return;
+    }
+
+    const endVal = parseInt(match[1], 10);
+    const suffix = match[2] || "";
+    const hasComma = targetText.includes(",");
+    const duration = 1400;
+    const startTime = performance.now();
+
+    let rafId;
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * endVal);
+      const formatted = hasComma ? current.toLocaleString("en-IN") : String(current);
+      setDisplay(`${formatted}${suffix}`);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        setDisplay(targetText);
+      }
+    };
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [isInView, targetText]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
+function Stats() {
+  const bilingualStats = [
+    { 
+      value: "2500+", 
+      suffix: "Clients", 
+      en: "Happy Clients", 
+      hi: "2500+ संतुष्ट परिवार", 
+      desc: "Purvanchal & Gorakhpur",
+      icon: Users,
+      likes: 312,
+      accent: "bg-blue-50/70 border-blue-200/80 hover:border-blue-400",
+      iconStyle: "bg-[#0a1e3b] text-amber-400"
+    },
+    { 
+      value: "2,200+", 
+      suffix: "kW", 
+      en: "Solar Capacity", 
+      hi: "सोलर क्षमता स्थापित", 
+      desc: "Rooftops Across UP",
+      icon: Sun,
+      likes: 184,
+      accent: "bg-amber-50/70 border-amber-200/80 hover:border-amber-400",
+      iconStyle: "bg-amber-500 text-slate-950"
+    },
+    { 
+      value: "5+", 
+      suffix: "Years", 
+      en: "EPC Experience", 
+      hi: "5+ वर्षों का अनुभव", 
+      desc: "Trusted Solar Engineering",
+      icon: Award,
+      likes: 146,
+      accent: "bg-sky-50/70 border-sky-200/80 hover:border-sky-400",
+      iconStyle: "bg-blue-600 text-white"
+    },
+    { 
+      value: "100%", 
+      suffix: "UPNEDA", 
+      en: "Govt Empanelled", 
+      hi: "सरकारी स्वीकृति", 
+      desc: "Code: GKP2604066741",
+      icon: ShieldCheck,
+      likes: 215,
+      accent: "bg-blue-50/70 border-blue-200/80 hover:border-blue-400",
+      iconStyle: "bg-[#0a1e3b] text-white"
+    },
+    { 
+      value: "25", 
+      suffix: "Years", 
+      en: "Panel Warranty", 
+      hi: "पैनल वारंटी", 
+      desc: "Tier-1 Performance",
+      icon: Star,
+      likes: 198,
+      accent: "bg-amber-50/70 border-amber-200/80 hover:border-amber-400",
+      iconStyle: "bg-amber-500 text-slate-950"
+    },
+    { 
+      value: "₹1.08L", 
+      suffix: "Subsidy", 
+      en: "PM Surya Ghar", 
+      hi: "सरकारी सब्सिडी", 
+      desc: "Direct Bank DBT",
+      icon: Zap,
+      likes: 276,
+      accent: "bg-blue-50/70 border-blue-200/80 hover:border-blue-400",
+      iconStyle: "bg-[#0a1e3b] text-amber-400"
+    },
   ];
 
-  const partnerBrands = (businessData.primaryDealerBrands || []).slice(0, 8);
-
   return (
-    <section aria-label="Subsidy analysis and trust metrics">
-      {/* SolarHub-Inspired Warm Sunlight Mid-Page Break Band */}
-      <div className="bg-[#FDF3D0] border-y border-[#EFE0A8] py-14 sm:py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0D1F17]">
-            Estimate your solar subsidy &amp; monthly bill savings
-          </h2>
-          <p className="text-sm sm:text-[15px] text-[#4B5550] leading-relaxed max-w-xl mx-auto">
-            Check exact central + UP state PM Surya Ghar subsidy tiers, 6% bank loan EMI (from ₹1,800/mo), and 25-year payback for your rooftop.
-          </p>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={onOpenCalculator}
-              className="px-6 py-2.5 rounded-md bg-white hover:bg-[#FAF8F4] text-[#0D1F17] text-sm font-semibold border border-[#E5D79F] transition-colors cursor-pointer"
-            >
-              Open Solar Calculator
-            </button>
-            <a
-              href={`tel:${businessData.phone[0]}`}
-              className="px-5 py-2.5 rounded-md text-sm font-semibold text-[#083D2A] hover:underline"
-            >
-              Call +91 {businessData.phone[0]}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Quiet Hairline Metrics & Authorized Brand Strip */}
-      <div className="bg-[#FAF8F4] border-b border-[#E5E0D8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {keyMetrics.map((m, idx) => (
-              <div
+    <section className="relative z-20 -mt-8 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl shadow-slate-900/5 border border-slate-200/80 p-4 sm:p-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3" style={{ perspective: "1000px" }}>
+          {bilingualStats.map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div 
                 key={idx}
-                className="border-l-2 border-[#F5C441] pl-4 space-y-0.5"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.03 }}
+                className={`group relative rounded-2xl p-3.5 ${stat.accent} border transition-all duration-300 hover:shadow-lg flex flex-col justify-between overflow-hidden cursor-default`}
               >
-                <div className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0D1F17]">
-                  {m.value}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+                <div className="flex items-center justify-between gap-1 mb-2.5 relative z-10">
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.12 }}
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-xs ${stat.iconStyle}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </motion.div>
+                  <InteractiveZapBurstButton initialCount={stat.likes} label="" />
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-[#083D2A]">
-                  {m.label}
-                </div>
-                <div className="text-[11px] text-[#5C6660] font-hindi">
-                  {m.hi}
-                </div>
-              </div>
-            ))}
-          </div>
 
-          <div className="mt-8 pt-6 border-t border-[#E5E0D8] flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-[#5C6660] shrink-0">
-              Authorized Primary Dealer
-            </span>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs font-medium text-[#4B5550]">
-              {partnerBrands.map((b, i) => (
-                <span key={i} className="inline-flex items-center gap-3">
-                  {i > 0 && <span className="text-[#D4CEC2]">/</span>}
-                  <span>{b.name}</span>
-                </span>
-              ))}
-            </div>
-          </div>
+                <div className="space-y-1 relative z-10">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-blue-900 transition-colors">
+                      <AnimatedNumber targetText={stat.value} />
+                    </span>
+                    <span className="text-[10px] font-extrabold text-blue-700">
+                      {stat.suffix}
+                    </span>
+                  </div>
+                  
+                  <h4 className="text-xs font-bold text-slate-800 leading-tight">
+                    {stat.en}
+                  </h4>
+
+                  <p className="text-[10px] text-blue-900 font-hindi font-semibold leading-tight">
+                    {stat.hi}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

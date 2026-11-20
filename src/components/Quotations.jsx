@@ -6,7 +6,7 @@ import {
   Eye, 
   X, 
   CheckCircle2, 
-  BadgeCheck, 
+  Sparkles, 
   ArrowRight, 
   MessageCircle, 
   Coins, 
@@ -27,40 +27,36 @@ function Quotations() {
   };
 
   return (
-    <section id="quotations" className="py-10 sm:py-12 bg-white border-t border-[#E5E0D8]">
+    <section id="quotations" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-white via-slate-50 to-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Left-Aligned Split Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-[#E5E0D8]">
-          <div className="space-y-1.5 max-w-2xl">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#083D2A] flex items-center gap-1.5">
-              <Coins className="w-3.5 h-3.5 text-[#083D2A]" />
-              <span>Official Rate Cards &amp; Quotations • आधिकारिक सोलर कोटेशन</span>
-            </p>
+        {/* Section Header (Simultaneous English + Hindi) */}
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+            <Coins className="w-3.5 h-3.5 text-blue-600" />
+            <span>Official Rate Cards & Quotations • आधिकारिक सोलर कोटेशन एवं रेट चार्ट्स</span>
+          </div>
 
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0D1F17] tracking-tight leading-tight">
-              Official Solar <span className="text-[#B5850A]">Rate Cards</span>
-            </h2>
-            <p className="text-sm font-bold text-[#083D2A] font-hindi">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Official Solar <span className="text-amber-500">Rate Cards</span>
+            <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सत्यार्थी सोलर सॉल्यूशन • आधिकारिक कोटेशन एवं रेट चार्ट
-            </p>
-          </div>
+            </span>
+          </h2>
 
-          <div className="max-w-md space-y-1.5 lg:text-right">
-            <p className="text-[#4B5550] text-xs sm:text-sm leading-relaxed">
-              Transparent pricing as per UPNEDA and MNRE guidelines with PM Surya Ghar subsidy matrices and 6%–7% bank EMI options.
-            </p>
-            <p className="text-[#083D2A] font-semibold text-xs font-hindi">
-              सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी
-            </p>
-          </div>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Transparent pricing as per UPNEDA and MNRE guidelines with PM Surya Ghar subsidy matrices and bank loan EMI offers.
+          </p>
+          <p className="text-blue-900 font-semibold text-xs sm:text-sm bg-blue-50/80 p-2.5 rounded-xl border border-blue-200">
+            🇮🇳 केंद्र व राज्य सरकार की सब्सिडी के बाद नेट देय राशि की स्पष्ट जानकारी। 6% से 7% ब्याज दर पर आसान बैंक ऋण।
+          </p>
         </div>
 
-        {/* Quotation Highlights Alert */}
-        <div className="mt-6 sm:mt-8 bg-[#083D2A] text-white p-5 rounded-2xl shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs border border-[#0F4D37]">
+        {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
+        <div className="mt-6 sm:mt-8 max-w-4xl mx-auto bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 bg-[#F5C441] text-[#0D1F17] rounded-2xl font-bold shrink-0">
-              <Calendar className="w-5 h-5 text-[#0D1F17]" />
+            <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
+              <Calendar className="w-5 h-5 text-slate-950" />
             </div>
             <div className="space-y-0.5">
               <strong className="text-white text-sm block">
@@ -69,7 +65,7 @@ function Quotations() {
               <p className="text-slate-200 mt-0.5">
                 PM Surya Ghar subsidy valid till <strong>31st March 2027</strong>. 3 kW system at only <strong>₹1,800/month</strong> bank EMI.
               </p>
-              <p className="text-[#C7D6CE] font-medium text-[11px]">
+              <p className="text-sky-200 font-medium text-[11px]">
                 3 किलोवाट सोलर प्लांट मात्र ₹1,800 प्रति माह बैंक ईएमआई पर स्थापित कराएं!
               </p>
             </div>
@@ -80,19 +76,21 @@ function Quotations() {
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="bg-[#F5C441] hover:bg-[#eab62e] text-[#0D1F17] font-bold px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
           >
-            Request Rate PDF
+            Request Rate PDF • पीडीएफ मंगवाएं
           </a>
         </div>
 
         {/* Quotation Cards 3D Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mt-6 sm:mt-8">
+        <div className="grid md:grid-cols-2 gap-8 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {businessData.quotationFlyers.map((flyer) => (
             <div
               key={flyer.id}
-              className="relative bg-white rounded-2xl border-2 border-[#E5E0D8] overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
+              className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
             >
+              {/* Desktop-Only Gallery Shine Sweep */}
+              <div className="desktop-shine-sweep" />
 
               <div>
                 {/* Image Frame */}
@@ -107,7 +105,7 @@ function Quotations() {
                     <button
                       type="button"
                       onClick={() => setSelectedFlyer(flyer)}
-                      className="bg-white text-[#0D1F17] font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-[#F5C441] transition"
+                      className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-amber-400 transition"
                     >
                       <Eye className="w-4 h-4" />
                       <span>Zoom Full Chart</span>
@@ -115,7 +113,7 @@ function Quotations() {
                     <a
                       href={flyer.image}
                       download={`satyarthi-solar-${flyer.id}.jpg`}
-                      className="bg-[#083D2A] hover:bg-[#062E20] text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition"
+                      className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg transition"
                     >
                       <Download className="w-4 h-4" />
                       <span>Save Image</span>
@@ -125,20 +123,20 @@ function Quotations() {
 
                 {/* Content */}
                 <div className="p-6 space-y-3">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#9A6E04] bg-[#FDF3D0] border border-[#EFE0A8] px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
                     Official Rate Card
                   </span>
-                  <h3 className="text-xl font-bold text-[#0D1F17] leading-snug">
+                  <h3 className="text-xl font-black text-slate-900 leading-snug">
                     {flyer.title}
                   </h3>
-                  <p className="text-xs font-semibold text-[#083D2A]">
+                  <p className="text-xs font-semibold text-blue-900">
                     {flyer.subtitle}
                   </p>
 
                   <div className="pt-2 space-y-2 border-t border-slate-100">
                     {flyer.highlights.map((h, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-[#4B5550]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#083D2A] shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -159,7 +157,7 @@ function Quotations() {
                 <button
                   type="button"
                   onClick={() => handleWhatsAppQuote(flyer.title)}
-                  className="flex-1 py-2.5 bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  className="flex-1 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <MessageCircle className="w-3.5 h-3.5 fill-slate-950" />
                   <span>Get This Rate</span>
@@ -170,32 +168,30 @@ function Quotations() {
         </div>
 
         {/* Partner Brands Grid Banner */}
-        <div className="mt-8 sm:mt-10 bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E0D8] shadow-sm space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-4 border-b border-slate-100">
-            <div className="space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#083D2A]">
-                Direct Manufacturer Associations
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0D1F17]">
-                Our Official Partner Brands
-              </h3>
-            </div>
-            <p className="text-xs text-slate-500 sm:text-right max-w-sm">
+        <div className="mt-8 sm:mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+          <div className="text-center max-w-2xl mx-auto space-y-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
+              Direct Manufacturer Associations
+            </span>
+            <h3 className="text-2xl font-black text-slate-900">
+              Our Official Partner Brands
+            </h3>
+            <p className="text-xs text-slate-500">
               We supply only 100% genuine Tier-1 solar panels, batteries, inverters, and electronics.
             </p>
           </div>
 
           <div>
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-left">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
               Solar Panels & Inverter Brands:
             </p>
-            <div className="flex flex-wrap items-center justify-start gap-2.5">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.solar.map((b, idx) => (
-                <div key={idx} className="bg-[#FAF8F4] border border-[#E5E0D8] px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-[#083D2A] transition group">
+                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-blue-500 transition group">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[#0D1F17] group-hover:text-[#083D2A] transition">{b.name}</span>
+                    <span className="text-slate-900 group-hover:text-blue-900 transition">{b.name}</span>
                     {b.role && (
-                      <span className="text-[9px] bg-[#FAF8F4] text-[#083D2A] px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">
+                      <span className="text-[9px] bg-blue-50 text-blue-900 px-1.5 py-0.5 rounded font-black uppercase tracking-wide">
                         {b.role}
                       </span>
                     )}
@@ -207,13 +203,13 @@ function Quotations() {
           </div>
 
           <div className="pt-4 border-t border-slate-100">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-left">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
               Batteries, Inverters & Home Appliances Brands:
             </p>
-            <div className="flex flex-wrap items-center justify-start gap-2.5">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.electronicsAndBatteries.map((b, idx) => (
-                <div key={idx} className="bg-[#FAF8F4] border border-[#E5E0D8] px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-[#F5C441] transition">
-                  <span className="text-[#0D1F17]">{b.name}</span>
+                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-amber-400 transition">
+                  <span className="text-slate-900">{b.name}</span>
                   <span className="text-[10px] text-slate-400 block font-normal">{b.category}</span>
                 </div>
               ))}
@@ -230,19 +226,19 @@ function Quotations() {
           onClick={() => setSelectedFlyer(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col"
+            className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4 bg-slate-900 text-white flex justify-between items-center">
               <div>
                 <h3 className="font-bold text-sm sm:text-base">{selectedFlyer.title}</h3>
-                <p className="text-xs text-[#F5C441]">{selectedFlyer.subtitle}</p>
+                <p className="text-xs text-amber-400">{selectedFlyer.subtitle}</p>
               </div>
               <div className="flex items-center gap-2">
                 <a
                   href={selectedFlyer.image}
                   download={`satyarthi-solar-${selectedFlyer.id}.jpg`}
-                  className="bg-[#083D2A] hover:bg-[#062E20] text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1"
+                  className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download</span>
@@ -264,12 +260,12 @@ function Quotations() {
               />
             </div>
 
-            <div className="p-4 bg-white border-t border-[#E5E0D8] text-xs text-[#4B5550] flex justify-between items-center">
-              <span className="text-[#083D2A] font-semibold">Satyarthi Solar Solution • Gorakhpur (273202)</span>
+            <div className="p-4 bg-white border-t border-slate-200 text-xs text-slate-600 flex justify-between items-center">
+              <span className="text-blue-900 font-semibold">Satyarthi Solar Solution • Gorakhpur (273202)</span>
               <button
                 type="button"
                 onClick={() => handleWhatsAppQuote(selectedFlyer.title)}
-                className="bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold px-4 py-2 rounded-xl transition cursor-pointer"
+                className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-xl transition cursor-pointer"
               >
                 Inquire for This Offer
               </button>

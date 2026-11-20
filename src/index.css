@@ -5,7 +5,6 @@
   body {
     max-width: 100%;
     overflow-x: clip;
-    scroll-behavior: smooth;
   }
 
   #root {
@@ -15,52 +14,70 @@
   }
 
   html {
-    font-family: 'Epilogue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #ffffff;
-    color: #0d1f17;
+    background-color: #f8fafc;
+    color: #0f172a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
   }
 }
 
-.font-hindi {
-  font-family: 'Noto Sans Devanagari', 'Epilogue', system-ui, sans-serif;
+/* GPU Compositor Acceleration Utility */
+.gpu-layer {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-/* Subtle modal & drawer fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Custom animations & glow */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.2s ease-out both;
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
 }
 
-/* Clean scrollbars */
+/* Continuous Smooth Marquee for Brand Headlines */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf8f4;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d5cfc4;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #083d2a;
+  background: #94a3b8;
 }
 
 /* Mobile & Touch Scrolling Optimization */
@@ -69,6 +86,7 @@
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Prevent sticky header redraw jank during touch fling */
   header, nav {
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
@@ -81,42 +99,72 @@
   }
 }
 
-/* Restrained editorial hover transitions (desktop pointer only) */
+/* =====================================================================
+   SMOOTH 3D CARD HOVER & SHIMMER EFFECTS
+   - Desktop (Mouse): Elevation lift, royal blue border aura, diagonal glass shine sweep, 
+     smooth image zoom, and spring button taps.
+   - Mobile (Touch): Clean stationary rendering during touch drag to prevent scroll stutter.
+   ===================================================================== */
 .desktop-gallery-card-hover,
 .gallery-3d-card-hover {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
+/* Desktop-Only Hover Elevations (Preserves ultra-smooth touch scrolling on mobile) */
 @media (hover: hover) and (pointer: fine) {
   .desktop-gallery-card-hover:hover,
   .gallery-3d-card-hover:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 10px 24px -10px rgba(8, 61, 42, 0.14) !important;
-    border-color: #083d2a !important;
+    transform: translateY(-5px) scale(1.012) !important;
+    box-shadow: 0 20px 30px -10px rgba(10, 30, 59, 0.18), 0 10px 15px -3px rgba(37, 99, 235, 0.12) !important;
+    border-color: #2563eb !important;
+    will-change: transform;
   }
 
+  /* Animated Glassmorphic Light Sweep across Card */
+  .desktop-shine-sweep,
+  .gallery-shine-sweep {
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 20;
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .group:hover .desktop-shine-sweep,
+  .group:hover .gallery-shine-sweep {
+    transform: translateX(100%);
+  }
+
+  /* Smooth Cinematic Image Zoom */
   .desktop-image-zoom,
   .gallery-image-zoom {
-    transition: transform 0.4s ease !important;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .group:hover .desktop-image-zoom,
   .group:hover .gallery-image-zoom {
-    transform: scale(1.03) !important;
+    transform: scale(1.07) !important;
   }
 
+  /* Interactive Button / Tab Spring Hover */
   .desktop-button-hover,
   .gallery-button-hover {
-    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease !important;
   }
 
   .desktop-button-hover:hover,
   .gallery-button-hover:hover {
-    transform: translateY(-1px) !important;
+    transform: translateY(-2px) scale(1.03) !important;
   }
 }
 
 .desktop-button-hover:active,
 .gallery-button-hover:active {
-  transform: scale(0.98) !important;
+  transform: scale(0.97) !important;
 }

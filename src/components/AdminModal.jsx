@@ -17,7 +17,7 @@ import {
   LogOut,
   ShieldCheck,
   RefreshCw,
-  BadgeCheck,
+  Sparkles,
   Camera,
   Film,
   Scissors,
@@ -296,20 +296,20 @@ function AdminModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-2xl max-w-5xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col border border-[#E5E0D8]"
+        className="bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col border border-slate-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
         <div className="bg-slate-900 text-white p-5 flex justify-between items-center border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-[#F5C441] text-[#0D1F17] rounded-xl font-bold">
+            <div className="p-2 bg-amber-400 text-slate-950 rounded-xl font-bold">
               <Lock className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-white flex items-center gap-2">
+              <h3 className="font-black text-lg text-white flex items-center gap-2">
                 <span>Satyarthi Solar • Management Portal</span>
                 {isAuthenticated && (
-                  <span className="text-[10px] bg-[#FAF8F4]0/20 text-[#F5C441] border border-[#083D2A]/30 px-2 py-0.5 rounded font-mono font-bold">
+                  <span className="text-[10px] bg-blue-500/20 text-sky-300 border border-blue-400/30 px-2 py-0.5 rounded font-mono font-bold">
                     Authenticated Session
                   </span>
                 )}
@@ -347,11 +347,11 @@ function AdminModal({ isOpen, onClose }) {
         {!isAuthenticated ? (
           /* Authentication Screen */
           <div className="p-8 sm:p-12 text-center max-w-md mx-auto space-y-6">
-            <div className="w-16 h-16 bg-[#FAF8F4] text-[#083D2A] rounded-2xl flex items-center justify-center mx-auto border border-[#E5E0D8] shadow-sm">
-              <ShieldCheck className="w-8 h-8 text-[#083D2A]" />
+            <div className="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mx-auto border border-blue-200 shadow-sm">
+              <ShieldCheck className="w-8 h-8 text-blue-600" />
             </div>
             <div>
-              <h4 className="text-xl font-bold text-[#0D1F17]">
+              <h4 className="text-xl font-bold text-slate-900">
                 Staff & Admin Authentication
               </h4>
               <p className="text-xs text-slate-500 mt-1">
@@ -368,12 +368,12 @@ function AdminModal({ isOpen, onClose }) {
                   onChange={(e) => setPin(e.target.value)}
                   autoFocus
                   disabled={isLoading}
-                  className="w-full text-center tracking-widest text-lg font-bold border border-slate-300 rounded-xl py-3 px-11 focus:outline-none focus:border-[#083D2A] focus:ring-2 focus:ring-[#083D2A]/15"
+                  className="w-full text-center tracking-widest text-lg font-bold border border-slate-300 rounded-xl py-3 px-11 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPin(!showPin)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#4B5550] p-1 cursor-pointer transition"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer transition"
                   title={showPin ? "Hide PIN" : "Show PIN"}
                 >
                   {showPin ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -391,7 +391,7 @@ function AdminModal({ isOpen, onClose }) {
               >
                 {isLoading ? (
                   <>
-                    <RefreshCw className="w-4 h-4 animate-spin text-[#F5C441]" />
+                    <RefreshCw className="w-4 h-4 animate-spin text-amber-400" />
                     <span>Verifying Credentials...</span>
                   </>
                 ) : (
@@ -399,8 +399,8 @@ function AdminModal({ isOpen, onClose }) {
                 )}
               </button>
             </form>
-            <div className="p-3 bg-[#FAF8F4] rounded-xl border border-[#E5E0D8] text-left space-y-1">
-              <div className="text-[11px] text-[#4B5550] font-bold flex items-center gap-1.5">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-left space-y-1">
+              <div className="text-[11px] text-slate-600 font-bold flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5 text-slate-500" />
                 <span>Protected by BCRYPT & Session Rate Limiting</span>
               </div>
@@ -411,16 +411,16 @@ function AdminModal({ isOpen, onClose }) {
           </div>
         ) : (
           /* Authenticated Dashboard */
-          <div className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-6 bg-[#FAF8F4]">
+          <div className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-6 bg-slate-50">
             {/* Top Navigation Tabs */}
-            <div className="flex items-center gap-2 border-b border-[#E5E0D8] pb-3 flex-wrap">
+            <div className="flex items-center gap-2 border-b border-slate-200 pb-3 flex-wrap">
               <button
                 type="button"
                 onClick={() => setActiveTab("leads")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
                   activeTab === "leads"
                     ? "bg-slate-900 text-white shadow-sm"
-                    : "bg-white text-slate-700 hover:bg-slate-100 border border-[#E5E0D8]"
+                    : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
                 <Users className="w-3.5 h-3.5" />
@@ -431,11 +431,11 @@ function AdminModal({ isOpen, onClose }) {
                 onClick={() => setActiveTab("tools")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
                   activeTab === "tools"
-                    ? "bg-[#083D2A] text-[#F5C441] shadow-sm"
-                    : "bg-white text-slate-700 hover:bg-slate-100 border border-[#E5E0D8]"
+                    ? "bg-[#0a1e3b] text-amber-300 shadow-sm"
+                    : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                <BadgeCheck className="w-3.5 h-3.5 text-[#F5C441]" />
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 <span>Visual AI & Performance Suite (Whisk • Veo • EZGif • AirLift)</span>
               </button>
             </div>
@@ -443,34 +443,34 @@ function AdminModal({ isOpen, onClose }) {
             {activeTab === "tools" ? (
               /* Visual Tools & Performance Suite View */
               <div className="space-y-6 animate-fadeIn">
-                <div className="bg-white p-6 rounded-2xl border border-[#E5E0D8] shadow-sm space-y-2">
-                  <div className="flex items-center gap-2 text-[#083D2A] font-bold text-xs uppercase tracking-wider">
-                    <BadgeCheck className="w-4 h-4 text-[#B5850A]" />
+                <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                  <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-amber-500" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
                   </div>
-                  <h3 className="text-xl font-bold text-[#0D1F17]">
+                  <h3 className="text-xl font-black text-slate-900">
                     High-End Visual Media, Frame Extraction & AirLift Optimization
                   </h3>
-                  <p className="text-xs text-[#4B5550] leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     Use these integrated tools to transform real Gorakhpur solar site footage into cinematic renders, extract sharp frame photos, and monitor web performance.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Tool 1: Google Whisk */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#E5E0D8] shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-blue-100 text-[#083D2A] font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full uppercase">
                           Visuals & Style Remixing
                         </span>
-                        <Camera className="w-5 h-5 text-[#083D2A]" />
+                        <Camera className="w-5 h-5 text-blue-600" />
                       </div>
-                      <h4 className="text-lg font-bold text-[#0D1F17]">Google Whisk (Visuals)</h4>
-                      <p className="text-xs text-[#4B5550]">
+                      <h4 className="text-lg font-black text-slate-900">Google Whisk (Visuals)</h4>
+                      <p className="text-xs text-slate-600">
                         Create photo-realistic elevated pergola and rooftop solar visuals for client proposals in Gorakhpur and UP.
                       </p>
-                      <div className="p-3 bg-[#FAF8F4] rounded-xl border border-[#E5E0D8] text-[11px] text-slate-700 font-mono">
+                      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-700 font-mono">
                         Prompt: &quot;Elevated modern solar rooftop pergola gazebo on concrete Indian residential terrace, sleek black bifacial panels, 8k.&quot;
                       </div>
                     </div>
@@ -478,7 +478,7 @@ function AdminModal({ isOpen, onClose }) {
                       href="https://labs.google/whisk"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#083D2A] hover:bg-[#083D2A] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Open Google Whisk</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -486,19 +486,19 @@ function AdminModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Tool 2: Google Veo Flow */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#E5E0D8] shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-blue-100 text-[#083D2A] font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-purple-100 text-purple-800 font-bold px-2.5 py-1 rounded-full uppercase">
                           Generative Video Flow
                         </span>
-                        <Film className="w-5 h-5 text-[#083D2A]" />
+                        <Film className="w-5 h-5 text-purple-600" />
                       </div>
-                      <h4 className="text-lg font-bold text-[#0D1F17]">Google Veo Flow</h4>
-                      <p className="text-xs text-[#4B5550]">
+                      <h4 className="text-lg font-black text-slate-900">Google Veo Flow</h4>
+                      <p className="text-xs text-slate-600">
                         Convert static site photos into high-definition 1080p aerial drone flyover videos for customer reels and showcases.
                       </p>
-                      <div className="p-3 bg-[#FAF8F4] rounded-xl border border-[#E5E0D8] text-[11px] text-slate-700 font-mono">
+                      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-700 font-mono">
                         Prompt: &quot;Cinematic slow-motion 4K drone orbiting shot above residential rooftop with 5kW solar array glistening in morning sun.&quot;
                       </div>
                     </div>
@@ -506,7 +506,7 @@ function AdminModal({ isOpen, onClose }) {
                       href="https://deepmind.google/technologies/veo/"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#083D2A] hover:bg-[#083D2A] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Open Google Veo</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -514,19 +514,19 @@ function AdminModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Tool 3: EZGif Frame Extraction */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#E5E0D8] shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-full uppercase">
                           Frame Extraction
                         </span>
-                        <Scissors className="w-5 h-5 text-[#9A6E04]" />
+                        <Scissors className="w-5 h-5 text-amber-600" />
                       </div>
-                      <h4 className="text-lg font-bold text-[#0D1F17]">EZGif (Frame Extraction)</h4>
-                      <p className="text-xs text-[#4B5550]">
+                      <h4 className="text-lg font-black text-slate-900">EZGif (Frame Extraction)</h4>
+                      <p className="text-xs text-slate-600">
                         Extract uncompressed, high-definition still frames from live on-site mobile video recordings (Saketpuri, Railvihar) to add to the Bento Gallery.
                       </p>
-                      <div className="p-3 bg-[#FAF8F4] rounded-xl border border-[#E5E0D8] text-[11px] text-slate-700">
+                      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-700">
                         Workflow: Upload phone MP4 → Set rate to 1 fps → Download PNG/WebP frames → Add to gallery.
                       </div>
                     </div>
@@ -542,31 +542,31 @@ function AdminModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Tool 4: AirLift Performance Optimization */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#E5E0D8] shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-blue-100 text-[#083D2A] font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-blue-100 text-blue-900 font-bold px-2.5 py-1 rounded-full uppercase">
                           Performance Acceleration
                         </span>
-                        <Zap className="w-5 h-5 text-[#083D2A]" />
+                        <Zap className="w-5 h-5 text-blue-600" />
                       </div>
-                      <h4 className="text-lg font-bold text-[#0D1F17]">AirLift (Performance)</h4>
-                      <p className="text-xs text-[#4B5550]">
+                      <h4 className="text-lg font-black text-slate-900">AirLift (Performance)</h4>
+                      <p className="text-xs text-slate-600">
                         Edge caching, resource preconnects, responsive images, and sub-second page views for users across UP.
                       </p>
-                      <div className="p-3 bg-[#FAF8F4] rounded-xl border border-[#E5E0D8] text-[11px] text-[#0D1F17] space-y-1">
+                      <div className="p-3 bg-blue-50 rounded-xl border border-blue-200 text-[11px] text-blue-950 space-y-1">
                         <div className="font-bold flex items-center gap-1">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#083D2A]" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                           <span>Status: AirLift Optimizations Active</span>
                         </div>
-                        <p className="text-[10px] text-[#083D2A]">DNS prefetching, asset preconnects, and Vite chunk splitting implemented.</p>
+                        <p className="text-[10px] text-blue-800">DNS prefetching, asset preconnects, and Vite chunk splitting implemented.</p>
                       </div>
                     </div>
                     <a
                       href="https://airlift.net/"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#083D2A] hover:bg-[#062E20] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Explore AirLift</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -579,26 +579,26 @@ function AdminModal({ isOpen, onClose }) {
               <div className="space-y-6">
                 {/* Quick Metrics Bar */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] shadow-xs">
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-slate-500">Total Enquiries</span>
-                    <p className="text-2xl font-extrabold text-[#0D1F17] mt-1">{leadCounts.total}</p>
+                    <p className="text-2xl font-black text-slate-900 mt-1">{leadCounts.total}</p>
                   </div>
-                  <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] shadow-xs">
-                    <span className="text-xs text-[#9A6E04] font-semibold">New Uncontacted</span>
-                    <p className="text-2xl font-extrabold text-[#9A6E04] mt-1">{leadCounts.new}</p>
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-amber-600 font-semibold">New Uncontacted</span>
+                    <p className="text-2xl font-black text-amber-600 mt-1">{leadCounts.new}</p>
                   </div>
-                  <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] shadow-xs">
-                    <span className="text-xs text-[#083D2A] font-semibold">Site Visits Scheduled</span>
-                    <p className="text-2xl font-extrabold text-[#083D2A] mt-1">{leadCounts.siteVisit}</p>
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-blue-600 font-semibold">Site Visits Scheduled</span>
+                    <p className="text-2xl font-black text-blue-600 mt-1">{leadCounts.siteVisit}</p>
                   </div>
-                  <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] shadow-xs">
-                    <span className="text-xs text-[#083D2A] font-semibold">Converted Installations</span>
-                    <p className="text-2xl font-extrabold text-[#083D2A] mt-1">{leadCounts.converted}</p>
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+                    <span className="text-xs text-blue-600 font-semibold">Converted Installations</span>
+                    <p className="text-2xl font-black text-blue-900 mt-1">{leadCounts.converted}</p>
                   </div>
                 </div>
 
             {/* Actions Bar */}
-            <div className="bg-white p-4 rounded-2xl border border-[#E5E0D8] flex flex-col md:flex-row justify-between items-center gap-3">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col md:flex-row justify-between items-center gap-3">
               {/* Filter Tabs */}
               <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
                 {["All", "New", "Contacted", "Site Visit", "Converted", "Rejected"].map((st) => (
@@ -608,7 +608,7 @@ function AdminModal({ isOpen, onClose }) {
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                       statusFilter === st
                         ? "bg-slate-900 text-white"
-                        : "bg-slate-100 text-[#4B5550] hover:bg-slate-200"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                     }`}
                   >
                     {st}
@@ -625,21 +625,21 @@ function AdminModal({ isOpen, onClose }) {
                     placeholder="Search leads..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-3 py-1.5 text-xs border border-[#E5E0D8] rounded-xl focus:outline-none focus:border-slate-400 bg-[#FAF8F4]"
+                    className="w-full pl-9 pr-3 py-1.5 text-xs border border-slate-200 rounded-xl focus:outline-none focus:border-slate-400 bg-slate-50"
                   />
                 </div>
 
                 <button
                   onClick={() => setShowAddLead(!showAddLead)}
-                  className="bg-[#083D2A] hover:bg-[#062E20] text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
+                  className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
                 >
-                  <Plus className="w-3.5 h-3.5 text-[#F5C441]" />
+                  <Plus className="w-3.5 h-3.5 text-amber-400" />
                   <span>Add Lead</span>
                 </button>
 
                 <button
                   onClick={handleExportCSV}
-                  className="bg-slate-900 hover:bg-slate-800 text-[#F5C441] text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
+                  className="bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
                   title="Export to Excel / CSV"
                 >
                   <FileSpreadsheet className="w-3.5 h-3.5" />
@@ -650,9 +650,9 @@ function AdminModal({ isOpen, onClose }) {
 
             {/* Manual Add Lead Form */}
             {showAddLead && (
-              <form onSubmit={handleAddManualLead} className="bg-white p-5 rounded-2xl border border-[#E5E0D8] shadow-sm space-y-4">
-                <h4 className="font-bold text-sm text-[#0D1F17] flex items-center gap-2">
-                  <Plus className="w-4 h-4 text-[#083D2A]" />
+              <form onSubmit={handleAddManualLead} className="bg-white p-5 rounded-2xl border border-blue-200 shadow-sm space-y-4">
+                <h4 className="font-bold text-sm text-slate-900 flex items-center gap-2">
+                  <Plus className="w-4 h-4 text-blue-600" />
                   Add Walk-In / Phone Lead Manually
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
@@ -662,7 +662,7 @@ function AdminModal({ isOpen, onClose }) {
                     required
                     value={newLeadForm.name}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, name: e.target.value })}
-                    className="border border-[#E5E0D8] p-2.5 rounded-xl focus:outline-none focus:border-[#083D2A]"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <input
                     type="tel"
@@ -670,19 +670,19 @@ function AdminModal({ isOpen, onClose }) {
                     required
                     value={newLeadForm.phone}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, phone: e.target.value })}
-                    className="border border-[#E5E0D8] p-2.5 rounded-xl focus:outline-none focus:border-[#083D2A]"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <input
                     type="text"
                     placeholder="Location / Village"
                     value={newLeadForm.location}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, location: e.target.value })}
-                    className="border border-[#E5E0D8] p-2.5 rounded-xl focus:outline-none focus:border-[#083D2A]"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <select
                     value={newLeadForm.service}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, service: e.target.value })}
-                    className="border border-[#E5E0D8] p-2.5 rounded-xl focus:outline-none focus:border-[#083D2A] bg-white"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600 bg-white"
                   >
                     <option>Residential Rooftop Solar (PM Surya Ghar)</option>
                     <option>Commercial Solar Power</option>
@@ -695,14 +695,14 @@ function AdminModal({ isOpen, onClose }) {
                     placeholder="Monthly Bill (₹)"
                     value={newLeadForm.bill}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, bill: e.target.value })}
-                    className="border border-[#E5E0D8] p-2.5 rounded-xl focus:outline-none focus:border-[#083D2A]"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                   <input
                     type="text"
                     placeholder="Notes / Message"
                     value={newLeadForm.message}
                     onChange={(e) => setNewLeadForm({ ...newLeadForm, message: e.target.value })}
-                    className="border border-[#E5E0D8] p-2.5 rounded-xl focus:outline-none focus:border-[#083D2A]"
+                    className="border border-slate-200 p-2.5 rounded-xl focus:outline-none focus:border-blue-600"
                   />
                 </div>
                 <div className="flex justify-end gap-2">
@@ -715,7 +715,7 @@ function AdminModal({ isOpen, onClose }) {
                   </button>
                   <button
                     type="submit"
-                    className="bg-[#083D2A] hover:bg-[#062E20] text-white text-xs font-bold px-4 py-2 rounded-xl transition"
+                    className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-4 py-2 rounded-xl transition"
                   >
                     Save Customer Record
                   </button>
@@ -724,10 +724,10 @@ function AdminModal({ isOpen, onClose }) {
             )}
 
             {/* Leads Table */}
-            <div className="bg-white rounded-2xl border border-[#E5E0D8] overflow-hidden shadow-xs">
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider border-b border-[#E5E0D8]">
+                  <thead className="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
                     <tr>
                       <th className="p-3.5">Customer & Contact</th>
                       <th className="p-3.5">Location</th>
@@ -746,13 +746,13 @@ function AdminModal({ isOpen, onClose }) {
                       </tr>
                     ) : (
                       filteredLeads.map((lead) => (
-                        <tr key={lead.id} className="hover:bg-[#FAF8F4]/80 transition">
+                        <tr key={lead.id} className="hover:bg-slate-50/80 transition">
                           <td className="p-3.5">
-                            <strong className="block text-[#0D1F17] font-bold">{lead.name}</strong>
+                            <strong className="block text-slate-900 font-bold">{lead.name}</strong>
                             <div className="flex items-center gap-2 mt-1">
                               <a
                                 href={`tel:${lead.phone}`}
-                                className="text-[#083D2A] hover:underline inline-flex items-center gap-1 font-mono font-semibold"
+                                className="text-blue-700 hover:underline inline-flex items-center gap-1 font-mono font-semibold"
                               >
                                 <Phone className="w-3 h-3" />
                                 {lead.phone}
@@ -763,7 +763,7 @@ function AdminModal({ isOpen, onClose }) {
                                 )}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-[#9A6E04] hover:text-amber-700 p-0.5"
+                                className="text-amber-600 hover:text-amber-700 p-0.5"
                                 title="Chat on WhatsApp"
                               >
                                 <MessageCircle className="w-3.5 h-3.5" />
@@ -777,7 +777,7 @@ function AdminModal({ isOpen, onClose }) {
                             <span className="font-medium text-slate-700">{lead.location}</span>
                           </td>
                           <td className="p-3.5">
-                            <span className="block font-medium text-[#0D1F17]">{lead.service}</span>
+                            <span className="block font-medium text-slate-900">{lead.service}</span>
                             {lead.bill && (
                               <span className="text-[11px] text-slate-500">Bill: ₹{lead.bill}/mo</span>
                             )}
@@ -793,11 +793,11 @@ function AdminModal({ isOpen, onClose }) {
                               onChange={(e) => handleStatusChange(lead.id, e.target.value)}
                               className={`text-[11px] font-bold py-1 px-2.5 rounded-lg border cursor-pointer focus:outline-none ${
                                 lead.status === "Converted"
-                                  ? "bg-[#FAF8F4] text-[#083D2A] border-[#D4CEC2]"
+                                  ? "bg-blue-50 text-blue-900 border-blue-300"
                                   : lead.status === "Site Visit"
-                                  ? "bg-[#FAF8F4] text-[#083D2A] border-[#D4CEC2]"
+                                  ? "bg-blue-50 text-blue-800 border-blue-300"
                                   : lead.status === "Contacted"
-                                  ? "bg-[#FDF3D0] text-amber-800 border-[#EFE0A8]"
+                                  ? "bg-amber-50 text-amber-800 border-amber-300"
                                   : lead.status === "Rejected"
                                   ? "bg-rose-50 text-rose-800 border-rose-300"
                                   : "bg-slate-100 text-slate-800 border-slate-300"

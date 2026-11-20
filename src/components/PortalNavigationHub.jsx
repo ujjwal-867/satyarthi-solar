@@ -1,238 +1,175 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { 
+  Sun, 
+  BatteryCharging, 
+  Tv, 
+  Camera, 
+  ArrowRight, 
+  PhoneCall,
+  Calculator,
+  Sparkles
+} from "lucide-react";
+import { ExpressiveKineticText } from "./MotionEffects";
 
-const processSteps = [
-  {
-    num: "01",
-    title: "Free Roof Survey & Shadow Audit",
-    titleHi: "मुफ्त रूफटॉप सर्वे एवं लोड मूल्यांकन",
-    desc: "Our local Gorakhpur engineering team visits your property, checks roof orientation, shadow clearance, and UPPCL sanctioned load to size the right plant for your consumption.",
-    image: "/images/projects/engineer-on-solar-roof.jpg",
-    alt: "Er. Satya Prakash conducting a rooftop solar site inspection"
-  },
-  {
-    num: "02",
-    title: "Choose Tier-1 Panels & Components",
-    titleHi: "टियर-1 सोलर पैनल एवं इन्वर्टर चयन",
-    desc: "Select from MNRE DCR-approved Mono PERC & TOPCon bifacial modules by Loom Solar, Waaree, Adani, or Tata Power — paired with smart Wi-Fi inverters and 25-year performance warranties.",
-    image: "/images/projects/mono-perc-array-closeup.jpg",
-    alt: "High-efficiency Mono PERC solar module array"
-  },
-  {
-    num: "03",
-    title: "Heavy-Duty Elevated GI Installation",
-    titleHi: "मजबूत एलिवेटेड जीआई स्ट्रक्चर इंस्टॉलेशन",
-    desc: "We fabricate rust-proof hot-dip galvanized pergola structures rated for 150 km/h winds, keeping your terrace cool, shaded, and 100% usable for family activities below.",
-    image: "/images/projects/technicians-mounting-structure.jpg",
-    alt: "Satyarthi Solar technicians installing galvanized elevated solar structure"
-  },
-  {
-    num: "04",
-    title: "UPPCL Net-Metering & Portal Filing",
-    titleHi: "यूपीपीसीएल नेट-मीटरिंग एवं दस्तावेज़ीकरण",
-    desc: "Zero government office visits required. As a UPNEDA Empanelled Vendor (GKP2604066741), we handle your PM Surya Ghar national portal registration, DISCOM feasibility, and bi-directional net-meter installation.",
-    image: "/images/projects/waaree-inverter-purdilpur.jpg",
-    alt: "Grid-tied solar inverter and safety ACDB/DCDB installation"
-  },
-  {
-    num: "05",
-    title: "Direct ₹1,08,000 Bank Subsidy Credit",
-    titleHi: "सीधे बैंक खाते में ₹1,08,000 तक सरकारी सब्सिडी",
-    desc: "Once commissioned and inspected, both Central (up to ₹78,000) and UP State (up to ₹30,000) subsidies are credited directly into your bank account via DBT within 30 days.",
-    image: "/images/projects/happy-client-gauribazar.jpg",
-    alt: "Satisfied solar homeowner in Eastern Uttar Pradesh"
-  }
-];
-
-function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
-  const portals = [
+export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
+  const portalButtons = [
     {
-      code: "01",
-      title: "PM Surya Ghar On-Grid",
-      titleHi: "सब्सिडी दरें (1 kW – 10 kW)",
-      desc: "Complete subsidy rate chart with central + UP state DBT breakdown and 6% bank EMI.",
-      action: () => onNavigate && onNavigate("/on-grid")
+      id: "on-grid",
+      title: "On-Grid Solar",
+      titleHi: "ऑन-ग्रिड सोलर",
+      badge: "Subsidy 2026",
+      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
+      info: "1 kW – 10 kW • Up to ₹1.08L Direct Subsidy",
+      icon: Sun,
+      iconColor: "bg-[#0a1e3b] text-amber-400",
+      cardStyle: "bg-slate-50/70 hover:bg-blue-50/50 border-slate-200/90 hover:border-blue-400",
+      actionText: "View Rates",
+      onClick: () => onNavigate("/on-grid")
     },
     {
-      code: "02",
-      title: "Off-Grid & Solar Aata Chakki",
-      titleHi: "बैटरी बैकअप एवं आटा चक्की",
-      desc: "24×7 inverter backup packages and zero-diesel 10 HP – 25 HP VFD flour mill drives.",
-      action: () => onNavigate && onNavigate("/off-grid")
+      id: "off-grid",
+      title: "Off-Grid & Chakki",
+      titleHi: "ऑफ-ग्रिड दर सूची",
+      badge: "24×7 Backup",
+      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
+      info: "1 kW – 5 kW Battery + 15 HP Flour Mills",
+      icon: BatteryCharging,
+      iconColor: "bg-amber-500 text-slate-950",
+      cardStyle: "bg-slate-50/70 hover:bg-amber-50/50 border-slate-200/90 hover:border-amber-400",
+      actionText: "True Rate List",
+      onClick: () => onNavigate("/off-grid")
     },
     {
-      code: "03",
-      title: "5-Star Solar Appliances",
-      titleHi: "मोतीराम अड्डा शोरूम",
-      desc: "Solar-compatible 5-Star Inverter ACs, frost-free refrigerators, BLDC fans, and coolers.",
-      action: () => onNavigate && onNavigate("/appliances")
+      id: "calculator",
+      title: "Solar Calculator",
+      titleHi: "सोलर कैलकुलेटर",
+      badge: "Instant Tool",
+      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
+      info: "Estimate Bill, Subsidy & ROI in 30 Secs",
+      icon: Calculator,
+      iconColor: "bg-blue-600 text-white",
+      cardStyle: "bg-slate-50/70 hover:bg-blue-50/50 border-slate-200/90 hover:border-blue-400",
+      actionText: "Calculate Now",
+      onClick: () => {
+        if (onOpenCalculator) onOpenCalculator();
+      }
     },
     {
-      code: "04",
-      title: "2,500+ Verified Site Gallery",
-      titleHi: "वास्तविक साइट फोटो गैलरी",
-      desc: "GPS-tagged rooftop pergolas, commercial arrays, and happy clients across Gorakhpur & UP.",
-      action: () => onNavigate && onNavigate("/gallery")
+      id: "appliances",
+      title: "Electronics Store",
+      titleHi: "इलेक्ट्रॉनिक्स शोरूम",
+      badge: "5-Star Store",
+      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
+      info: "Solar Inverter ACs, Fridges & Coolers",
+      icon: Tv,
+      iconColor: "bg-[#0a1e3b] text-amber-400",
+      cardStyle: "bg-slate-50/70 hover:bg-amber-50/50 border-slate-200/90 hover:border-amber-400",
+      actionText: "Visit Showroom",
+      onClick: () => onNavigate("/appliances")
     },
     {
-      code: "05",
-      title: "UPNEDA & Brand Certificates",
-      titleHi: "आधिकारिक प्रमाणपत्र व अवार्ड्स",
-      desc: "Inspect our UPNEDA vendor empanelment, GSTIN, MSME Udyam, and Saur Samman Award.",
-      action: () => onNavigate && onNavigate("/certificates")
+      id: "gallery",
+      title: "Real Works & Sites",
+      titleHi: "साइट फोटो गैलरी",
+      badge: "2500+ Sites",
+      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
+      info: "Pergolas & High-Rise GI Structures in UP",
+      icon: Camera,
+      iconColor: "bg-blue-700 text-white",
+      cardStyle: "bg-slate-50/70 hover:bg-blue-50/50 border-slate-200/90 hover:border-blue-400",
+      actionText: "View Photos",
+      onClick: () => onNavigate("/gallery")
     },
     {
-      code: "06",
-      title: "Solar Savings Calculator",
-      titleHi: "सब्सिडी व बचत कैलकुलेटर",
-      desc: "Enter your monthly electricity bill to see exact kW size, net cost, and payback period.",
-      action: () => onOpenCalculator && onOpenCalculator()
+      id: "contact",
+      title: "Book Site Survey",
+      titleHi: "निःशुल्क साइट सर्वे",
+      badge: "Free Visit",
+      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
+      info: "Free Roof Survey & Shadow Analysis in UP",
+      icon: PhoneCall,
+      iconColor: "bg-amber-500 text-slate-950",
+      cardStyle: "bg-slate-50/70 hover:bg-amber-50/50 border-slate-200/90 hover:border-amber-400",
+      actionText: "Book Now",
+      onClick: () => onNavigate("/#contact")
     }
   ];
 
   return (
-    <>
-      {/* PART A: SolarHub-Inspired Alternating 5-Step Editorial Process */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl space-y-3 mb-16 sm:mb-20">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#083D2A]">
-              How It Works
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0D1F17] leading-tight">
-              From roof survey to bank subsidy in 5 clear steps
-            </h2>
-            <div className="w-10 h-[3px] bg-[#F5C441]" />
-            <p className="text-sm text-[#4B5550] font-hindi">
-              सर्वे से लेकर नेट-मीटरिंग और सरकारी सब्सिडी तक की पूरी पारदर्शी प्रक्रिया
-            </p>
+    <section id="portal-hub" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-white border-b border-slate-200/70 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Clean Header */}
+        <div className="text-center max-w-2xl mx-auto space-y-1.5 mb-7">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-950 bg-blue-50/90 px-3 py-1 rounded-full border border-blue-200/90">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <span>Quick Access Portals • मुख्य विभाग</span>
           </div>
-
-          <div className="space-y-16 sm:space-y-24">
-            {processSteps.map((step, idx) => {
-              const reversed = idx % 2 === 1;
-              return (
-                <div key={step.num} className="relative">
-                  <motion.div
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.45 }}
-                    className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center"
-                  >
-                    {/* Editorial Copy */}
-                    <div
-                      className={`lg:col-span-6 relative space-y-4 ${
-                        reversed ? "lg:order-2" : "lg:order-1"
-                      }`}
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="block text-6xl sm:text-7xl font-bold text-[#EFECE4] leading-none select-none -mb-6"
-                      >
-                        {step.num}
-                      </span>
-                      <div className="relative z-10 space-y-3">
-                        <h3 className="text-2xl sm:text-[1.7rem] font-bold tracking-tight text-[#0D1F17] leading-snug">
-                          {step.title}
-                        </h3>
-                        <div className="w-8 h-[2.5px] bg-[#F5C441]" />
-                        <p className="text-xs sm:text-sm font-medium text-[#083D2A] font-hindi">
-                          {step.titleHi}
-                        </p>
-                        <p className="text-[15px] text-[#4B5550] leading-relaxed">
-                          {step.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Authentic Project Photo */}
-                    <div
-                      className={`lg:col-span-6 ${
-                        reversed ? "lg:order-1" : "lg:order-2"
-                      }`}
-                    >
-                      <div className="bg-[#FAF8F4] border border-[#E5E0D8] rounded-xl p-2.5">
-                        <img
-                          src={step.image}
-                          alt={step.alt}
-                          loading="lazy"
-                          className="w-full aspect-[4/3] object-cover rounded-lg"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Delicate Dotted Editorial Connector (Desktop) */}
-                  {idx < processSteps.length - 1 && (
-                    <div
-                      aria-hidden="true"
-                      className="hidden lg:flex justify-center pt-12"
-                    >
-                      <div className="h-12 border-l-2 border-dotted border-[#D8D2C6]" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            <ExpressiveKineticText
+              text="Explore Our Divisions & Rate Lists"
+              highlightWords={["Divisions", "Rate", "Lists"]}
+              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+            />
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500">
+            Instant access to subsidy rate charts, off-grid systems, and solar calculators.
+          </p>
         </div>
-      </section>
 
-      {/* PART B: Hairline Portal Directory on Warm Alabaster */}
-      <section className="py-16 sm:py-24 bg-[#FAF8F4] border-y border-[#E5E0D8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-10 border-b border-[#E5E0D8]">
-            <div className="space-y-2 max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#083D2A]">
-                Explore Portals
-              </p>
-              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#0D1F17]">
-                Everything you need to go solar
-              </h2>
-              <div className="w-10 h-[3px] bg-[#F5C441]" />
-            </div>
-            <p className="text-sm text-[#4B5550] max-w-sm md:text-right">
-              Direct rate cards, verified installations, UPNEDA paperwork, and our Motiram Adda showroom catalog.
-            </p>
-          </div>
-
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {portals.map((p) => (
-              <button
-                key={p.code}
+        {/* COMPACT SINGLE-LINE ANIMATED 3D BENTO ROW ON DESKTOP (6 Columns in 1 Row) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5" style={{ perspective: "1000px" }}>
+          {portalButtons.map((btn, idx) => {
+            const Icon = btn.icon;
+            return (
+              <motion.button
+                key={btn.id}
                 type="button"
-                onClick={p.action}
-                className="group text-left bg-white border border-[#E5E0D8] hover:border-[#083D2A] rounded-xl p-6 transition-colors flex flex-col justify-between gap-5 cursor-pointer"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={btn.onClick}
+                className={`group relative text-left p-4 rounded-2xl border ${btn.cardStyle} transition-all duration-300 flex flex-col justify-between cursor-pointer desktop-gallery-card-hover overflow-hidden`}
               >
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-semibold text-[#8A928D]">
-                      {p.code}
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between gap-1.5 mb-3">
+                    <motion.div
+                      whileHover={{ rotate: 12, scale: 1.12 }}
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-xs ${btn.iconColor} transition`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </motion.div>
+                    <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded-full border ${btn.badgeColor}`}>
+                      {btn.badge}
                     </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#8A928D] group-hover:text-[#083D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
-                  <h3 className="text-lg font-bold text-[#0D1F17] group-hover:text-[#083D2A] transition-colors">
-                    {p.title}
+
+                  <h3 className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-blue-900 transition leading-snug">
+                    {btn.title}
                   </h3>
-                  <p className="text-xs font-medium text-[#083D2A] font-hindi">
-                    {p.titleHi}
-                  </p>
-                  <p className="text-sm text-[#4B5550] leading-relaxed">
-                    {p.desc}
+                  <span className="text-[10.5px] font-semibold text-blue-900 font-hindi block mt-0.5">
+                    {btn.titleHi}
+                  </span>
+
+                  <p className="text-[11px] text-slate-600 leading-snug mt-1.5 line-clamp-2">
+                    {btn.info}
                   </p>
                 </div>
 
-                <span className="text-xs font-semibold text-[#083D2A] group-hover:underline">
-                  Open portal →
-                </span>
-              </button>
-            ))}
-          </div>
+                <div className="relative z-10 mt-3.5 pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-bold text-blue-700 group-hover:text-blue-900">
+                  <span>{btn.actionText}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-blue-600" />
+                </div>
+              </motion.button>
+            );
+          })}
         </div>
-      </section>
-    </>
+
+      </div>
+    </section>
   );
 }
-
-export default PortalNavigationHub;

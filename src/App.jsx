@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
+import BrandHeadlineTicker from "./components/BrandHeadlineTicker";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import PortalNavigationHub from "./components/PortalNavigationHub";
@@ -14,8 +15,9 @@ const Testimonials = lazy(() => import("./components/Testimonials"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 
-// Deferred Floating Help Desk (Zero overhead during initial paint)
+// Deferred Floating Assistants & Popups (Zero overhead during initial paint)
 const AIChatbot = lazy(() => import("./components/AIChatbot"));
+const FestiveOfferPopup = lazy(() => import("./components/FestiveOfferPopup"));
 
 // Lazy-loaded Modals & Independent Portal Pages for Fast Initial Mobile Load
 const AdminModal = lazy(() => import("./components/AdminModal"));
@@ -29,6 +31,7 @@ const CertificatesPage = lazy(() => import("./pages/CertificatesPage"));
 function AppContent() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [isFestiveOfferOpen, setIsFestiveOfferOpen] = useState(false);
   const [prefilledQuote, setPrefilledQuote] = useState(null);
   const [loadChatbot, setLoadChatbot] = useState(false);
 
@@ -134,7 +137,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-white text-[#0D1F17] font-sans selection:bg-[#F5C441] selection:text-[#0D1F17] flex flex-col justify-between pb-14 sm:pb-0">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between pb-14 sm:pb-0">
       {/* Persistent Global Navigation Panel across Every Window (Desktop + 1-Tap Mobile Strip) */}
       <Navbar 
         onOpenAdmin={() => setIsAdminOpen(true)} 
@@ -187,19 +190,23 @@ function AppContent() {
             onOpenCalculator={() => setIsCalculatorOpen(true)}
           />
         ) : (
-          /* Clean Editorial Homepage: Hero, Warm Gold Subsidy Band, 5-Step Flow, Services, Reviews & Contact */
+          /* Main Spacious Homepage: Only Highlighted Points, 6 Navigation Portals, 3D AR/VR & Contact */
           <div className="flex-1 flex flex-col justify-between">
+            {/* Website Master Headline Bar: Primary Dealer of All Leading Solar Brands */}
+            <BrandHeadlineTicker />
+
+            {/* Main Content Sections - Strictly Highlighted Points & Contact */}
             <main>
+              {/* Strictly Solar Hero with 6-Button Portal Dock & Real Site Slider */}
               <Hero 
                 onNavigate={navigateTo} 
                 onOpenCalculator={() => setIsCalculatorOpen(true)}
               />
 
-              <Stats 
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
-                onNavigate={navigateTo}
-              />
+              {/* Concise Verified Statistics (2500+ Happy Clients) */}
+              <Stats />
 
+              {/* 6-Portal Compact Bento Action Cards (Single-Line on Desktop) */}
               <PortalNavigationHub 
                 onNavigate={navigateTo} 
                 onOpenCalculator={() => setIsCalculatorOpen(true)}
@@ -240,7 +247,15 @@ function AppContent() {
         )}
       </Suspense>
 
-      {/* Persistent Global Floating Help Desk & Quick Contact Bar */}
+      {/* Navratri & Diwali Maha-Utsav Animated Popup & Floating Gift Trigger (Lazy) */}
+      <Suspense fallback={null}>
+        <FestiveOfferPopup 
+          isOpenExternal={isFestiveOfferOpen}
+          onCloseExternal={() => setIsFestiveOfferOpen(false)}
+        />
+      </Suspense>
+
+      {/* Persistent Global Floating Assistants across All Pages (Chatbot deferred for instant mobile paint) */}
       {loadChatbot && (
         <Suspense fallback={null}>
           <AIChatbot />

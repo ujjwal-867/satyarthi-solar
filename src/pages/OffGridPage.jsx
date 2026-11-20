@@ -4,7 +4,11 @@ import { businessData } from "../data/businessData";
 import PortalNavigationHub from "../components/PortalNavigationHub";
 import Footer from "../components/Footer";
 import {
-  ExpressiveKineticText
+  ExpressiveKineticText,
+  KineticMarqueeStrip,
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton,
+  LiveActivityStreamBadge
 } from "../components/MotionEffects";
 
 export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, onOpenCalculator }) {
@@ -81,103 +85,149 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
   };
 
   return (
-    <div className="flex-1 bg-[#FAF8F4] text-[#0D1F17] font-sans selection:bg-[#F5C441] selection:text-[#0D1F17] flex flex-col justify-between">
+    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
       <div>
-        {/* Left-Aligned Hero Band */}
-        <section className="py-10 sm:py-12 bg-[#083D2A] text-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#F5C441] flex items-center gap-1.5">
-              <BatteryCharging className="w-4 h-4 text-[#F5C441]" />
-              <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
-            </p>
+        {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
+          <CollaborativeCursorsOverlay
+            cursors={[
+              {
+                name: "Er. Satyaprakash",
+                badge: "24×7 Hybrid Storage",
+                color: "bg-amber-400 text-slate-950",
+                pathX: ["6%", "20%", "12%", "6%"],
+                pathY: ["18%", "48%", "66%", "18%"],
+                duration: 16
+              },
+              {
+                name: "15HP Chakki VFD",
+                badge: "Zero Diesel • Kushinagar",
+                color: "bg-blue-600 text-white",
+                pathX: ["83%", "68%", "77%", "83%"],
+                pathY: ["22%", "52%", "32%", "22%"],
+                duration: 18
+              }
+            ]}
+          />
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+                <BatteryCharging className="w-3.5 h-3.5 text-amber-400" />
+                <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
+              </div>
+              <LiveActivityStreamBadge dark />
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
               <ExpressiveKineticText
                 text="Off-Grid & Hybrid Solar: Our True Rate List"
                 highlightWords={["True", "Rate", "List"]}
-                highlightClass="text-[#F5C441]"
+                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200"
               />
             </h1>
 
-            <h2 className="text-base sm:text-xl font-bold text-[#F5C441] font-hindi">
+            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
               24×7 पावर बैकअप • इन्वर्टर, बैटरी व सोलर आटा चक्की रेट लिस्ट
             </h2>
 
-            <p className="max-w-2xl text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
               24×7 independent solar power systems with genuine C10 solar tubular and LiFePO4 lithium battery banks for homes, hospitals, and rural flour mills.
             </p>
           </div>
         </section>
 
-        {/* True Rate List Section */}
-        <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-5 mb-7 border-b border-[#E5E0D8]">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0D1F17]">
+        {/* Expressive Kinetic Marquee Ribbon */}
+        <KineticMarqueeStrip
+          items={[
+            "24×7 BATTERY BACKUP",
+            "15 HP SOLAR AATA CHAKKI VFD",
+            "C10 TALL TUBULAR & LIFEPO4 LITHIUM",
+            "UTL • LUMINOUS • EXIDE • FUJIYAMA",
+            "2500+ HAPPY FAMILIES IN UP"
+          ]}
+        />
+
+        {/* True Rate List 3D Bento Cards */}
+        <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="text-center mb-6 sm:mb-8">
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
                 highlightWords={["Off-Grid", "Aata", "Chakki"]}
-                highlightClass="text-[#083D2A]"
+                highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
               />
             </h3>
-            <p className="text-slate-500 text-xs sm:text-sm md:max-w-sm md:text-right">
+            <p className="text-slate-500 text-xs sm:text-sm mt-1">
               Transparent rate card with Tier-1 solar panels, pure sine wave PCUs, and heavy battery banks.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: "1100px" }}>
             {offGridTiers.map((tier, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: idx * 0.04 }}
-                className={`group relative rounded-xl p-6 flex flex-col justify-between transition-all duration-200 desktop-gallery-card-hover overflow-hidden ${
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.07 }}
+                className={`group relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
-                    ? "bg-[#083D2A] text-white shadow-sm ring-2 ring-[#F5C441]"
+                    ? "bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl ring-2 ring-amber-400"
                     : tier.aataChakki
-                    ? "bg-[#FDF3D0]/60 text-[#0D1F17] border-2 border-[#F5C441] shadow-xs hover:shadow-md"
-                    : "bg-white text-[#0D1F17] border border-[#E5E0D8] hover:border-[#F5C441] shadow-xs hover:shadow-md"
+                    ? "bg-gradient-to-br from-amber-50 to-orange-50/40 text-slate-900 border-2 border-amber-400 shadow-md hover:shadow-2xl"
+                    : "bg-white text-slate-900 border border-slate-200 hover:border-amber-400 shadow-xs hover:shadow-2xl"
                 }`}
               >
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
+
                 <div className="relative z-10">
                   <div className="flex justify-between items-start gap-2 mb-2">
-                    <span className="text-[11px] font-bold bg-[#F5C441] text-[#0D1F17] px-2.5 py-0.5 rounded-md">
+                    <span className="text-[11px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full">
                       {tier.rateBadge}
                     </span>
-                    {tier.aataChakki && (
-                      <span className="p-1.5 bg-amber-100 text-amber-800 rounded-lg">
-                        <Wheat className="w-4 h-4" />
-                      </span>
-                    )}
+                    <div className="flex items-center gap-1.5">
+                      <InteractiveZapBurstButton
+                        initialCount={tier.likes}
+                        label=""
+                        dark={Boolean(tier.bestValue)}
+                      />
+                      {tier.aataChakki && (
+                        <span className="p-1.5 bg-amber-100 text-amber-800 rounded-xl">
+                          <Wheat className="w-4 h-4" />
+                        </span>
+                      )}
+                    </div>
                   </div>
 
-                  <h4 className={`text-xl font-bold mt-2 ${tier.bestValue ? "text-white" : "text-[#0D1F17]"}`}>
+                  <h4 className={`text-xl font-black mt-2 ${tier.bestValue ? "text-white" : "text-slate-900"}`}>
                     {tier.capacity}
                   </h4>
 
                   <div className={`mt-4 p-3 rounded-2xl space-y-1.5 text-xs ${
-                    tier.bestValue ? "bg-white/10" : "bg-[#FAF8F4] border border-slate-100"
+                    tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"
                   }`}>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Battery Setup:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-[#F5C441]" : "text-[#0D1F17]"}`}>{tier.batterySetup}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-slate-900"}`}>{tier.batterySetup}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Inverter PCU:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-white" : "text-[#083D2A]"}`}>{tier.inverterSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-white" : "text-blue-700"}`}>{tier.inverterSpec}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Solar Panels:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-[#F5C441]" : "text-[#083D2A]"}`}>{tier.panelSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-blue-900"}`}>{tier.panelSpec}</strong>
                     </div>
                   </div>
 
                   <div className="mt-4 space-y-1 text-xs">
                     <p className={`font-semibold ${tier.bestValue ? "text-slate-200" : "text-slate-700"}`}>
-                      <strong>Ideal For:</strong> {tier.idealFor}
+                      💡 <strong>Ideal For:</strong> {tier.idealFor}
                     </p>
-                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-[#083D2A] font-hindi"}`}>
-                      <strong>Backup Benefit:</strong> {tier.backup}
+                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-blue-900 font-hindi"}`}>
+                      ⚡ <strong>Backup Benefit:</strong> {tier.backup}
                     </p>
                   </div>
                 </div>
@@ -186,17 +236,17 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   <button
                     type="button"
                     onClick={() => handleInquire(tier.capacity)}
-                    className="flex-1 bg-[#F5C441] hover:bg-[#F5C441] text-[#0D1F17] font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
-                    <span>WhatsApp Quote</span>
+                    <span>WhatsApp Quote • कोटेशन लें</span>
                   </button>
                   <a
                     href={`tel:${businessData.phone[0]}`}
                     className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl transition flex items-center justify-center shrink-0"
                     title="Call Engineer"
                   >
-                    <Phone className="w-4 h-4 text-[#083D2A]" />
+                    <Phone className="w-4 h-4 text-blue-700" />
                   </a>
                 </div>
               </motion.div>
@@ -206,13 +256,13 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Agro Mill Direct Consultation Banner */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-8 sm:mt-10 bg-[#083D2A] text-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row justify-between items-center gap-6 border border-[#0F4D37]"
+            className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-[#F5C441] font-bold text-xs uppercase tracking-wider block">
-                Solar Flour Mill & Agro VFD Engineering
+              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
+                🌾 Solar Flour Mill & Agro VFD Engineering
               </span>
-              <h3 className="text-2xl font-extrabold text-white">
+              <h3 className="text-2xl font-black text-white">
                 Save ₹25,000 – ₹45,000 Every Month on Diesel
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
@@ -223,7 +273,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I want complete details and quotation for 10HP/15HP Solar Aata Chakki plant.")}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-[#F5C441] hover:bg-[#eab62e] text-[#0D1F17] font-bold px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0"
             >
               Get Chakki Quotation ↗
             </a>
@@ -232,16 +282,16 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
           {/* Showroom & Engineering Office Card */}
           <motion.div
             whileHover={{ y: -4, scale: 1.005 }}
-            className="mt-6 sm:mt-8 bg-white border border-[#E5E0D8] rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
+            className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
           >
             <div className="space-y-1 text-center md:text-left">
-              <span className="text-[#083D2A] font-bold text-xs uppercase tracking-wider block">
-                Showroom & Engineering Office • मुख्य पता
+              <span className="text-blue-900 font-bold text-xs uppercase tracking-wider block">
+                📍 Showroom & Engineering Office • मुख्य पता
               </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0D1F17]">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                 Visit Our Motiram Adda Showroom in Gorakhpur
               </h3>
-              <p className="text-xs sm:text-sm text-[#4B5550] max-w-xl">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
                 {businessData.address}. Live demo of UTL, Luminous, Exide & Fujiyama PCUs, C10 Batteries & VFD Flour Mill Drives.
               </p>
             </div>
@@ -250,13 +300,13 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-[#F5C441] hover:bg-[#eab62e] text-[#0D1F17] font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
               >
-                Google Maps ↗
+                Google Maps • लोकेशन ↗
               </a>
               <a
                 href={`tel:${businessData.phone[0]}`}
-                className="bg-[#083D2A] hover:bg-[#062E20] text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition flex items-center justify-center gap-1.5"
+                className="bg-[#0a1e3b] hover:bg-blue-900 text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition flex items-center justify-center gap-1.5"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>+91 {businessData.phone[0]}</span>

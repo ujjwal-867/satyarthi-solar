@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
-import { Home, Building2, Wheat, Check, ArrowRight } from "lucide-react";
+import { 
+  Home, 
+  Building2, 
+  Wheat, 
+  CheckCircle2, 
+  ArrowRight, 
+  Zap 
+} from "lucide-react";
+import {
+  ExpressiveKineticText,
+  CollaborativeCursorsOverlay,
+  InteractiveZapBurstButton,
+  LiveActivityStreamBadge
+} from "./MotionEffects";
 
 export default function Services() {
   const handleBookService = (serviceTitle) => {
@@ -18,9 +31,10 @@ export default function Services() {
       id: "residential",
       icon: Home,
       number: "01",
+      likes: 184,
       title: "Residential Rooftop Solar",
       titleHi: "आवासीय रूफटॉप सोलर",
-      tagline: "PM Surya Ghar · Up to ₹1,08,000 Direct Subsidy",
+      tagline: "PM Surya Ghar • Up to ₹1,08,000 Direct Subsidy",
       bullets: [
         "1 kW to 10 kW On-Grid Rooftop Systems",
         "25-Year Warranty + UPPCL Net Metering",
@@ -32,6 +46,7 @@ export default function Services() {
       id: "commercial",
       icon: Building2,
       number: "02",
+      likes: 142,
       title: "Commercial & Institutional Solar",
       titleHi: "कमर्शियल सोलर प्लांट्स",
       tagline: "Cut Commercial Electricity Bills by up to 80%",
@@ -46,9 +61,10 @@ export default function Services() {
       id: "aata-chakki",
       icon: Wheat,
       number: "03",
+      likes: 169,
       title: "Solar Aata Chakki & Heavy Drives",
       titleHi: "सोलर आटा चक्की ड्राइव्स",
-      tagline: "Zero Diesel · Run 10 HP to 25 HP on Sun",
+      tagline: "Zero Diesel • Run 10 HP to 25 HP on Sun",
       bullets: [
         "Save ₹25,000 – ₹45,000/mo on Diesel",
         "High-Torque Solar VFD (No Batteries Needed)",
@@ -59,24 +75,56 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 sm:py-24 bg-white text-[#0D1F17]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-10 border-b border-[#E5E0D8]">
-          <div className="space-y-2 max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#083D2A]">
-              Why Satyarthi Solar
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0D1F17] leading-tight">
-              Core Solar EPC Solutions
-            </h2>
-            <div className="w-10 h-[3px] bg-[#F5C441]" />
+    <section id="services" className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-slate-50/60 text-slate-900 border-t border-slate-200/80 relative overflow-hidden">
+      {/* Real-Time Collaborative Engineering Cursors */}
+      <CollaborativeCursorsOverlay
+        cursors={[
+          {
+            name: "Er. Satyaprakash",
+            badge: "Turnkey EPC Design",
+            color: "bg-blue-600 text-white",
+            pathX: ["5%", "19%", "12%", "5%"],
+            pathY: ["18%", "45%", "72%", "18%"],
+            duration: 16
+          },
+          {
+            name: "Agro VFD Team",
+            badge: "15HP Chakki Live",
+            color: "bg-amber-400 text-slate-950",
+            pathX: ["85%", "72%", "80%", "85%"],
+            pathY: ["24%", "58%", "32%", "24%"],
+            duration: 19
+          }
+        ]}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header with Expressive Kinetic Typography & Live Collaborative Ticker */}
+        <div className="text-center max-w-3xl mx-auto space-y-2.5">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-xs">
+              <Zap className="w-3.5 h-3.5 text-amber-500" />
+              <span>Core Solar Pillars • प्रमुख सेवाएं</span>
+            </div>
+            <LiveActivityStreamBadge />
           </div>
-          <p className="text-sm text-[#4B5550] max-w-sm md:text-right font-hindi">
-            घरेलू, कमर्शियल एवं सोलर आटा चक्की — उच्च गुणवत्ता व 25 वर्ष वारंटी
+
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <ExpressiveKineticText
+              text="Solar Service & Engineering in Gorakhpur"
+              highlightWords={["Solar", "Service", "Engineering"]}
+              highlightClass="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-500"
+            />
+          </h2>
+
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
+            Turnkey EPC engineering, PM Surya Ghar subsidy processing, and doorstep installation across Purvanchal.
           </p>
         </div>
 
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
+        {/* 3 Core 3D Bento Animated Cards with Interactive ⚡ Bursts */}
+        <div className="grid md:grid-cols-3 gap-6 mt-6 sm:mt-8" style={{ perspective: "1100px" }}>
           {coreServices.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -85,56 +133,66 @@ export default function Services() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.06 }}
-                className="bg-[#FAF8F4] border border-[#E5E0D8] hover:border-[#083D2A] rounded-xl p-6 sm:p-7 flex flex-col justify-between transition-colors"
+                transition={{ duration: 0.25 }}
+                className="relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 rounded-lg bg-[#083D2A] text-[#F5C441] flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
+                {/* Desktop-Only Gallery Shine Sweep */}
+                <div className="desktop-shine-sweep" />
+
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-4">
+                    <motion.div 
+                      whileHover={{ rotate: 12, scale: 1.14 }}
+                      className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors shadow-xs"
+                    >
+                      <Icon className="w-6 h-6" />
+                    </motion.div>
+
+                    <div className="flex items-center gap-2">
+                      <InteractiveZapBurstButton initialCount={service.likes} label="Active" />
+                      <span className="text-xl font-black text-slate-300 group-hover:text-amber-500 transition-colors font-mono">
+                        {service.number}
+                      </span>
                     </div>
-                    <span className="text-sm font-mono font-semibold text-[#8A928D]">
-                      {service.number}
-                    </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#0D1F17] leading-snug">
+                  <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-xs font-medium text-[#083D2A] font-hindi mt-1">
+                  <p className="text-xs font-bold text-blue-800 font-hindi mt-0.5">
                     {service.titleHi}
                   </p>
-                  <p className="text-xs font-semibold text-[#6F5306] bg-[#FDF3D0] border border-[#EFE0A8] rounded-md px-3 py-1.5 mt-4 inline-block">
+
+                  <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
                     {service.tagline}
                   </p>
 
-                  <ul className="mt-5 pt-5 border-t border-[#E5E0D8] space-y-2.5 text-sm text-[#4B5550]">
+                  {/* Concise Bullet Points */}
+                  <div className="mt-4 pt-3 border-t border-slate-100 space-y-2">
                     {service.bullets.map((b, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <Check className="w-4 h-4 text-[#083D2A] shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                         <span>{b}</span>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="mt-7 pt-5 border-t border-[#E5E0D8] flex items-center justify-between gap-3">
-                  <span className="text-xs text-[#5C6660] truncate">
-                    {service.ideal}
-                  </span>
+                <div className="relative z-10 mt-6 pt-3 border-t border-slate-100">
                   <button
                     type="button"
                     onClick={() => handleBookService(service.title)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-[#083D2A] hover:bg-[#062E20] text-white text-xs font-semibold transition-colors shrink-0 cursor-pointer"
+                    className="w-full py-2.5 bg-slate-100 group-hover:bg-[#0a1e3b] group-hover:text-white text-slate-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
-                    <span>Book Survey</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Inquire Now • परामर्श लें</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

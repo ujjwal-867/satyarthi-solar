@@ -25,7 +25,7 @@ export class ErrorBoundary extends React.Component {
         return this.props.fallback;
       }
       return (
-        <div className="p-6 bg-red-50/90 border border-red-200 rounded-2xl text-center space-y-3 my-4">
+        <div className="p-6 bg-red-50/90 border border-red-200 rounded-3xl text-center space-y-3 my-4">
           <div className="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto">
             <AlertTriangle className="w-6 h-6" />
           </div>
