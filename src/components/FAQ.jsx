@@ -56,7 +56,7 @@ function FAQ() {
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Frequently Asked <span className="text-amber-500">Questions</span>
+              Frequently Asked <span className="text-blue-600">Questions</span>
               <span className="block text-sm sm:text-base font-bold text-slate-600 mt-1 font-hindi">
                 सोलर प्लांट एवं सरकारी सब्सिडी संबंधी अक्सर पूछे जाने वाले प्रश्न
               </span>
@@ -122,7 +122,7 @@ function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/60 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
+          className="mt-6 sm:mt-8 p-6 sm:p-7 bg-gradient-to-r from-blue-50 via-slate-50 to-blue-50/60 rounded-3xl border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left shadow-sm"
         >
           <div>
             <h4 className="font-bold text-base text-slate-900">
@@ -144,9 +144,9 @@ function FAQ() {
               href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I have a few questions regarding solar installation for my property in UP.")}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-xs"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-xs"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
+              <MessageCircle className="w-3.5 h-3.5 fill-white text-white" />
               <span>Ask on WhatsApp</span>
             </a>
           </div>

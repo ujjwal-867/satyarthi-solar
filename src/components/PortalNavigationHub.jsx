@@ -18,10 +18,10 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "On-Grid Solar",
       titleHi: "ऑन-ग्रिड सोलर",
       badge: "Subsidy 2026",
-      badgeColor: "bg-amber-100 text-amber-950 border-amber-300",
+      badgeColor: "bg-blue-100 text-blue-950 border-blue-300",
       info: "1 kW – 10 kW • Up to ₹1.08L Direct Subsidy",
       icon: Sun,
-      iconColor: "bg-[#0a1e3b] text-amber-400",
+      iconColor: "bg-[#0a1e3b] text-sky-400",
       cardStyle: "bg-white hover:bg-slate-50 border-slate-300 hover:border-[#0a1e3b]",
       actionText: "View Rates",
       onClick: () => onNavigate("/on-grid")
@@ -34,7 +34,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-slate-100 text-slate-900 border-slate-300",
       info: "1 kW – 5 kW Battery + 15 HP Flour Mills",
       icon: BatteryCharging,
-      iconColor: "bg-[#0a1e3b] text-amber-400",
+      iconColor: "bg-[#0a1e3b] text-sky-400",
       cardStyle: "bg-white hover:bg-slate-50 border-slate-300 hover:border-[#0a1e3b]",
       actionText: "True Rate List",
       onClick: () => onNavigate("/off-grid")
@@ -62,7 +62,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       badgeColor: "bg-slate-100 text-slate-900 border-slate-300",
       info: "Solar Inverter ACs, Fridges & Coolers",
       icon: Tv,
-      iconColor: "bg-[#0a1e3b] text-amber-400",
+      iconColor: "bg-[#0a1e3b] text-sky-400",
       cardStyle: "bg-white hover:bg-slate-50 border-slate-300 hover:border-[#0a1e3b]",
       actionText: "Visit Showroom",
       onClick: () => onNavigate("/appliances")
@@ -72,7 +72,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "Real Works & Sites",
       titleHi: "साइट फोटो गैलरी",
       badge: "2,500+ Sites",
-      badgeColor: "bg-amber-100 text-amber-950 border-amber-300",
+      badgeColor: "bg-emerald-100 text-emerald-950 border-emerald-300",
       info: "Pergolas & High-Rise GI Structures in UP",
       icon: Camera,
       iconColor: "bg-[#0a1e3b] text-white",
@@ -103,14 +103,14 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
           <div className="space-y-1.5">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0a1e3b] bg-slate-100 px-3 py-1 rounded-full border border-slate-300">
-              <Zap className="w-3.5 h-3.5 text-amber-600" />
+              <Zap className="w-3.5 h-3.5 text-blue-600" />
               <span>Quick Access Portals • मुख्य विभाग</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               <ExpressiveKineticText
                 text="Explore Our Divisions & Rate Lists"
                 highlightWords={["Divisions", "Rate", "Lists"]}
-                highlightClass="text-amber-600 font-extrabold"
+                highlightClass="text-blue-600 font-extrabold"
               />
             </h2>
           </div>
@@ -161,7 +161,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
 
                 <div className="relative z-10 mt-3.5 pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px] font-extrabold text-[#0a1e3b] group-hover:text-blue-700">
                   <span>{btn.actionText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-amber-500" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-blue-600" />
                 </div>
               </motion.button>
             );

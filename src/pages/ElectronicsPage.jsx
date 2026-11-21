@@ -65,7 +65,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
   };
 
   return (
-    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white flex flex-col justify-between">
       <div>
         {/* Hero Section of Electronics Page with Expressive Kinetic Typography & Collaborative Cursors */}
         <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white relative overflow-hidden">
@@ -74,7 +74,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               {
                 name: "Motiram Adda Showroom",
                 badge: "5-Star Solar Appliances",
-                color: "bg-amber-400 text-slate-950",
+                color: "bg-blue-600 text-white",
                 pathX: ["5%", "19%", "11%", "5%"],
                 pathY: ["18%", "45%", "68%", "18%"],
                 duration: 16
@@ -82,7 +82,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               {
                 name: "Diwali Utsav Desk",
                 badge: "Official Dealership",
-                color: "bg-amber-400 text-slate-950",
+                color: "bg-emerald-600 text-white",
                 pathX: ["84%", "70%", "78%", "84%"],
                 pathY: ["22%", "54%", "32%", "22%"],
                 duration: 18
@@ -93,7 +93,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <Zap className="w-3.5 h-3.5 text-amber-400" />
+                <Zap className="w-3.5 h-3.5 text-sky-400" />
                 <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
               </div>
               <LiveActivityStreamBadge dark />
@@ -103,11 +103,11 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               <ExpressiveKineticText
                 text="Home Appliances & Smart Living"
                 highlightWords={["Smart", "Living"]}
-                highlightClass="text-amber-400 font-extrabold"
+                highlightClass="text-sky-400 font-extrabold"
               />
             </h1>
 
-            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
+            <h2 className="text-xl sm:text-2xl font-bold text-sky-300 font-hindi">
               सोलर अनुकूलित 5-स्टार इलेक्ट्रॉनिक उपकरण • शून्य बिजली बिल
             </h2>
 
@@ -120,7 +120,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               whileHover={{ scale: 1.03, y: -2 }}
               className="mt-6 inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3"
             >
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
+              <span className="text-sky-400 font-bold text-xs uppercase tracking-wider block">
                 ★ Our Core Principle • हमारा संकल्प
               </span>
               <p className="text-xl font-black text-white font-hindi mt-0.5">
@@ -189,7 +189,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                     <div className="flex justify-between items-start mb-3">
                       <motion.div
                         whileHover={{ rotate: 12, scale: 1.12 }}
-                        className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors flex items-center justify-center shadow-2xs"
+                        className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-[#0a1e3b] group-hover:text-sky-300 transition-colors flex items-center justify-center shadow-2xs"
                       >
                         <Icon className="w-6 h-6" />
                       </motion.div>
@@ -222,7 +222,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                       </div>
                       <div className="flex justify-between text-xs">
                         <span className="text-slate-700 font-medium">Solar Power:</span>
-                        <strong className="text-amber-600">{app.solarCompatibility}</strong>
+                        <strong className="text-blue-700">{app.solarCompatibility}</strong>
                       </div>
                     </div>
 
@@ -240,7 +240,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                     <button
                       type="button"
                       onClick={() => handleWhatsAppOrder(app)}
-                      className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                      className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
                       <span>Order on WhatsApp • ऑर्डर करें</span>
@@ -264,7 +264,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
             className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
+              <span className="text-sky-400 font-bold text-xs uppercase tracking-wider block">
                 Showroom Location & Timing • शोरूम का पता
               </span>
               <h3 className="text-2xl font-black text-white">
@@ -279,7 +279,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md"
+                className="bg-blue-600 hover:bg-blue-500 text-white font-black px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md"
               >
                 Google Maps • लोकेशन ↗
               </a>

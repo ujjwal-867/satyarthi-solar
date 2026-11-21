@@ -36,7 +36,7 @@ function FloatingWhatsApp() {
           title="WhatsApp 24×7"
         >
           <MessageCircle className="w-7 h-7 fill-white" />
-          <span className="absolute left-15 bg-[#0a1e3b] text-amber-300 border border-amber-400/40 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
+          <span className="absolute left-15 bg-[#0a1e3b] text-emerald-300 border border-emerald-400/40 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
             WhatsApp 24×7 Live
           </span>
         </a>
@@ -46,12 +46,12 @@ function FloatingWhatsApp() {
           href={businessData.instagramUrl}
           target="_blank"
           rel="noreferrer"
-          className="group relative flex items-center justify-center w-11 h-11 bg-[#0a1e3b] hover:bg-[#0f284f] text-white rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-amber-400 cursor-pointer"
+          className="group relative flex items-center justify-center w-11 h-11 bg-[#0a1e3b] hover:bg-[#0f284f] text-white rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-sky-400 cursor-pointer"
           aria-label="Follow on Instagram"
           title="Instagram Profile"
         >
-          <InstagramIcon className="w-5 h-5 text-amber-300" />
-          <span className="absolute left-13 bg-slate-900 text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
+          <InstagramIcon className="w-5 h-5 text-sky-300" />
+          <span className="absolute left-13 bg-slate-900 text-sky-300 text-[11px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md pointer-events-none">
             Instagram: @satyarthi_solar_solution.gkp
           </span>
         </a>
@@ -96,7 +96,7 @@ function FloatingWhatsApp() {
           href={whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 hover:text-amber-300 active:scale-95 transition"
+          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 hover:text-emerald-400 active:scale-95 transition"
           aria-label="WhatsApp 24x7"
         >
           <span className="w-7 h-7 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs">
@@ -109,10 +109,10 @@ function FloatingWhatsApp() {
           href={businessData.instagramUrl}
           target="_blank"
           rel="noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 hover:text-amber-300 active:scale-95 transition"
+          className="flex flex-col items-center justify-center gap-0.5 px-2 py-0.5 text-slate-200 hover:text-sky-300 active:scale-95 transition"
           aria-label="Instagram"
         >
-          <span className="w-7 h-7 rounded-full bg-[#0a1e3b] border border-amber-400/50 flex items-center justify-center text-amber-300 shadow-xs">
+          <span className="w-7 h-7 rounded-full bg-[#0a1e3b] border border-sky-400/50 flex items-center justify-center text-sky-300 shadow-xs">
             <InstagramIcon className="w-3.5 h-3.5" />
           </span>
           <span className="text-[9.5px] font-bold tracking-tight">Insta</span>

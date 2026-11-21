@@ -32,7 +32,7 @@ function Testimonials() {
               rel="noreferrer"
               className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 hover:border-blue-300 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider transition cursor-pointer"
             >
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <Star className="w-3.5 h-3.5 fill-blue-600 text-blue-600" />
               <span>4.9 / 5 Google Rating • 2,500+ Clients Across UP ↗</span>
             </a>
 
@@ -71,11 +71,11 @@ function Testimonials() {
                 <div className="flex items-center justify-between mb-3.5">
                   <div className="flex items-center gap-1">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-4 h-4 fill-blue-600 text-blue-600" />
                     ))}
                     <span className="text-xs font-bold text-slate-700 ml-1.5">5.0</span>
                   </div>
-                  <Quote className="w-5 h-5 text-slate-300 group-hover:text-amber-500 transition" />
+                  <Quote className="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition" />
                 </div>
 
                 {/* Comment */}
@@ -110,13 +110,13 @@ function Testimonials() {
           <div className="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
             {/* Left Col: Info */}
             <div className="lg:col-span-7 space-y-3">
-              <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-                <Video className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-2 bg-blue-600/30 text-sky-300 border border-blue-400/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+                <Video className="w-3.5 h-3.5 text-sky-400" />
                 <span>Customer Video Proofs & Reels</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                Watch Real Installations on <span className="text-amber-400">Instagram</span> & <span className="text-sky-300">Facebook</span>
+                Watch Real Installations on <span className="text-sky-300">Instagram</span> & <span className="text-white">Facebook</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
                 Explore rooftop installations, 15 HP solar flour mills, and customer interviews on our official channels.
@@ -126,12 +126,12 @@ function Testimonials() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
                 {socialReels.map((reel, rIdx) => (
                   <div key={rIdx} className="bg-slate-900/80 border border-slate-800 p-2.5 rounded-2xl flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center shrink-0">
-                      <Play className="w-3.5 h-3.5 fill-amber-400" />
+                    <div className="w-7 h-7 rounded-lg bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0">
+                      <Play className="w-3.5 h-3.5 fill-sky-300 text-sky-300" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-[11px] font-bold text-white truncate">{reel.title}</p>
-                      <span className="text-[9px] text-amber-400 block truncate">{reel.tag} • {reel.location}</span>
+                      <span className="text-[9px] text-sky-300 block truncate">{reel.tag} • {reel.location}</span>
                     </div>
                   </div>
                 ))}
@@ -146,9 +146,9 @@ function Testimonials() {
                 href={businessData.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-amber-400/20 transition cursor-pointer"
+                className="py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-900/30 transition cursor-pointer"
               >
-                <MapPin className="w-4 h-4 text-slate-950" />
+                <MapPin className="w-4 h-4 text-white" />
                 <span>Verified Google Reviews (★ 4.9 • 2500+ Clients)</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </motion.a>

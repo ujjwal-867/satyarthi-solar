@@ -78,7 +78,7 @@ function Certificates({ isStandalonePage = false }) {
         >
           <div className="flex flex-wrap items-center justify-center gap-2">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs">
-              <ShieldCheck className="w-4 h-4 text-amber-500" />
+              <ShieldCheck className="w-4 h-4 text-blue-600" />
               <span>100% Legally Verified & Empanelled • सरकारी व कंपनी प्रमाणित</span>
             </div>
           </div>
@@ -87,7 +87,7 @@ function Certificates({ isStandalonePage = false }) {
             <ExpressiveKineticText
               text="Government Approvals & Brand Authorizations"
               highlightWords={["Government", "Brand", "Authorizations"]}
-              highlightClass="text-amber-500 font-extrabold"
+              highlightClass="text-blue-600 font-extrabold"
             />
             <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               यूपीनेडा सूचीबद्धता, सौर सम्मान एवं अधिकृत डीलरशिप प्रमाणपत्र
@@ -137,12 +137,12 @@ function Certificates({ isStandalonePage = false }) {
                   {/* Header Tag */}
                   <div className="p-4 bg-[#0a1e3b] text-white flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <Award className="w-5 h-5 text-amber-400" />
+                      <Award className="w-5 h-5 text-sky-400" />
                       <span className="text-xs font-bold uppercase tracking-wider">
                         {cert.badge}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-amber-300 bg-black/40 px-2 py-0.5 rounded truncate max-w-[140px]">
+                    <span className="text-[11px] font-mono text-sky-300 bg-black/40 px-2 py-0.5 rounded truncate max-w-[140px]">
                       {cert.code}
                     </span>
                   </div>
@@ -160,7 +160,7 @@ function Certificates({ isStandalonePage = false }) {
                       <button
                         type="button"
                         onClick={() => setSelectedCert(cert)}
-                        className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-amber-400 transition"
+                        className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-blue-600 hover:text-white transition"
                       >
                         <Eye className="w-4 h-4" />
                         <span>Inspect • देखें</span>
@@ -257,9 +257,9 @@ function Certificates({ isStandalonePage = false }) {
             href={businessData.googleMapLink}
             target="_blank"
             rel="noreferrer"
-            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0 flex items-center gap-1.5"
+            className="bg-blue-600 hover:bg-blue-500 text-white font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0 flex items-center gap-1.5"
           >
-            <MapPin className="w-4 h-4 text-slate-950" />
+            <MapPin className="w-4 h-4 text-white" />
             <span>Google Maps • लोकेशन ↗</span>
           </a>
         </div>
@@ -279,7 +279,7 @@ function Certificates({ isStandalonePage = false }) {
             <div className="p-4 bg-slate-900 text-white flex justify-between items-center">
               <div>
                 <h3 className="font-bold text-sm sm:text-base">{selectedCert.title}</h3>
-                <p className="text-xs text-amber-300 font-mono">{selectedCert.code}</p>
+                <p className="text-xs text-sky-300 font-mono">{selectedCert.code}</p>
               </div>
               <div className="flex items-center gap-2">
                 <a

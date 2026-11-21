@@ -17,7 +17,7 @@ function Stats() {
       hi: "2,500+ संतुष्ट परिवार", 
       desc: "Purvanchal & Gorakhpur",
       icon: Users,
-      iconStyle: "bg-[#0a1e3b] text-amber-400"
+      iconStyle: "bg-[#0a1e3b] text-sky-400"
     },
     { 
       value: "2,200+", 
@@ -26,7 +26,7 @@ function Stats() {
       hi: "सोलर क्षमता स्थापित", 
       desc: "Rooftops Across UP",
       icon: Sun,
-      iconStyle: "bg-amber-500 text-slate-950"
+      iconStyle: "bg-blue-600 text-white"
     },
     { 
       value: "5+", 
@@ -53,7 +53,7 @@ function Stats() {
       hi: "पैनल वारंटी", 
       desc: "Tier-1 Performance",
       icon: Star,
-      iconStyle: "bg-amber-500 text-slate-950"
+      iconStyle: "bg-blue-600 text-white"
     },
     { 
       value: "₹1.08L", 
@@ -62,7 +62,7 @@ function Stats() {
       hi: "सरकारी सब्सिडी", 
       desc: "Direct Bank DBT",
       icon: Zap,
-      iconStyle: "bg-[#0a1e3b] text-amber-400"
+      iconStyle: "bg-[#0a1e3b] text-emerald-400"
     },
   ];
 

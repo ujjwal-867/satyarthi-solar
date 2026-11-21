@@ -170,16 +170,16 @@ function Hero({ onOpenCalculator }) {
               >
                 <ShieldCheck className="w-4 h-4 text-blue-300 shrink-0" />
                 <span>UPNEDA Approved Vendor</span>
-                <span className="bg-amber-400 text-slate-950 text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
+                <span className="bg-blue-600 text-white text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
                   {businessData.vendorCode}
                 </span>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.03, y: -2 }}
-                className="inline-flex items-center gap-1.5 bg-amber-400/20 backdrop-blur-md border border-amber-400/40 text-amber-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-slate-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm"
               >
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                 <span>Motiram Adda, Gorakhpur Hub</span>
               </motion.div>
 
@@ -189,7 +189,7 @@ function Hero({ onOpenCalculator }) {
             {/* Expressive Kinetic Headline with Targeted Local Keywords */}
             <motion.div variants={itemVariants} className="space-y-2.5">
               <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-black tracking-tight leading-[1.15] text-white">
-                <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-400 mb-1">
+                <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-sky-400 mb-1">
                   #1 Solar EPC in Gorakhpur & Purvanchal
                 </span>
                 <span className="block">
@@ -201,14 +201,14 @@ function Hero({ onOpenCalculator }) {
                   />
                 </span>
                 <span className="block text-white">
-                  Satyarthi <span className="text-amber-400">Solar Solution</span>
+                  Satyarthi <span className="text-sky-400">Solar Solution</span>
                 </span>
               </h1>
               
-              <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed max-w-xl">
+              <p className="text-slate-100 text-sm sm:text-base leading-relaxed max-w-xl">
                 UPNEDA-empanelled rooftop solar installations across Gorakhpur & Purvanchal. Claim up to ₹1,08,000 PM Surya Ghar subsidy with 25-year panel warranty and 6% bank loan.
               </p>
-              <p className="text-amber-300 font-hindi text-xs sm:text-sm font-semibold">
+              <p className="text-sky-200 font-hindi text-xs sm:text-sm font-semibold">
                 सत्यार्थी सोलर सॉल्यूशन • 2500+ खुशहाल परिवार
               </p>
             </motion.div>
@@ -224,12 +224,12 @@ function Hero({ onOpenCalculator }) {
                     backgroundColor: "rgba(255, 255, 255, 0.12)"
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-amber-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
+                  className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-sky-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
                 >
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                   
                   <div className="flex items-center gap-1.5 relative z-10">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                     <span className="text-xs font-bold text-white leading-tight truncate">
                       {pt.title}
                     </span>
@@ -264,10 +264,10 @@ function Hero({ onOpenCalculator }) {
                 onClick={() => {
                   if (onOpenCalculator) onOpenCalculator();
                 }}
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-amber-300"
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[#0a1e3b] hover:bg-[#0f284f] text-white font-bold px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-sky-400/40"
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
-                <Calculator className="w-4 h-4 text-slate-950 relative z-10 shrink-0" />
+                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+                <Calculator className="w-4 h-4 text-sky-400 relative z-10 shrink-0" />
                 <span className="relative z-10">Solar Calculator</span>
               </motion.button>
 
@@ -277,7 +277,7 @@ function Hero({ onOpenCalculator }) {
                 href={`tel:${businessData.phone[0]}`}
                 className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-4 py-3 rounded-2xl border border-white/20 transition text-sm cursor-pointer"
               >
-                <Phone className="w-4 h-4 text-amber-300 shrink-0" />
+                <Phone className="w-4 h-4 text-sky-300 shrink-0" />
                 <span>+91 {businessData.phone[0]}</span>
               </motion.a>
             </motion.div>
@@ -290,9 +290,9 @@ function Hero({ onOpenCalculator }) {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-xs text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 px-3.5 py-1.5 rounded-full transition cursor-pointer shadow-xs"
               >
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                 <span><strong>Showroom:</strong> Motiram Adda, Deoria Road, Gorakhpur (273202)</span>
-                <span className="text-amber-300 font-bold ml-1">Google Maps ↗</span>
+                <span className="text-sky-300 font-bold ml-1">Google Maps ↗</span>
               </a>
             </motion.div>
           </motion.div>
@@ -304,7 +304,7 @@ function Hero({ onOpenCalculator }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-amber-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
+              className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-sky-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
             >
               {/* Diagonal Glassmorphic Shimmer Sweep */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
@@ -312,7 +312,7 @@ function Hero({ onOpenCalculator }) {
               <div className="relative z-10 flex items-center gap-3.5 sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.06, rotate: -2 }}
-                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-md shrink-0"
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-sky-400/80 shadow-md shrink-0"
                 >
                   <img
                     src={businessData.engineerImage}
@@ -327,7 +327,7 @@ function Hero({ onOpenCalculator }) {
 
                 <div className="min-w-0 flex-1 space-y-1">
                   <div className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-200 border border-blue-400/30 px-2 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-bold max-w-full">
-                    <UserCheck className="w-3 h-3 text-amber-300 shrink-0" />
+                    <UserCheck className="w-3 h-3 text-sky-300 shrink-0" />
                     <span className="truncate">Chief Solar EPC Engineer</span>
                   </div>
 
@@ -335,7 +335,7 @@ function Hero({ onOpenCalculator }) {
                     Er. Satyaprakash Satyarthi
                   </h3>
 
-                  <p className="text-xs text-amber-300 font-bold">
+                  <p className="text-xs text-sky-300 font-bold">
                     UPNEDA Empanelled (Code: {businessData.vendorCode})
                   </p>
 
@@ -348,14 +348,14 @@ function Hero({ onOpenCalculator }) {
               {/* Live Solar Telemetry Strip inside Engineer Card */}
               <div className="relative z-10 bg-[#071933]/90 rounded-2xl p-3 border border-blue-500/20 space-y-2">
                 <div className="flex items-center justify-between text-[11px]">
-                  <span className="flex items-center gap-1.5 text-amber-300 font-bold">
-                    <Sun className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="flex items-center gap-1.5 text-sky-300 font-bold">
+                    <Sun className="w-3.5 h-3.5 text-sky-400" />
                     <span>Gorakhpur Solar Yield Performance</span>
                   </span>
                   <span className="font-mono font-black text-sky-300">98.4% Efficiency</span>
                 </div>
                 <div className="w-full h-1.5 bg-blue-950/80 rounded-full overflow-hidden">
-                  <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 via-sky-400 to-amber-400 rounded-full" />
+                  <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 via-sky-400 to-emerald-400 rounded-full" />
                 </div>
               </div>
 
@@ -366,7 +366,7 @@ function Hero({ onOpenCalculator }) {
                   className="bg-white/6 hover:bg-blue-500/10 transition p-2.5 rounded-2xl border border-white/10"
                 >
                   <p className="text-[10px] text-slate-300 font-medium">Installed Capacity</p>
-                  <p className="text-base font-black text-amber-300">2,200+ kW</p>
+                  <p className="text-base font-black text-sky-300">2,200+ kW</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ y: -3 }}
@@ -386,9 +386,9 @@ function Hero({ onOpenCalculator }) {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
+                  className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition"
                 >
-                  <MessageCircle className="w-4 h-4 fill-slate-950 text-slate-950" />
+                  <MessageCircle className="w-4 h-4 fill-white text-white" />
                   <span>WhatsApp • सीधे बात करें</span>
                 </motion.a>
 
@@ -412,7 +412,7 @@ function Hero({ onOpenCalculator }) {
                   transition={{ duration: 0.35 }}
                   className="inline-flex items-center gap-1.5 text-left min-w-0"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                   <span className="font-semibold text-slate-100 text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
                 </motion.div>
 
@@ -423,7 +423,7 @@ function Hero({ onOpenCalculator }) {
                       onClick={() => setCurrentSlide(idx)}
                       className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                         currentSlide === idx 
-                          ? "w-5 bg-amber-400" 
+                          ? "w-5 bg-sky-400" 
                           : "w-1.5 bg-white/35 hover:bg-white/60"
                       }`}
                       aria-label={`Switch to slide ${idx + 1}`}

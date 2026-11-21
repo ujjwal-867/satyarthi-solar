@@ -75,7 +75,7 @@ function Products() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Solar Equipment & <span className="text-amber-500">Products Catalog</span>
+            Solar Equipment & <span className="text-blue-600">Products Catalog</span>
             <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सोलर उपकरण, इन्वर्टर, पैनल एवं स्ट्रक्चर कैटलॉग
             </span>
@@ -150,13 +150,13 @@ function Products() {
                     />
                     
                     {/* Badge */}
-                    <span className="absolute top-3 left-3 bg-[#0a1e3b] text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-amber-400/30">
+                    <span className="absolute top-3 left-3 bg-[#0a1e3b] text-sky-300 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-sky-400/30">
                       {product.badge || product.category}
                     </span>
 
                     {/* Discount Tag */}
                     {discountPercent && discountPercent > 0 && (
-                      <span className="absolute top-3 right-3 bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded shadow-sm">
+                      <span className="absolute top-3 right-3 bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded shadow-sm">
                         {discountPercent}% OFF
                       </span>
                     )}
@@ -216,9 +216,9 @@ function Products() {
                   <button
                     type="button"
                     onClick={() => handleWhatsAppInquiry(product)}
-                    className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                    className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 fill-slate-950" />
+                    <MessageCircle className="w-3.5 h-3.5 fill-white text-white" />
                     <span>WhatsApp Order • ऑर्डर</span>
                   </button>
 
@@ -256,10 +256,10 @@ function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50/50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-50 via-slate-50 to-blue-50/50 rounded-3xl p-6 sm:p-7 border border-blue-200 flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#0a1e3b] text-amber-400 rounded-2xl font-bold shadow-md shadow-blue-950/20">
+            <div className="p-3 bg-[#0a1e3b] text-sky-400 rounded-2xl font-bold shadow-md shadow-blue-950/20">
               <Zap className="w-6 h-6" />
             </div>
             <div>
@@ -352,9 +352,9 @@ function Products() {
                     handleWhatsAppInquiry(selectedProduct);
                     setSelectedProduct(null);
                   }}
-                  className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-amber-500/20"
+                  className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-emerald-600/20"
                 >
-                  <MessageCircle className="w-4 h-4 fill-slate-950" />
+                  <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Order on WhatsApp • ऑर्डर</span>
                 </button>
                 <button

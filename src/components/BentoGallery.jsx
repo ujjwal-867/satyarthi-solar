@@ -35,7 +35,7 @@ function ExpressiveKineticTitle({ text, highlightWords = [] }) {
             }}
             className={`inline-block select-none ${
               isHighlight
-                ? "text-amber-500 font-extrabold"
+                ? "text-blue-700 font-extrabold"
                 : "text-slate-900"
             }`}
           >
@@ -84,7 +84,7 @@ export function BentoGallery() {
       location: "Saketpuri Colony, Rajendra Nagar, Gorakhpur (273015)",
       image: "/images/projects/team-saketpuri-pergola.jpg",
       badge: "GPS Verified • 10/09/2025",
-      badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
+      badgeColor: "bg-[#0a1e3b] text-sky-300 font-bold border border-blue-700",
       span: "col-span-1 md:col-span-2 row-span-2",
       description: "Complete elevated rooftop gazebo pergola plant engineered by Satyarthi Solar Solution. Allows full terrace walking and recreational usage below the solar array.",
       specs: ["GPS: 26.787222° N, 83.349473° E", "Er. Satyaprakash with Engineering Team", "Heavy-Duty Galvanized Columns", "Full Usable Roof Clearance"],
@@ -131,7 +131,7 @@ export function BentoGallery() {
       location: "Bank Rd, Purdilpur, Gorakhpur (273001)",
       image: "/images/projects/waaree-inverter-purdilpur.jpg",
       badge: "Waaree Solar • 10/04/2026",
-      badgeColor: "bg-amber-600 text-white font-bold",
+      badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Clean interior electrical installation featuring Waaree high-efficiency grid-tied solar inverter with dual ACDB & DCDB surge protection switchgear and fire-retardant conduits.",
       specs: ["GPS: 26.756338° N, 83.362768° E", "Waaree Single Phase Grid Inverter", "Solar ACDB with Indicator Lamp", "Solar DCDB with Fast-Acting Fuses"],
@@ -161,7 +161,7 @@ export function BentoGallery() {
       location: "Rapti Nagar Phase-4, Khorabar, Gorakhpur (273010)",
       image: "/images/projects/okaya-pcu-khorabar.jpg",
       badge: "Okaya MPPT • 08/06/2026",
-      badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
+      badgeColor: "bg-[#0a1e3b] text-sky-300 font-bold border border-blue-700",
       span: "col-span-1 row-span-1",
       description: "High-capacity Okaya MPPT Solar PCU with digital telemetry display and UTL solar backup battery bank powering heavy domestic and commercial loads.",
       specs: ["GPS: 26.710498° N, 83.45127° E", "5.4 kVA / 48V MPPT Solar PCU", "Full Digital Diagnostics Screen", "Seamless Heavy Load Running"],
@@ -336,7 +336,7 @@ export function BentoGallery() {
       location: "Rooftop Terrace, Gorakhpur",
       image: "/images/projects/mono-perc-array-closeup.jpg",
       badge: "Mono PERC • 550W+ Modules",
-      badgeColor: "bg-amber-600 text-white font-bold",
+      badgeColor: "bg-blue-600 text-white font-bold",
       span: "col-span-1 row-span-1",
       description: "Detailed engineering inspection of anti-reflective tempered glass and corrosion-resistant mid and end clamps on high-wattage Mono PERC modules.",
       specs: ["Class-A Anti-Reflective Glass", "Heavy Aluminum Extrusion Clamps", "IP68 Multi-Busbar Junction Boxes", "Hailstorm & Impact Tested"]
@@ -350,7 +350,7 @@ export function BentoGallery() {
       location: "Motiram Adda, Deoria Road, Gorakhpur (273202)",
       image: "/images/brand/main-hoarding-banner.jpg",
       badge: "Main Showroom • मोतीराम अड्डा",
-      badgeColor: "bg-[#0a1e3b] text-amber-300 font-bold",
+      badgeColor: "bg-[#0a1e3b] text-sky-300 font-bold border border-blue-700",
       span: "col-span-1 md:col-span-2 row-span-1",
       description: "Official technical center and showroom displaying high-efficiency solar modules, hybrid PCUs, and energy-efficient home appliances on Deoria Road highway.",
       specs: ["UPNEDA Approved Vendor GKP2604066741", "Loom Solar & Fujiyama Display Hub", "Deoria Road Highway Access", "Free Technical Consultation"],
@@ -500,7 +500,7 @@ export function BentoGallery() {
                       <button
                         type="button"
                         aria-label="View Full Photo"
-                        className="w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-200 shadow-sm"
+                        className="w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md text-white flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:bg-blue-600 group-hover:text-white transition-all duration-200 shadow-sm"
                       >
                         <Maximize2 className="w-4 h-4" />
                       </button>
@@ -508,15 +508,15 @@ export function BentoGallery() {
 
                     {/* Bottom Content Card with Expressive Slide-Up Typography */}
                     <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 flex flex-col justify-end space-y-1 transition-transform duration-300 group-hover:-translate-y-1">
-                      <div className="flex items-center gap-1.5 text-amber-300 text-xs font-semibold truncate">
-                        <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                      <div className="flex items-center gap-1.5 text-sky-300 text-xs font-semibold truncate">
+                        <MapPin className="w-3.5 h-3.5 shrink-0 text-sky-400" />
                         <span className="truncate">{item.location}</span>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors line-clamp-1 tracking-tight">
+                      <h3 className="text-base sm:text-lg font-black text-white group-hover:text-sky-300 transition-colors line-clamp-1 tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="text-xs text-amber-300 font-semibold font-hindi line-clamp-1">
+                      <p className="text-xs text-sky-300 font-semibold font-hindi line-clamp-1">
                         {item.hindiTitle}
                       </p>
 
@@ -527,7 +527,7 @@ export function BentoGallery() {
                       {/* Google Map quick action indicator */}
                       {item.googleMapLink && (
                         <div className="pt-1 flex items-center gap-2">
-                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-400 font-semibold">
+                          <span className="inline-flex items-center gap-1 text-[11px] text-sky-400 font-semibold">
                             <Navigation className="w-3 h-3" />
                             GPS Coordinates Verified • क्लिक कर देखें
                           </span>
@@ -560,7 +560,7 @@ export function BentoGallery() {
             <p className="text-[11px] text-slate-700 font-medium">Across Gorakhpur & Eastern UP</p>
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-amber-500">₹1,08,000</div>
+            <div className="text-2xl sm:text-3xl font-black text-emerald-600">₹1,08,000</div>
             <div className="text-xs text-slate-900 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
             <p className="text-[11px] text-slate-700 font-medium">Direct Bank DBT Credit</p>
           </motion.div>
@@ -592,7 +592,7 @@ export function BentoGallery() {
               href={businessData.googleMapLink}
               target="_blank"
               rel="noreferrer"
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+              className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
             >
               Google Maps • लोकेशन ↗
             </a>
@@ -654,7 +654,7 @@ export function BentoGallery() {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-amber-400 hover:text-slate-950 text-white flex items-center justify-center transition shadow-lg cursor-pointer"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center transition shadow-lg cursor-pointer"
                   aria-label="Previous photo"
                 >
                   <ChevronLeft className="w-6 h-6" />
@@ -662,7 +662,7 @@ export function BentoGallery() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-amber-400 hover:text-slate-950 text-white flex items-center justify-center transition shadow-lg cursor-pointer"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center transition shadow-lg cursor-pointer"
                   aria-label="Next photo"
                 >
                   <ChevronRight className="w-6 h-6" />
@@ -732,9 +732,9 @@ export function BentoGallery() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs py-2.5 px-5 rounded-xl shadow-lg shadow-amber-500/20 transition"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 px-5 rounded-xl shadow-lg shadow-emerald-600/20 transition"
                 >
-                  <MessageCircle className="w-4 h-4 fill-slate-950" />
+                  <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Inquire on WhatsApp • पूछताछ करें</span>
                 </a>
               </div>

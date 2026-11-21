@@ -14,7 +14,7 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
         {/* Modal Header */}
         <div className="bg-[#0a1e3b] text-white p-4 sm:p-5 flex items-center justify-between border-b border-blue-900">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md">
               <CalcIcon className="w-5 h-5" />
             </div>
             <div>
@@ -22,11 +22,11 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
                 <span className="text-sm sm:text-base font-black text-white">
                   Solar Savings & Subsidy Calculator
                 </span>
-                <span className="text-[10px] bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded-full uppercase">
+                <span className="text-[10px] bg-blue-600 text-white font-black px-2 py-0.5 rounded-full uppercase">
                   UPNEDA 2026
                 </span>
               </div>
-              <p className="text-[11px] text-amber-300 font-hindi font-medium">
+              <p className="text-[11px] text-sky-300 font-hindi font-medium">
                 सोलर क्षमता, पीएम सूर्य घर सब्सिडी व मासिक बचत की तुरंत गणना करें
               </p>
             </div>

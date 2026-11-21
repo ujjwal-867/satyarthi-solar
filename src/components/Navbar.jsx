@@ -91,23 +91,23 @@ function Navbar({
           
           {/* Left: Govt Approvals, Vendor Code & Showroom Address */}
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center sm:justify-start">
-            <span className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] sm:text-[11px] shadow-xs">
-              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-950" />
+            <span className="inline-flex items-center gap-1 bg-blue-600 text-white font-bold px-2 py-0.5 rounded text-[10px] sm:text-[11px] shadow-xs">
+              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
               UPNEDA APPROVED
             </span>
             <span className="text-blue-900">|</span>
             <span className="text-slate-200 font-medium text-[10px] sm:text-[11px]">
-              Code: <strong className="text-amber-300 font-mono">{businessData.vendorCode}</strong>
+              Code: <strong className="text-sky-300 font-mono">{businessData.vendorCode}</strong>
             </span>
             <span className="hidden sm:inline text-blue-900">|</span>
             <a 
               href={businessData.googleMapLink} 
               target="_blank" 
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-slate-200 hover:text-amber-300 transition text-[10px] sm:text-[11px]"
+              className="inline-flex items-center gap-1 text-slate-200 hover:text-sky-300 transition text-[10px] sm:text-[11px]"
               title="Showroom Location & Google Maps"
             >
-              <MapPin className="w-3 h-3 text-amber-400 shrink-0" />
+              <MapPin className="w-3 h-3 text-sky-400 shrink-0" />
               <span className="hidden lg:inline">{businessData.address}</span>
               <span className="lg:hidden">Motiram Adda, Gorakhpur</span>
             </a>
@@ -143,7 +143,7 @@ function Navbar({
 
             <a 
               href={`tel:${businessData.phone[0]}`}
-              className="inline-flex items-center gap-1 hover:text-amber-300 transition font-bold text-[11px] sm:text-xs"
+              className="inline-flex items-center gap-1 hover:text-sky-300 transition font-bold text-[11px] sm:text-xs"
               title="24x7 Helpline"
             >
               <Phone className="w-3 h-3 text-sky-400" />
@@ -154,10 +154,10 @@ function Navbar({
 
             <a 
               href={`tel:${businessData.officeNumber}`}
-              className="hidden sm:inline-flex items-center gap-1 text-amber-300 hover:text-amber-200 transition font-bold text-[11px] sm:text-xs"
+              className="hidden sm:inline-flex items-center gap-1 text-sky-300 hover:text-white transition font-bold text-[11px] sm:text-xs"
               title="Official Office Number"
             >
-              <Phone className="w-3 h-3 text-amber-400" />
+              <Phone className="w-3 h-3 text-sky-400" />
               <span>Office: +91 {businessData.officeNumber}</span>
             </a>
 
@@ -206,7 +206,7 @@ function Navbar({
               <p className="text-[9px] sm:text-[9.5px] font-bold tracking-wider text-blue-800 uppercase flex items-center gap-1 whitespace-nowrap">
                 <span>सत्यार्थी सोलर सॉल्यूशन</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-amber-600">{businessData.vendorCode}</span>
+                <span className="text-blue-700">{businessData.vendorCode}</span>
               </p>
             </div>
           </button>
@@ -232,7 +232,7 @@ function Navbar({
                   }`}>
                     {link.en}
                   </span>
-                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-gradient-to-r from-blue-600 to-amber-500 transition-transform duration-300 origin-center rounded-full ${
+                  <span className={`absolute bottom-0 inset-x-2 h-0.5 bg-blue-600 transition-transform duration-300 origin-center rounded-full ${
                     active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   }`} />
                 </motion.button>
@@ -247,9 +247,9 @@ function Navbar({
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.97 }}
               onClick={onOpenCalculator}
-              className="inline-flex items-center gap-1.5 text-xs font-black text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2 rounded-xl transition shadow-xs cursor-pointer border border-amber-300 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-xl transition shadow-xs cursor-pointer border border-blue-500 whitespace-nowrap"
             >
-              <Calculator className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+              <Calculator className="w-3.5 h-3.5 text-white shrink-0" />
               <span>Calculator</span>
             </motion.button>
 
@@ -266,7 +266,7 @@ function Navbar({
               }}
               className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#0a1e3b] hover:bg-blue-900 px-3 py-2 rounded-xl transition shadow-md shadow-blue-950/20 cursor-pointer border border-blue-900 whitespace-nowrap"
             >
-              <FileText className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <FileText className="w-3.5 h-3.5 text-sky-300 shrink-0" />
               <span>Get Quote</span>
             </motion.button>
           </div>
@@ -277,7 +277,7 @@ function Navbar({
               onClick={onOpenCalculator}
               aria-label="Open Solar Calculator"
               title="Solar Calculator"
-              className="text-[11px] font-black text-slate-950 bg-amber-400 p-2 rounded-xl sm:hidden shadow-xs border border-amber-300 flex items-center justify-center"
+              className="text-[11px] font-bold text-white bg-blue-600 p-2 rounded-xl sm:hidden shadow-xs border border-blue-500 flex items-center justify-center"
             >
               <Calculator className="w-4 h-4" />
             </button>
@@ -310,11 +310,11 @@ function Navbar({
                 onClick={() => handleNavClick({ route: item.route })}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                   active
-                    ? "bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-sm font-extrabold"
+                    ? "bg-blue-600 text-white shadow-sm font-bold"
                     : "bg-slate-800/90 text-slate-200 hover:bg-slate-700 border border-slate-700/80"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 shrink-0 ${active ? "text-slate-950" : "text-sky-400"}`} />
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${active ? "text-white" : "text-sky-400"}`} />
                 <span>{item.label}</span>
               </button>
             );
@@ -324,9 +324,9 @@ function Navbar({
           <button
             type="button"
             onClick={onOpenCalculator}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 hover:bg-amber-400/30 transition cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600/20 text-sky-300 border border-blue-400/30 hover:bg-blue-600/30 transition cursor-pointer whitespace-nowrap"
           >
-            <Calculator className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <Calculator className="w-3.5 h-3.5 text-sky-400 shrink-0" />
             <span>Calculator</span>
           </button>
         </div>
@@ -361,9 +361,9 @@ function Navbar({
                 setMobileMenuOpen(false);
                 if (onOpenCalculator) onOpenCalculator();
               }}
-              className="w-full inline-flex justify-center items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-3 rounded-xl shadow-xs border border-amber-300"
+              className="w-full inline-flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-xs border border-blue-500"
             >
-              <Calculator className="w-5 h-5 text-slate-950" />
+              <Calculator className="w-5 h-5 text-white" />
               <span>Solar Calculator</span>
             </button>
 
@@ -379,7 +379,7 @@ function Navbar({
               }}
               className="w-full inline-flex justify-center items-center gap-2 bg-[#0a1e3b] hover:bg-blue-900 text-white font-black py-3 rounded-xl shadow-xs transition"
             >
-              <FileText className="w-5 h-5 text-amber-400" />
+              <FileText className="w-5 h-5 text-sky-300" />
               <span>Get Free Quote</span>
             </button>
 

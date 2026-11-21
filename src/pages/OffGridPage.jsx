@@ -85,7 +85,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
   };
 
   return (
-    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+    <div className="flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white flex flex-col justify-between">
       <div>
         {/* Hero Section with Expressive Kinetic Typography & Real-Time Collaborative Cursors */}
         <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white relative overflow-hidden text-center">
@@ -94,7 +94,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               {
                 name: "Er. Satyaprakash",
                 badge: "24×7 Hybrid Storage",
-                color: "bg-amber-400 text-slate-950",
+                color: "bg-blue-600 text-white",
                 pathX: ["6%", "20%", "12%", "6%"],
                 pathY: ["18%", "48%", "66%", "18%"],
                 duration: 16
@@ -112,8 +112,8 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <BatteryCharging className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
+                <BatteryCharging className="w-3.5 h-3.5 text-sky-400" />
                 <span>Independent Energy • 24×7 Power Backup True Rate Card</span>
               </div>
               <LiveActivityStreamBadge dark />
@@ -123,11 +123,11 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Off-Grid & Hybrid Solar: Our True Rate List"
                 highlightWords={["True", "Rate", "List"]}
-                highlightClass="text-amber-400 font-extrabold"
+                highlightClass="text-sky-400 font-extrabold"
               />
             </h1>
 
-            <h2 className="text-xl sm:text-2xl font-bold text-amber-300 font-hindi">
+            <h2 className="text-xl sm:text-2xl font-bold text-sky-300 font-hindi">
               24×7 पावर बैकअप • इन्वर्टर, बैटरी व सोलर आटा चक्की रेट लिस्ट
             </h2>
 
@@ -155,7 +155,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               <ExpressiveKineticText
                 text="Verified Off-Grid & Solar Aata Chakki Packages"
                 highlightWords={["Off-Grid", "Aata", "Chakki"]}
-                highlightClass="text-amber-500 font-extrabold"
+                highlightClass="text-blue-700 font-extrabold"
               />
             </h3>
             <p className="text-slate-700 font-medium text-xs sm:text-sm mt-1">
@@ -173,10 +173,10 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 transition={{ duration: 0.45, delay: idx * 0.07 }}
                 className={`group relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
-                    ? "bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl ring-2 ring-amber-400"
+                    ? "bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl ring-2 ring-blue-500"
                     : tier.aataChakki
-                    ? "bg-gradient-to-br from-amber-50 to-orange-50/40 text-slate-900 border-2 border-amber-400 shadow-md hover:shadow-2xl"
-                    : "bg-white text-slate-900 border border-slate-300 hover:border-amber-400 shadow-xs hover:shadow-2xl"
+                    ? "bg-gradient-to-br from-blue-50 to-slate-50 text-slate-900 border-2 border-blue-600 shadow-md hover:shadow-2xl"
+                    : "bg-white text-slate-900 border border-slate-300 hover:border-blue-500 shadow-xs hover:shadow-2xl"
                 }`}
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
@@ -184,7 +184,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start gap-2 mb-2">
-                    <span className="text-[11px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full">
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-0.5 rounded-full">
                       {tier.rateBadge}
                     </span>
                     <div className="flex items-center gap-1.5">
@@ -194,7 +194,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                         dark={Boolean(tier.bestValue)}
                       />
                       {tier.aataChakki && (
-                        <span className="p-1.5 bg-amber-100 text-amber-800 rounded-xl">
+                        <span className="p-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-xl">
                           <Wheat className="w-4 h-4" />
                         </span>
                       )}
@@ -210,7 +210,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   }`}>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Battery Setup:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-slate-900"}`}>{tier.batterySetup}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-sky-300" : "text-slate-900"}`}>{tier.batterySetup}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Inverter PCU:</span>
@@ -218,7 +218,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     </div>
                     <div className="flex justify-between gap-2">
                       <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Solar Panels:</span>
-                      <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-blue-900"}`}>{tier.panelSpec}</strong>
+                      <strong className={`text-right ${tier.bestValue ? "text-sky-300" : "text-blue-900"}`}>{tier.panelSpec}</strong>
                     </div>
                   </div>
 
@@ -226,7 +226,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     <p className={`font-semibold ${tier.bestValue ? "text-slate-200" : "text-slate-700"}`}>
                       💡 <strong>Ideal For:</strong> {tier.idealFor}
                     </p>
-                    <p className={`font-medium ${tier.bestValue ? "text-amber-200" : "text-blue-900 font-hindi"}`}>
+                    <p className={`font-medium ${tier.bestValue ? "text-sky-200" : "text-blue-900 font-hindi"}`}>
                       <strong>Backup Benefit:</strong> {tier.backup}
                     </p>
                   </div>
@@ -236,7 +236,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   <button
                     type="button"
                     onClick={() => handleInquire(tier.capacity)}
-                    className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     <span>WhatsApp Quote • कोटेशन लें</span>
@@ -259,7 +259,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
             className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6 border border-blue-900/50"
           >
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">
+              <span className="text-sky-400 font-bold text-xs uppercase tracking-wider block">
                 Solar Flour Mill & Agro VFD Engineering
               </span>
               <h3 className="text-2xl font-black text-white">
@@ -273,7 +273,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
               href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent("Hello Er. Satyaprakash, I want complete details and quotation for 10HP/15HP Solar Aata Chakki plant.")}`}
               target="_blank"
               rel="noreferrer"
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0"
+              className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl text-xs text-center transition shadow-md whitespace-nowrap shrink-0"
             >
               Get Chakki Quotation ↗
             </a>
@@ -300,7 +300,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
+                className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-3 rounded-xl text-xs text-center transition shadow-md"
               >
                 Google Maps • लोकेशन ↗
               </a>

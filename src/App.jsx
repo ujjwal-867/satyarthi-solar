@@ -135,7 +135,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between pb-14 sm:pb-0">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white flex flex-col justify-between pb-14 sm:pb-0">
       {/* Persistent Global Navigation Panel across Every Window (Desktop + 1-Tap Mobile Strip) */}
       <Navbar 
         onOpenAdmin={() => setIsAdminOpen(true)} 

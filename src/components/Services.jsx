@@ -90,7 +90,7 @@ export default function Services() {
           {
             name: "Agro VFD Team",
             badge: "15HP Chakki Live",
-            color: "bg-amber-400 text-slate-950",
+            color: "bg-emerald-600 text-white",
             pathX: ["85%", "72%", "80%", "85%"],
             pathY: ["24%", "58%", "32%", "24%"],
             duration: 19
@@ -104,7 +104,7 @@ export default function Services() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-900 border border-blue-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-              <Zap className="w-3.5 h-3.5 text-amber-500" />
+              <Zap className="w-3.5 h-3.5 text-blue-600" />
               <span>Core Solar Pillars • प्रमुख सेवाएं</span>
             </div>
 
@@ -112,7 +112,7 @@ export default function Services() {
               <ExpressiveKineticText
                 text="Solar Service & Engineering in Gorakhpur"
                 highlightWords={["Solar", "Service", "Engineering"]}
-                highlightClass="text-amber-500 font-extrabold"
+                highlightClass="text-blue-600 font-extrabold"
               />
             </h2>
           </div>
@@ -142,14 +142,14 @@ export default function Services() {
                   <div className="flex justify-between items-start mb-4">
                     <motion.div 
                       whileHover={{ rotate: 12, scale: 1.14 }}
-                      className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-amber-400 transition-colors shadow-xs"
+                      className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-sky-300 transition-colors shadow-xs"
                     >
                       <Icon className="w-6 h-6" />
                     </motion.div>
 
                     <div className="flex items-center gap-2">
                       <InteractiveZapBurstButton initialCount={service.likes} label="Active" />
-                      <span className="text-xl font-black text-slate-400 group-hover:text-amber-500 transition-colors font-mono">
+                      <span className="text-xl font-black text-slate-400 group-hover:text-blue-600 transition-colors font-mono">
                         {service.number}
                       </span>
                     </div>

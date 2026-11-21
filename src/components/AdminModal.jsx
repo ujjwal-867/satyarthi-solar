@@ -301,7 +301,7 @@ function AdminModal({ isOpen, onClose }) {
         {/* Header Bar */}
         <div className="bg-slate-900 text-white p-5 flex justify-between items-center border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-amber-400 text-slate-950 rounded-xl font-bold">
+            <div className="p-2 bg-blue-600 text-white rounded-xl font-bold">
               <Lock className="w-5 h-5" />
             </div>
             <div>
@@ -390,7 +390,7 @@ function AdminModal({ isOpen, onClose }) {
               >
                 {isLoading ? (
                   <>
-                    <RefreshCw className="w-4 h-4 animate-spin text-amber-400" />
+                    <RefreshCw className="w-4 h-4 animate-spin text-sky-400" />
                     <span>Verifying Credentials...</span>
                   </>
                 ) : (
@@ -430,11 +430,11 @@ function AdminModal({ isOpen, onClose }) {
                 onClick={() => setActiveTab("tools")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer ${
                   activeTab === "tools"
-                    ? "bg-[#0a1e3b] text-amber-300 shadow-sm"
+                    ? "bg-[#0a1e3b] text-sky-300 shadow-sm"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                <Zap className="w-3.5 h-3.5 text-amber-300" />
+                <Zap className="w-3.5 h-3.5 text-sky-300" />
                 <span>Visual AI & Performance Suite (Whisk • Veo • EZGif • AirLift)</span>
               </button>
             </div>
@@ -444,7 +444,7 @@ function AdminModal({ isOpen, onClose }) {
               <div className="space-y-6 animate-fadeIn">
                 <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
                   <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
-                    <Zap className="w-4 h-4 text-amber-500" />
+                    <Zap className="w-4 h-4 text-blue-600" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
                   </div>
                   <h3 className="text-xl font-black text-slate-900">
@@ -516,10 +516,10 @@ function AdminModal({ isOpen, onClose }) {
                   <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-blue-100 text-blue-900 font-bold px-2.5 py-1 rounded-full uppercase">
                           Frame Extraction
                         </span>
-                        <Scissors className="w-5 h-5 text-amber-600" />
+                        <Scissors className="w-5 h-5 text-blue-600" />
                       </div>
                       <h4 className="text-lg font-black text-slate-900">EZGif (Frame Extraction)</h4>
                       <p className="text-xs text-slate-600">
@@ -533,7 +533,7 @@ function AdminModal({ isOpen, onClose }) {
                       href="https://ezgif.com/video-to-frames"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Open EZGif Frame Extractor</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -583,8 +583,8 @@ function AdminModal({ isOpen, onClose }) {
                     <p className="text-2xl font-black text-slate-900 mt-1">{leadCounts.total}</p>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                    <span className="text-xs text-amber-600 font-semibold">New Uncontacted</span>
-                    <p className="text-2xl font-black text-amber-600 mt-1">{leadCounts.new}</p>
+                    <span className="text-xs text-sky-700 font-semibold">New Uncontacted</span>
+                    <p className="text-2xl font-black text-sky-700 mt-1">{leadCounts.new}</p>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-blue-600 font-semibold">Site Visits Scheduled</span>
@@ -632,13 +632,13 @@ function AdminModal({ isOpen, onClose }) {
                   onClick={() => setShowAddLead(!showAddLead)}
                   className="bg-[#0a1e3b] hover:bg-blue-900 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
                 >
-                  <Plus className="w-3.5 h-3.5 text-amber-400" />
+                  <Plus className="w-3.5 h-3.5 text-sky-400" />
                   <span>Add Lead</span>
                 </button>
 
                 <button
                   onClick={handleExportCSV}
-                  className="bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
+                  className="bg-slate-900 hover:bg-slate-800 text-sky-400 text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1 transition shrink-0 cursor-pointer"
                   title="Export to Excel / CSV"
                 >
                   <FileSpreadsheet className="w-3.5 h-3.5" />
@@ -762,7 +762,7 @@ function AdminModal({ isOpen, onClose }) {
                                 )}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-amber-600 hover:text-amber-700 p-0.5"
+                                className="text-emerald-600 hover:text-emerald-700 p-0.5"
                                 title="Chat on WhatsApp"
                               >
                                 <MessageCircle className="w-3.5 h-3.5" />
@@ -796,7 +796,7 @@ function AdminModal({ isOpen, onClose }) {
                                   : lead.status === "Site Visit"
                                   ? "bg-blue-50 text-blue-800 border-blue-300"
                                   : lead.status === "Contacted"
-                                  ? "bg-amber-50 text-amber-800 border-amber-300"
+                                  ? "bg-sky-50 text-sky-800 border-sky-300"
                                   : lead.status === "Rejected"
                                   ? "bg-rose-50 text-rose-800 border-rose-300"
                                   : "bg-slate-100 text-slate-800 border-slate-300"

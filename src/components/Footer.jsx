@@ -28,11 +28,11 @@ function Footer({ onOpenAdmin, onNavigate }) {
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold shadow-md border border-blue-400/30">
-                <Sun className="w-5 h-5 text-amber-400" />
+                <Sun className="w-5 h-5 text-sky-400" />
               </div>
               <div className="min-w-0">
                 <span className="text-base sm:text-lg font-black tracking-tight text-white block">
-                  SATYARTHI <span className="text-amber-400">SOLAR SOLUTION</span>
+                  SATYARTHI <span className="text-sky-400">SOLAR SOLUTION</span>
                 </span>
                 <p className="text-[11px] text-sky-300 font-hindi">
                   सत्यार्थी सोलर सॉल्यूशन • 2500+ संतुष्ट परिवार
@@ -46,12 +46,12 @@ function Footer({ onOpenAdmin, onNavigate }) {
 
             <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-300 pt-1">
               <span className="bg-[#0d284f] border border-blue-500/30 px-2.5 py-1 rounded-lg">
-                Vendor Code: <strong className="text-amber-300 font-mono">{businessData.vendorCode}</strong>
+                Vendor Code: <strong className="text-sky-300 font-mono">{businessData.vendorCode}</strong>
               </span>
               <span className="bg-[#0d284f] border border-blue-500/30 px-2.5 py-1 rounded-lg">
                 GST: <strong className="text-sky-300 font-mono">{businessData.gstin}</strong>
               </span>
-              <span className="bg-[#0d284f] border border-blue-500/30 px-2.5 py-1 rounded-lg text-amber-300 font-semibold">
+              <span className="bg-[#0d284f] border border-blue-500/30 px-2.5 py-1 rounded-lg text-sky-300 font-semibold">
                 PM Surya Ghar Empanelled
               </span>
             </div>
@@ -66,7 +66,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/") : scrollTo("#hero")} 
-                  className="hover:text-amber-400 transition cursor-pointer"
+                  className="hover:text-sky-300 transition cursor-pointer"
                 >
                   Home • मुख्य पृष्ठ
                 </button>
@@ -74,7 +74,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/on-grid") : scrollTo("#portal-hub")} 
-                  className="hover:text-amber-400 transition cursor-pointer text-sky-300 font-semibold"
+                  className="hover:text-sky-300 transition cursor-pointer text-sky-300 font-semibold"
                 >
                   On-Grid Solar • सब्सिडी दरें
                 </button>
@@ -82,7 +82,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/off-grid") : scrollTo("#portal-hub")} 
-                  className="hover:text-amber-400 transition cursor-pointer text-amber-300 font-semibold"
+                  className="hover:text-sky-300 transition cursor-pointer text-sky-300 font-semibold"
                 >
                   Off-Grid & Chakki • रेट लिस्ट
                 </button>
@@ -90,7 +90,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/appliances") : scrollTo("#portal-hub")} 
-                  className="hover:text-amber-400 transition cursor-pointer"
+                  className="hover:text-sky-300 transition cursor-pointer"
                 >
                   Electronics Store • शोरूम
                 </button>
@@ -98,7 +98,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/gallery") : scrollTo("#portal-hub")} 
-                  className="hover:text-amber-400 transition cursor-pointer"
+                  className="hover:text-sky-300 transition cursor-pointer"
                 >
                   Site Gallery • प्रोजेक्ट्स
                 </button>
@@ -106,7 +106,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/certificates") : scrollTo("#certificates")} 
-                  className="hover:text-amber-400 transition cursor-pointer"
+                  className="hover:text-sky-300 transition cursor-pointer"
                 >
                   Certificates • प्रमाण-पत्र
                 </button>
@@ -119,9 +119,9 @@ function Footer({ onOpenAdmin, onNavigate }) {
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
               Contact & Store • संपर्क
             </h4>
-            <div className="space-y-2 text-xs text-slate-400">
+            <div className="space-y-2 text-xs text-slate-300">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-medium leading-snug">
                     {businessData.address}
@@ -130,7 +130,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                     href={businessData.googleMapLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[11px] text-amber-300 hover:text-amber-200 font-semibold inline-flex items-center gap-1 mt-0.5"
+                    className="text-[11px] text-sky-300 hover:text-white font-semibold inline-flex items-center gap-1 mt-0.5"
                   >
                     <span>View on Google Maps ↗</span>
                   </a>
@@ -145,12 +145,12 @@ function Footer({ onOpenAdmin, onNavigate }) {
               </div>
 
               <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a 
                   href={`https://wa.me/91${businessData.whatsapp[0]}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-amber-400 hover:text-amber-300 font-semibold transition"
+                  className="text-emerald-400 hover:text-emerald-300 font-semibold transition"
                 >
                   WhatsApp: +91 {businessData.whatsapp[0]}
                 </a>
@@ -188,7 +188,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 href={businessData.googleMapLink}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[11px] text-amber-300 hover:underline inline-flex items-center gap-1 font-semibold ml-1"
+                className="text-[11px] text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold ml-1"
               >
                 <Navigation className="w-3 h-3" />
                 <span>Google Maps ↗</span>
@@ -209,7 +209,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
             <span>•</span>
             <button
               onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1 text-slate-300 hover:text-amber-400 transition cursor-pointer"
+              className="inline-flex items-center gap-1 text-slate-300 hover:text-sky-300 transition cursor-pointer"
             >
               <Lock className="w-3 h-3" />
               <span>Admin Login</span>

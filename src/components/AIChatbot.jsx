@@ -245,9 +245,9 @@ export function AIChatbot() {
           <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className="hidden sm:flex bg-slate-900/95 hover:bg-slate-900 text-white text-[11px] font-bold px-3.5 py-2 rounded-full shadow-xl border border-amber-400/60 items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
+            className="hidden sm:flex bg-slate-900/95 hover:bg-slate-900 text-white text-[11px] font-bold px-3.5 py-2 rounded-full shadow-xl border border-blue-500/60 items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
           >
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping shrink-0"></span>
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-ping shrink-0"></span>
             <span className="whitespace-nowrap">{lang === "hi" ? "सूर्य साथी AI • सब्सिडी" : "Surya AI • Subsidies & Rates"}</span>
           </button>
         )}
@@ -256,13 +256,13 @@ export function AIChatbot() {
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Open AI Solar Assistant"
-          className="group relative flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 rounded-full shadow-2xl shadow-amber-500/40 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
+          className="group relative flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-blue-700 via-blue-600 to-sky-500 text-white rounded-full shadow-2xl shadow-blue-900/40 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer"
         >
           {isOpen ? (
-            <X className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950" />
+            <X className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
           ) : (
             <>
-              <Bot className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
+              <Bot className="w-5 h-5 sm:w-7 sm:h-7 text-white group-hover:rotate-12 transition-transform" />
               <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5 sm:h-4 sm:w-4">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-sky-500 border-2 border-white"></span>
@@ -279,8 +279,8 @@ export function AIChatbot() {
           {/* Header */}
           <div className="bg-gradient-to-r from-[#0a1e3b] via-blue-950 to-slate-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 to-amber-500 flex items-center justify-center shadow-md">
-                <Sun className="w-6 h-6 text-slate-950 animate-[spin_12s_linear_infinite]" />
+              <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center shadow-md">
+                <Sun className="w-6 h-6 text-white animate-[spin_12s_linear_infinite]" />
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-sky-400 rounded-full border-2 border-slate-900"></span>
               </div>
               <div>
@@ -288,7 +288,7 @@ export function AIChatbot() {
                   <h3 className="text-sm font-black text-white tracking-wide">
                     Surya Mitra AI
                   </h3>
-                  <span className="bg-amber-400/20 text-amber-300 text-[10px] px-1.5 py-0.2 rounded font-bold border border-amber-400/30">
+                  <span className="bg-blue-500/20 text-sky-300 text-[10px] px-1.5 py-0.2 rounded font-bold border border-blue-400/30">
                     सूर्य साथी
                   </span>
                 </div>
@@ -322,7 +322,7 @@ export function AIChatbot() {
           {/* Quick FAQ Strip Header */}
           <div className="bg-slate-100 border-b border-slate-200 p-2 overflow-x-auto scrollbar-none flex items-center gap-1.5">
             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-1 shrink-0 flex items-center gap-1">
-              <HelpCircle className="w-3 h-3 text-amber-500" />
+              <HelpCircle className="w-3 h-3 text-blue-600" />
               FAQs:
             </span>
             {basicFaqs.slice(0, 4).map((faq, idx) => (
@@ -330,7 +330,7 @@ export function AIChatbot() {
                 key={idx}
                 type="button"
                 onClick={() => handleSendMessage(faq.query)}
-                className="text-[11px] font-semibold bg-white hover:bg-amber-50 text-slate-800 hover:text-amber-900 px-2.5 py-1 rounded-full border border-slate-300 transition shrink-0 shadow-2xs"
+                className="text-[11px] font-semibold bg-white hover:bg-blue-50 text-slate-800 hover:text-blue-900 px-2.5 py-1 rounded-full border border-slate-300 transition shrink-0 shadow-2xs"
               >
                 {faq.label}
               </button>
@@ -368,7 +368,7 @@ export function AIChatbot() {
                         onClick={() => {
                           if (!msg.action.url.startsWith("http")) setIsOpen(false);
                         }}
-                        className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black text-[11px] py-1.5 px-3 rounded-xl shadow-xs transition"
+                        className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white font-black text-[11px] py-1.5 px-3 rounded-xl shadow-xs transition"
                       >
                         <span>{msg.action.label}</span>
                         <ChevronRight className="w-3.5 h-3.5" />
@@ -388,7 +388,7 @@ export function AIChatbot() {
                           const targetFaq = basicFaqs.find(f => f.label.includes(qr.replace(/[^\w\s]/gi, '')) || f.label.includes(qr));
                           handleSendMessage(targetFaq ? targetFaq.query : qr);
                         }}
-                        className="text-[11px] font-bold bg-amber-100 hover:bg-amber-200 text-amber-950 px-2.5 py-1 rounded-xl border border-amber-300 transition"
+                        className="text-[11px] font-bold bg-blue-50 hover:bg-blue-100 text-blue-950 px-2.5 py-1 rounded-xl border border-blue-200 transition"
                       >
                         {qr}
                       </button>
@@ -401,9 +401,9 @@ export function AIChatbot() {
             {/* Typing Indicator */}
             {isTyping && (
               <div className="flex items-center gap-1.5 bg-white p-3 rounded-2xl border border-slate-200 w-20 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-bounce"></span>
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-bounce [animation-delay:0.2s]"></span>
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-bounce [animation-delay:0.4s]"></span>
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce"></span>
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.2s]"></span>
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]"></span>
               </div>
             )}
 
@@ -418,7 +418,7 @@ export function AIChatbot() {
                 href={`https://wa.me/91${businessData.whatsapp[0]}`}
                 target="_blank"
                 rel="noreferrer"
-                className="text-amber-600 hover:underline inline-flex items-center gap-1 font-bold"
+                className="text-emerald-600 hover:underline inline-flex items-center gap-1 font-bold"
               >
                 <MessageCircle className="w-3 h-3" />
                 Live WhatsApp
@@ -451,12 +451,12 @@ export function AIChatbot() {
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="Ask anything (e.g. 3kW subsidy, AC price)..."
-              className="flex-1 bg-slate-100 text-slate-800 text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white transition"
+              className="flex-1 bg-slate-100 text-slate-800 text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition"
             />
             <button
               type="submit"
               disabled={!inputMessage.trim()}
-              className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-40 text-amber-400 flex items-center justify-center transition shadow-md shrink-0 cursor-pointer"
+              className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-40 text-sky-400 flex items-center justify-center transition shadow-md shrink-0 cursor-pointer"
               aria-label="Send message"
             >
               <Send className="w-4 h-4" />

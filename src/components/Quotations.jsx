@@ -37,7 +37,7 @@ function Quotations() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Official Solar <span className="text-amber-500">Rate Cards</span>
+            Official Solar <span className="text-blue-600">Rate Cards</span>
             <span className="block text-lg sm:text-xl font-bold text-blue-900 mt-2 font-hindi">
               सत्यार्थी सोलर सॉल्यूशन • आधिकारिक कोटेशन एवं रेट चार्ट
             </span>
@@ -54,8 +54,8 @@ function Quotations() {
         {/* Quotation Highlights Alert (Simultaneous English + Hindi) */}
         <div className="mt-6 sm:mt-8 max-w-4xl mx-auto bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-slate-900 text-white p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-center gap-4 text-xs border border-blue-900/50">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 bg-amber-400 text-slate-950 rounded-2xl font-black shrink-0">
-              <Calendar className="w-5 h-5 text-slate-950" />
+            <div className="p-3 bg-blue-600 text-white rounded-2xl font-black shrink-0">
+              <Calendar className="w-5 h-5 text-white" />
             </div>
             <div className="space-y-0.5">
               <strong className="text-white text-sm block">
@@ -75,7 +75,7 @@ function Quotations() {
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
+            className="bg-blue-600 hover:bg-blue-500 text-white font-black px-5 py-2.5 rounded-xl transition shrink-0 whitespace-nowrap shadow-md text-xs"
           >
             Request Rate PDF • पीडीएफ मंगवाएं
           </a>
@@ -104,7 +104,7 @@ function Quotations() {
                     <button
                       type="button"
                       onClick={() => setSelectedFlyer(flyer)}
-                      className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-amber-400 transition"
+                      className="bg-white text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-lg cursor-pointer hover:bg-blue-600 hover:text-white transition"
                     >
                       <Eye className="w-4 h-4" />
                       <span>Zoom Full Chart</span>
@@ -122,7 +122,7 @@ function Quotations() {
 
                 {/* Content */}
                 <div className="p-6 space-y-3">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full">
                     Official Rate Card
                   </span>
                   <h3 className="text-xl font-black text-slate-900 leading-snug">
@@ -156,9 +156,9 @@ function Quotations() {
                 <button
                   type="button"
                   onClick={() => handleWhatsAppQuote(flyer.title)}
-                  className="flex-1 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-slate-950" />
+                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
                   <span>Get This Rate</span>
                 </button>
               </div>
@@ -207,7 +207,7 @@ function Quotations() {
             </p>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.electronicsAndBatteries.map((b, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-300 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-amber-400 transition">
+                <div key={idx} className="bg-slate-50 border border-slate-300 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-blue-500 transition">
                   <span className="text-slate-900">{b.name}</span>
                   <span className="text-[10px] text-slate-600 block font-normal">{b.category}</span>
                 </div>
@@ -231,7 +231,7 @@ function Quotations() {
             <div className="p-4 bg-slate-900 text-white flex justify-between items-center">
               <div>
                 <h3 className="font-bold text-sm sm:text-base">{selectedFlyer.title}</h3>
-                <p className="text-xs text-amber-400">{selectedFlyer.subtitle}</p>
+                <p className="text-xs text-sky-400">{selectedFlyer.subtitle}</p>
               </div>
               <div className="flex items-center gap-2">
                 <a
@@ -264,7 +264,7 @@ function Quotations() {
               <button
                 type="button"
                 onClick={() => handleWhatsAppQuote(selectedFlyer.title)}
-                className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-xl transition cursor-pointer"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl transition cursor-pointer"
               >
                 Inquire for This Offer
               </button>

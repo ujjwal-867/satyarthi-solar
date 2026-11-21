@@ -233,7 +233,7 @@ function Contact({ prefilledData }) {
               <ExpressiveKineticText
                 text="Get Your Free Site Survey & Solar Quote"
                 highlightWords={["Free", "Site", "Survey", "Quote"]}
-                highlightClass="text-amber-500 font-extrabold"
+                highlightClass="text-blue-600 font-extrabold"
               />
             </h2>
           </div>
@@ -326,7 +326,7 @@ function Contact({ prefilledData }) {
 
                 {/* Address */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-amber-50 text-amber-700 rounded-xl shrink-0 border border-amber-200">
+                  <div className="p-2.5 bg-blue-50 text-blue-700 rounded-xl shrink-0 border border-blue-200">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -367,7 +367,7 @@ function Contact({ prefilledData }) {
                     href={businessData.instagramUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-[#0a1e3b] hover:text-amber-400 rounded-xl transition text-slate-800 border border-slate-200"
+                    className="p-2.5 bg-slate-100 hover:bg-[#0a1e3b] hover:text-sky-300 rounded-xl transition text-slate-800 border border-slate-200"
                     title="Instagram"
                   >
                     <InstagramIcon className="w-4 h-4" />
@@ -456,9 +456,9 @@ function Contact({ prefilledData }) {
                     <button
                       type="button"
                       onClick={() => openWhatsAppLead(businessData.whatsapp[0])}
-                      className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                      className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                     >
-                      <MessageCircle className="w-4 h-4 fill-slate-950 shrink-0" />
+                      <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                       <span>WhatsApp (+91 {businessData.whatsapp[0]})</span>
                     </button>
 
@@ -483,7 +483,7 @@ function Contact({ prefilledData }) {
                       href={`tel:${businessData.officeNumber}`}
                       className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
                     >
-                      <PhoneCall className="w-4 h-4 text-amber-400 shrink-0" />
+                      <PhoneCall className="w-4 h-4 text-sky-400 shrink-0" />
                       <span>Call Office: {businessData.officeNumber}</span>
                     </a>
                   </div>

@@ -8,7 +8,7 @@ import { ShieldCheck } from "lucide-react";
 export function ExpressiveKineticText({ 
   text, 
   highlightWords = [], 
-  highlightClass = "text-amber-500 font-extrabold",
+  highlightClass = "text-blue-600 font-extrabold",
   className = ""
 }) {
   const words = text.split(" ");
@@ -73,7 +73,7 @@ export function InteractiveZapBurstButton({
             : "bg-slate-100 text-slate-800 border-slate-200 shadow-2xs"
         }`}
       >
-        <ShieldCheck className={`w-3.5 h-3.5 shrink-0 ${dark ? "text-amber-400" : "text-blue-600"}`} />
+        <ShieldCheck className={`w-3.5 h-3.5 shrink-0 ${dark ? "text-sky-300" : "text-blue-600"}`} />
         <span>{initialCount.toLocaleString ? initialCount.toLocaleString("en-IN") : initialCount}+</span>
         {label && <span className="opacity-80 hidden sm:inline">{label}</span>}
       </div>
