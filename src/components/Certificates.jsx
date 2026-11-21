@@ -188,7 +188,7 @@ function Certificates({ isStandalonePage = false }) {
                     <p className="text-xs font-semibold text-slate-700">
                       Authority • प्राधिकारी: {cert.authority}
                     </p>
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-2 sm:line-clamp-1">
                       {cert.description}
                     </p>
 

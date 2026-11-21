@@ -104,12 +104,13 @@
 }
 
 /* =====================================================================
-   CLEAN EDITORIAL CARD HOVER
-   - Desktop: Smooth subtle elevation lift and crisp shadow
-   - Mobile: Clean stationary rendering
+   CLEAN EDITORIAL CARD HOVER & TACTILE INTERACTION
+   - Desktop: Smooth elevation lift, refined blue rim, and high-precision shadow
+   - Mobile: Clean stationary rendering without touch jank
    ===================================================================== */
 .desktop-gallery-card-hover,
-.gallery-3d-card-hover {
+.gallery-3d-card-hover,
+.card-hover-tactile {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -117,22 +118,24 @@
 
 @media (hover: hover) and (pointer: fine) {
   .desktop-gallery-card-hover:hover,
-  .gallery-3d-card-hover:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px -4px rgba(10, 30, 59, 0.08) !important;
+  .gallery-3d-card-hover:hover,
+  .card-hover-tactile:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 32px -8px rgba(10, 30, 59, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.22) !important;
+    border-color: rgba(37, 99, 235, 0.35) !important;
     will-change: transform;
   }
 
   /* Smooth Subdued Image Zoom */
   .desktop-image-zoom,
   .gallery-image-zoom {
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) !important;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
 
   .group:hover .desktop-image-zoom,
   .group:hover .gallery-image-zoom {
-    transform: scale(1.025) !important;
+    transform: scale(1.03) !important;
   }
 }
