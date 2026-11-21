@@ -219,17 +219,14 @@ function Hero({ onOpenCalculator }) {
                 <motion.div
                   key={idx}
                   whileHover={{
-                    y: -4,
-                    scale: 1.02,
+                    y: -2,
                     backgroundColor: "rgba(255, 255, 255, 0.12)"
                   }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
                   className="group relative bg-white/8 backdrop-blur-md border border-white/15 hover:border-sky-400/60 rounded-2xl p-3 space-y-0.5 transition overflow-hidden shadow-md"
                 >
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-                  
                   <div className="flex items-center gap-1.5 relative z-10">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span className="text-xs font-bold text-white leading-tight truncate">
                       {pt.title}
                     </span>
@@ -247,33 +244,31 @@ function Hero({ onOpenCalculator }) {
               className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
             >
               <motion.button
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => scrollTo("#contact")}
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
+                className="group relative inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-3 rounded-2xl shadow-lg shadow-blue-950/40 transition cursor-pointer text-sm border border-blue-400/40"
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
-                <FileText className="w-4 h-4 text-white relative z-10 shrink-0" />
-                <span className="relative z-10">Book Free Survey • मुफ्त सर्वे</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10 shrink-0" />
+                <FileText className="w-4 h-4 text-white shrink-0" />
+                <span>Book Free Survey • मुफ्त सर्वे</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </motion.button>
 
               <motion.button
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   if (onOpenCalculator) onOpenCalculator();
                 }}
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[#0a1e3b] hover:bg-[#0f284f] text-white font-bold px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-sky-400/40"
+                className="group relative inline-flex items-center justify-center gap-2 bg-[#0a1e3b] hover:bg-[#0f284f] text-white font-bold px-5 py-3 rounded-2xl shadow-lg transition cursor-pointer text-sm border border-sky-400/40"
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-                <Calculator className="w-4 h-4 text-sky-400 relative z-10 shrink-0" />
-                <span className="relative z-10">Solar Calculator</span>
+                <Calculator className="w-4 h-4 text-sky-400 shrink-0" />
+                <span>Solar Calculator</span>
               </motion.button>
 
               <motion.a
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href={`tel:${businessData.phone[0]}`}
                 className="inline-flex items-center justify-center gap-1.5 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-4 py-3 rounded-2xl border border-white/20 transition text-sm cursor-pointer"
               >
@@ -300,18 +295,15 @@ function Hero({ onOpenCalculator }) {
           {/* RIGHT COLUMN: ENGINEER PROFILE CARD & LIVE SOLAR TELEMETRY */}
           <div className="lg:col-span-5 space-y-4">
             <motion.div 
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25 }}
-              whileHover={{ y: -4, scale: 1.01 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -2 }}
               className="group relative bg-[#0d284f]/95 sm:bg-[#0d284f]/85 sm:backdrop-blur-md border border-blue-400/30 hover:border-sky-400/60 rounded-3xl p-4 sm:p-6 shadow-xl space-y-4 text-white overflow-hidden transition-colors"
             >
-              {/* Diagonal Glassmorphic Shimmer Sweep */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-
               <div className="relative z-10 flex items-center gap-3.5 sm:gap-4">
                 <motion.div
-                  whileHover={{ scale: 1.06, rotate: -2 }}
+                  whileHover={{ scale: 1.02 }}
                   className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-sky-400/80 shadow-md shrink-0"
                 >
                   <img
@@ -379,7 +371,7 @@ function Hero({ onOpenCalculator }) {
 
               <div className="relative z-10 flex gap-2">
                 <motion.a
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   href={`https://wa.me/91${businessData.whatsapp[0]}?text=${encodeURIComponent(
                     "Hello Er. Satyaprakash, I want a solar quotation for my home in Gorakhpur/UP."
@@ -393,7 +385,7 @@ function Hero({ onOpenCalculator }) {
                 </motion.a>
 
                 <motion.a
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href={`tel:${businessData.phone[0]}`}
                   className="bg-white/15 hover:bg-white/25 text-white font-bold p-2.5 rounded-xl text-xs flex items-center justify-center transition border border-white/15"

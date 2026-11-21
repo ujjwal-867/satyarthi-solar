@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react";
 
 /**
  * 1. Refined Kinetic Typography Headline Component
- * Smooth, elegant fade-up kinetic typography without disruptive 3D wiggles or jitter
+ * Smooth, elegant fade-up kinetic typography with visible fluid motion on phones and laptops
  */
 export function ExpressiveKineticText({ 
   text, 
@@ -22,17 +22,18 @@ export function ExpressiveKineticText({
         return (
           <motion.span
             key={i}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+            viewport={{ once: true, margin: "0px 0px -10px 0px" }}
             transition={{
-              duration: 0.4,
-              ease: [0.16, 1, 0.3, 1],
-              delay: (i % 8) * 0.03
+              duration: 0.75,
+              ease: [0.22, 1, 0.36, 1],
+              delay: (i % 10) * 0.05
             }}
             className={`inline-block select-none ${
               isHighlighted ? highlightClass : ""
             }`}
+            style={{ willChange: "transform, opacity" }}
           >
             {word}
           </motion.span>

@@ -159,10 +159,10 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
             {subsidyData.tiers.map((tier, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.07 }}
+                viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: (idx % 6) * 0.07 }}
                 className={`group relative rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 desktop-gallery-card-hover overflow-hidden ${
                   tier.bestValue
                     ? "bg-gradient-to-b from-[#0a1e3b] via-blue-950 to-slate-950 text-white shadow-xl shadow-blue-950/20 ring-2 ring-blue-500"
@@ -171,9 +171,6 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     : "bg-white text-slate-900 border border-slate-300 hover:border-blue-500 shadow-xs hover:shadow-2xl"
                 }`}
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
-
                 {/* Badges */}
                 {tier.bestValue && (
                   <div className="bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-md whitespace-nowrap self-center mb-2">
@@ -314,10 +311,9 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
               {stepsBilingual.map((st, i) => (
                 <motion.div
                   key={i}
-                  whileHover={{ y: -6, rotateX: 4, rotateY: -3, scale: 1.02 }}
+                  whileHover={{ y: -3 }}
                   className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 hover:border-sky-400/60 space-y-1 transition overflow-hidden"
                 >
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
                   <span className="text-2xl font-black text-sky-400 block">{st.step}</span>
                   <h4 className="font-bold text-sm text-white">{st.title}</h4>
                   <p className="text-xs text-slate-200 pt-1 leading-relaxed">{st.desc}</p>
@@ -342,7 +338,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
 
           {/* Showroom & Engineering Office Card */}
           <motion.div
-            whileHover={{ y: -4, scale: 1.005 }}
+            whileHover={{ y: -2 }}
             className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
           >
             <div className="space-y-1 text-center md:text-left">

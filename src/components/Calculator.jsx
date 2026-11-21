@@ -559,15 +559,15 @@ function Calculator({ onSelectQuote }) {
                 <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-2.5 text-xs text-slate-700 shadow-xs">
                   <div className="flex justify-between">
                     <span>Gross Plant Investment • कुल प्लांट लागत:</span>
-                    <span className="font-bold text-slate-900">₹{calculation.grossCost.toLocaleString()}</span>
+                    <span className="font-bold text-slate-900 font-mono tabular-nums">₹{calculation.grossCost.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-blue-900 font-semibold">
                     <span>Govt Subsidy (DBT direct to bank account):</span>
-                    <span className="font-black text-emerald-600">- ₹{calculation.subsidy.toLocaleString()}</span>
+                    <span className="font-black text-emerald-600 font-mono tabular-nums">- ₹{calculation.subsidy.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-blue-700">
                     <span>Borrower Margin Money (10% Down Payment):</span>
-                    <span className="font-bold text-blue-700">₹{loanCalc.minDownPayment.toLocaleString()}</span>
+                    <span className="font-bold text-blue-700 font-mono tabular-nums">₹{loanCalc.minDownPayment.toLocaleString()}</span>
                   </div>
                   <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline">
                     <div>
@@ -578,7 +578,7 @@ function Calculator({ onSelectQuote }) {
                         @ 6% - 7% p.a. via JanSamarth for {loanTenure} years ({loanCalc.totalMonths} EMIs)
                       </span>
                     </div>
-                    <span className="text-xl font-black text-blue-600">
+                    <span className="text-xl font-black text-blue-600 font-mono tabular-nums">
                       ₹{loanCalc.effectiveLoanPrincipal.toLocaleString()}
                     </span>
                   </div>
@@ -594,7 +594,7 @@ function Calculator({ onSelectQuote }) {
                       <Coins className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Monthly Savings • मासिक बचत</span>
                     </span>
-                    <p className="text-2xl font-black text-blue-900 mt-1">
+                    <p className="text-2xl font-black text-blue-900 mt-1 font-mono tabular-nums">
                       ₹{calculation.monthlySaving.toLocaleString()}
                     </p>
                     <p className="text-[11px] text-slate-700 font-medium mt-0.5">
@@ -607,7 +607,7 @@ function Calculator({ onSelectQuote }) {
                       <Clock className="w-3.5 h-3.5 text-blue-700" />
                       <span>Payback Period • लागत वापसी</span>
                     </span>
-                    <p className="text-2xl font-black text-blue-700 mt-1">
+                    <p className="text-2xl font-black text-blue-700 mt-1 font-mono tabular-nums">
                       {calculation.paybackYears} Years • वर्ष
                     </p>
                     <p className="text-[11px] text-slate-700 font-medium mt-0.5">
@@ -620,7 +620,7 @@ function Calculator({ onSelectQuote }) {
                 <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-300 space-y-3 text-sm shadow-xs">
                   <div className="flex justify-between items-center text-slate-800 text-xs sm:text-sm">
                     <span>Estimated Gross Cost • अनुमानित कुल लागत:</span>
-                    <span className="font-bold text-slate-900">
+                    <span className="font-bold text-slate-900 font-mono tabular-nums">
                       ₹{calculation.grossCost.toLocaleString()}
                     </span>
                   </div>
@@ -631,7 +631,7 @@ function Calculator({ onSelectQuote }) {
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                         <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
                       </span>
-                      <span className="font-black text-emerald-600">- ₹{calculation.subsidy.toLocaleString()}</span>
+                      <span className="font-black text-emerald-600 font-mono tabular-nums">- ₹{calculation.subsidy.toLocaleString()}</span>
                     </div>
                   ) : (
                     <div className="flex justify-between items-center text-blue-700 text-xs sm:text-sm">
@@ -649,7 +649,7 @@ function Calculator({ onSelectQuote }) {
                         Subsidy directly credited in bank via DBT • सीधे बैंक खाते में सब्सिडी
                       </span>
                     </div>
-                    <span className="text-3xl font-black text-blue-950">
+                    <span className="text-3xl font-black text-blue-950 font-mono tabular-nums">
                       ₹{calculation.netCost.toLocaleString()}*
                     </span>
                   </div>

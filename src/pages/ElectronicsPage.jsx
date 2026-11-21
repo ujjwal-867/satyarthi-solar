@@ -176,19 +176,16 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
               return (
                 <motion.div
                   key={app.id}
-                  initial={{ opacity: 0, y: 22 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: (idx % 4) * 0.06 }}
+                  viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                  transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: (idx % 4) * 0.06 }}
                   className="group relative bg-white rounded-3xl p-6 border border-slate-300 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
                 >
-                  {/* Desktop-Only Gallery Shine Sweep */}
-                  <div className="desktop-shine-sweep" />
-
                   <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
                       <motion.div
-                        whileHover={{ rotate: 12, scale: 1.12 }}
+                        whileHover={{ y: -2, scale: 1.04 }}
                         className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-[#0a1e3b] group-hover:text-sky-300 transition-colors flex items-center justify-center shadow-2xs"
                       >
                         <Icon className="w-6 h-6" />
@@ -229,7 +226,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                     <div className="mt-3 space-y-1">
                       {app.features.map((f, i) => (
                         <div key={i} className="flex items-center gap-1.5 text-xs text-slate-600">
-                          <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span>{f}</span>
                         </div>
                       ))}

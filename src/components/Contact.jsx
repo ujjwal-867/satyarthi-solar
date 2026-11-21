@@ -257,10 +257,9 @@ function Contact({ prefilledData }) {
             
             {/* Quick Contact 3D Bento Card */}
             <motion.div
-              whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
+              whileHover={{ y: -2 }}
               className="relative bg-white border border-slate-200 hover:border-blue-400 rounded-3xl p-5 sm:p-7 backdrop-blur-md space-y-4 shadow-xl transition-all duration-300 group overflow-hidden"
             >
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-blue-50/70 to-transparent pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">Company Information</h3>

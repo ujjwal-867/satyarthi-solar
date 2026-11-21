@@ -131,17 +131,14 @@ export default function Services() {
                 key={service.id}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.25 }}
+                viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: (idx % 3) * 0.08 }}
                 className="relative bg-white rounded-3xl p-6 border border-slate-300 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
-
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-4">
                     <motion.div 
-                      whileHover={{ rotate: 12, scale: 1.14 }}
+                      whileHover={{ y: -2, scale: 1.04 }}
                       className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center group-hover:bg-[#0a1e3b] group-hover:text-sky-300 transition-colors shadow-xs"
                     >
                       <Icon className="w-6 h-6" />
@@ -170,7 +167,7 @@ export default function Services() {
                   <div className="mt-4 pt-3 border-t border-slate-100 space-y-2">
                     {service.bullets.map((b, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </div>
                     ))}

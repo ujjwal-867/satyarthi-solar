@@ -59,13 +59,10 @@ function Testimonials() {
               key={idx}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.25 }}
+              viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: (idx % 3) * 0.08 }}
               className="relative bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xs desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
             >
-              {/* Desktop-Only Gallery Shine Sweep */}
-              <div className="desktop-shine-sweep" />
-
               <div className="relative z-10">
                 {/* Stars & Interactive ⚡ Burst */}
                 <div className="flex items-center justify-between mb-3.5">
@@ -90,8 +87,8 @@ function Testimonials() {
                   <h4 className="font-bold text-sm text-slate-900">{t.name}</h4>
                   <p className="text-xs text-slate-700 font-medium">{t.role}</p>
                 </div>
-                <div className="flex items-center gap-1 text-[11px] font-semibold text-blue-900 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Verified Client</span>
                 </div>
               </div>
@@ -101,10 +98,10 @@ function Testimonials() {
 
         {/* Live Social Video Proof & Customer Reels Showcase */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 sm:mt-8 bg-[#0a1e3b] text-white rounded-3xl p-6 sm:p-8 border border-blue-900 shadow-2xl relative overflow-hidden"
         >
           <div className="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
@@ -141,7 +138,7 @@ function Testimonials() {
             {/* Right Col: Direct Action Buttons */}
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-2.5 justify-center">
               <motion.a
-                whileHover={{ scale: 1.02, y: -2 }}
+                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href={businessData.mapsUrl}
                 target="_blank"
@@ -154,7 +151,7 @@ function Testimonials() {
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.02, y: -2 }}
+                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href={businessData.instagramUrl}
                 target="_blank"
@@ -167,7 +164,7 @@ function Testimonials() {
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.02, y: -2 }}
+                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href={businessData.facebookUrl}
                 target="_blank"

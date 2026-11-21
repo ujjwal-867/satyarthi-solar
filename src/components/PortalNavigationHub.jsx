@@ -18,7 +18,7 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
       title: "On-Grid Solar",
       titleHi: "ऑन-ग्रिड सोलर",
       badge: "Subsidy 2026",
-      badgeColor: "bg-blue-100 text-blue-950 border-blue-300",
+      badgeColor: "bg-emerald-50 text-emerald-900 border-emerald-200",
       info: "1 kW – 10 kW • Up to ₹1.08L Direct Subsidy",
       icon: Sun,
       iconColor: "bg-[#0a1e3b] text-sky-400",
@@ -129,8 +129,8 @@ export default function PortalNavigationHub({ onNavigate, onOpenCalculator }) {
                 type="button"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.04 }}
+                viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.05 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={btn.onClick}
                 className={`group relative text-left p-4 rounded-xl border ${btn.cardStyle} transition-all duration-200 flex flex-col justify-between cursor-pointer desktop-gallery-card-hover overflow-hidden shadow-2xs`}

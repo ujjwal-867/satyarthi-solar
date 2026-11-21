@@ -25,14 +25,15 @@ function ExpressiveKineticTitle({ text, highlightWords = [] }) {
         return (
           <motion.span
             key={wIdx}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -10px 0px" }}
             transition={{
-              duration: 0.4,
-              ease: [0.16, 1, 0.3, 1],
-              delay: (wIdx % 8) * 0.03
+              duration: 0.75,
+              ease: [0.22, 1, 0.36, 1],
+              delay: (wIdx % 10) * 0.05
             }}
+            style={{ willChange: "transform, opacity" }}
             className={`inline-block select-none ${
               isHighlight
                 ? "text-blue-700 font-extrabold"
@@ -549,23 +550,23 @@ export function BentoGallery() {
           transition={{ duration: 0.6 }}
           className="mt-6 sm:mt-8 bg-white border border-slate-300 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
         >
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+          <motion.div whileHover={{ y: -2 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-900">2500+ Clients</div>
             <div className="text-xs text-slate-900 font-bold">Happy Clients • संतुष्ट परिवार</div>
             <p className="text-[11px] text-slate-700 font-medium">Residential & Commercial Plants</p>
           </motion.div>
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+          <motion.div whileHover={{ y: -2 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-700">2,200+ kW</div>
             <div className="text-xs text-slate-900 font-bold">Installed Capacity • क्षमता</div>
             <p className="text-[11px] text-slate-700 font-medium">Across Gorakhpur & Eastern UP</p>
           </motion.div>
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
+          <motion.div whileHover={{ y: -2 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-emerald-600">₹1,08,000</div>
             <div className="text-xs text-slate-900 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
             <p className="text-[11px] text-slate-700 font-medium">Direct Bank DBT Credit</p>
           </motion.div>
-          <motion.div whileHover={{ y: -4 }} className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-blue-900">25 Years</div>
+          <motion.div whileHover={{ y: -2 }} className="space-y-1">
+            <div className="text-2xl sm:text-3xl font-black text-emerald-700">25 Years</div>
             <div className="text-xs text-slate-900 font-bold">Panel Warranty • वारंटी</div>
             <p className="text-[11px] text-slate-700 font-medium">Tier-1 Mono PERC Reliability</p>
           </motion.div>
@@ -573,7 +574,7 @@ export function BentoGallery() {
 
         {/* Showroom & Live Installation Visit Card */}
         <motion.div
-          whileHover={{ y: -4, scale: 1.005 }}
+          whileHover={{ y: -2 }}
           className="mt-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <div className="space-y-1 text-center md:text-left">

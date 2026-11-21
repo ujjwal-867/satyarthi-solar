@@ -126,13 +126,10 @@ function Certificates({ isStandalonePage = false }) {
                 key={cert.id}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.25 }}
+                viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: (idx % 6) * 0.06 }}
                 className="relative bg-white rounded-3xl border-2 border-slate-300 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
-
                 <div>
                   {/* Header Tag */}
                   <div className="p-4 bg-[#0a1e3b] text-white flex justify-between items-center">

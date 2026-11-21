@@ -88,9 +88,6 @@ function Quotations() {
               key={flyer.id}
               className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
             >
-              {/* Desktop-Only Gallery Shine Sweep */}
-              <div className="desktop-shine-sweep" />
-
               <div>
                 {/* Image Frame */}
                 <div className="relative aspect-4/3 bg-slate-900 overflow-hidden flex items-center justify-center p-2">
@@ -135,7 +132,7 @@ function Quotations() {
                   <div className="pt-2 space-y-2 border-t border-slate-100">
                     {flyer.highlights.map((h, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -156,7 +153,7 @@ function Quotations() {
                 <button
                   type="button"
                   onClick={() => handleWhatsAppQuote(flyer.title)}
-                  className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <MessageCircle className="w-3.5 h-3.5 fill-white" />
                   <span>Get This Rate</span>

@@ -62,7 +62,8 @@ function Stats() {
       hi: "सरकारी सब्सिडी", 
       desc: "Direct Bank DBT",
       icon: Zap,
-      iconStyle: "bg-[#0a1e3b] text-emerald-400"
+      iconStyle: "bg-emerald-600 text-white",
+      isEmerald: true
     },
   ];
 
@@ -75,10 +76,10 @@ function Stats() {
             return (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.04 }}
+                viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: idx * 0.05 }}
                 className="group relative rounded-xl p-3.5 bg-slate-50/80 hover:bg-white border border-slate-300 hover:border-blue-400 transition-all duration-200 flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between gap-1 mb-2">
@@ -91,7 +92,7 @@ function Stats() {
                 </div>
 
                 <div className="space-y-0.5">
-                  <div className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                  <div className={`text-xl sm:text-2xl font-black tracking-tight font-mono tabular-nums ${stat.isEmerald ? "text-emerald-700" : "text-slate-900"}`}>
                     {stat.value}
                   </div>
                   

@@ -130,15 +130,12 @@ function Products() {
             return (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                viewport={{ once: true, margin: "0px 0px -20px 0px" }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: (idx % 4) * 0.06 }}
                 className="relative bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-xs desktop-gallery-card-hover flex flex-col justify-between group"
               >
-                {/* Desktop-Only Gallery Shine Sweep */}
-                <div className="desktop-shine-sweep" />
-
                 <div>
                   {/* Image & Badge Container */}
                   <div className="relative bg-slate-900 aspect-4/3 overflow-hidden flex items-center justify-center p-4">
@@ -156,7 +153,7 @@ function Products() {
 
                     {/* Discount Tag */}
                     {discountPercent && discountPercent > 0 && (
-                      <span className="absolute top-3 right-3 bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded shadow-sm">
+                      <span className="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded shadow-sm">
                         {discountPercent}% OFF
                       </span>
                     )}
