@@ -7,7 +7,6 @@ import {
   Droplets, 
   Flame, 
   Shirt, 
-  Sparkles, 
   Zap, 
   MessageCircle, 
   Check, 
@@ -94,7 +93,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <Zap className="w-3.5 h-3.5 text-amber-400" />
                 <span>Official Electronics Showroom • मोतीराम अड्डा गोरखपुर</span>
               </div>
               <LiveActivityStreamBadge dark />
@@ -148,7 +147,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Category Filter Pills */}
           <div className="flex justify-start sm:justify-center items-center gap-2 overflow-x-auto pb-4 scrollbar-none">
             {categories.map((cat) => {
-              const Icon = categoryIcons[cat.id] || Sparkles;
+              const Icon = categoryIcons[cat.id] || Zap;
               return (
                 <motion.button
                   key={cat.id}
@@ -159,7 +158,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                   className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                     selectedCategory === cat.id
                       ? "bg-[#0a1e3b] text-white shadow-md shadow-blue-950/20"
-                      : "bg-white text-slate-700 border border-slate-200 hover:bg-blue-50/50 hover:border-blue-300"
+                      : "bg-white text-slate-700 border border-slate-300 hover:bg-blue-50/50 hover:border-blue-400"
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -173,7 +172,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
           {/* Appliances 3D Bento Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" style={{ perspective: "1100px" }}>
             {filteredAppliances.map((app, idx) => {
-              const Icon = categoryIcons[app.category] || Sparkles;
+              const Icon = categoryIcons[app.category] || Zap;
               return (
                 <motion.div
                   key={app.id}
@@ -181,7 +180,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: (idx % 4) * 0.06 }}
-                  className="group relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
+                  className="group relative bg-white rounded-3xl p-6 border border-slate-300 desktop-gallery-card-hover flex flex-col justify-between overflow-hidden"
                 >
                   {/* Desktop-Only Gallery Shine Sweep */}
                   <div className="desktop-shine-sweep" />
@@ -202,7 +201,7 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                       </div>
                     </div>
 
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600">
                       {app.category}
                     </span>
                     <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-900 transition-colors mt-1 leading-snug">
@@ -212,17 +211,17 @@ export default function ElectronicsPage({ onNavigateHome, onNavigate, onOpenAdmi
                       {app.hindiName}
                     </p>
 
-                    <div className="mt-3 p-2.5 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
+                    <div className="mt-3 p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
                       <div className="flex justify-between text-xs">
-                        <span className="text-slate-500">Price Range:</span>
+                        <span className="text-slate-700 font-medium">Price Range:</span>
                         <strong className="text-slate-900">{app.priceRange}</strong>
                       </div>
                       <div className="flex justify-between text-xs">
-                        <span className="text-slate-500">Brands:</span>
+                        <span className="text-slate-700 font-medium">Brands:</span>
                         <strong className="text-blue-700">{app.popularBrands}</strong>
                       </div>
                       <div className="flex justify-between text-xs">
-                        <span className="text-slate-500">Solar Power:</span>
+                        <span className="text-slate-700 font-medium">Solar Power:</span>
                         <strong className="text-amber-600">{app.solarCompatibility}</strong>
                       </div>
                     </div>

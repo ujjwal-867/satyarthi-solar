@@ -12,7 +12,6 @@ import {
   Clock, 
   ShieldCheck,
   Building2,
-  Sparkles,
   PhoneCall
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
@@ -273,16 +272,16 @@ function Contact({ prefilledData }) {
               <div className="space-y-3.5 text-sm relative z-10">
                 {/* Phone & Office Number */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-blue-50 text-blue-700 rounded-xl shrink-0 border border-blue-200">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="space-y-1 flex-1">
-                    <span className="text-xs text-slate-500 font-bold flex items-center gap-1.5 flex-wrap">
+                    <span className="text-xs text-slate-700 font-bold flex items-center gap-1.5 flex-wrap">
                       <span>Calling Lines:</span>
                       <span className="bg-blue-50 text-blue-900 text-[10px] px-2 py-0.5 rounded-full font-black border border-blue-200">Active</span>
                     </span>
-                    <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-600 transition block text-sm">
-                      +91 {businessData.phone[0]} <span className="text-xs text-slate-500 font-normal">(Er. Satya Prakash • 24×7)</span>
+                    <a href={`tel:${businessData.phone[0]}`} className="font-bold text-slate-900 hover:text-blue-700 transition block text-sm">
+                      +91 {businessData.phone[0]} <span className="text-xs text-slate-600 font-medium">(Er. Satya Prakash • 24×7)</span>
                     </a>
                     <a href={`tel:${businessData.officeNumber}`} className="font-semibold text-blue-900 hover:text-blue-950 transition flex items-center gap-1.5 text-xs bg-blue-50/90 border border-blue-200/80 px-2.5 py-1 rounded-xl w-fit">
                       <PhoneCall className="w-3.5 h-3.5 text-blue-700 shrink-0" />
@@ -293,16 +292,16 @@ function Contact({ prefilledData }) {
 
                 {/* WhatsApp */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-amber-50 text-amber-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-emerald-50 text-emerald-700 rounded-xl shrink-0 border border-emerald-200">
                     <MessageCircle className="w-4 h-4" />
                   </div>
                   <div className="space-y-0.5">
-                    <span className="text-xs text-slate-500 block">WhatsApp Support:</span>
+                    <span className="text-xs text-slate-700 font-medium block">WhatsApp Support:</span>
                     <a 
                       href={`https://wa.me/91${businessData.whatsapp[0]}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-bold text-blue-900 hover:text-blue-950 transition block text-xs"
+                      className="font-bold text-emerald-800 hover:text-emerald-950 transition block text-xs"
                     >
                       +91 {businessData.whatsapp[0]} (Primary WhatsApp)
                     </a>
@@ -311,14 +310,14 @@ function Contact({ prefilledData }) {
 
                 {/* Email */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-slate-100 text-slate-700 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-blue-50 text-blue-700 rounded-xl shrink-0 border border-blue-200">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Official Email:</span>
+                    <span className="text-xs text-slate-700 font-medium block">Official Email:</span>
                     <a 
                       href={`mailto:${businessData.email}`}
-                      className="font-semibold text-slate-800 hover:text-blue-600 transition break-all text-xs"
+                      className="font-semibold text-slate-900 hover:text-blue-700 transition break-all text-xs"
                     >
                       {businessData.email}
                     </a>
@@ -327,11 +326,11 @@ function Contact({ prefilledData }) {
 
                 {/* Address */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 bg-rose-50 text-rose-600 rounded-xl shrink-0">
+                  <div className="p-2.5 bg-amber-50 text-amber-700 rounded-xl shrink-0 border border-amber-200">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Showroom Address:</span>
+                    <span className="text-xs text-slate-700 font-medium block">Showroom Address:</span>
                     <p className="font-medium text-slate-800 text-xs leading-snug">
                       {businessData.address}
                     </p>
@@ -339,7 +338,7 @@ function Contact({ prefilledData }) {
                       href={businessData.mapsUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-blue-600 font-bold hover:underline mt-1"
+                      className="inline-flex items-center gap-1 text-xs text-blue-700 font-bold hover:underline mt-1"
                     >
                       <span>Open in Google Maps ↗</span>
                     </a>
@@ -347,12 +346,12 @@ function Contact({ prefilledData }) {
                 </div>
 
                 {/* Working Hours */}
-                <div className="flex items-start gap-3 pt-2 border-t border-slate-100">
-                  <div className="p-2.5 bg-slate-100 text-slate-600 rounded-xl shrink-0">
+                <div className="flex items-start gap-3 pt-2 border-t border-slate-200">
+                  <div className="p-2.5 bg-slate-100 text-slate-700 rounded-xl shrink-0 border border-slate-200">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 block">Hours:</span>
+                    <span className="text-xs text-slate-700 font-medium block">Hours:</span>
                     <p className="font-medium text-slate-800 text-xs">
                       Mon – Sat: 9:00 AM – 7:30 PM (Sunday by Appointment)
                     </p>
@@ -361,14 +360,14 @@ function Contact({ prefilledData }) {
               </div>
 
               {/* Social Channels */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
-                <span className="text-xs text-slate-500">Follow Our Solar Updates:</span>
+              <div className="pt-4 border-t border-slate-200 flex items-center justify-between relative z-10">
+                <span className="text-xs text-slate-700 font-medium">Follow Our Solar Updates:</span>
                 <div className="flex items-center gap-2">
                   <a
                     href={businessData.instagramUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-pink-600 hover:text-white rounded-xl transition text-slate-700"
+                    className="p-2.5 bg-slate-100 hover:bg-[#0a1e3b] hover:text-amber-400 rounded-xl transition text-slate-800 border border-slate-200"
                     title="Instagram"
                   >
                     <InstagramIcon className="w-4 h-4" />
@@ -377,7 +376,7 @@ function Contact({ prefilledData }) {
                     href={businessData.facebookUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-slate-100 hover:bg-blue-600 hover:text-white rounded-xl transition text-slate-700"
+                    className="p-2.5 bg-slate-100 hover:bg-blue-600 hover:text-white rounded-xl transition text-slate-800 border border-slate-200"
                     title="Facebook"
                   >
                     <FacebookIcon className="w-4 h-4" />
@@ -507,7 +506,7 @@ function Contact({ prefilledData }) {
                         website: ""
                       });
                     }}
-                    className="text-xs text-slate-500 hover:text-slate-800 underline cursor-pointer"
+                    className="text-xs text-slate-700 hover:text-slate-900 underline cursor-pointer"
                   >
                     Submit another inquiry • अन्य अनुरोध दर्ज करें
                   </button>
@@ -533,7 +532,7 @@ function Contact({ prefilledData }) {
                   <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                     Request Free Solar Site Survey
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-700 font-medium mt-1">
                     Enter your details to calculate subsidy and receive a custom engineering quotation.
                   </p>
                 </div>
@@ -713,7 +712,7 @@ function Contact({ prefilledData }) {
                   </span>
                 </button>
 
-                <p className="text-[11px] text-slate-500 text-center leading-relaxed">
+                <p className="text-[11px] text-slate-700 font-medium text-center leading-relaxed">
                   🔒 We respect your privacy. Your information is strictly used for the solar site survey and subsidy application.
                 </p>
               </form>

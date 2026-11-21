@@ -79,13 +79,13 @@ function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.04 }}
-                className="group relative rounded-xl p-3.5 bg-slate-50/80 hover:bg-white border border-slate-200 hover:border-slate-300 transition-all duration-200 flex flex-col justify-between"
+                className="group relative rounded-xl p-3.5 bg-slate-50/80 hover:bg-white border border-slate-300 hover:border-blue-400 transition-all duration-200 flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between gap-1 mb-2">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center shadow-2xs ${stat.iconStyle}`}>
                     <Icon className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-bold text-slate-500">
+                  <span className="text-[10px] font-bold text-slate-700">
                     {stat.suffix}
                   </span>
                 </div>
@@ -95,11 +95,11 @@ function Stats() {
                     {stat.value}
                   </div>
                   
-                  <h4 className="text-xs font-bold text-slate-800 leading-tight">
+                  <h4 className="text-xs font-bold text-slate-900 leading-tight">
                     {stat.en}
                   </h4>
 
-                  <p className="text-[10px] text-slate-600 font-hindi leading-tight">
+                  <p className="text-[10px] text-slate-700 font-semibold font-hindi leading-tight">
                     {stat.hi}
                   </p>
                 </div>

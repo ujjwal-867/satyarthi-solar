@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, ShieldCheck, Banknote, ArrowRight, Zap, MapPin, Phone } from "lucide-react";
+import { ShieldCheck, Banknote, ArrowRight, Zap, MapPin, Phone } from "lucide-react";
 import { businessData } from "../data/businessData";
 import PortalNavigationHub from "../components/PortalNavigationHub";
 import Footer from "../components/Footer";
@@ -76,7 +76,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <div className="inline-flex items-center gap-2 bg-blue-500/20 text-sky-300 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Official Government Subsidy Portal 2026 • 2500+ Happy Clients</span>
               </div>
               <LiveActivityStreamBadge dark />
@@ -150,7 +150,7 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                 highlightClass="text-amber-500 font-extrabold"
               />
             </h3>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1 font-hindi">
+            <p className="text-slate-700 font-medium text-xs sm:text-sm mt-1 font-hindi">
               सभी 5 प्रमुख क्षमताएं — आधिकारिक नई विशेष दरें एवं सब्सिडी के बाद शुद्ध देय राशि
             </p>
           </div>
@@ -227,50 +227,50 @@ export default function OnGridPage({ onNavigateHome, onNavigate, onOpenAdmin, on
                     </div>
                   )}
 
-                  <p className={`text-xs mt-2 ${tier.bestValue ? "text-slate-300" : "text-slate-500"}`}>
+                  <p className={`text-xs mt-2 ${tier.bestValue ? "text-slate-300" : "text-slate-700"}`}>
                     {tier.idealFor}
                   </p>
 
-                  <div className={`mt-4 p-2.5 rounded-2xl ${tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"}`}>
+                  <div className={`mt-4 p-2.5 rounded-2xl ${tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-200"}`}>
                     <div className="flex justify-between items-center text-xs">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Output • उत्पादन:</span>
-                      <strong className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>{tier.monthlyUnits}</strong>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Output • उत्पादन:</span>
+                      <strong className={tier.bestValue ? "text-sky-300" : "text-blue-800"}>{tier.monthlyUnits}</strong>
                     </div>
                     <div className="flex justify-between items-center text-xs mt-1">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Savings • बचत:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Savings • बचत:</span>
                       <strong className="text-amber-400 font-bold">~₹{tier.monthlySaving.toLocaleString()}/mo</strong>
                     </div>
                   </div>
 
                   <div className="mt-5 space-y-2 text-xs">
                     <div className="flex justify-between items-center">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>System Cost • कुल लागत:</span>
-                      <span className={tier.bestValue ? "text-slate-300 line-through" : "text-slate-400 line-through"}>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>System Cost • कुल लागत:</span>
+                      <span className={tier.bestValue ? "text-slate-300 line-through" : "text-slate-500 line-through"}>
                         ₹{tier.approxSystemCost.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between items-center font-medium">
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>Central • केंद्र सब्सिडी:</span>
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>Central • केंद्र सब्सिडी:</span>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>
                         - ₹{tier.centralSubsidy.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between items-center font-medium">
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>UP State • राज्य सब्सिडी:</span>
-                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-600"}>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>UP State • राज्य सब्सिडी:</span>
+                      <span className={tier.bestValue ? "text-sky-300" : "text-blue-700"}>
                         - ₹{tier.upStateSubsidy.toLocaleString()}
                       </span>
                     </div>
                     <div className={`pt-2 border-t flex justify-between items-center font-bold text-xs ${
-                      tier.bestValue ? "border-slate-700 text-amber-300" : "border-slate-100 text-blue-900"
+                      tier.bestValue ? "border-slate-700 text-amber-300" : "border-slate-200 text-blue-900"
                     }`}>
                       <span>Total Subsidy • कुल सब्सिडी:</span>
                       <span>₹{tier.totalSubsidy.toLocaleString()}</span>
                     </div>
                   </div>
 
-                  <div className={`mt-5 pt-3 border-t ${tier.bestValue ? "border-slate-700" : "border-slate-100"}`}>
-                    <p className={`text-[11px] uppercase tracking-wider font-semibold ${tier.bestValue ? "text-slate-400" : "text-slate-500"}`}>
+                  <div className={`mt-5 pt-3 border-t ${tier.bestValue ? "border-slate-700" : "border-slate-200"}`}>
+                    <p className={`text-[11px] uppercase tracking-wider font-semibold ${tier.bestValue ? "text-slate-300" : "text-slate-700"}`}>
                       Net Cost • शुद्ध देय राशि
                     </p>
                     <p className={`text-2xl font-black mt-0.5 ${tier.bestValue ? "text-amber-400" : "text-slate-900"}`}>

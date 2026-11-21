@@ -158,7 +158,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                 highlightClass="text-amber-500 font-extrabold"
               />
             </h3>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1">
+            <p className="text-slate-700 font-medium text-xs sm:text-sm mt-1">
               Transparent rate card with Tier-1 solar panels, pure sine wave PCUs, and heavy battery banks.
             </p>
           </div>
@@ -176,7 +176,7 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                     ? "bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl ring-2 ring-amber-400"
                     : tier.aataChakki
                     ? "bg-gradient-to-br from-amber-50 to-orange-50/40 text-slate-900 border-2 border-amber-400 shadow-md hover:shadow-2xl"
-                    : "bg-white text-slate-900 border border-slate-200 hover:border-amber-400 shadow-xs hover:shadow-2xl"
+                    : "bg-white text-slate-900 border border-slate-300 hover:border-amber-400 shadow-xs hover:shadow-2xl"
                 }`}
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
@@ -206,18 +206,18 @@ export default function OffGridPage({ onNavigateHome, onNavigate, onOpenAdmin, o
                   </h4>
 
                   <div className={`mt-4 p-3 rounded-2xl space-y-1.5 text-xs ${
-                    tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-100"
+                    tier.bestValue ? "bg-white/10" : "bg-slate-50 border border-slate-200"
                   }`}>
                     <div className="flex justify-between gap-2">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Battery Setup:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Battery Setup:</span>
                       <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-slate-900"}`}>{tier.batterySetup}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Inverter PCU:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Inverter PCU:</span>
                       <strong className={`text-right ${tier.bestValue ? "text-white" : "text-blue-700"}`}>{tier.inverterSpec}</strong>
                     </div>
                     <div className="flex justify-between gap-2">
-                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-500"}>Solar Panels:</span>
+                      <span className={tier.bestValue ? "text-slate-300" : "text-slate-700 font-medium"}>Solar Panels:</span>
                       <strong className={`text-right ${tier.bestValue ? "text-amber-300" : "text-blue-900"}`}>{tier.panelSpec}</strong>
                     </div>
                   </div>

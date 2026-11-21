@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
 import { 
   Calculator as CalcIcon, 
-  Sparkles, 
   ArrowRight, 
   MessageCircle, 
   Zap, 
@@ -265,14 +264,14 @@ function Calculator({ onSelectQuote }) {
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <div>
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block">
+                  <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block">
                     2. Monthly Electricity Bill • मासिक बिजली बिल (₹)
                   </label>
-                  <span className="text-[11px] text-slate-500">औसत बिजली का मासिक खर्च</span>
+                  <span className="text-[11px] text-slate-700 font-medium">औसत बिजली का मासिक खर्च</span>
                 </div>
-                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-blue-600 font-black text-lg">₹{bill.toLocaleString()}</span>
-                  <span className="text-[10px] text-slate-400">/month • माह</span>
+                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-300 shadow-xs">
+                  <span className="text-blue-700 font-black text-lg">₹{bill.toLocaleString()}</span>
+                  <span className="text-[10px] text-slate-600 font-semibold">/month • माह</span>
                 </div>
               </div>
               <input
@@ -282,9 +281,9 @@ function Calculator({ onSelectQuote }) {
                 step="500"
                 value={bill}
                 onChange={(e) => setBill(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-700"
               />
-              <div className="flex justify-between text-[11px] text-slate-500 mt-1">
+              <div className="flex justify-between text-[11px] text-slate-700 font-medium mt-1">
                 <span>₹1,000</span>
                 <span>₹10,000</span>
                 <span>₹20,000</span>
@@ -296,14 +295,14 @@ function Calculator({ onSelectQuote }) {
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <div>
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block">
+                  <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block">
                     3. Rooftop Area • उपलब्ध छत का क्षेत्रफल
                   </label>
-                  <span className="text-[11px] text-slate-500">छाया-मुक्त (Shadow-Free) पक्की छत</span>
+                  <span className="text-[11px] text-slate-700 font-medium">छाया-मुक्त (Shadow-Free) पक्की छत</span>
                 </div>
-                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-xs">
-                  <span className="text-blue-700 font-black text-lg">{roofArea}</span>
-                  <span className="text-[10px] text-slate-400">Sq Ft • वर्ग फुट</span>
+                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-xl border border-slate-300 shadow-xs">
+                  <span className="text-blue-800 font-black text-lg">{roofArea}</span>
+                  <span className="text-[10px] text-slate-600 font-semibold">Sq Ft • वर्ग फुट</span>
                 </div>
               </div>
               <input
@@ -313,9 +312,9 @@ function Calculator({ onSelectQuote }) {
                 step="50"
                 value={roofArea}
                 onChange={(e) => setRoofArea(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-700"
               />
-              <div className="flex justify-between text-[11px] text-slate-500 mt-1">
+              <div className="flex justify-between text-[11px] text-slate-700 font-medium mt-1">
                 <span>100 sq ft</span>
                 <span>500 sq ft</span>
                 <span>1500 sq ft</span>
@@ -436,7 +435,7 @@ function Calculator({ onSelectQuote }) {
                         <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block">
                           Middle-Class Reality Check • बिजली बिल बनाम ईएमआई
                         </span>
-                        <span className="text-[11px] text-slate-400">
+                        <span className="text-[11px] text-slate-300">
                           PM Surya Ghar National Portal • 6-7% Fixed Rate
                         </span>
                       </div>
@@ -455,9 +454,9 @@ function Calculator({ onSelectQuote }) {
                       </span>
                       <p className="text-2xl font-black text-red-300 mt-1">
                         ₹{bill.toLocaleString()}
-                        <span className="text-xs font-normal text-slate-400">/mo</span>
+                        <span className="text-xs font-normal text-slate-300">/mo</span>
                       </p>
-                      <p className="text-[10px] text-slate-400 mt-1 font-hindi">
+                      <p className="text-[10px] text-slate-300 mt-1 font-hindi">
                         हर महीने बिजली विभाग को जेब से
                       </p>
                     </div>
@@ -481,7 +480,7 @@ function Calculator({ onSelectQuote }) {
                   {loanCalc.isCheaperThanBill ? (
                     <div className="bg-blue-500/15 border border-blue-400/40 p-3 rounded-2xl flex items-center justify-between text-xs text-sky-200">
                       <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                        <Zap className="w-4 h-4 text-amber-400 shrink-0" />
                         <span>
                           <strong>Day 1 Cash Benefit:</strong> Your solar EMI is <strong>₹{(loanCalc.billEmiDiff || Math.abs(loanCalc.monthlyNetSaving) || 0).toLocaleString()} cheaper</strong> than your current power bill!
                         </span>
@@ -590,36 +589,36 @@ function Calculator({ onSelectQuote }) {
               <div className="space-y-6">
                 {/* Financial Overview Cards */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                    <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                  <div className="bg-white p-4 rounded-2xl border border-slate-300 shadow-xs">
+                    <span className="text-xs font-bold text-slate-700 flex items-center gap-1">
                       <Coins className="w-3.5 h-3.5 text-amber-500" />
                       <span>Monthly Savings • मासिक बचत</span>
                     </span>
                     <p className="text-2xl font-black text-blue-900 mt-1">
                       ₹{calculation.monthlySaving.toLocaleString()}
                     </p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
+                    <p className="text-[11px] text-slate-700 font-medium mt-0.5">
                       ₹{calculation.annualSaving.toLocaleString()} / year saved • प्रति वर्ष बचत
                     </p>
                   </div>
 
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
-                    <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-blue-600" />
+                  <div className="bg-white p-4 rounded-2xl border border-slate-300 shadow-xs">
+                    <span className="text-xs font-bold text-slate-700 flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-blue-700" />
                       <span>Payback Period • लागत वापसी</span>
                     </span>
-                    <p className="text-2xl font-black text-blue-600 mt-1">
+                    <p className="text-2xl font-black text-blue-700 mt-1">
                       {calculation.paybackYears} Years • वर्ष
                     </p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
+                    <p className="text-[11px] text-slate-700 font-medium mt-0.5">
                       Free power for next 21+ yrs • आगे मुफ्त बिजली
                     </p>
                   </div>
                 </div>
 
                 {/* Detailed Cost Breakdown Table */}
-                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-3 text-sm shadow-xs">
-                  <div className="flex justify-between items-center text-slate-700 text-xs sm:text-sm">
+                <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-300 space-y-3 text-sm shadow-xs">
+                  <div className="flex justify-between items-center text-slate-800 text-xs sm:text-sm">
                     <span>Estimated Gross Cost • अनुमानित कुल लागत:</span>
                     <span className="font-bold text-slate-900">
                       ₹{calculation.grossCost.toLocaleString()}
@@ -629,10 +628,10 @@ function Calculator({ onSelectQuote }) {
                   {propertyType === "residential" ? (
                     <div className="flex justify-between items-center text-blue-900 text-xs sm:text-sm font-semibold">
                       <span className="flex items-center gap-1">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                         <span>Govt Subsidy (PM Surya Ghar) • सरकारी सब्सिडी:</span>
                       </span>
-                      <span className="font-black text-amber-500">- ₹{calculation.subsidy.toLocaleString()}</span>
+                      <span className="font-black text-emerald-600">- ₹{calculation.subsidy.toLocaleString()}</span>
                     </div>
                   ) : (
                     <div className="flex justify-between items-center text-blue-700 text-xs sm:text-sm">
@@ -706,9 +705,9 @@ function Calculator({ onSelectQuote }) {
               </button>
             </div>
 
-            <p className="text-[11px] text-slate-500 text-center leading-relaxed">
+            <p className="text-[11px] text-slate-700 font-medium text-center leading-relaxed">
               *Estimated calculations based on MNRE/UPNEDA guidelines. Actual cost may vary slightly based on roof structure height & cable length.
-              <span className="block font-hindi text-[10px] text-slate-400 mt-0.5">
+              <span className="block font-hindi text-[10px] text-slate-600 mt-0.5">
                 *गणना यूपीनेडा दिशानिर्देशों पर आधारित है। वास्तविक लागत छत की ऊंचाई व केबल दूरी पर निर्भर करती है।
               </span>
             </p>

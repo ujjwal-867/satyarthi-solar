@@ -59,10 +59,10 @@ function Footer({ onOpenAdmin, onNavigate }) {
 
           {/* Col 2: Quick Links (3 cols) */}
           <div className="lg:col-span-3 space-y-2.5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
               Quick Links • नेविगेशन
             </h4>
-            <ul className="space-y-1.5 text-xs text-slate-400">
+            <ul className="space-y-1.5 text-xs text-slate-300">
               <li>
                 <button 
                   onClick={() => onNavigate ? onNavigate("/") : scrollTo("#hero")} 
@@ -157,7 +157,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
               </div>
 
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-slate-400 shrink-0" />
+                <Mail className="w-4 h-4 text-slate-300 shrink-0" />
                 <a href={`mailto:${businessData.email}`} className="hover:text-white transition break-all">
                   {businessData.email}
                 </a>
@@ -170,7 +170,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 href={businessData.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 bg-[#0d284f] hover:bg-pink-600 rounded-lg text-slate-300 hover:text-white transition"
+                className="p-2 bg-[#0d284f] hover:bg-blue-600 rounded-lg text-slate-200 hover:text-white transition border border-blue-900"
                 title="Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
@@ -179,7 +179,7 @@ function Footer({ onOpenAdmin, onNavigate }) {
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 bg-[#0d284f] hover:bg-blue-600 rounded-lg text-slate-300 hover:text-white transition"
+                className="p-2 bg-[#0d284f] hover:bg-blue-600 rounded-lg text-slate-200 hover:text-white transition border border-blue-900"
                 title="Facebook"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
@@ -199,17 +199,17 @@ function Footer({ onOpenAdmin, onNavigate }) {
         </div>
 
         {/* Clean, Compact Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400">
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-300">
           <p>
             © {new Date().getFullYear()} <strong>Satyarthi Solar Solution</strong> • UPNEDA & MNRE Approved.
           </p>
 
           <div className="flex items-center gap-4">
-            <span className="text-slate-400 font-hindi">गोरखपुर एवं पूर्वांचल</span>
+            <span className="text-slate-300 font-hindi">गोरखपुर एवं पूर्वांचल</span>
             <span>•</span>
             <button
               onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1 text-slate-400 hover:text-amber-400 transition cursor-pointer"
+              className="inline-flex items-center gap-1 text-slate-300 hover:text-amber-400 transition cursor-pointer"
             >
               <Lock className="w-3 h-3" />
               <span>Admin Login</span>

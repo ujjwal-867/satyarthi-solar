@@ -13,8 +13,7 @@ import {
   Calculator,
   ChevronDown,
   Box,
-  Sun,
-  Sparkles
+  Sun
 } from "lucide-react";
 import {
   ExpressiveKineticText,
@@ -413,8 +412,8 @@ function Hero({ onOpenCalculator }) {
                   transition={{ duration: 0.35 }}
                   className="inline-flex items-center gap-1.5 text-left min-w-0"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span className="font-semibold text-slate-200 text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
+                  <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span className="font-semibold text-slate-100 text-[11px] truncate">{HERO_SLIDES[currentSlide].location}</span>
                 </motion.div>
 
                 <div className="flex items-center gap-1.5 shrink-0">

@@ -251,7 +251,7 @@ export function BentoGallery() {
       location: "Purvanchal Industrial & Flour Mill Installations",
       image: "/images/projects/vfd-solar-drive-panel.jpg",
       badge: "Solar Atta Chakki • वीएफडी पैनल",
-      badgeColor: "bg-purple-700 text-white font-bold",
+      badgeColor: "bg-[#0a1e3b] text-white font-bold border border-blue-600",
       span: "col-span-1 row-span-1",
       description: "Weatherproof industrial control cabinet featuring INVT Variable Frequency Drive with heavy-duty MCBs for running 10HP to 25HP flour mills directly on solar.",
       specs: ["INVT High-Efficiency Solar Drive", "Soft Start Technology for Heavy Motors", "Multi-Stage Overload Protection", "Cut Milling Diesel Costs to Zero"]
@@ -547,27 +547,27 @@ export function BentoGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+          className="mt-6 sm:mt-8 bg-white border border-slate-300 rounded-3xl p-6 sm:p-8 shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"
         >
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-900">2500+ Clients</div>
-            <div className="text-xs text-slate-800 font-bold">Happy Clients • संतुष्ट परिवार</div>
-            <p className="text-[11px] text-slate-500">Residential & Commercial Plants</p>
+            <div className="text-xs text-slate-900 font-bold">Happy Clients • संतुष्ट परिवार</div>
+            <p className="text-[11px] text-slate-700 font-medium">Residential & Commercial Plants</p>
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-700">2,200+ kW</div>
-            <div className="text-xs text-slate-800 font-bold">Installed Capacity • क्षमता</div>
-            <p className="text-[11px] text-slate-500">Across Gorakhpur & Eastern UP</p>
+            <div className="text-xs text-slate-900 font-bold">Installed Capacity • क्षमता</div>
+            <p className="text-[11px] text-slate-700 font-medium">Across Gorakhpur & Eastern UP</p>
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-amber-500">₹1,08,000</div>
-            <div className="text-xs text-slate-800 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
-            <p className="text-[11px] text-slate-500">Direct Bank DBT Credit</p>
+            <div className="text-xs text-slate-900 font-bold">Max Govt Subsidy • सरकारी सब्सिडी</div>
+            <p className="text-[11px] text-slate-700 font-medium">Direct Bank DBT Credit</p>
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="space-y-1">
             <div className="text-2xl sm:text-3xl font-black text-blue-900">25 Years</div>
-            <div className="text-xs text-slate-800 font-bold">Panel Warranty • वारंटी</div>
-            <p className="text-[11px] text-slate-500">Tier-1 Mono PERC Reliability</p>
+            <div className="text-xs text-slate-900 font-bold">Panel Warranty • वारंटी</div>
+            <p className="text-[11px] text-slate-700 font-medium">Tier-1 Mono PERC Reliability</p>
           </motion.div>
         </motion.div>
 

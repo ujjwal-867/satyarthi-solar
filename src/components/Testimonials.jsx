@@ -88,7 +88,7 @@ function Testimonials() {
               <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <div>
                   <h4 className="font-bold text-sm text-slate-900">{t.name}</h4>
-                  <p className="text-xs text-slate-500">{t.role}</p>
+                  <p className="text-xs text-slate-700 font-medium">{t.role}</p>
                 </div>
                 <div className="flex items-center gap-1 text-[11px] font-semibold text-blue-900 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
@@ -110,15 +110,15 @@ function Testimonials() {
           <div className="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
             {/* Left Col: Info */}
             <div className="lg:col-span-7 space-y-3">
-              <div className="inline-flex items-center gap-2 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-                <Video className="w-3.5 h-3.5 text-rose-400" />
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+                <Video className="w-3.5 h-3.5 text-amber-400" />
                 <span>Customer Video Proofs & Reels</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                Watch Real Installations on <span className="text-rose-400">Instagram</span> & <span className="text-blue-400">Facebook</span>
+                Watch Real Installations on <span className="text-amber-400">Instagram</span> & <span className="text-sky-300">Facebook</span>
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
                 Explore rooftop installations, 15 HP solar flour mills, and customer interviews on our official channels.
               </p>
 
@@ -126,8 +126,8 @@ function Testimonials() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
                 {socialReels.map((reel, rIdx) => (
                   <div key={rIdx} className="bg-slate-900/80 border border-slate-800 p-2.5 rounded-2xl flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
-                      <Play className="w-3.5 h-3.5 fill-rose-400" />
+                    <div className="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center shrink-0">
+                      <Play className="w-3.5 h-3.5 fill-amber-400" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-[11px] font-bold text-white truncate">{reel.title}</p>
@@ -159,7 +159,7 @@ function Testimonials() {
                 href={businessData.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-rose-600/25 transition hover:opacity-95 cursor-pointer"
+                className="py-2.5 px-4 rounded-xl bg-[#0d284f] hover:bg-[#123668] text-white font-bold text-xs flex items-center justify-center gap-2 border border-blue-400/30 transition cursor-pointer"
               >
                 <InstagramIcon className="w-4 h-4 fill-white" />
                 <span>Customer Reels on Instagram</span>
@@ -172,7 +172,7 @@ function Testimonials() {
                 href={businessData.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-600/25 transition hover:opacity-95 cursor-pointer"
+                className="py-2.5 px-4 rounded-xl bg-blue-700 hover:bg-blue-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-900/30 transition cursor-pointer"
               >
                 <FacebookIcon className="w-4 h-4 fill-white" />
                 <span>Video Proofs on Facebook</span>

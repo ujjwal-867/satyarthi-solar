@@ -4,7 +4,6 @@ import {
   Bot, 
   X, 
   Send, 
-  Sparkles, 
   MessageCircle, 
   Phone, 
   HelpCircle, 

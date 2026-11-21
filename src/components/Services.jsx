@@ -133,7 +133,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25 }}
-                className="relative bg-white rounded-3xl p-6 border border-slate-200 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
+                className="relative bg-white rounded-3xl p-6 border border-slate-300 desktop-gallery-card-hover flex flex-col justify-between group overflow-hidden"
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
                 <div className="desktop-shine-sweep" />
@@ -149,7 +149,7 @@ export default function Services() {
 
                     <div className="flex items-center gap-2">
                       <InteractiveZapBurstButton initialCount={service.likes} label="Active" />
-                      <span className="text-xl font-black text-slate-300 group-hover:text-amber-500 transition-colors font-mono">
+                      <span className="text-xl font-black text-slate-400 group-hover:text-amber-500 transition-colors font-mono">
                         {service.number}
                       </span>
                     </div>
@@ -162,7 +162,7 @@ export default function Services() {
                     {service.titleHi}
                   </p>
 
-                  <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-700 font-medium mt-1 leading-relaxed">
                     {service.tagline}
                   </p>
 

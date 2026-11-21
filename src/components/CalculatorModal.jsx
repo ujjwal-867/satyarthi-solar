@@ -1,4 +1,4 @@
-import { X, Sparkles, Calculator as CalcIcon } from "lucide-react";
+import { X, Calculator as CalcIcon } from "lucide-react";
 import Calculator from "./Calculator";
 import ErrorBoundary from "./ErrorBoundary";
 
@@ -8,11 +8,11 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/75 backdrop-blur-md animate-fadeIn">
       <div 
-        className="relative w-full max-w-5xl max-h-[92vh] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col"
+        className="relative w-full max-w-5xl max-h-[92vh] bg-white rounded-3xl shadow-2xl border border-slate-300 overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white p-4 sm:p-5 flex items-center justify-between border-b border-slate-800">
+        <div className="bg-[#0a1e3b] text-white p-4 sm:p-5 flex items-center justify-between border-b border-blue-900">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black shadow-md">
               <CalcIcon className="w-5 h-5" />
@@ -35,7 +35,7 @@ export default function CalculatorModal({ isOpen, onClose, onApplyQuote }) {
           <button
             type="button"
             onClick={onClose}
-            className="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/10 transition cursor-pointer"
+            className="text-slate-200 hover:text-white p-2 rounded-xl hover:bg-white/10 transition cursor-pointer"
             aria-label="Close Calculator"
           >
             <X className="w-5 h-5" />

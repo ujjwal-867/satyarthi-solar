@@ -17,7 +17,6 @@ import {
   LogOut,
   ShieldCheck,
   RefreshCw,
-  Sparkles,
   Camera,
   Film,
   Scissors,
@@ -435,7 +434,7 @@ function AdminModal({ isOpen, onClose }) {
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <Zap className="w-3.5 h-3.5 text-amber-300" />
                 <span>Visual AI & Performance Suite (Whisk • Veo • EZGif • AirLift)</span>
               </button>
             </div>
@@ -445,7 +444,7 @@ function AdminModal({ isOpen, onClose }) {
               <div className="space-y-6 animate-fadeIn">
                 <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
                   <div className="flex items-center gap-2 text-blue-900 font-black text-xs uppercase tracking-wider">
-                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <Zap className="w-4 h-4 text-amber-500" />
                     <span>Integrated Visual Creation & Edge Performance Suite</span>
                   </div>
                   <h3 className="text-xl font-black text-slate-900">
@@ -489,10 +488,10 @@ function AdminModal({ isOpen, onClose }) {
                   <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] bg-purple-100 text-purple-800 font-bold px-2.5 py-1 rounded-full uppercase">
+                        <span className="text-[10px] bg-blue-100 text-blue-900 font-bold px-2.5 py-1 rounded-full uppercase border border-blue-200">
                           Generative Video Flow
                         </span>
-                        <Film className="w-5 h-5 text-purple-600" />
+                        <Film className="w-5 h-5 text-blue-700" />
                       </div>
                       <h4 className="text-lg font-black text-slate-900">Google Veo Flow</h4>
                       <p className="text-xs text-slate-600">
@@ -506,7 +505,7 @@ function AdminModal({ isOpen, onClose }) {
                       href="https://deepmind.google/technologies/veo/"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
+                      className="inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition"
                     >
                       <span>Open Google Veo</span>
                       <ExternalLink className="w-3.5 h-3.5" />

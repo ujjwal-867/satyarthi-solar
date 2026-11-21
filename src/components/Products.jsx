@@ -6,7 +6,6 @@ import {
   MessageCircle, 
   Search, 
   Check, 
-  Sparkles, 
   ArrowRight, 
   Zap, 
   ShieldCheck, 
@@ -188,16 +187,16 @@ function Products() {
                         ₹{product.price.toLocaleString()}
                       </span>
                       {product.originalPrice && (
-                        <span className="text-xs text-slate-400 line-through">
+                        <span className="text-xs text-slate-500 line-through">
                           ₹{product.originalPrice.toLocaleString()}
                         </span>
                       )}
-                      <span className="text-[11px] text-slate-500">
+                      <span className="text-[11px] text-slate-600 font-medium">
                         / {product.unit}
                       </span>
                     </div>
 
-                    <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-700 mt-2 line-clamp-2 leading-relaxed">
                       {product.description}
                     </p>
 
@@ -238,10 +237,10 @@ function Products() {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-8 bg-slate-50 rounded-2xl border border-slate-200 mt-6">
-            <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-base font-bold text-slate-800">No products found • कोई उत्पाद नहीं मिला</h3>
-            <p className="text-xs text-slate-500 mt-1">Try searching for other equipment or reset the filter.</p>
+          <div className="text-center py-8 bg-slate-50 rounded-2xl border border-slate-300 mt-6">
+            <ShoppingBag className="w-12 h-12 text-slate-400 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-slate-900">No products found • कोई उत्पाद नहीं मिला</h3>
+            <p className="text-xs text-slate-700 mt-1">Try searching for other equipment or reset the filter.</p>
             <button
               onClick={() => { setSelectedCategory("All"); setSearchQuery(""); }}
               className="mt-4 text-xs font-bold text-blue-600 underline cursor-pointer"

@@ -128,7 +128,7 @@ function Certificates({ isStandalonePage = false }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25 }}
-                className="relative bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
+                className="relative bg-white rounded-3xl border-2 border-slate-300 overflow-hidden shadow-md desktop-gallery-card-hover flex flex-col justify-between group"
               >
                 {/* Desktop-Only Gallery Shine Sweep */}
                 <div className="desktop-shine-sweep" />
@@ -195,14 +195,14 @@ function Certificates({ isStandalonePage = false }) {
                       {cert.description}
                     </p>
 
-                    <div className="pt-2 flex flex-wrap gap-1.5 text-[11px] text-slate-500 border-t border-slate-100">
+                    <div className="pt-2 flex flex-wrap gap-1.5 text-[11px] text-slate-700 font-medium border-t border-slate-200">
                       {cert.validTill && (
-                        <span className="bg-slate-100 px-2 py-0.5 rounded-md">
+                        <span className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded-md">
                           <strong>Valid • वैधता:</strong> {cert.validTill}
                         </span>
                       )}
                       {cert.date && (
-                        <span className="bg-slate-100 px-2 py-0.5 rounded-md">
+                        <span className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded-md">
                           <strong>Issued • जारी:</strong> {cert.date}
                         </span>
                       )}
@@ -292,7 +292,7 @@ function Certificates({ isStandalonePage = false }) {
                 </a>
                 <button
                   onClick={() => setSelectedCert(null)}
-                  className="text-slate-400 hover:text-white p-1 cursor-pointer"
+                  className="text-slate-200 hover:text-white p-1 cursor-pointer"
                 >
                   <X className="w-6 h-6" />
                 </button>

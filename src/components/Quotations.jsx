@@ -6,7 +6,6 @@ import {
   Eye, 
   X, 
   CheckCircle2, 
-  Sparkles, 
   ArrowRight, 
   MessageCircle, 
   Coins, 
@@ -168,7 +167,7 @@ function Quotations() {
         </div>
 
         {/* Partner Brands Grid Banner */}
-        <div className="mt-8 sm:mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+        <div className="mt-8 sm:mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-slate-300 shadow-sm space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-1">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
               Direct Manufacturer Associations
@@ -176,18 +175,18 @@ function Quotations() {
             <h3 className="text-2xl font-black text-slate-900">
               Our Official Partner Brands
             </h3>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-700">
               We supply only 100% genuine Tier-1 solar panels, batteries, inverters, and electronics.
             </p>
           </div>
 
           <div>
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
+            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3 text-center sm:text-left">
               Solar Panels & Inverter Brands:
             </p>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.solar.map((b, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-blue-500 transition group">
+                <div key={idx} className="bg-slate-50 border border-slate-300 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-blue-500 transition group">
                   <div className="flex items-center gap-1.5">
                     <span className="text-slate-900 group-hover:text-blue-900 transition">{b.name}</span>
                     {b.role && (
@@ -196,21 +195,21 @@ function Quotations() {
                       </span>
                     )}
                   </div>
-                  <span className="text-[10px] text-slate-400 block font-normal">{b.category}</span>
+                  <span className="text-[10px] text-slate-600 block font-normal">{b.category}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
+          <div className="pt-4 border-t border-slate-200">
+            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3 text-center sm:text-left">
               Batteries, Inverters & Home Appliances Brands:
             </p>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
               {businessData.partnerBrands.electronicsAndBatteries.map((b, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-amber-400 transition">
+                <div key={idx} className="bg-slate-50 border border-slate-300 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-amber-400 transition">
                   <span className="text-slate-900">{b.name}</span>
-                  <span className="text-[10px] text-slate-400 block font-normal">{b.category}</span>
+                  <span className="text-[10px] text-slate-600 block font-normal">{b.category}</span>
                 </div>
               ))}
             </div>

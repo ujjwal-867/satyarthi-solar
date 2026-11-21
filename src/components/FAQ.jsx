@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { businessData } from "../data/businessData";
-import { HelpCircle, ChevronDown, MessageCircle, PhoneCall, Sparkles } from "lucide-react";
+import { HelpCircle, ChevronDown, MessageCircle, PhoneCall } from "lucide-react";
 
 function FAQ() {
   const [openIdx, setOpenIdx] = useState(0);
